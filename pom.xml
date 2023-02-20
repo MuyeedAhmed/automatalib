@@ -247,7 +247,7 @@ limitations under the License.
         <buildergen.version>0.1</buildergen.version>
         <brics-automaton.version>1.11-8</brics-automaton.version>
         <cacio.version>1.10</cacio.version>
-        <checkerframework.version>3.7.0</checkerframework.version>
+        <checkerframework.version>3.29.1-SNAPSHOT</checkerframework.version>
         <checkstyle.version>8.36.2</checkstyle.version>
         <duzzt.version>0.1.0</duzzt.version>
         <error-prone.version>9+181-r4173-1</error-prone.version> <!-- required by checkerframework, keep in sync -->
