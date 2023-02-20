@@ -113,7 +113,7 @@ public interface UniversalDeterministicAutomaton<S, I, T, SP, TP>
     interface StateIntAbstraction<I, T, SP, TP>
             extends IntAbstraction<T, SP, TP>, DeterministicAutomaton.StateIntAbstraction<I, T> {
 
-        default @Nullable TP getTransitionProperty(int state, I input) {
+        default TP getTransitionProperty(int state, I input) {
             T trans = getTransition(state, input);
             if (trans != null) {
                 return getTransitionProperty(trans);
@@ -139,7 +139,7 @@ public interface UniversalDeterministicAutomaton<S, I, T, SP, TP>
     interface FullIntAbstraction<T, SP, TP>
             extends IntAbstraction<T, SP, TP>, DeterministicAutomaton.FullIntAbstraction<T> {
 
-        default @Nullable TP getTransitionProperty(int state, int input) {
+        default TP getTransitionProperty(int state, int input) {
             T trans = getTransition(state, input);
             if (trans != null) {
                 return getTransitionProperty(trans);

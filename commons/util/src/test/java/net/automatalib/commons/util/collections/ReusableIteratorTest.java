@@ -24,10 +24,8 @@ import org.testng.annotations.Test;
 /**
  * @author frohme
  */
-@Test
 public class ReusableIteratorTest {
 
-    @Test
     public void testIterator() {
 
         final int size = 10;

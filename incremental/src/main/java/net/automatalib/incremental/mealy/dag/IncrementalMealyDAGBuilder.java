@@ -56,7 +56,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public class IncrementalMealyDAGBuilder<I, O> implements IncrementalMealyBuilder<I, O>, InputAlphabetHolder<I> {
 
-    private final Map<@Nullable StateSignature<O>, State<O>> register = new HashMap<>();
+    private final Map<StateSignature<O>, State<O>> register = new HashMap<>();
     private final Alphabet<I> inputAlphabet;
     private int alphabetSize;
     private final State<O> init;
@@ -458,13 +458,13 @@ public class IncrementalMealyDAGBuilder<I, O> implements IncrementalMealyBuilder
     }
 
     @Override
-    public @Nullable Word<I> findSeparatingWord(MealyMachine<?, I, ?, O> target,
+    public Word<I> findSeparatingWord(MealyMachine<?, I, ?, O> target,
                                                 Collection<? extends I> inputs,
                                                 boolean omitUndefined) {
         return doFindSeparatingWord(target, inputs, omitUndefined);
     }
 
-    private <S, T> @Nullable Word<I> doFindSeparatingWord(MealyMachine<S, I, T, O> mealy,
+    private <S, T> Word<I> doFindSeparatingWord(MealyMachine<S, I, T, O> mealy,
                                                           Collection<? extends I> inputs,
                                                           boolean omitUndefined) {
         S init2 = mealy.getInitialState();
@@ -582,7 +582,7 @@ public class IncrementalMealyDAGBuilder<I, O> implements IncrementalMealyBuilder
         private final State<O> state1;
         private final S state2;
         private final I reachedVia;
-        private final @Nullable Record<S, I, O> reachedFrom;
+        private final Record<S, I, O> reachedFrom;
         private final int depth;
 
         @SuppressWarnings("nullness") // we will only access reachedVia after checking reachedFrom for null
@@ -678,7 +678,7 @@ public class IncrementalMealyDAGBuilder<I, O> implements IncrementalMealyBuilder
         }
 
         @Override
-        public @Nullable TransitionRecord<O> getTransition(State<O> state, I input) {
+        public TransitionRecord<O> getTransition(State<O> state, I input) {
             int inputIdx = inputAlphabet.getSymbolIndex(input);
             if (state.getSuccessor(inputIdx) == null) {
                 return null;

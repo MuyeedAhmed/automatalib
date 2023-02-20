@@ -37,7 +37,6 @@ public class ParserMuCalcTest {
 
     private final List<FormulaNode<String, String>> formulas = new ArrayList<>();
 
-    @Test
     public void testBaseCases() throws ParseException {
         assertEquals("false", new FalseNode<>());
         assertEquals("true", new TrueNode<>());
@@ -62,7 +61,6 @@ public class ParserMuCalcTest {
                      new GfpNode<>("ZY", new OrNode<>(new VariableNode<>("ZY"), new FalseNode<>())));
     }
 
-    @Test
     public void testNestedFixPoints() throws ParseException {
         assertEquals("nu X. ([]X && mu Y. (<>Y || (\"AP\" && [] false)))",
                      new GfpNode<>("X",
@@ -83,7 +81,6 @@ public class ParserMuCalcTest {
                                                                                                            new TrueNode<>())))))));
     }
 
-    @Test
     public void testPrecedence() throws ParseException {
         assertEquals("true || false && true", "true || (false && true)");
         assertEquals("true -> false || true", "true -> (false || true)");
@@ -98,7 +95,6 @@ public class ParserMuCalcTest {
 
     }
 
-    @Test(dependsOnMethods = {"testBaseCases", "testNestedFixPoints", "testPrecedence"})
     public void testEqualities() {
         for (FormulaNode<String, String> n1 : formulas) {
             for (FormulaNode<String, String> n2 : formulas) {

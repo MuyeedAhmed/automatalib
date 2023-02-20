@@ -53,7 +53,7 @@ final class EmptyWord extends Word<Object> {
     }
 
     @Override
-    public void writeToArray(int offset, @Nullable Object[] array, int tgtOffset, int length) {}
+    public void writeToArray(int offset, Object[] array, int tgtOffset, int length) {}
 
     @Override
     public Object getSymbol(int index) {

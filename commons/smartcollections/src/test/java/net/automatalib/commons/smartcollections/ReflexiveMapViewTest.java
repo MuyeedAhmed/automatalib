@@ -29,7 +29,6 @@ public class ReflexiveMapViewTest {
     private final Set<Integer> elements = Sets.newHashSet(1, 2, 3, 4, 5);
     private final Map<Integer, Integer> map = new ReflexiveMapView<>(elements);
 
-    @Test
     public void testMapping() {
         for (Integer i : elements) {
             Assert.assertEquals(map.get(i), i);
@@ -41,7 +40,6 @@ public class ReflexiveMapViewTest {
         }
     }
 
-    @Test
     public void testCompleteness() {
         Assert.assertEquals(map.size(), elements.size());
         Assert.assertEquals(map.keySet(), elements);
@@ -55,14 +53,12 @@ public class ReflexiveMapViewTest {
         Assert.assertTrue(copy.isEmpty());
     }
 
-    @Test
     public void testImmutability() {
         Assert.assertThrows(() -> map.put(6, 6));
         Assert.assertThrows(() -> map.remove(4));
         Assert.assertThrows(() -> map.entrySet().iterator().remove());
     }
 
-    @Test
     public void testBacking() {
         Assert.assertNull(map.get(6));
         elements.add(6);

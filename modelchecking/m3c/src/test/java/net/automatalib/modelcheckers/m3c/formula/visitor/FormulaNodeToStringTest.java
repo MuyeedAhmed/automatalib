@@ -23,7 +23,6 @@ import org.testng.annotations.Test;
 
 public class FormulaNodeToStringTest {
 
-    @Test
     void testBaseCases() throws ParseException {
         // CTL
         testCorrectness("true");

@@ -20,7 +20,7 @@ import net.automatalib.commons.smartcollections.ResizingArrayStorage;
 import net.automatalib.commons.util.mappings.MutableMapping;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-public class StateIDGrowingMapping<S, @Nullable V> implements MutableMapping<S, V> {
+public class StateIDGrowingMapping<S, V> implements MutableMapping<S, V> {
 
     private final StateIDs<S> stateIds;
     private final ResizingArrayStorage<V> storage;

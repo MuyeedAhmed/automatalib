@@ -35,7 +35,6 @@ import org.testng.annotations.Test;
  */
 public class CompactMTSTest {
 
-    @DataProvider(name = "default")
     private static Object[][] generateTSWithTP() {
         final Alphabet<Character> alphabet = Alphabets.characters('a', 'd');
         final CompactMTS<Character> mts = new CompactMTS<>(alphabet);
@@ -49,7 +48,6 @@ public class CompactMTSTest {
         return new Object[][] {{mts, s0, s1, 'a', tprop1}, {mts, s0, s2, 'd', tprop2}, {mts, s2, s0, 'a', tprop2}};
     }
 
-    @Test(dataProvider = "default", description = "Add Transition with non-null Property")
     <A extends MutableModalTransitionSystem<S, I, T, TP>, S, I, T, TP extends MutableModalEdgeProperty> void addTransitionWithTP(
             A mts,
             S src,
@@ -79,7 +77,6 @@ public class CompactMTSTest {
         Assert.assertEquals(tsizeL, tsize + 1);
     }
 
-    @Test(dataProvider = "default", description = "Add Transition with null as Property")
     <A extends MutableModalTransitionSystem<S, I, T, TP>, S, I, T, TP extends MutableModalEdgeProperty> void addTransitionWithoutTP(
             A mts,
             S src,
@@ -98,7 +95,6 @@ public class CompactMTSTest {
         Assert.assertEquals(mts.getTransitions(src, label), Collections.singleton(t));
     }
 
-    @Test(dataProvider = "default", description = "Create Transition with null as Property and then add it")
     <A extends MutableModalTransitionSystem<S, I, T, TP>, S, I, T, TP extends MutableModalEdgeProperty> void addTransitionWithExternT(
             A mts,
             S src,
@@ -117,7 +113,6 @@ public class CompactMTSTest {
         Assert.assertEquals(mts.getTransitions(src, label), Collections.singleton(t));
     }
 
-    @Test(dataProvider = "default", description = "Create Transition with non-null Property and then add it")
     <A extends MutableModalTransitionSystem<S, I, T, TP>, S, I, T, TP extends MutableModalEdgeProperty> void addTransitionWithExternT2(
             A mts,
             S src,
@@ -136,7 +131,6 @@ public class CompactMTSTest {
         Assert.assertEquals(mts.getTransitions(src, label), Collections.singleton(t));
     }
 
-    @Test(description = "Example graph from Jasper")
     void testJasper() {
         final Alphabet<String> alphabet = Alphabets.closedCharStringRange('a', 'b');
         final CompactMTS<String> s = new CompactMTS<>(alphabet);

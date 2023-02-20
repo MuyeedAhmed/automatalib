@@ -43,9 +43,9 @@ public interface MutableProceduralModalProcessGraph<N, L, E, AP, TP extends Muta
                                                                                                                 MutableKripkeInterpretation<N, AP>,
                                                                                                                 MutableEdgeLabels<E, L> {
 
-    void setInitialNode(@Nullable N initialNode);
+    void setInitialNode(N initialNode);
 
-    void setFinalNode(@Nullable N finalNode);
+    void setFinalNode(N finalNode);
 
     @Override
     default void setAtomicPropositions(N node, Set<AP> atomicPropositions) {

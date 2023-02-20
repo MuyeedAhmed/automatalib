@@ -30,22 +30,18 @@ import org.testng.annotations.Test;
 public class IntAbstractionTest extends MutableAutomatonTest {
 
     // disable tests for non-deterministic automata
-    @Test(enabled = false)
     @Override
     public void testCompactNFA() {}
 
     // disable tests for non-deterministic automata
-    @Test(enabled = false)
     @Override
     public void testFastNFA() {}
 
     // disable tests for non-deterministic automata
-    @Test(enabled = false)
     @Override
     public void testFastProbMealy() {}
 
     // disable tests for non-deterministic automata
-    @Test(enabled = false)
     @Override
     public void testCompactMTS() {}
 
@@ -85,17 +81,17 @@ public class IntAbstractionTest extends MutableAutomatonTest {
         }
 
         @Override
-        public void setInitialState(@Nullable S state) {
+        public void setInitialState(S state) {
             abstraction.setInitialState(state == null ? FullIntAbstraction.INVALID_STATE : stateIDs.getStateId(state));
         }
 
         @Override
-        public void setTransition(S state, @Nullable I input, @Nullable T transition) {
+        public void setTransition(S state, I input, T transition) {
             abstraction.setTransition(stateIDs.getStateId(state), alphabet.getSymbolIndex(input), transition);
         }
 
         @Override
-        public void setTransition(S state, @Nullable I input, @Nullable S successor, @Nullable TP property) {
+        public void setTransition(S state, I input, S successor, TP property) {
             abstraction.setTransition(stateIDs.getStateId(state),
                                       alphabet.getSymbolIndex(input),
                                       stateIDs.getStateId(successor),
@@ -108,7 +104,7 @@ public class IntAbstractionTest extends MutableAutomatonTest {
         }
 
         @Override
-        public S addState(@Nullable SP property) {
+        public S addState(SP property) {
             return stateIDs.getState(abstraction.addIntState(property));
         }
 
@@ -123,17 +119,17 @@ public class IntAbstractionTest extends MutableAutomatonTest {
         }
 
         @Override
-        public S addInitialState(@Nullable SP property) {
+        public S addInitialState(SP property) {
             return stateIDs.getState(abstraction.addIntInitialState(property));
         }
 
         @Override
-        public void setStateProperty(S state, @Nullable SP property) {
+        public void setStateProperty(S state, SP property) {
             abstraction.setStateProperty(stateIDs.getStateId(state), property);
         }
 
         @Override
-        public void setTransitionProperty(T transition, @Nullable TP property) {
+        public void setTransitionProperty(T transition, TP property) {
             abstraction.setTransitionProperty(transition, property);
         }
 
@@ -145,7 +141,7 @@ public class IntAbstractionTest extends MutableAutomatonTest {
         }
 
         @Override
-        public T createTransition(S successor, @Nullable TP properties) {
+        public T createTransition(S successor, TP properties) {
             return abstraction.createTransition(stateIDs.getStateId(successor), properties);
         }
 
@@ -155,7 +151,7 @@ public class IntAbstractionTest extends MutableAutomatonTest {
         }
 
         @Override
-        public T getTransition(S state, @Nullable I input) {
+        public T getTransition(S state, I input) {
             return abstraction.getTransition(stateIDs.getStateId(state), alphabet.getSymbolIndex(input));
         }
 
@@ -175,7 +171,7 @@ public class IntAbstractionTest extends MutableAutomatonTest {
         }
 
         @Override
-        public @Nullable S getInitialState() {
+        public S getInitialState() {
             final int intInitial = abstraction.getIntInitialState();
             return intInitial == FullIntAbstraction.INVALID_STATE ? null : stateIDs.getState(intInitial);
         }

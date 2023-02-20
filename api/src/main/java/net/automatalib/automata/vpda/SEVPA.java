@@ -54,7 +54,7 @@ public interface SEVPA<L, I> extends DeterministicAcceptorTS<State<L>, I>,
 
     int encodeStackSym(L srcLoc, I callSym);
 
-    @Nullable L getInternalSuccessor(L loc, I intSym);
+    L getInternalSuccessor(L loc, I intSym);
 
     L getLocation(int id);
 
@@ -66,7 +66,7 @@ public interface SEVPA<L, I> extends DeterministicAcceptorTS<State<L>, I>,
 
     L getModuleEntry(I callSym);
 
-    @Nullable L getReturnSuccessor(L loc, I retSym, int stackSym);
+    L getReturnSuccessor(L loc, I retSym, int stackSym);
 
     @Override
     default Boolean computeOutput(Iterable<? extends I> input) {

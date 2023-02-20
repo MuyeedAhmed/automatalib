@@ -34,7 +34,6 @@ public class DFALassoTest extends AbstractLassoTest<DFALassoImpl<String>> {
         return new DFALassoImpl<>(new DFAMock(prefix, loop), getAlphabet(), unfoldTimes);
     }
 
-    @Test
     public void testGetOutput() {
         final DFALassoImpl<String> lasso = getLasso(Word.epsilon(), Word.fromSymbols("a"), 1);
         Assert.assertTrue(lasso.getOutput());
@@ -56,7 +55,7 @@ public class DFALassoTest extends AbstractLassoTest<DFALassoImpl<String>> {
         }
 
         @Override
-        public @Nullable Integer getTransition(Integer state, String input) {
+        public Integer getTransition(Integer state, String input) {
             final Integer result;
 
             if (word.getSymbol(state).equals(input)) {

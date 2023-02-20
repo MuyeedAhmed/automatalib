@@ -48,12 +48,12 @@ public class FastPowersetState<S> extends AbstractSet<S> {
     }
 
     @Override
-    public boolean remove(@Nullable Object o) {
+    public boolean remove(Object o) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final boolean equals(@Nullable Object o) {
+    public final boolean equals(Object o) {
         if (this == o) {
             return true;
         }

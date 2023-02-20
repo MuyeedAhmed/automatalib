@@ -54,7 +54,6 @@ import org.testng.annotations.Test;
  */
 public class DOTSerializationTest {
 
-    @Test
     public void testRegularDFASerialization() throws IOException {
 
         final CompactDFA<String> dfa = DOTSerializationUtil.DFA;
@@ -63,7 +62,6 @@ public class DOTSerializationTest {
         checkDOTOutput(writer, DOTSerializationUtil.DFA_RESOURCE);
     }
 
-    @Test
     public void testRegularNFASerialization() throws IOException {
 
         final CompactNFA<String> nfa = DOTSerializationUtil.NFA;
@@ -72,7 +70,6 @@ public class DOTSerializationTest {
         checkDOTOutput(writer, DOTSerializationUtil.NFA_RESOURCE);
     }
 
-    @Test
     public void testRegularMealySerialization() throws IOException {
 
         final CompactMealy<String, String> mealy = DOTSerializationUtil.MEALY;
@@ -81,7 +78,6 @@ public class DOTSerializationTest {
         checkDOTOutput(writer, DOTSerializationUtil.MEALY_RESOURCE);
     }
 
-    @Test
     public void testRegularMooreExport() throws IOException {
 
         final CompactMoore<String, String> moore = DOTSerializationUtil.MOORE;
@@ -90,7 +86,6 @@ public class DOTSerializationTest {
         checkDOTOutput(writer, DOTSerializationUtil.MOORE_RESOURCE);
     }
 
-    @Test
     public void testRegularSSTExport() throws IOException {
 
         final CompactSST<Character, Character> sst = DOTSerializationUtil.SST;
@@ -99,7 +94,6 @@ public class DOTSerializationTest {
         checkDOTOutput(writer, DOTSerializationUtil.SST_RESOURCE);
     }
 
-    @Test
     public void testRegularMTSExport() throws IOException {
 
         final CompactMTS<String> mts = DOTSerializationUtil.MTS;
@@ -108,7 +102,6 @@ public class DOTSerializationTest {
         checkDOTOutput(writer, DOTSerializationUtil.MTS_RESOURCE);
     }
 
-    @Test
     public void testRegularMCExport() throws IOException {
 
         final CompactMC<String> mc = DOTSerializationUtil.MC;
@@ -117,7 +110,6 @@ public class DOTSerializationTest {
         checkDOTOutput(writer, DOTSerializationUtil.MC_RESOURCE);
     }
 
-    @Test
     public void testRegularClusterExport() throws IOException {
 
         final Graph<?, ?> dfa = DOTSerializationUtil.DFA.graphView();
@@ -149,7 +141,6 @@ public class DOTSerializationTest {
         checkDOTOutput(writer, DOTSerializationUtil.CLUSTER_RESOURCE);
     }
 
-    @Test
     public void testPMPGExport() throws IOException {
 
         final DefaultCFMPS<Character, Character> cfmps = DOTSerializationUtil.CFMPS;
@@ -159,7 +150,6 @@ public class DOTSerializationTest {
         checkDOTOutput(writer, DOTSerializationUtil.PMPG_RESOURCE);
     }
 
-    @Test
     public void testCFMPSExport() throws IOException {
 
         final DefaultCFMPS<Character, Character> cfmps = DOTSerializationUtil.CFMPS;
@@ -168,7 +158,6 @@ public class DOTSerializationTest {
         checkDOTOutput(writer, DOTSerializationUtil.CFMPS_RESOURCE);
     }
 
-    @Test
     public void testVisualizationHelper() throws IOException {
 
         final CompactGraph<String, String> graph = DOTSerializationUtil.GRAPH;
@@ -182,7 +171,6 @@ public class DOTSerializationTest {
         checkDOTOutput(writer, DOTSerializationUtil.GRAPH_RESOURCE);
     }
 
-    @Test
     public void testHTMLVisualizationHelper() throws IOException {
 
         final CompactGraph<String, String> graph = DOTSerializationUtil.GRAPH;
@@ -191,7 +179,6 @@ public class DOTSerializationTest {
         checkDOTOutput(writer, DOTSerializationUtil.GRAPH_HTML_RESOURCE);
     }
 
-    @Test
     public void testGlobalVisualizationHelper() throws IOException {
 
         final CompactGraph<String, String> graph = DOTSerializationUtil.GRAPH;
@@ -200,7 +187,6 @@ public class DOTSerializationTest {
         checkDOTOutput(writer, DOTSerializationUtil.GRAPH_GLOBAL_RESOURCE);
     }
 
-    @Test
     public void testNullVisualizationHelper() throws IOException {
 
         final CompactGraph<String, String> graph = DOTSerializationUtil.GRAPH;
@@ -209,7 +195,6 @@ public class DOTSerializationTest {
         checkDOTOutput(writer, DOTSerializationUtil.EMPTY_RESOURCE);
     }
 
-    @Test
     public void doNotCloseOutputStreamTest() throws IOException {
         DOTSerializationProvider.<Integer, CompactEdge<String>>getInstance()
                                 .writeModel(new UnclosableOutputStream(ByteStreams.nullOutputStream()),

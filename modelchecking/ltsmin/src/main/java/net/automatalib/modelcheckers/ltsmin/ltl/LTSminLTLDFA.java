@@ -77,7 +77,7 @@ public class LTSminLTLDFA<I> extends AbstractLTSminLTL<I, DFA<?, I>, DFALasso<I>
      * @see AbstractLTSminLTL#findCounterExample(Object, Collection, Object)
      */
     @Override
-    public @Nullable DFALasso<I> findCounterExample(DFA<?, I> automaton, Collection<? extends I> inputs, String property) {
+    public DFALasso<I> findCounterExample(DFA<?, I> automaton, Collection<? extends I> inputs, String property) {
         final File fsm = findCounterExampleFSM(automaton, inputs, property);
 
         if (fsm == null) {

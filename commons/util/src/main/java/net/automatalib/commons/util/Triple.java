@@ -87,7 +87,7 @@ public final class Triple<T1, T2, T3> extends AbstractPrintable {
     }
 
     @Override
-    public boolean equals(@Nullable Object o) {
+    public boolean equals(Object o) {
         if (this == o) {
             return true;
         }

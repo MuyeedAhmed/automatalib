@@ -38,7 +38,7 @@ public final class LibLoader {
     private static final LibLoader INSTANCE = new LibLoader();
     private final String libPrefix;
     private final String libExtension;
-    private final @Nullable Path tempLibDir;
+    private final Path tempLibDir;
     private final Set<String> loaded = new HashSet<>();
 
     private LibLoader() {

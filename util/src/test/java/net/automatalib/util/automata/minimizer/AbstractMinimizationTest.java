@@ -33,10 +33,8 @@ import net.automatalib.words.impl.Alphabets;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Test
 public abstract class AbstractMinimizationTest {
 
-    @Test
     public void createTestDFA1() {
         Alphabet<Integer> alphabet = Alphabets.integers(0, 1);
 
@@ -72,7 +70,6 @@ public abstract class AbstractMinimizationTest {
         testMinimizeDFA(new TestConfig<>(alphabet, dfa, 5, 5));
     }
 
-    @Test
     public void createTestDFA2() {
         Alphabet<Integer> alphabet = Alphabets.integers(0, 1);
 
@@ -97,7 +94,6 @@ public abstract class AbstractMinimizationTest {
         testMinimizeDFA(new TestConfig<>(alphabet, dfa, 4, 4));
     }
 
-    @Test
     public void createTestDFA3() {
         final Alphabet<Character> alphabet = Alphabets.characters('a', 'b');
         final char input1 = 'a';
@@ -133,7 +129,6 @@ public abstract class AbstractMinimizationTest {
         testMinimizeDFA(new TestConfig<>(alphabet, dfa, 5, 5));
     }
 
-    @Test
     public void createTestMealy1() {
         final CompactMealy<Integer, String> mealy = PaigeTarjanTest.getMealy();
         TestConfig<Integer, CompactMealy<Integer, String>> config =

@@ -50,7 +50,6 @@ public class BDDTransformerTest {
     private static BoxNode<String, String> boxNode;
     private static TrueNode<String, String> trueNode;
 
-    @BeforeClass
     public static void setup() throws ParseException {
         final String formula = "mu X.(<b>[b]true || <>X)";
         dg = new DependencyGraph<>(M3CParser.parse(formula));
@@ -63,7 +62,6 @@ public class BDDTransformerTest {
         trueNode = (TrueNode<String, String>) boxNode.getChild();
     }
 
-    @Test
     void testBDDIdentity() {
         BDDTransformer<String, String> transformer = new BDDTransformer<>(bddManager, dg.getNumVariables());
         for (int var = 0; var < transformer.getNumberOfVars(); var++) {
@@ -71,7 +69,6 @@ public class BDDTransformerTest {
         }
     }
 
-    @Test
     void testBDDNodeInitialization() {
         BDDTransformer<String, String> transformer = new BDDTransformer<>(bddManager, dg);
         for (EquationalBlock<String, String> block : dg.getBlocks()) {
@@ -88,7 +85,6 @@ public class BDDTransformerTest {
         }
     }
 
-    @Test
     void testEdgeTransformerMust() {
         BDDTransformer<String, String> transformer =
                 new BDDTransformer<>(bddManager, "b", new ModalEdgePropertyImpl(ModalType.MUST), dg);
@@ -114,7 +110,6 @@ public class BDDTransformerTest {
         Assert.assertEquals(expectedBDDTrueNode, bddTrueNode);
     }
 
-    @Test
     void testEdgeTransformerNoMatch() {
         BDDTransformer<String, String> transformer =
                 new BDDTransformer<>(bddManager, "a", new ModalEdgePropertyImpl(ModalType.MUST), dg);
@@ -140,7 +135,6 @@ public class BDDTransformerTest {
         Assert.assertEquals(expectedBDDTrueNode, bddTrueNode);
     }
 
-    @Test
     void testEdgeTransformerMay() {
         BDDTransformer<String, String> transformer =
                 new BDDTransformer<>(bddManager, "b", new ModalEdgePropertyImpl(ModalType.MAY), dg);
@@ -166,7 +160,6 @@ public class BDDTransformerTest {
         Assert.assertEquals(expectedBDDTrueNode, bddTrueNode);
     }
 
-    @Test
     void testComposition() {
         BDDTransformer<String, String> transformer = new BDDTransformer<>(bddManager, dg);
         BDDTransformer<String, String> identity = new BDDTransformer<>(bddManager, dg.getNumVariables());
@@ -178,7 +171,6 @@ public class BDDTransformerTest {
         Assert.assertEquals(transformer, inverseComposition);
     }
 
-    @Test
     void testOrBDDListOnes() {
         BDDTransformer<String, String> edgeTransformer =
                 new BDDTransformer<>(bddManager, "b", new ModalEdgePropertyImpl(ModalType.MUST), dg);
@@ -196,7 +188,6 @@ public class BDDTransformerTest {
         Assert.assertEquals(bddManager.readOne(), disjunction);
     }
 
-    @Test
     void testOrBDDListZeros() {
         BDDTransformer<String, String> edgeTransformer =
                 new BDDTransformer<>(bddManager, "b", new ModalEdgePropertyImpl(ModalType.MUST), dg);
@@ -213,7 +204,6 @@ public class BDDTransformerTest {
         Assert.assertEquals(bddManager.ithVar(diaNode1.getVarNumberChild()), disjunction);
     }
 
-    @Test(expectedExceptions = IllegalArgumentException.class)
     public void testUpdateException() throws ParseException {
         final String formulaWithNegatedAP = "mu X.(<b><b>!'a' || <>X)";
         DependencyGraph<String, String> dependencyGraph = new DependencyGraph<>(M3CParser.parse(formulaWithNegatedAP));

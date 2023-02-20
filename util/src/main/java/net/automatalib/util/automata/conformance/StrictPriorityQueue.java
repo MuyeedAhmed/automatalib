@@ -140,7 +140,7 @@ public class StrictPriorityQueue<E> extends AbstractQueue<E> {
     }
 
     @Override
-    public @Nullable E poll() {
+    public E poll() {
         if (size == 0) {
             return null;
         }
@@ -202,7 +202,7 @@ public class StrictPriorityQueue<E> extends AbstractQueue<E> {
     }
 
     @Override
-    public @Nullable E peek() {
+    public E peek() {
         if (size == 0) {
             return null;
         }

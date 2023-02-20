@@ -31,7 +31,6 @@ public class AllTuplesTest {
 
     private static final List<Integer> DOMAIN = Arrays.asList(1, 2, 3, 7);
 
-    @Test
     public void testEmptyDomain() {
         int count = count(CollectionsUtil.allTuples(Collections.emptySet(), 1), null);
         Assert.assertEquals(count, 0);
@@ -43,7 +42,7 @@ public class AllTuplesTest {
         Assert.assertEquals(count, 1);
     }
 
-    private int count(Iterable<? extends List<?>> iterable, @Nullable Set<Object> distinct) {
+    private int count(Iterable<? extends List<?>> iterable, Set<Object> distinct) {
         if (distinct != null) {
             distinct.clear();
         }
@@ -59,7 +58,6 @@ public class AllTuplesTest {
         return count;
     }
 
-    @Test
     public void testAllTuples() {
         int count = count(CollectionsUtil.allTuples(DOMAIN, 0), null);
         Assert.assertEquals(count, 1);

@@ -22,10 +22,8 @@ import java.util.List;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Test
 public class EmptyWordTest extends AbstractWordTest {
 
-    @Test
     public void testLength() {
         Assert.assertEquals(0, testWord.length());
     }
@@ -50,7 +48,6 @@ public class EmptyWordTest extends AbstractWordTest {
     }
 
     @Override
-    @Test
     public void testIsEmpty() {
         super.testIsEmpty();
         Assert.assertTrue(testWord.isEmpty());

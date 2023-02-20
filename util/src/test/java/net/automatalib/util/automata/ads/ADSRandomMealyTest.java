@@ -39,7 +39,6 @@ public class ADSRandomMealyTest extends AbstractADSTest {
 
     final CompactMealy<Integer, Character> target;
 
-    @Factory(dataProvider = "randomMealies")
     public ADSRandomMealyTest(final boolean completeExpected,
                               final boolean partialExpected,
                               final CompactMealy<Integer, Character> target) {
@@ -48,7 +47,6 @@ public class ADSRandomMealyTest extends AbstractADSTest {
         this.target = target;
     }
 
-    @DataProvider(name = "randomMealies")
     public static Iterator<Object[]> getParameters() {
 
         final List<Object[]> result = new LinkedList<>();
@@ -71,7 +69,6 @@ public class ADSRandomMealyTest extends AbstractADSTest {
         return result.iterator();
     }
 
-    @Test
     public void testTarget() {
         if (this.completeExpected) {
             super.verifySuccess(target);
@@ -80,7 +77,6 @@ public class ADSRandomMealyTest extends AbstractADSTest {
         }
     }
 
-    @Test
     public void testTargetWithSingleton() {
 
         final List<Integer> targetStates = new ArrayList<>(this.target.getStates());
@@ -89,7 +85,6 @@ public class ADSRandomMealyTest extends AbstractADSTest {
         super.verifySuccess(target, targetStates.subList(0, 1));
     }
 
-    @Test
     public void testTargetWithHalfSubset() {
 
         final List<Integer> targetStates = new ArrayList<>(this.target.getStates());

@@ -32,13 +32,11 @@ public abstract class AbstractSizeModelCheckLassoCacheTest<I, R extends Lasso<I,
     private static final double NEW_MULTIPLIER = 1.23;
     private static final int NEW_UNFOLDS = 123;
 
-    @Test
     public void testInitialValues() {
         Assert.assertEquals(super.cache.getMultiplier(), ModelCheckerMock.DEFAULT_MULTIPLIER);
         Assert.assertEquals(super.cache.getMinimumUnfolds(), ModelCheckerMock.DEFAULT_UNFOLDS);
     }
 
-    @Test(dependsOnMethods = "testInitialValues")
     public void testUpdatingValues() {
         super.cache.setMinimumUnfolds(NEW_UNFOLDS);
         super.cache.setMultiplier(NEW_MULTIPLIER);
@@ -46,7 +44,6 @@ public abstract class AbstractSizeModelCheckLassoCacheTest<I, R extends Lasso<I,
         this.checkUpdatedValues();
     }
 
-    @AfterClass
     public void checkUpdatedValues() {
         Assert.assertEquals(super.cache.getMultiplier(), NEW_MULTIPLIER);
         Assert.assertEquals(super.cache.getMinimumUnfolds(), NEW_UNFOLDS);

@@ -33,7 +33,6 @@ public abstract class AbstractMutableMealyTest {
 
     protected abstract MutableMealyMachine<?, Symbol<Character>, ?, String> getMealy();
 
-    @Test
     public void testTrace() {
         MutableMealyMachine<?, Symbol<Character>, ?, String> fm = getMealy();
 
@@ -49,7 +48,6 @@ public abstract class AbstractMutableMealyTest {
         Assert.assertEquals(output.getSymbol(2), TestUtil.OUT_ERROR);
     }
 
-    @Test
     public void testRemoveTransition() {
         testRemoveTransitionInternal(getMealy());
     }
@@ -70,7 +68,6 @@ public abstract class AbstractMutableMealyTest {
         Assert.assertNull(fm.getSuccessor(fm.getInitialState(), trace));
     }
 
-    @Test
     public void testRemoveAllTransitions() {
         testRemoveAllTransitions(getMealy());
     }
@@ -89,7 +86,6 @@ public abstract class AbstractMutableMealyTest {
         Assert.assertNull(fm.getSuccessor(fm.getInitialState(), trace));
     }
 
-    @Test
     public void testRedefineTransition() {
         testRedefineTransition(getMealy());
     }

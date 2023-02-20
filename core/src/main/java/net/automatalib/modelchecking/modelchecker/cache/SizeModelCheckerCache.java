@@ -74,7 +74,7 @@ class SizeModelCheckerCache<I, A extends SimpleAutomaton<?, I>, P, R> implements
      * @see ModelChecker#findCounterExample(Object, Collection, Object)
      */
     @Override
-    public @Nullable R findCounterExample(A automaton, Collection<? extends I> inputs, P property) {
+    public R findCounterExample(A automaton, Collection<? extends I> inputs, P property) {
         if (automaton.size() > size) {
             counterExamples.clear();
         }

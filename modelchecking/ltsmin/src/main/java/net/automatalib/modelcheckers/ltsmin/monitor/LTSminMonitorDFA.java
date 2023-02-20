@@ -62,7 +62,7 @@ public class LTSminMonitorDFA<I> extends AbstractLTSminMonitor<I, DFA<?, I>, DFA
      * @see AbstractLTSmin#findCounterExample(Object, Collection, Object)
      */
     @Override
-    public @Nullable DFA<?, I> findCounterExample(DFA<?, I> automaton, Collection<? extends I> inputs, String property) {
+    public DFA<?, I> findCounterExample(DFA<?, I> automaton, Collection<? extends I> inputs, String property) {
         final File fsm = findCounterExampleFSM(automaton, inputs, property);
 
         if (fsm == null) {

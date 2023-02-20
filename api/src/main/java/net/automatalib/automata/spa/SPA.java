@@ -84,7 +84,7 @@ public interface SPA<S, I> extends DeterministicAcceptorTS<S, I>,
      *
      * @return the initial procedure
      */
-    @Nullable I getInitialProcedure();
+    I getInitialProcedure();
 
     /**
      * In a complete {@link SPA} every {@link #getInputAlphabet() call symbol} should be mapped to a corresponding
@@ -162,7 +162,7 @@ public interface SPA<S, I> extends DeterministicAcceptorTS<S, I>,
     default Graph<?, ?> graphView() {
         final SPAAlphabet<I> alphabet = this.getInputAlphabet();
         // explicit type specification is required by checker-framework
-        return new SPAGraphView<@Nullable Object, I>(alphabet.getCallAlphabet(),
+        return new SPAGraphView<Object, I>(alphabet.getCallAlphabet(),
                                                      this.getProceduralInputs(alphabet),
                                                      this.getProcedures());
     }

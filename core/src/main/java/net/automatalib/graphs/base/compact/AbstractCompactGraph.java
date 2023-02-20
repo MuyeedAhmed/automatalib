@@ -77,12 +77,12 @@ public abstract class AbstractCompactGraph<E extends CompactEdge<EP>, NP, EP>
     }
 
     @Override
-    public Integer addNode(@Nullable NP property) {
+    public Integer addNode(NP property) {
         return addIntNode(property);
     }
 
     @Override
-    public int addIntNode(@Nullable NP property) {
+    public int addIntNode(NP property) {
         int n = size++;
         edges.ensureCapacity(n + 1);
         edges.array[n] = new ArrayList<>();
@@ -91,17 +91,17 @@ public abstract class AbstractCompactGraph<E extends CompactEdge<EP>, NP, EP>
     }
 
     @Override
-    public void setNodeProperty(Integer node, @Nullable NP property) {
+    public void setNodeProperty(Integer node, NP property) {
         setNodeProperty(node.intValue(), property);
     }
 
     @Override
-    public E connect(Integer source, Integer target, @Nullable EP property) {
+    public E connect(Integer source, Integer target, EP property) {
         return connect(source.intValue(), target.intValue(), property);
     }
 
     @Override
-    public E connect(int source, int target, @Nullable EP property) {
+    public E connect(int source, int target, EP property) {
         E edge = createEdge(source, target, property);
         List<E> edges = this.edges.array[source];
         edge.outIndex = edges.size();
@@ -109,7 +109,7 @@ public abstract class AbstractCompactGraph<E extends CompactEdge<EP>, NP, EP>
         return edge;
     }
 
-    protected abstract E createEdge(int source, int target, @Nullable EP property);
+    protected abstract E createEdge(int source, int target, EP property);
 
     @Override
     public void setEdgeProperty(E edge, EP property) {

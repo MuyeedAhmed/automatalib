@@ -120,7 +120,7 @@ public interface SimpleTS<S, I> {
      *
      * @return the mutable mapping
      */
-    default <@Nullable V> MutableMapping<S, V> createStaticStateMapping() {
+    default <V> MutableMapping<S, V> createStaticStateMapping() {
         return new MapMapping<>();
     }
 
@@ -130,7 +130,7 @@ public interface SimpleTS<S, I> {
      *
      * @return the mutable mapping
      */
-    default <@Nullable V> MutableMapping<S, V> createDynamicStateMapping() {
+    default <V> MutableMapping<S, V> createDynamicStateMapping() {
         return new MapMapping<>();
     }
 

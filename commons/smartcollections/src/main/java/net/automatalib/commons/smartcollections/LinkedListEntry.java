@@ -41,7 +41,7 @@ public interface LinkedListEntry<E, T extends LinkedListEntry<E, T>> extends Ele
      *
      * @return the previous entry or <code>null</code>.
      */
-    @Nullable T getPrev();
+    T getPrev();
 
     /**
      * Sets the predecessor of this entry.
@@ -49,14 +49,14 @@ public interface LinkedListEntry<E, T extends LinkedListEntry<E, T>> extends Ele
      * @param prev
      *         the new predecessor.
      */
-    void setPrev(@Nullable T prev);
+    void setPrev(T prev);
 
     /**
      * Retrieves the next entry in the list, or <code>null</code> if this is the last entry.
      *
      * @return the next entry or <code>null</code>.
      */
-    @Nullable T getNext();
+    T getNext();
 
     /**
      * Sets the successor of this entry.
@@ -64,5 +64,5 @@ public interface LinkedListEntry<E, T extends LinkedListEntry<E, T>> extends Ele
      * @param next
      *         the new successor.
      */
-    void setNext(@Nullable T next);
+    void setNext(T next);
 }

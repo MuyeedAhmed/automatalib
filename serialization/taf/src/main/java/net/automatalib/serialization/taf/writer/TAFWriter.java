@@ -162,7 +162,7 @@ public final class TAFWriter {
         indent++;
     }
 
-    private void writeTransition(Collection<?> symbols, String target, @Nullable Object output) throws IOException {
+    private void writeTransition(Collection<?> symbols, String target, Object output) throws IOException {
         writeIndent();
         writeStringCollection(symbols);
         if (output != null) {

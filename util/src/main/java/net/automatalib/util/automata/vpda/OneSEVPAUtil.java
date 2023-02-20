@@ -130,11 +130,11 @@ public final class OneSEVPAUtil {
         return computeAccessSequences(sevpa, alphabet, true, l -> false).accessSequences;
     }
 
-    public static <L, I> @Nullable Word<I> findRejectedWord(final OneSEVPA<L, I> sevpa, final VPDAlphabet<I> alphabet) {
+    public static <L, I> Word<I> findRejectedWord(final OneSEVPA<L, I> sevpa, final VPDAlphabet<I> alphabet) {
         return computeAccessSequence(sevpa, alphabet, l -> !sevpa.isAcceptingLocation(l));
     }
 
-    public static <L, I> @Nullable Word<I> computeAccessSequence(final OneSEVPA<L, I> sevpa,
+    public static <L, I> Word<I> computeAccessSequence(final OneSEVPA<L, I> sevpa,
                                                                  final VPDAlphabet<I> alphabet,
                                                                  final Predicate<? super L> predicate) {
         final ReachResult<L, I> result = computeAccessSequences(sevpa, alphabet, true, predicate);
@@ -151,24 +151,24 @@ public final class OneSEVPAUtil {
         return findSeparatingWord(sevpa1, sevpa2, alphabet) == null;
     }
 
-    public static <I> @Nullable Word<I> findSeparatingWord(final OneSEVPA<?, I> sevpa1,
+    public static <I> Word<I> findSeparatingWord(final OneSEVPA<?, I> sevpa1,
                                                            final OneSEVPA<?, I> sevpa2,
                                                            final VPDAlphabet<I> alphabet) {
         final OneSEVPA<?, I> prod = OneSEVPAs.xor(sevpa1, sevpa2, alphabet);
         return findAcceptedWord(prod, alphabet);
     }
 
-    public static <L, I> @Nullable Word<I> findAcceptedWord(final OneSEVPA<L, I> sevpa, final VPDAlphabet<I> alphabet) {
+    public static <L, I> Word<I> findAcceptedWord(final OneSEVPA<L, I> sevpa, final VPDAlphabet<I> alphabet) {
         return computeAccessSequence(sevpa, alphabet, sevpa::isAcceptingLocation);
     }
 
     public static class ReachResult<L, I> {
 
-        public final @Nullable L terminateLoc;
+        public final L terminateLoc;
         public final List<L> reachableLocs;
         public final ArrayStorage<Word<I>> accessSequences;
 
-        public ReachResult(final @Nullable L terminateLoc,
+        public ReachResult(final L terminateLoc,
                            final List<L> reachableLocs,
                            final ArrayStorage<Word<I>> accessSequences) {
             this.terminateLoc = terminateLoc;

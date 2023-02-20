@@ -62,7 +62,7 @@ public class SPAVisualizationHelper<I, S> extends DefaultVisualizationHelper<Pai
 
         final I identifier = node.getFirst();
         @SuppressWarnings("assignment.type.incompatible") // we only use identifier for which procedures exists
-        final @NonNull DFA<S, I> subModel = subModels.get(identifier);
+        final DFA<S, I> subModel = subModels.get(identifier);
 
         if (subModel.isAccepting(node.getSecond())) {
             properties.put(NodeAttrs.SHAPE, NodeShapes.DOUBLECIRCLE);

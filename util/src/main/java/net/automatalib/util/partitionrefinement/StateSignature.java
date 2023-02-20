@@ -26,15 +26,15 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public final class StateSignature {
 
-    private final @Nullable Object[] properties;
+    private final Object[] properties;
 
-    private StateSignature(@Nullable Object[] properties) {
+    private StateSignature(Object[] properties) {
         this.properties = properties;
     }
 
     @SafeVarargs
     public static <SP, TP> StateSignature byFullSignature(SP stateProperty, TP... transitionProperties) {
-        @Nullable Object[] properties = new Object[transitionProperties.length + 1];
+        Object[] properties = new Object[transitionProperties.length + 1];
         System.arraycopy(transitionProperties, 0, properties, 0, transitionProperties.length);
         properties[transitionProperties.length] = stateProperty;
         return new StateSignature(properties);
@@ -43,7 +43,7 @@ public final class StateSignature {
     public static StateSignature byFullSignature(UniversalDeterministicAutomaton.FullIntAbstraction<?, ?, ?> automaton,
                                                  int state) {
         int numInputs = automaton.numInputs();
-        @Nullable Object[] properties = new Object[numInputs + 1];
+        Object[] properties = new Object[numInputs + 1];
         fillTransitionProperties(automaton, state, properties);
         properties[numInputs] = automaton.getStateProperty(state);
         return new StateSignature(properties);
@@ -53,7 +53,7 @@ public final class StateSignature {
                                                         Alphabet<I> alphabet,
                                                         S state) {
         int numInputs = alphabet.size();
-        @Nullable Object[] properties = new Object[numInputs + 1];
+        Object[] properties = new Object[numInputs + 1];
         fillTransitionProperties(automaton, alphabet, state, properties);
         properties[numInputs] = automaton.getStateProperty(state);
         return new StateSignature(properties);
@@ -67,7 +67,7 @@ public final class StateSignature {
     public static StateSignature byTransitionProperties(UniversalDeterministicAutomaton.FullIntAbstraction<?, ?, ?> automaton,
                                                         int state) {
         int numInputs = automaton.numInputs();
-        @Nullable Object[] properties = new Object[numInputs];
+        Object[] properties = new Object[numInputs];
         fillTransitionProperties(automaton, state, properties);
         return new StateSignature(properties);
     }
@@ -76,7 +76,7 @@ public final class StateSignature {
                                                                Alphabet<I> alphabet,
                                                                S state) {
         int numInputs = alphabet.size();
-        @Nullable Object[] properties = new Object[numInputs];
+        Object[] properties = new Object[numInputs];
         for (int i = 0; i < numInputs; i++) {
             I sym = alphabet.getSymbol(i);
             properties[i] = automaton.getTransitionProperty(state, sym);
@@ -86,7 +86,7 @@ public final class StateSignature {
 
     private static void fillTransitionProperties(UniversalDeterministicAutomaton.FullIntAbstraction<?, ?, ?> automaton,
                                                  int state,
-                                                 @Nullable Object[] properties) {
+                                                 Object[] properties) {
         int numInputs = automaton.numInputs();
         for (int i = 0; i < numInputs; i++) {
             properties[i] = automaton.getTransitionProperty(state, i);
@@ -96,7 +96,7 @@ public final class StateSignature {
     private static <S, I> void fillTransitionProperties(UniversalDeterministicAutomaton<S, I, ?, ?, ?> automaton,
                                                         Alphabet<I> alphabet,
                                                         S state,
-                                                        @Nullable Object[] properties) {
+                                                        Object[] properties) {
         int numInputs = alphabet.size();
         for (int i = 0; i < numInputs; i++) {
             I sym = alphabet.getSymbol(i);
@@ -105,7 +105,7 @@ public final class StateSignature {
     }
 
     @Override
-    public boolean equals(@Nullable Object o) {
+    public boolean equals(Object o) {
         if (this == o) {
             return true;
         }

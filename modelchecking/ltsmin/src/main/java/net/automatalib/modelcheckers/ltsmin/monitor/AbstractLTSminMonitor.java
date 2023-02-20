@@ -45,7 +45,7 @@ public abstract class AbstractLTSminMonitor<I, A, R> extends AbstractLTSmin<I, A
     }
 
     @Override
-    protected LTSminVersion getMinimumRequiredVersion(@UnknownInitialization(AbstractLTSmin.class) AbstractLTSminMonitor<I, A, R> this) {
+    protected LTSminVersion getMinimumRequiredVersion(AbstractLTSminMonitor<I, A, R> this) {
         return REQUIRED_VERSION;
     }
 

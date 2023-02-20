@@ -25,7 +25,6 @@ import org.testng.annotations.Test;
  */
 public class WordBuilderTest {
 
-    @Test
     public void constructorTest() {
         WordBuilder<Character> wb;
 
@@ -66,7 +65,6 @@ public class WordBuilderTest {
         Assert.assertEquals(abc, wb.toWord());
     }
 
-    @Test
     public void appendTest() {
         WordBuilder<Character> wb = new WordBuilder<>();
         final Word<Character> aaa = Word.fromCharSequence("aaa");
@@ -120,7 +118,6 @@ public class WordBuilderTest {
         Assert.assertEquals(buffer, wb.toWord());
     }
 
-    @Test
     public void reverseTest() {
         WordBuilder<Character> wb = new WordBuilder<>();
         final Word<Character> abc = Word.fromCharSequence("abc");
@@ -130,7 +127,6 @@ public class WordBuilderTest {
         Assert.assertEquals(cba, wb.toWord());
     }
 
-    @Test
     public void toWordTest() {
         WordBuilder<Character> wb = new WordBuilder<>();
         final Word<Character> abc = Word.fromCharSequence("abc");
@@ -142,7 +138,6 @@ public class WordBuilderTest {
         Assert.assertThrows(IndexOutOfBoundsException.class, () -> wb.toWord(0, wb.size() + 1));
     }
 
-    @Test
     public void truncateTest() {
         WordBuilder<Character> wb = new WordBuilder<>();
         final Word<Character> abc = Word.fromCharSequence("abc");

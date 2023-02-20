@@ -35,7 +35,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 class SplitTreeResult<S, I, O> {
 
-    private final @Nullable SplitTree<S, I, O> delegate;
+    private final SplitTree<S, I, O> delegate;
     private final Set<S> indistinguishableStates;
 
     SplitTreeResult(final SplitTree<S, I, O> result) {
@@ -48,12 +48,11 @@ class SplitTreeResult<S, I, O> {
         this.indistinguishableStates = indistinguishableStates;
     }
 
-    @EnsuresNonNullIf(expression = "this.delegate", result = true)
     public boolean isPresent() {
         return this.delegate != null;
     }
 
-    public @Nullable SplitTree<S, I, O> get() {
+    public SplitTree<S, I, O> get() {
         return this.delegate;
     }
 

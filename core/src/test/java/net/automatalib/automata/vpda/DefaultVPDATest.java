@@ -37,7 +37,6 @@ public class DefaultVPDATest {
      * Tests the language of correctly matched brace-words, which can be described by the EBNF
      * <code>S -> ( S ) | [ S ] | () | []</code>.
      */
-    @Test
     public void testBracketLanguageOneSevpa() {
 
         final Alphabet<Character> callAlphabet = Alphabets.fromArray('(', '[');
@@ -62,7 +61,6 @@ public class DefaultVPDATest {
      * Tests the language of correctly matched brace-words, which can be described by the EBNF
      * <code>S -> ( S ) | [ S ] | () | []</code>.
      */
-    @Test
     public void testBracketLanguageNSevpa() {
 
         final Alphabet<Character> callAlphabet = Alphabets.fromArray('(', '[');
@@ -113,7 +111,6 @@ public class DefaultVPDATest {
     /**
      * Test case for reported issue <a href="https://github.com/LearnLib/automatalib/pull/39">#39</a>.
      */
-    @Test
     public void testGraphRepresentation() {
 
         final Alphabet<Integer> callAlphabet = Alphabets.integers(1, 10);

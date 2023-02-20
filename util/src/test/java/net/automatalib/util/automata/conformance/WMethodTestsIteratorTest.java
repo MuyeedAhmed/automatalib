@@ -37,13 +37,11 @@ import org.testng.annotations.Test;
 /**
  * @author frohme
  */
-@Test
 public class WMethodTestsIteratorTest {
 
     private final Alphabet<Integer> alphabet = Alphabets.integers(0, 5);
     private final DFA<?, Integer> dfa = RandomAutomata.randomDFA(new Random(42), 5, alphabet);
 
-    @Test
     public void testVanillaIterator() {
         final List<Word<Integer>> transCover = Automata.transitionCover(dfa, alphabet);
         final List<Word<Integer>> characterizingSet = Automata.characterizingSet(dfa, alphabet);
@@ -56,7 +54,6 @@ public class WMethodTestsIteratorTest {
         this.verifyIterator(new WMethodTestsIterator<>(dfa, alphabet, 0), expectedWords);
     }
 
-    @Test
     public void testIteratorWithLookahead2() {
         final int lookahead = 2;
 

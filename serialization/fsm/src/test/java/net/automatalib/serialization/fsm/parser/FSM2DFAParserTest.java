@@ -40,12 +40,10 @@ public class FSM2DFAParserTest extends AbstractFSM2ParserTest {
 
     private FSM2DFAParser<Character> parser;
 
-    @BeforeClass
     public void setUp() {
         parser = FSM2DFAParser.getParser(s -> s.charAt(0), "label", "accept");
     }
 
-    @Test
     public void testParse1() throws Exception {
         try (InputStream is = FSM2DFAParserTest.class.getResourceAsStream("/DFA1.fsm")) {
             final CompactDFA<Character> actualDFA = parser.readModel(is);
@@ -62,7 +60,6 @@ public class FSM2DFAParserTest extends AbstractFSM2ParserTest {
         }
     }
 
-    @Test
     public void testParse2() throws Exception {
         try (InputStream is = FSM2DFAParserTest.class.getResourceAsStream("/DFA2.fsm")) {
             final CompactDFA<Character> actualDFA = parser.readModel(is);
@@ -79,7 +76,7 @@ public class FSM2DFAParserTest extends AbstractFSM2ParserTest {
     }
 
     @Override
-    protected CompactDFA<Character> getParsedAutomaton(@Nullable Collection<Character> requiredInputs)
+    protected CompactDFA<Character> getParsedAutomaton(Collection<Character> requiredInputs)
             throws IOException {
         try (InputStream is = FSM2DFAParserTest.class.getResourceAsStream("/DFA2.fsm")) {
             final Function<String, Character> ip = s -> s.charAt(0);
@@ -87,7 +84,6 @@ public class FSM2DFAParserTest extends AbstractFSM2ParserTest {
         }
     }
 
-    @Test
     public void doNotCloseInputStreamTest() throws IOException {
         try (InputStream is = FSM2DFAParserTest.class.getResourceAsStream("/DFA1.fsm")) {
             parser.readModel(new UnclosableInputStream(is));

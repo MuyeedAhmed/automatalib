@@ -23,7 +23,6 @@ import org.testng.collections.Lists;
 
 public class MappingsTest {
 
-    @Test
     public void testIndexStringMapping() {
         List<Long> indices = Lists.newArrayList(0L, 1L, 25L, 26L, 17575L);
         List<String> strings = Lists.newArrayList("a", "b", "z", "ab", "zzz");

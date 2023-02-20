@@ -36,47 +36,38 @@ public class CTLToMuCalcTest {
 
     private final CTLToMuCalc<String, String> transformer = new CTLToMuCalc<>();
 
-    @Test
     void testTrue() throws ParseException {
         equals("true", new TrueNode<>());
     }
 
-    @Test
     void testFalse() throws ParseException {
         equals("false", new FalseNode<>());
     }
 
-    @Test
     void testAtomicProposition() throws ParseException {
         equals("\"p\"", new AtomicNode<>("p"));
     }
 
-    @Test
     void testNegation() throws ParseException {
         equals("!\"p\"", new NotNode<>(new AtomicNode<>("p")));
     }
 
-    @Test
     void testBox() throws ParseException {
         equals("[abc]true", new BoxNode<>("abc", new TrueNode<>()));
     }
 
-    @Test
     void testDiamond() throws ParseException {
         equals("<>false", new DiamondNode<>(new FalseNode<>()));
     }
 
-    @Test
     void testOr() throws ParseException {
         equals("\"p\" || \"q\"", new OrNode<>(new AtomicNode<>("p"), new AtomicNode<>("q")));
     }
 
-    @Test
     void testAnd() throws ParseException {
         equals("\"p\" && \"q\"", new AndNode<>(new AtomicNode<>("p"), new AtomicNode<>("q")));
     }
 
-    @Test
     void testAF() throws ParseException {
         DiamondNode<String, String> diamond = new DiamondNode<>(new TrueNode<>());
         BoxNode<String, String> box = new BoxNode<>(new VariableNode<>("Z0"));
@@ -85,14 +76,12 @@ public class CTLToMuCalcTest {
         equals("AF \"p\"", expected);
     }
 
-    @Test
     void testAG() throws ParseException {
         AndNode<String, String> and = new AndNode<>(new AtomicNode<>("p"), new BoxNode<>(new VariableNode<>("Z0")));
         GfpNode<String, String> expected = new GfpNode<>("Z0", and);
         equals("AG \"p\"", expected);
     }
 
-    @Test
     void testAU() throws ParseException {
         DiamondNode<String, String> diamond = new DiamondNode<>(new TrueNode<>());
         BoxNode<String, String> box = new BoxNode<>(new VariableNode<>("Z0"));
@@ -103,7 +92,6 @@ public class CTLToMuCalcTest {
         equals("A(\"p\" U \"q\")", expected);
     }
 
-    @Test
     void testAWU() throws ParseException {
         /* A[p WU q] = !E[!q U (!p & !q)] */
         /* !E[!q U (!p & !q)] = !(mu X.((!p & !q) | (!q & <>X))) */
@@ -117,14 +105,12 @@ public class CTLToMuCalcTest {
         equals("A(\"p\" W \"q\")", expected);
     }
 
-    @Test
     void testEF() throws ParseException {
         OrNode<String, String> or = new OrNode<>(new AtomicNode<>("p"), new DiamondNode<>(new VariableNode<>("Z0")));
         LfpNode<String, String> expected = new LfpNode<>("Z0", or);
         equals("EF \"p\"", expected);
     }
 
-    @Test
     void testEG() throws ParseException {
         OrNode<String, String> or =
                 new OrNode<>(new DiamondNode<>(new VariableNode<>("Z0")), new BoxNode<>(new FalseNode<>()));
@@ -132,14 +118,12 @@ public class CTLToMuCalcTest {
         equals("EG \"p\"", expected);
     }
 
-    @Test
     void testEU() throws ParseException {
         AndNode<String, String> and = new AndNode<>(new AtomicNode<>("p"), new DiamondNode<>(new VariableNode<>("Z0")));
         LfpNode<String, String> expected = new LfpNode<>("Z0", new OrNode<>(new TrueNode<>(), and));
         equals("E(\"p\" U true)", expected);
     }
 
-    @Test
     void testEWU() throws ParseException {
         AndNode<String, String> and = new AndNode<>(new AtomicNode<>("p"), new DiamondNode<>(new VariableNode<>("Z0")));
         LfpNode<String, String> lfp = new LfpNode<>("Z0", new OrNode<>(new AtomicNode<>("q"), and));

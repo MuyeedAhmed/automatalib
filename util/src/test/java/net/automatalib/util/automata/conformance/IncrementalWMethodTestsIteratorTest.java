@@ -44,7 +44,6 @@ public class IncrementalWMethodTestsIteratorTest {
 
     private Set<Word<Character>> initialWMethodTests;
 
-    @BeforeClass
     public void setUp() {
         alphabet = Alphabets.characters('a', 'c');
 
@@ -70,14 +69,12 @@ public class IncrementalWMethodTestsIteratorTest {
         initialWMethodTests = computeWMethodTests();
     }
 
-    @Test
     public void testInitialCover() {
         final Set<Word<Character>> iteratorTests = computeIteratorTests();
 
         Assert.assertEquals(initialWMethodTests, iteratorTests);
     }
 
-    @Test(dependsOnMethods = "testInitialCover")
     public void testIncrementalCover() {
 
         final Integer q2 = 2;
@@ -99,7 +96,6 @@ public class IncrementalWMethodTestsIteratorTest {
         Assert.assertEquals(wMethodTests, iteratorTests);
     }
 
-    @Test
     public void testSingleStateAutomaton() {
 
         final CompactDFA<Character> dfa = new CompactDFA<>(alphabet);

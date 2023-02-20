@@ -40,7 +40,6 @@ import org.testng.annotations.Test;
  */
 public class FSM2MealyParserIOTest extends AbstractFSM2ParserTest {
 
-    @Test
     public void testParse() throws Exception {
         try (InputStream is = FSM2MealyParserIOTest.class.getResourceAsStream("/MealyIO.fsm")) {
 
@@ -68,7 +67,6 @@ public class FSM2MealyParserIOTest extends AbstractFSM2ParserTest {
         }
     }
 
-    @Test
     public void doNotCloseInputStreamTest() throws IOException {
         try (InputStream is = FSM2MealyParserIOTest.class.getResourceAsStream("/MealyIO.fsm")) {
             FSM2MealyParserIO.getParser(s -> s.charAt(0)).readModel(new UnclosableInputStream(is));

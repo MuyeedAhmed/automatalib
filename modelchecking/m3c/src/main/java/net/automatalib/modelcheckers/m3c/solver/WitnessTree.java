@@ -40,7 +40,7 @@ import org.checkerframework.checker.nullness.qual.MonotonicNonNull;
 @SuppressWarnings("type.argument.type.incompatible") // we only add non-null properties
 public class WitnessTree<L, AP> extends CompactGraph<WitnessTreeState<?, L, ?, AP>, String> {
 
-    private @MonotonicNonNull Word<L> result;
+    private Word<L> result;
 
     public Word<L> getWitness() {
         assert result != null;

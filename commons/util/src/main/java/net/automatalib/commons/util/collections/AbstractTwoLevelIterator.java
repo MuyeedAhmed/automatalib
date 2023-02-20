@@ -25,7 +25,7 @@ public abstract class AbstractTwoLevelIterator<L1, L2, O> implements Iterator<O>
 
     private final Iterator<? extends L1> l1Iterator;
     private L1 l1Object;
-    private @Nullable Iterator<L2> l2Iterator;
+    private Iterator<L2> l2Iterator;
 
     public AbstractTwoLevelIterator(Iterator<? extends L1> l1Iterator) {
         this.l1Iterator = l1Iterator;
@@ -40,7 +40,6 @@ public abstract class AbstractTwoLevelIterator<L1, L2, O> implements Iterator<O>
         return advance();
     }
 
-    @EnsuresNonNullIf(expression = "l2Iterator", result = true)
     private boolean advance() {
         while (l2Iterator == null || !l2Iterator.hasNext()) {
             if (!l1Iterator.hasNext()) {

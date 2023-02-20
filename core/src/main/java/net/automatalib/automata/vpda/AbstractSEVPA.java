@@ -42,7 +42,7 @@ public abstract class AbstractSEVPA<L, I> implements SEVPA<L, I> {
     }
 
     @Override
-    public @Nullable State<L> getTransition(final State<L> state, final I input) {
+    public State<L> getTransition(final State<L> state, final I input) {
         final L loc = state.getLocation();
         final VPDAlphabet.SymbolType type = alphabet.getSymbolType(input);
         switch (type) {

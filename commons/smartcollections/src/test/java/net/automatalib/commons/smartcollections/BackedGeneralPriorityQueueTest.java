@@ -29,7 +29,6 @@ public class BackedGeneralPriorityQueueTest {
 
     private BackedGeneralPriorityQueue<Character, Integer> queue;
 
-    @BeforeClass
     public void setUp() {
         final List<Character> values = Lists.charactersOf("abcdefghij");
         final List<Integer> keys = Ints.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
@@ -38,14 +37,12 @@ public class BackedGeneralPriorityQueueTest {
         this.queue = new BackedGeneralPriorityQueue<>(values, keys);
     }
 
-    @Test
     public void testExtractMin() {
         for (int i = 0; i < 5; i++) {
             Assert.assertEquals(this.queue.extractMin(), Character.valueOf((char) ('j' - i)));
         }
     }
 
-    @Test(dependsOnMethods = "testExtractMin")
     public void testChangeKeys() {
         for (int i = 0; i < 5; i++) {
             final ElementReference ref = this.queue.find((char) ('a' + i));
@@ -56,7 +53,6 @@ public class BackedGeneralPriorityQueueTest {
         }
     }
 
-    @Test(dependsOnMethods = "testChangeKeys")
     public void testDefaultInsert() {
         Assert.assertTrue(this.queue.isEmpty());
 
@@ -74,7 +70,6 @@ public class BackedGeneralPriorityQueueTest {
         Assert.assertTrue(this.queue.isEmpty());
     }
 
-    @Test(dependsOnMethods = "testDefaultInsert")
     public void testFindReplaceAndClear() {
 
         Assert.assertTrue(this.queue.isEmpty());
@@ -101,7 +96,6 @@ public class BackedGeneralPriorityQueueTest {
         Assert.assertTrue(this.queue.isEmpty());
     }
 
-    @Test(dependsOnMethods = "testFindReplaceAndClear")
     public void testEmptyExceptions() {
         Assert.assertThrows(NoSuchElementException.class, () -> this.queue.choose());
         Assert.assertThrows(NoSuchElementException.class, () -> this.queue.chooseRef());

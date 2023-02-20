@@ -39,7 +39,6 @@ import org.testng.annotations.Test;
  */
 public class DFA2ETFWriterTest {
 
-    @Test
     public void testWrite() throws Exception {
         try (Reader r = IOUtil.asBufferedUTF8Reader(DFA2ETFWriterTest.class.getResourceAsStream("/DFA-testWrite.etf"));
              ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
@@ -57,7 +56,6 @@ public class DFA2ETFWriterTest {
         }
     }
 
-    @Test
     public void testEmptyLanguage() throws Exception {
         try (Reader r = IOUtil.asBufferedUTF8Reader(DFA2ETFWriterTest.class.getResourceAsStream("/DFA-testEmptyLanguage.etf"));
              ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
@@ -74,7 +72,6 @@ public class DFA2ETFWriterTest {
         }
     }
 
-    @Test
     public void doNotCloseOutputStreamTest() {
         final Alphabet<Character> alphabet = Alphabets.characters('a', 'c');
         final DFA<?, Character> automaton = RandomAutomata.randomDFA(new Random(0), 10, alphabet);

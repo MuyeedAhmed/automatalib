@@ -36,9 +36,9 @@ final class StackSPAState<I, S> {
     private static final StackSPAState<?, ?> SINK = new StackSPAState<>();
     private static final StackSPAState<?, ?> TERM = new StackSPAState<>();
 
-    private final @Nullable StackSPAState<I, S> prev;
-    private final @Nullable DFA<S, I> procedure;
-    private final @Nullable S procedureState;
+    private final StackSPAState<I, S> prev;
+    private final DFA<S, I> procedure;
+    private final S procedureState;
 
     private StackSPAState() {
         this.prev = null;
@@ -105,7 +105,6 @@ final class StackSPAState<I, S> {
 
     // contract is satisfied by definition of constructors
     @SuppressWarnings("contracts.conditional.postcondition.not.satisfied")
-    @EnsuresNonNullIf(expression = {"this.prev", "this.procedure", "this.procedureState"}, result = false)
     private boolean isStatic() {
         return isInit() || isTerm() || isSink();
     }

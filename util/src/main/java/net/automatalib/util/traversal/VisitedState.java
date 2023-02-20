@@ -34,5 +34,5 @@ public enum VisitedState {
     /**
      * Nodes that have not yet been visited.
      */
-    public static final @Nullable VisitedState NOT_VISITED = null;
+    public static final VisitedState NOT_VISITED = null;
 }

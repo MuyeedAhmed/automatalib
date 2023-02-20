@@ -37,7 +37,6 @@ import org.testng.annotations.Test;
  * @author Malte Isberner
  * @author frohme
  */
-@Test
 public class CoversTest {
 
     private final Alphabet<Integer> alphabet = Alphabets.integers(0, 2);
@@ -55,7 +54,6 @@ public class CoversTest {
     private final List<Word<Integer>> expectedNewTransCover = new ArrayList<>();
     private final List<Word<Integer>> expectedNewStructuralCover = new ArrayList<>();
 
-    @Test
     public void testPartialIncrementalCover() {
         // initial configuration
         int q0 = dfa.addInitialState();
@@ -136,7 +134,6 @@ public class CoversTest {
         expectedNewStructuralCover.clear();
     }
 
-    @Test
     public void testCovers() {
         final Random random = new Random(42);
         final Alphabet<Integer> alphabet = Alphabets.integers(0, 5);

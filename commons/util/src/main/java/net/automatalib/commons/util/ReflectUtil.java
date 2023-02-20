@@ -49,7 +49,7 @@ public final class ReflectUtil {
      * @return A constructor that is able of accepting parameters of the specified types, {@code null} if such a
      * constructor could not be found.
      */
-    public static <T> @Nullable Constructor<T> findConstructor(Class<T> clazz, Class<?>... params) {
+    public static <T> Constructor<T> findConstructor(Class<T> clazz, Class<?>... params) {
         try {
             return clazz.getConstructor(params);
         } catch (NoSuchMethodException e) {
@@ -84,7 +84,7 @@ public final class ReflectUtil {
      * @return A method that is able to accept parameters of the specified types, {@code null} if such a method could
      * not be found.
      */
-    public static @Nullable Method findMethod(Class<?> clazz, String name, Class<?>... params) {
+    public static Method findMethod(Class<?> clazz, String name, Class<?>... params) {
         try {
             return clazz.getMethod(name, params);
         } catch (NoSuchMethodException e) {
@@ -114,7 +114,7 @@ public final class ReflectUtil {
      * @return A method that is able to accept of the specified objects, {@code null} if such a method could not be
      * found.
      */
-    public static @Nullable Method findMatchingMethod(Class<?> clazz, String name, @Nullable Object... args) {
+    public static Method findMatchingMethod(Class<?> clazz, String name, Object... args) {
         for (Method m : clazz.getMethods()) {
             if (!m.getName().equals(name)) {
                 continue;
@@ -144,9 +144,9 @@ public final class ReflectUtil {
      * @return A method that is able to accept of the specified objects, {@code null} if such a method could not be
      * found.
      */
-    public static @Nullable Method findMethodRT(Class<?> clazz,
+    public static Method findMethodRT(Class<?> clazz,
                                                 String name,
-                                                @Nullable Class<?> returnType,
+                                                Class<?> returnType,
                                                 Class<?>... params) {
         Method m = findMethod(clazz, name, params);
 
@@ -185,7 +185,7 @@ public final class ReflectUtil {
         return wrappedA.equals(wrappedB);
     }
 
-    private static boolean isMatch(Class<?>[] paramTypes, @Nullable Object... args) {
+    private static boolean isMatch(Class<?>[] paramTypes, Object... args) {
         if (paramTypes.length != args.length) {
             return false;
         }
