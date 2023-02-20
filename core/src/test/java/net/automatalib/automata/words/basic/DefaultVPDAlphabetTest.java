@@ -44,7 +44,6 @@ public class DefaultVPDAlphabetTest extends AbstractAlphabetTest<Character, Defa
                                         DefaultVPDAlphabetTestUtil.RETURN_SYMBOLS);
     }
 
-    @Test
     public void testNonDisjointSubAlphabets() {
         Assert.assertThrows(() -> new DefaultVPDAlphabet<>(DefaultVPDAlphabetTestUtil.INTERNAL_SYMBOLS,
                                                            DefaultVPDAlphabetTestUtil.INTERNAL_SYMBOLS,

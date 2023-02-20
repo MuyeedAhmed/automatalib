@@ -27,36 +27,36 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public abstract class AbstractFastMutableDet<S extends AbstractFastState<T>, I, T, SP, TP>
         extends AbstractFastMutable<S, I, T, SP, TP> implements ShrinkableDeterministic<S, I, T, SP, TP> {
 
-    private @Nullable S initialState;
+    private S initialState;
 
     public AbstractFastMutableDet(Alphabet<I> inputAlphabet) {
         super(inputAlphabet);
     }
 
     @Override
-    public void setTransition(S state, I input, @Nullable T transition) {
+    public void setTransition(S state, I input, T transition) {
         int inputIdx = inputAlphabet.getSymbolIndex(input);
         state.setTransitionObject(inputIdx, transition);
     }
 
     @Override
-    public @Nullable S getInitialState() {
+    public S getInitialState() {
         return initialState;
     }
 
     @Override
-    public void setInitialState(@Nullable S state) {
+    public void setInitialState(S state) {
         this.initialState = state;
     }
 
     @Override
-    public @Nullable T getTransition(S state, I input) {
+    public T getTransition(S state, I input) {
         int inputIdx = inputAlphabet.getSymbolIndex(input);
         return state.getTransitionObject(inputIdx);
     }
 
     @Override
-    public void removeState(S state, @Nullable S replacement) {
+    public void removeState(S state, S replacement) {
         super.removeState(state, replacement);
 
         if (state.equals(initialState)) {

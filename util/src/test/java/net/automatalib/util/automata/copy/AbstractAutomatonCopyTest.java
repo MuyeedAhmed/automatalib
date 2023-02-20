@@ -50,7 +50,6 @@ public abstract class AbstractAutomatonCopyTest {
     private CompactDFA<Character> dfa;
     private CompactDFA<Character> partialDfa;
 
-    @BeforeClass
     public void setUp() {
         mealy = RandomAutomata.randomMealy(new Random(42), SIZE, INPUT_ALPHABET, OUTPUT_ALPHABET, false);
         partialMealy = RandomAutomata.randomMealy(new Random(42), SIZE, INPUT_ALPHABET, OUTPUT_ALPHABET, false);
@@ -71,7 +70,6 @@ public abstract class AbstractAutomatonCopyTest {
     /**
      * Check equivalence of a total automaton (with transition properties).
      */
-    @Test
     public void testCompactMealy() {
         checkEquivalence(mealy, INPUT_ALPHABET, new CompactMealy.Creator<>());
     }
@@ -79,7 +77,6 @@ public abstract class AbstractAutomatonCopyTest {
     /**
      * Check equivalence of a partial automaton (with transition properties).
      */
-    @Test
     public void testPartialCompactMealy() {
         checkEquivalence(partialMealy, INPUT_ALPHABET, new CompactMealy.Creator<>());
     }
@@ -87,7 +84,6 @@ public abstract class AbstractAutomatonCopyTest {
     /**
      * Check equivalence of a total automaton with filter operations (with transition properties).
      */
-    @Test
     public void testFilteredCompactMealy() {
         checkFilteredEquivalence(mealy,
                                  INPUT_ALPHABET,
@@ -100,7 +96,6 @@ public abstract class AbstractAutomatonCopyTest {
     /**
      * Check equivalence of a total automaton (with state properties).
      */
-    @Test
     public void testCompactDFA() {
         checkEquivalence(dfa, INPUT_ALPHABET, new CompactDFA.Creator<>());
     }
@@ -108,7 +103,6 @@ public abstract class AbstractAutomatonCopyTest {
     /**
      * Check equivalence of a partial automaton (with state properties).
      */
-    @Test
     public void testPartialCompactDFA() {
         checkEquivalence(partialDfa, INPUT_ALPHABET, new CompactDFA.Creator<>());
     }
@@ -116,7 +110,6 @@ public abstract class AbstractAutomatonCopyTest {
     /**
      * Check equivalence of a total automaton with filter operations (with state properties).
      */
-    @Test
     public void testFilteredCompactDFA() {
         checkFilteredEquivalence(dfa,
                                  INPUT_ALPHABET,

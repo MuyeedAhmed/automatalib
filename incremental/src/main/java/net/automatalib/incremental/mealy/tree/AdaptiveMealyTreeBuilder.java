@@ -77,7 +77,7 @@ public class AdaptiveMealyTreeBuilder<I, O> extends AbstractAlphabetBasedMealyTr
     }
 
     @Override
-    public @Nullable Word<I> getOldestInput() {
+    public Word<I> getOldestInput() {
         final Iterator<Word<I>> iter = nodeToQuery.values().iterator();
         return iter.hasNext() ? iter.next() : null;
     }

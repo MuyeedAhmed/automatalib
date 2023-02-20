@@ -27,7 +27,6 @@ import org.testng.annotations.Test;
  */
 public class AutomataLibSettingsTest {
 
-    @BeforeSuite
     public static void setUp() {
         final URL resource = AutomataLibSettingsTest.class.getResource("/automatalib.properties");
         assert resource != null;
@@ -36,7 +35,6 @@ public class AutomataLibSettingsTest {
         System.setProperty(AutomataLibProperty.WORD_EMPTY_REP.getPropertyKey(), "OVERRIDDEN");
     }
 
-    @Test
     public void testProperties() {
         AutomataLibSettings settings = AutomataLibSettings.getInstance();
 

@@ -22,7 +22,7 @@ import net.automatalib.automata.transducers.MutableMealyMachine;
 
 @GenerateEmbeddedDSL(name = "MealyBuilder",
                      syntax = "<transition>* withInitial <transition>* create",
-                     where = {@SubExpr(name = "transition", definedAs = "from (on withOutput? (to|loop))+")})
+                     where = {})
 class MealyBuilderImpl<S, I, T, O, A extends MutableMealyMachine<S, ? super I, T, ? super O>>
         extends AutomatonBuilderImpl<S, I, T, Void, O, A> {
 

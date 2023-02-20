@@ -54,13 +54,13 @@ public interface MutableAutomaton<S, I, T, SP, TP> extends UniversalAutomaton<S,
     /**
      * Adds a state to the automaton.
      */
-    S addState(@Nullable SP property);
+    S addState(SP property);
 
     default S addInitialState() {
         return addInitialState(null);
     }
 
-    default S addInitialState(@Nullable SP property) {
+    default S addInitialState(SP property) {
         S state = addState(property);
         setInitial(state, true);
         return state;

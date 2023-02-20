@@ -22,7 +22,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 @FunctionalInterface
 public interface SinglePropertyDecoder<P> {
 
-    static <P> SinglePropertyDecoder<@Nullable P> nullDecoder() {
+    static <P> SinglePropertyDecoder<P> nullDecoder() {
         return in -> null;
     }
 

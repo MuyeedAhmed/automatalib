@@ -61,7 +61,7 @@ public abstract class AbstractFastMutable<S extends AbstractFastState<?>, I, T, 
     }
 
     @Override
-    public S addState(@Nullable SP property) {
+    public S addState(SP property) {
         S newState = createState(property);
         states.add(newState);
         return newState;
@@ -72,10 +72,10 @@ public abstract class AbstractFastMutable<S extends AbstractFastState<?>, I, T, 
         state.clearTransitionObjects();
     }
 
-    protected abstract S createState(@Nullable SP property);
+    protected abstract S createState(SP property);
 
     @Override
-    public void removeState(S state, @Nullable S replacement) {
+    public void removeState(S state, S replacement) {
         ShrinkableAutomaton.unlinkState(this, state, replacement, inputAlphabet);
         states.remove(state, tracker);
     }
@@ -91,8 +91,8 @@ public abstract class AbstractFastMutable<S extends AbstractFastState<?>, I, T, 
     }
 
     @Override
-    public <@Nullable V> MutableMapping<S, V> createDynamicStateMapping() {
-        final ArrayMapping<S, @Nullable V> mapping = new ArrayMapping<>(size());
+    public <V> MutableMapping<S, V> createDynamicStateMapping() {
+        final ArrayMapping<S, V> mapping = new ArrayMapping<>(size());
         tracker.addListener(mapping, true);
         return mapping;
     }

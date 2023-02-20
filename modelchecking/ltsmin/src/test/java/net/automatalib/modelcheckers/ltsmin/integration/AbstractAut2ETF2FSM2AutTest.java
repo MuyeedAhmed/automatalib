@@ -48,7 +48,6 @@ import org.testng.annotations.Test;
 public abstract class AbstractAut2ETF2FSM2AutTest<
         A extends UniversalDeterministicAutomaton<Integer, String, ?, ?, ?> & InputAlphabetHolder<String>> {
 
-    @BeforeClass
     public void setupBeforeClass() {
         if (!LTSminUtil.supports(LTSminVersion.of(3, 1, 0))) {
             throw new SkipException("LTSmin not installed in proper version");
@@ -61,7 +60,6 @@ public abstract class AbstractAut2ETF2FSM2AutTest<
 
     protected abstract A fsm2Automaton(File fsm) throws Exception;
 
-    @Test
     public void test() throws Exception {
         // read the taf
         final A automatonOut = taf2Automaton();

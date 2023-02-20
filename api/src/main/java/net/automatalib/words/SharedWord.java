@@ -41,12 +41,12 @@ final class SharedWord<I> extends Word<I> {
     /**
      * Constructor.
      */
-    SharedWord(@Nullable Object[] storage) {
+    SharedWord(Object[] storage) {
         this(storage, 0, storage.length);
     }
 
     @SuppressWarnings("unchecked")
-    SharedWord(@Nullable Object[] storage, int offset, int length) {
+    SharedWord(Object[] storage, int offset, int length) {
         this.storage = (I[]) storage;
         this.offset = offset;
         this.length = length;
@@ -94,7 +94,7 @@ final class SharedWord<I> extends Word<I> {
     }
 
     @Override
-    public void writeToArray(int offset, @Nullable Object[] array, int tgtOfs, int num) {
+    public void writeToArray(int offset, Object[] array, int tgtOfs, int num) {
         System.arraycopy(storage, this.offset + offset, array, tgtOfs, num);
     }
 

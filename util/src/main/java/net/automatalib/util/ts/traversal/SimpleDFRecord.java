@@ -30,7 +30,7 @@ class SimpleDFRecord<S, I, T> {
 
     private final Iterator<? extends I> inputsIterator;
     private I input;
-    private @Nullable Iterator<? extends T> transitionIterator;
+    private Iterator<? extends T> transitionIterator;
 
     SimpleDFRecord(S state, Collection<? extends I> inputs) {
         this.state = state;
@@ -60,7 +60,6 @@ class SimpleDFRecord<S, I, T> {
         }
     }
 
-    @EnsuresNonNullIf(expression = "transitionIterator", result = true)
     public boolean hasNextTransition(TransitionSystem<S, ? super I, T> ts) {
         if (transitionIterator == null) {
             return false;
@@ -72,7 +71,6 @@ class SimpleDFRecord<S, I, T> {
         return transitionIterator.hasNext();
     }
 
-    @RequiresNonNull("transitionIterator")
     public void advance(TransitionSystem<S, ? super I, T> ts) {
         if (transitionIterator.hasNext()) {
             return;
@@ -85,13 +83,10 @@ class SimpleDFRecord<S, I, T> {
         findNext(ts);
     }
 
-    @Pure
     public I input() {
         return input;
     }
 
-    @Pure
-    @RequiresNonNull("transitionIterator")
     public T transition() {
         return transitionIterator.next();
     }

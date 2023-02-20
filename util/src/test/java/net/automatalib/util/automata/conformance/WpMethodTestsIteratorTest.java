@@ -45,7 +45,6 @@ public class WpMethodTestsIteratorTest {
     private final Alphabet<Integer> alphabet = Alphabets.integers(0, 5);
     private final DFA<?, Integer> dfa = RandomAutomata.randomDFA(new Random(42), 10, alphabet);
 
-    @Test
     public void testIteratorWithoutMiddleParts() {
         final List<Word<Integer>> iteratorWords = Lists.newArrayList(new WpMethodTestsIterator<>(dfa, alphabet, 0));
         final List<Word<Integer>> wpMethodWords =
@@ -54,7 +53,6 @@ public class WpMethodTestsIteratorTest {
         checkTestWords(iteratorWords, wpMethodWords);
     }
 
-    @Test
     public void testIteratorWithMiddleParts() {
 
         final int depth = 3;

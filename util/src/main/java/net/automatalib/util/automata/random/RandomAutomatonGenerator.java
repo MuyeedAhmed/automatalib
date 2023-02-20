@@ -54,15 +54,15 @@ public class RandomAutomatonGenerator<S, I, T, SP, TP, A extends MutableAutomato
         return automaton;
     }
 
-    protected @Nullable TP randomTransProperty() {
+    protected TP randomTransProperty() {
         return random.choose(tpList);
     }
 
-    protected @Nullable S randomState() {
+    protected S randomState() {
         return random.choose(states);
     }
 
-    protected @Nullable S randomDistinctState(int stateIdx) {
+    protected S randomDistinctState(int stateIdx) {
         if (states.size() == 1) {
             return null;
         }
@@ -76,7 +76,7 @@ public class RandomAutomatonGenerator<S, I, T, SP, TP, A extends MutableAutomato
         return states.get(idx);
     }
 
-    protected @Nullable I randomInput() {
+    protected I randomInput() {
         return random.choose(inputs);
     }
 
@@ -89,7 +89,7 @@ public class RandomAutomatonGenerator<S, I, T, SP, TP, A extends MutableAutomato
         }
     }
 
-    protected @Nullable SP randomStateProperty() {
+    protected SP randomStateProperty() {
         return random.choose(spList);
     }
 

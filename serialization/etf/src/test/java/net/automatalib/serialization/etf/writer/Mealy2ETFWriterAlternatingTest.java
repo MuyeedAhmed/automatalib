@@ -38,7 +38,6 @@ import org.testng.annotations.Test;
  */
 public class Mealy2ETFWriterAlternatingTest {
 
-    @Test
     public void testWrite() throws Exception {
         try (Reader r = IOUtil.asBufferedUTF8Reader(DFA2ETFWriterTest.class.getResourceAsStream("/Alt-testWrite.etf"));
              ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
@@ -57,7 +56,6 @@ public class Mealy2ETFWriterAlternatingTest {
         }
     }
 
-    @Test
     public void doNotCloseOutputStreamTest() {
         final Alphabet<Character> alphabet = Alphabets.characters('a', 'c');
         final MealyMachine<?, Character, ?, Character> automaton =

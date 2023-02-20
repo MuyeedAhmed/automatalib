@@ -32,7 +32,7 @@ public class DeterministicPowersetView<S, I, T>
     }
 
     @Override
-    public @Nullable T getTransition(S state, I input) {
+    public T getTransition(S state, I input) {
         return delegate.getTransition(state, input);
     }
 
@@ -42,7 +42,7 @@ public class DeterministicPowersetView<S, I, T>
     }
 
     @Override
-    public @Nullable S getInitialState() {
+    public S getInitialState() {
         return delegate.getInitialState();
     }
 

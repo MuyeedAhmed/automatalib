@@ -30,7 +30,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  *
  * @author Malte Isberner
  */
-public final class FastMoore<I, @Nullable O> extends AbstractFastMutableDet<FastMooreState<O>, I, FastMooreState<O>, O, Void>
+public final class FastMoore<I, O> extends AbstractFastMutableDet<FastMooreState<O>, I, FastMooreState<O>, O, Void>
         implements MutableMooreMachine<FastMooreState<O>, I, FastMooreState<O>, O> {
 
     public FastMoore(Alphabet<I> alphabet) {
@@ -58,7 +58,7 @@ public final class FastMoore<I, @Nullable O> extends AbstractFastMutableDet<Fast
     }
 
     @Override
-    protected FastMooreState<O> createState(@Nullable O property) {
+    protected FastMooreState<O> createState(O property) {
         return new FastMooreState<>(inputAlphabet.size(), property);
     }
 

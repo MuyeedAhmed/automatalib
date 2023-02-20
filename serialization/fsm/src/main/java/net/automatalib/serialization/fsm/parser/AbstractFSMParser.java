@@ -70,7 +70,7 @@ public abstract class AbstractFSMParser<I> {
     /**
      * The set that contains all inputs that end up in the input alphabet (provided by the user, may be {@code null}).
      */
-    protected final @Nullable Collection<? extends I> targetInputs;
+    protected final Collection<? extends I> targetInputs;
 
     /**
      * Constructs a new AbstractFSMParser and defines all possible tokens.
@@ -80,7 +80,7 @@ public abstract class AbstractFSMParser<I> {
      *         If {@code null}, the inputs will be automatically gathered from the read FSM file.
      * @param inputParser the Function that parses strings in the FSM file to input.
      */
-    protected AbstractFSMParser(@Nullable Collection<? extends I> targetInputs, Function<String, I> inputParser) {
+    protected AbstractFSMParser(Collection<? extends I> targetInputs, Function<String, I> inputParser) {
         this.inputParser = inputParser;
         this.targetInputs = targetInputs;
     }

@@ -45,13 +45,13 @@ public final class Graphs {
 
     private Graphs() {}
 
-    public static <N, E> Mapping<N, @Nullable Collection<E>> incomingEdges(final Graph<N, E> graph) {
+    public static <N, E> Mapping<N, Collection<E>> incomingEdges(final Graph<N, E> graph) {
         if (graph instanceof BidirectionalGraph) {
             final BidirectionalGraph<N, E> bdGraph = (BidirectionalGraph<N, E>) graph;
             return bdGraph::getIncomingEdges;
         }
 
-        MutableMapping<N, @Nullable Collection<E>> inEdgesMapping = graph.createStaticNodeMapping();
+        MutableMapping<N, Collection<E>> inEdgesMapping = graph.createStaticNodeMapping();
 
         for (N node : graph) {
             Collection<E> outEdges = graph.getOutgoingEdges(node);
@@ -69,14 +69,14 @@ public final class Graphs {
         return inEdgesMapping;
     }
 
-    public static <N, E> @Nullable Path<N, E> findShortestPath(final IndefiniteGraph<N, E> graph,
+    public static <N, E> Path<N, E> findShortestPath(final IndefiniteGraph<N, E> graph,
                                                                int limit,
                                                                N start,
                                                                Collection<? extends N> targets) {
         return ShortestPaths.shortestPath(graph, start, limit, targets);
     }
 
-    public static <N, E> @Nullable Path<N, E> findShortestPath(IndefiniteGraph<N, E> graph,
+    public static <N, E> Path<N, E> findShortestPath(IndefiniteGraph<N, E> graph,
                                                                int limit,
                                                                N start,
                                                                Predicate<? super N> targetPred) {

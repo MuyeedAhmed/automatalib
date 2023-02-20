@@ -36,10 +36,10 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public class LYResult<S, I, O> {
 
-    private final @Nullable ADSNode<S, I, O> delegate;
+    private final ADSNode<S, I, O> delegate;
     private final Set<S> indistinguishableStates;
 
-    LYResult(@Nullable ADSNode<S, I, O> result) {
+    LYResult(ADSNode<S, I, O> result) {
         this.delegate = result;
         this.indistinguishableStates = Collections.emptySet();
     }
@@ -49,12 +49,11 @@ public class LYResult<S, I, O> {
         this.indistinguishableStates = indistinguishableStates;
     }
 
-    @EnsuresNonNullIf(expression = "this.delegate", result = true)
     public boolean isPresent() {
         return this.delegate != null;
     }
 
-    public @Nullable ADSNode<S, I, O> get() {
+    public ADSNode<S, I, O> get() {
         return this.delegate;
     }
 

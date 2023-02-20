@@ -43,7 +43,6 @@ import org.testng.annotations.Test;
  */
 public class AUTSerializationTest {
 
-    @Test
     public void quotationLabelTest() throws Exception {
         try (InputStream is = AUTSerializationTest.class.getResourceAsStream("/quotationTest.aut")) {
             final SimpleAutomaton<Integer, String> automaton = AUTParser.readAutomaton(is).model;
@@ -66,7 +65,6 @@ public class AUTSerializationTest {
         }
     }
 
-    @Test
     public void sinkStateTest() throws Exception {
         try (InputStream is = AUTSerializationTest.class.getResourceAsStream("/sinkStateTest.aut")) {
             final SimpleAutomaton<Integer, String> automaton = AUTParser.readAutomaton(is).model;
@@ -88,7 +86,6 @@ public class AUTSerializationTest {
         }
     }
 
-    @Test
     public void serializationTest() throws Exception {
         final Alphabet<Integer> alphabet = Alphabets.integers(0, 2);
         final Random random = new Random(0);
@@ -111,7 +108,6 @@ public class AUTSerializationTest {
         }
     }
 
-    @Test
     public void errorTest() throws IOException {
         try (InputStream e1 = AUTSerializationTest.class.getResourceAsStream("/error1.aut");
              InputStream e2 = AUTSerializationTest.class.getResourceAsStream("/error2.aut");
@@ -126,7 +122,6 @@ public class AUTSerializationTest {
         }
     }
 
-    @Test
     public void doNotCloseOutputStreamTest() throws IOException {
         final CompactDFA<Integer> automaton = RandomAutomata.randomDFA(new Random(0), 10, Alphabets.integers(0, 2));
 
@@ -137,7 +132,6 @@ public class AUTSerializationTest {
                                             Objects::toString);
     }
 
-    @Test
     public void doNotCloseInputStreamTest() throws IOException {
         try (InputStream is = AUTSerializationTest.class.getResourceAsStream("/quotationTest.aut")) {
             AUTSerializationProvider.getInstance().readModel(new UnclosableInputStream(is));

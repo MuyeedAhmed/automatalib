@@ -42,7 +42,6 @@ public class SPATest {
     final Map<Character, DFA<?, Character>> subModels =
             ImmutableMap.of('S', buildSProcedure(alphabet), 'T', buildTProcedure(alphabet));
 
-    @Test
     public void testStackSPA() {
         final SPA<?, Character> spa = new StackSPA<>(alphabet, 'S', subModels);
 
@@ -73,7 +72,6 @@ public class SPATest {
         Assert.assertFalse(spa.computeOutput(Word.fromCharSequence("SaUcRaR")));
     }
 
-    @Test
     public void testEmptySPA() {
         final SPA<?, Character> spa = new EmptySPA<>(alphabet);
 

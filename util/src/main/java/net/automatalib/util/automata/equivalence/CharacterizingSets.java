@@ -150,7 +150,7 @@ public final class CharacterizingSets {
             SP prop = automaton.getStateProperty(state);
             return Collections.singletonList(prop);
         }
-        List<@Nullable Object> trace = new ArrayList<>(2 * suffix.length());
+        List<Object> trace = new ArrayList<>(2 * suffix.length());
 
         S curr = state;
 
@@ -304,7 +304,7 @@ public final class CharacterizingSets {
         return refined;
     }
 
-    private static <S, I> @Nullable Word<I> refine(UniversalDeterministicAutomaton<S, I, ?, ?, ?> automaton,
+    private static <S, I> Word<I> refine(UniversalDeterministicAutomaton<S, I, ?, ?, ?> automaton,
                                                    Collection<? extends I> inputs,
                                                    Queue<List<S>> blockQueue) {
 

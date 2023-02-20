@@ -44,7 +44,7 @@ final class PlottedGraph {
         updateDOTText(sb.toString());
     }
 
-    public boolean updateDOTText(@UnknownInitialization PlottedGraph this, String dotText) {
+    public boolean updateDOTText(PlottedGraph this, String dotText) {
         try {
             try (InputStream pngIs = DOT.runDOT(dotText, "png")) {
                 this.image = ImageIO.read(pngIs);

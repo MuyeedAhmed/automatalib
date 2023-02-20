@@ -22,15 +22,12 @@ import org.testng.annotations.Test;
 /**
  * @author frohme
  */
-@Test
 public class CharacterizingSetIteratorTest {
 
-    @Test
     public void testCharacterizingSetIterator() {
         CoverIteratorsTest.compareCovers(Automata::characterizingSet, CharacterizingSets::characterizingSetIterator);
     }
 
-    @Test
     public void testIncrementalStateCoverIterator() {
         CoverIteratorsTest.compareIncrementalCovers(CharacterizingSets::findIncrementalCharacterizingSet,
                                                     CharacterizingSets::incrementalCharacterizingSetIterator);

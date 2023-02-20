@@ -32,5 +32,5 @@ public interface InitialNode<N> {
      *
      * @return the initial node.
      */
-    @Nullable N getInitialNode();
+    N getInitialNode();
 }

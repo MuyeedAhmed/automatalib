@@ -32,9 +32,9 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * @author frohme
  * @author Malte Isberner
  */
-public class UniversalCompactSimpleDet<I, @Nullable SP> extends AbstractCompactSimpleDeterministic<I, SP> {
+public class UniversalCompactSimpleDet<I, SP> extends AbstractCompactSimpleDeterministic<I, SP> {
 
-    private @Nullable Object[] stateProperties;
+    private Object[] stateProperties;
 
     public UniversalCompactSimpleDet(Alphabet<I> alphabet) {
         this(alphabet, DEFAULT_INIT_CAPACITY, DEFAULT_RESIZE_FACTOR);
@@ -61,7 +61,7 @@ public class UniversalCompactSimpleDet<I, @Nullable SP> extends AbstractCompactS
     }
 
     @Override
-    public void setStateProperty(int stateId, @Nullable SP property) {
+    public void setStateProperty(int stateId, SP property) {
         stateProperties[stateId] = property;
     }
 

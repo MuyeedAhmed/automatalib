@@ -94,7 +94,7 @@ public class CompactNFA<I> extends AbstractCompactSimpleNondet<I, Boolean> imple
     }
 
     @Override
-    public void setStateProperty(int stateId, @Nullable Boolean property) {
+    public void setStateProperty(int stateId, Boolean property) {
         setAccepting(stateId, WrapperUtil.booleanValue(property));
     }
 

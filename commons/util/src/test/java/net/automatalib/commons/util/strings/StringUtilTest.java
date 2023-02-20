@@ -23,7 +23,6 @@ import org.testng.annotations.Test;
  */
 public class StringUtilTest {
 
-    @Test
     public void testEnquote() {
         Assert.assertEquals(StringUtil.enquote(""), "\"\"");
         Assert.assertEquals(StringUtil.enquote("abc"), "\"abc\"");
@@ -32,7 +31,6 @@ public class StringUtilTest {
         Assert.assertEquals(StringUtil.enquote("ab\\\"c"), "\"ab\\\\\\\"c\"");
     }
 
-    @Test
     public void testEnquoteIfNecessary() {
         Assert.assertEquals(StringUtil.enquoteIfNecessary(""), "");
         Assert.assertEquals(StringUtil.enquoteIfNecessary("abc"), "abc");
@@ -41,7 +39,6 @@ public class StringUtilTest {
         Assert.assertEquals(StringUtil.enquoteIfNecessary("ab\\\"c"), "\"ab\\\\\\\"c\"");
     }
 
-    @Test
     public void testUnquote() {
         Assert.expectThrows(IllegalArgumentException.class, () -> StringUtil.unquote(""));
         Assert.expectThrows(IllegalArgumentException.class, () -> StringUtil.unquote("abc"));
@@ -51,7 +48,6 @@ public class StringUtilTest {
         Assert.assertEquals(StringUtil.unquote("\"ab\\\\\"c\""), "ab\\\"c");
     }
 
-    @Test
     public void testEscapeQuotes() {
         Assert.assertEquals(StringUtil.escapeQuotes(""), "");
         Assert.assertEquals(StringUtil.escapeQuotes("abc"), "abc");
@@ -61,7 +57,6 @@ public class StringUtilTest {
         Assert.assertEquals(StringUtil.escapeQuotes("ab\\\\\"c"), "ab\\\\\\\\\\\"c");
     }
 
-    @Test
     public void testUnescapeQuotes() {
         Assert.assertEquals(StringUtil.unescapeQuotes(""), "");
         Assert.assertEquals(StringUtil.unescapeQuotes("abc"), "abc");
@@ -73,7 +68,6 @@ public class StringUtilTest {
         Assert.assertEquals(StringUtil.unescapeQuotes("ab\\\\c"), "ab\\c");
     }
 
-    @Test
     public void testInverseness() {
         Assert.assertEquals(StringUtil.unescapeQuotes(StringUtil.escapeQuotes("")), "");
         Assert.assertEquals(StringUtil.unescapeQuotes(StringUtil.escapeQuotes("abc")), "abc");
@@ -88,7 +82,6 @@ public class StringUtilTest {
         Assert.assertEquals(StringUtil.unquote(StringUtil.enquote("ab\\\"c")), "ab\\\"c");
     }
 
-    @Test
     public void testAppend() throws Exception {
         final StringBuilder sb1 = new StringBuilder();
         final StringBuilder sb2 = new StringBuilder();

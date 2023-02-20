@@ -54,13 +54,11 @@ public class SerializationTest {
 
     private XStream xstream;
 
-    @BeforeClass
     public void beforeClass() {
         xstream = new XStream();
         xstream.allowTypesByRegExp(new String[] {"net.automatalib.*"});
     }
 
-    @DataProvider(name = "alphabets")
     public static Object[][] alphabetProvider() {
         return new Object[][] {{Alphabets.integers(1, 3)},
                                {Alphabets.characters('a', 'c')},
@@ -73,7 +71,6 @@ public class SerializationTest {
                                {Alphabets.fromArray('a', 'b', 'c')}};
     }
 
-    @Test(dataProvider = "alphabets")
     public <I> void testCompactDFA(Alphabet<I> alphabet) {
         final CompactDFA<I> automaton = new CompactDFA<>(alphabet);
         MutableAutomatonTest.fillRandomly(automaton,
@@ -83,7 +80,6 @@ public class SerializationTest {
         testSerialization(automaton, alphabet);
     }
 
-    @Test(dataProvider = "alphabets")
     public <I> void testCompactNFA(Alphabet<I> alphabet) {
         final CompactNFA<I> automaton = new CompactNFA<>(alphabet);
         MutableAutomatonTest.fillRandomly(automaton,
@@ -93,7 +89,6 @@ public class SerializationTest {
         testSerialization(automaton, alphabet);
     }
 
-    @Test(dataProvider = "alphabets")
     public <I> void testFastDFA(Alphabet<I> alphabet) {
         final FastDFA<I> automaton = new FastDFA<>(alphabet);
         MutableAutomatonTest.fillRandomly(automaton,
@@ -103,7 +98,6 @@ public class SerializationTest {
         testSerialization(automaton, alphabet);
     }
 
-    @Test(dataProvider = "alphabets")
     public <I> void testFastNFA(Alphabet<I> alphabet) {
         final FastNFA<I> automaton = new FastNFA<>(alphabet);
         MutableAutomatonTest.fillRandomly(automaton,
@@ -113,7 +107,6 @@ public class SerializationTest {
         testSerialization(automaton, alphabet);
     }
 
-    @Test(dataProvider = "alphabets")
     public <I> void testCompactMealy(Alphabet<I> alphabet) {
         final CompactMealy<I, Character> automaton = new CompactMealy<>(alphabet);
         MutableAutomatonTest.fillRandomly(automaton,
@@ -123,7 +116,6 @@ public class SerializationTest {
         testSerialization(automaton, alphabet);
     }
 
-    @Test(dataProvider = "alphabets")
     public <I> void testFastMealy(Alphabet<I> alphabet) {
         final FastMealy<I, Character> automaton = new FastMealy<>(alphabet);
         MutableAutomatonTest.fillRandomly(automaton,
@@ -133,7 +125,6 @@ public class SerializationTest {
         testSerialization(automaton, alphabet);
     }
 
-    @Test(dataProvider = "alphabets")
     public <I> void testFastProbMealy(Alphabet<I> alphabet) {
         final FastProbMealy<I, Character> automaton = new FastProbMealy<>(alphabet);
         MutableAutomatonTest.fillRandomly(automaton,
@@ -143,7 +134,6 @@ public class SerializationTest {
         testSerialization(automaton, alphabet);
     }
 
-    @Test(dataProvider = "alphabets")
     public <I> void testCompactMoore(Alphabet<I> alphabet) {
         final CompactMoore<I, Boolean> automaton = new CompactMoore<>(alphabet);
         MutableAutomatonTest.fillRandomly(automaton,
@@ -153,7 +143,6 @@ public class SerializationTest {
         testSerialization(automaton, alphabet);
     }
 
-    @Test(dataProvider = "alphabets")
     public <I> void testFastMoore(Alphabet<I> alphabet) {
         final FastMoore<I, Boolean> automaton = new FastMoore<>(alphabet);
         MutableAutomatonTest.fillRandomly(automaton,
@@ -163,7 +152,6 @@ public class SerializationTest {
         testSerialization(automaton, alphabet);
     }
 
-    @Test(dataProvider = "alphabets")
     public <I> void testCompactSST(Alphabet<I> alphabet) {
         final CompactSST<I, Character> automaton = new CompactSST<>(alphabet);
         MutableAutomatonTest.fillRandomly(automaton,

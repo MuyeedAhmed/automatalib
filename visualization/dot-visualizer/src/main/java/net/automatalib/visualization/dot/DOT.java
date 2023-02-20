@@ -305,7 +305,7 @@ public final class DOT {
      *
      * @return the DOT component
      */
-    public static @Nullable DOTComponent createDOTComponent(Reader r) {
+    public static DOTComponent createDOTComponent(Reader r) {
         try {
             return new DOTComponent(r);
         } catch (IOException e) {

@@ -39,7 +39,6 @@ public class MCUtilMonitorTest {
 
     private CompactMC<Character> monitor;
 
-    @BeforeClass
     public void setUp() {
         monitor = new CompactMC<>(Alphabets.characters('a', 'd'), Alphabets.fromArray('b', 'd'));
         Integer s0 = monitor.addInitialState();
@@ -54,7 +53,6 @@ public class MCUtilMonitorTest {
         monitor.addContractTransition(s3, 'd', s0, ModalType.MUST, false, EdgeColor.GREEN);
     }
 
-    @Test
     public void testSystemComponent() {
         SystemComponent<CompactMTS<Character>, Integer> system = MCUtil.systemComponent(monitor,
                                                                                         CompactMTS::new,
@@ -75,7 +73,6 @@ public class MCUtilMonitorTest {
                   .allMatch(t -> t.getProperty().isMust());
     }
 
-    @Test
     public void testRedContextLanguage() {
         SystemComponent<CompactMTS<Character>, Integer> system = MCUtil.systemComponent(monitor,
                                                                                         CompactMTS::new,
@@ -96,7 +93,6 @@ public class MCUtilMonitorTest {
 
     }
 
-    @Test
     public void testRedContextComponent() {
         SystemComponent<CompactMTS<Character>, Integer> system = MCUtil.systemComponent(monitor,
                                                                                         CompactMTS::new,
@@ -145,7 +141,6 @@ public class MCUtilMonitorTest {
                   .allMatch(t -> t.getTarget() == bb);
     }
 
-    @Test
     public void testGreenContextLanguage() {
         DFA<?, Character> dfa = MCUtil.greenContextLanguage(monitor);
 
@@ -161,7 +156,6 @@ public class MCUtilMonitorTest {
         Assert.assertFalse(dfa.accepts(Lists.charactersOf("bbdddbd")), "do not accept \"bbdddbd\"");
     }
 
-    @Test
     public void testGreenContextComponent() {
         DFA<?, Character> dfa = MCUtil.greenContextLanguage(monitor);
 

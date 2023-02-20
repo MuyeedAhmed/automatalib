@@ -51,7 +51,7 @@ public class VPManager {
         return bestProvider;
     }
 
-    public @Nullable VisualizationProvider getProviderById(String id) {
+    public VisualizationProvider getProviderById(String id) {
         return providers.get(id);
     }
 

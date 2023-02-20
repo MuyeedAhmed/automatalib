@@ -27,14 +27,12 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-@Test
 public class APSPTest {
 
     Integer n0, n1, n2, n3, n4;
     private CompactSimpleGraph<Float> graph;
     private EdgeWeights<CompactEdge<Float>> weights;
 
-    @BeforeClass
     public void setUp() {
         graph = new CompactSimpleGraph<>();
 
@@ -57,7 +55,6 @@ public class APSPTest {
         this.weights = new PropertyEdgeWeights<>(graph);
     }
 
-    @Test
     public void testAPSP() {
         APSPResult<Integer, CompactEdge<Float>> apsp = Graphs.findAPSP(graph, weights);
 

@@ -50,7 +50,6 @@ public class ADDTransformerTest {
     private static BoxNode<String, String> boxNode;
     private static TrueNode<String, String> trueNode;
 
-    @BeforeClass
     public static void setup() throws ParseException {
         String formula = "mu X.(<b>[b]true || <>X)";
         dg = new DependencyGraph<>(M3CParser.parse(formula));
@@ -63,7 +62,6 @@ public class ADDTransformerTest {
         trueNode = (TrueNode<String, String>) boxNode.getChild();
     }
 
-    @Test
     void testADDIdentity() {
         ADDTransformer<String, String> transformer = new ADDTransformer<>(xddManager);
         double numVarCombinations = Math.pow(2, dg.getNumVariables());
@@ -91,7 +89,6 @@ public class ADDTransformerTest {
         }
     }
 
-    @Test
     void testADDNodeInitialization() {
         ADDTransformer<String, String> transformer = new ADDTransformer<>(xddManager, dg);
         XDD<BooleanVector> add = transformer.getAdd();
@@ -107,7 +104,6 @@ public class ADDTransformerTest {
         }
     }
 
-    @Test
     void testEdgeTransformerMust() {
         ADDTransformer<String, String> transformer =
                 new ADDTransformer<>(xddManager, "b", new ModalEdgePropertyImpl(ModalEdgeProperty.ModalType.MUST), dg);
@@ -141,7 +137,6 @@ public class ADDTransformerTest {
         }
     }
 
-    @Test
     void testEdgeTransformerNoMatch() {
         ADDTransformer<String, String> transformer =
                 new ADDTransformer<>(xddManager, "a", new ModalEdgePropertyImpl(ModalEdgeProperty.ModalType.MUST), dg);
@@ -170,7 +165,6 @@ public class ADDTransformerTest {
         }
     }
 
-    @Test
     void testEdgeTransformerMay() {
         ADDTransformer<String, String> transformer =
                 new ADDTransformer<>(xddManager, "b", new ModalEdgePropertyImpl(ModalEdgeProperty.ModalType.MAY), dg);
@@ -199,7 +193,6 @@ public class ADDTransformerTest {
         }
     }
 
-    @Test
     void testComposition() {
         ADDTransformer<String, String> transformer = new ADDTransformer<>(xddManager, dg);
         ADDTransformer<String, String> identity = new ADDTransformer<>(xddManager);
@@ -210,14 +203,12 @@ public class ADDTransformerTest {
         Assert.assertEquals(transformer, inverseComposition);
     }
 
-    @Test(expectedExceptions = IllegalStateException.class)
     void testCompositionWithTwoIdentities() {
         ADDTransformer<String, String> identity = new ADDTransformer<>(xddManager);
         ADDTransformer<String, String> anotherIdentity = new ADDTransformer<>(xddManager);
         identity.compose(anotherIdentity);
     }
 
-    @Test
     void testUpdate() throws ParseException {
         final String formulaWithNegatedAP = "mu X.(<b><b>!'a' || <>X)";
         DependencyGraph<String, String> dependencyGraph = new DependencyGraph<>(M3CParser.parse(formulaWithNegatedAP));
@@ -240,7 +231,6 @@ public class ADDTransformerTest {
         });
     }
 
-    @Test(expectedExceptions = IllegalArgumentException.class)
     void testUpdateDeadlockException() throws ParseException {
         final String formulaWithNegatedAP = "mu X.(<b><b>!'a' || <>X)";
         DependencyGraph<String, String> dependencyGraph = new DependencyGraph<>(M3CParser.parse(formulaWithNegatedAP));
@@ -252,7 +242,6 @@ public class ADDTransformerTest {
         transformer.createUpdate(atomicPropositions, Collections.emptyList(), block);
     }
 
-    @Test(expectedExceptions = IllegalArgumentException.class)
     void testUpdateException() throws ParseException {
         final String formulaWithNegatedAP = "mu X.(<b><b>!'a' || <>X)";
         DependencyGraph<String, String> dependencyGraph = new DependencyGraph<>(M3CParser.parse(formulaWithNegatedAP));

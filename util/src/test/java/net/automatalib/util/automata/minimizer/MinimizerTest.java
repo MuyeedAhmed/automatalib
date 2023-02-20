@@ -63,7 +63,6 @@ public class MinimizerTest extends AbstractMinimizationTest {
     /**
      * Test-case issue <a href="https://github.com/LearnLib/automatalib/issues/41">#41</a>.
      */
-    @Test
     public void testIssue41() {
         testIssue41Internal(dfa -> Minimizer.minimize(dfa.transitionGraphView()));
         testIssue41Internal(dfa -> new Minimizer<Integer, Property<Character, Void>>().performMinimization(dfa.transitionGraphView()));

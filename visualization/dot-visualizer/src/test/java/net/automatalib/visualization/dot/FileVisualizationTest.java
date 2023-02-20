@@ -36,7 +36,6 @@ import org.testng.annotations.Test;
  */
 public class FileVisualizationTest {
 
-    @BeforeClass
     public void checkDOT() {
         if (!DOT.checkUsable()) {
             // Do not fail on platforms, where DOT is not installed
@@ -44,7 +43,6 @@ public class FileVisualizationTest {
         }
     }
 
-    @Test
     public void testFileVisualization() throws IOException {
         final File dotFile = File.createTempFile("automaton", ".dot");
         final File dotOutputFile = File.createTempFile("automaton-as-png", ".png");

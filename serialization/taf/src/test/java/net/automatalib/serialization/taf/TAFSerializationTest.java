@@ -51,7 +51,6 @@ public class TAFSerializationTest {
     private CompactDFA<String> dfa;
     private CompactMealy<String, String> mealy;
 
-    @BeforeMethod
     public void setUp() {
         final Random random = new Random(0);
 
@@ -62,7 +61,6 @@ public class TAFSerializationTest {
         weedOutTransitions(this.mealy);
     }
 
-    @Test
     public void testDFASerialization() throws Exception {
         final TAFSerializationDFA serializer = TAFSerializationDFA.getInstance();
         final DFA<Integer, String> deserializedModel =
@@ -71,7 +69,6 @@ public class TAFSerializationTest {
         Assert.assertTrue(Automata.testEquivalence(this.dfa, deserializedModel, INPUT_ALPHABET));
     }
 
-    @Test
     public void testMealySerialization() throws Exception {
         final TAFSerializationMealy serializer = TAFSerializationMealy.getInstance();
 
@@ -81,13 +78,11 @@ public class TAFSerializationTest {
         Assert.assertTrue(Automata.testEquivalence(this.mealy, deserializedModel, INPUT_ALPHABET));
     }
 
-    @Test
     public void doNotCloseInputOutputStreamDFATest() throws IOException {
         final TAFSerializationDFA serializer = TAFSerializationDFA.getInstance();
         writeAndReadUnclosableModel(this.dfa, INPUT_ALPHABET, serializer, serializer);
     }
 
-    @Test
     public void doNotCloseInputOutputStreamMealyTest() throws IOException {
         final TAFSerializationMealy serializer = TAFSerializationMealy.getInstance();
         writeAndReadUnclosableModel(this.mealy, INPUT_ALPHABET, serializer, serializer);

@@ -32,25 +32,25 @@ public abstract class AbstractBasicLinkedListEntry<E, T extends AbstractBasicLin
         implements LinkedListEntry<E, T> {
 
     // predecessor and successor
-    private @Nullable T prev, next;
+    private T prev, next;
 
     @Override
-    public @Nullable T getPrev() {
+    public T getPrev() {
         return prev;
     }
 
     @Override
-    public void setPrev(@Nullable T prev) {
+    public void setPrev(T prev) {
         this.prev = prev;
     }
 
     @Override
-    public @Nullable T getNext() {
+    public T getNext() {
         return next;
     }
 
     @Override
-    public void setNext(@Nullable T next) {
+    public void setNext(T next) {
         this.next = next;
     }
 }

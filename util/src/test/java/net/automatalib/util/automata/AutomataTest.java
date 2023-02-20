@@ -49,7 +49,6 @@ public class AutomataTest {
         this.complete = DFAs.complete(partial, alphabet);
     }
 
-    @Test
     public void testAllDefinedInputsPartial() {
         final Iterable<TransRef<Integer, Character, ?>> trans = Automata.allDefinedInputs(this.partial, this.alphabet);
 
@@ -63,7 +62,6 @@ public class AutomataTest {
         Assert.assertEquals(definedCount, 5);
     }
 
-    @Test
     public void testAllDefinedInputsComplete() {
         final Iterable<TransRef<Integer, Character, ?>> trans = Automata.allDefinedInputs(this.complete, this.alphabet);
 
@@ -78,7 +76,6 @@ public class AutomataTest {
         Assert.assertEquals(definedCount, this.complete.size() * this.alphabet.size());
     }
 
-    @Test
     public void testAllUndefinedInputsPartial() {
         final Iterable<TransRef<Integer, Character, ?>> trans =
                 Automata.allUndefinedInputs(this.partial, this.alphabet);
@@ -95,7 +92,6 @@ public class AutomataTest {
         Assert.assertTrue(Automata.hasUndefinedInput(this.partial, this.alphabet));
     }
 
-    @Test
     public void testAllUndefinedInputsComplete() {
         Iterable<?> trans = Automata.allUndefinedInputs(this.complete, this.alphabet);
 

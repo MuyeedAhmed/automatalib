@@ -23,48 +23,48 @@ public final class WrapperUtil {
         // prevent instantiation
     }
 
-    public static boolean booleanValue(@Nullable Boolean b) {
+    public static boolean booleanValue(Boolean b) {
         return booleanValue(b, false);
     }
 
-    public static boolean booleanValue(@Nullable Boolean b, boolean def) {
+    public static boolean booleanValue(Boolean b, boolean def) {
         return (b != null) ? b : def;
     }
 
     @SuppressWarnings("PMD.AvoidUsingShortType") // we don't perform arithmetic operations on Shorts, so usage is fine
-    public static short shortValue(@Nullable Short s, short def) {
+    public static short shortValue(Short s, short def) {
         return (s != null) ? s : def;
     }
 
-    public static int intValue(@Nullable Integer i) {
+    public static int intValue(Integer i) {
         return intValue(i, 0);
     }
 
-    public static int intValue(@Nullable Integer i, int def) {
+    public static int intValue(Integer i, int def) {
         return (i != null) ? i : def;
     }
 
-    public static long longValue(@Nullable Long l) {
+    public static long longValue(Long l) {
         return longValue(l, 0L);
     }
 
-    public static long longValue(@Nullable Long l, long def) {
+    public static long longValue(Long l, long def) {
         return (l != null) ? l : def;
     }
 
-    public static float floatValue(@Nullable Float f) {
+    public static float floatValue(Float f) {
         return floatValue(f, 0.0f);
     }
 
-    public static float floatValue(@Nullable Float f, float def) {
+    public static float floatValue(Float f, float def) {
         return (f != null) ? f : def;
     }
 
-    public static double doubleValue(@Nullable Double d) {
+    public static double doubleValue(Double d) {
         return doubleValue(d, 0.0);
     }
 
-    public static double doubleValue(@Nullable Double d, double def) {
+    public static double doubleValue(Double d, double def) {
         return (d != null) ? d : def;
     }
 

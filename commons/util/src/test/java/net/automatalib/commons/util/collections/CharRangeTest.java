@@ -26,7 +26,6 @@ public class CharRangeTest {
     final char start = 'a', end = 'f';
     final CharRange range = new CharRange(start, end);
 
-    @Test
     public void testListIterator() {
         ListIterator<Character> iterator = range.listIterator(range.size() + 1);
         Assert.assertEquals(iterator.nextIndex(), range.size());

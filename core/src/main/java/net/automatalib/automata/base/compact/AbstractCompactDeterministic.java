@@ -59,7 +59,7 @@ public abstract class AbstractCompactDeterministic<I, T, SP, TP> extends Abstrac
     }
 
     @Override
-    public void setInitialState(@Nullable Integer state) {
+    public void setInitialState(Integer state) {
         setInitialState(toId(state));
     }
 
@@ -79,27 +79,27 @@ public abstract class AbstractCompactDeterministic<I, T, SP, TP> extends Abstrac
     }
 
     @Override
-    public @Nullable Integer getInitialState() {
+    public Integer getInitialState() {
         return toState(initial);
     }
 
     @Override
-    public @Nullable T getTransition(int state, I input) {
+    public T getTransition(int state, I input) {
         return getTransition(state, getSymbolIndex(input));
     }
 
     @Override
-    public @Nullable T getTransition(Integer state, I input) {
+    public T getTransition(Integer state, I input) {
         return getTransition(state.intValue(), input);
     }
 
     @Override
-    public void setTransition(Integer state, I input, @Nullable T transition) {
+    public void setTransition(Integer state, I input, T transition) {
         setTransition(state.intValue(), getSymbolIndex(input), transition);
     }
 
     @Override
-    public void setTransition(int state, I input, @Nullable T transition) {
+    public void setTransition(int state, I input, T transition) {
         setTransition(state, getSymbolIndex(input), transition);
     }
 
@@ -119,7 +119,7 @@ public abstract class AbstractCompactDeterministic<I, T, SP, TP> extends Abstrac
     }
 
     @Override
-    public int addIntInitialState(@Nullable SP property) {
+    public int addIntInitialState(SP property) {
         setInitial(addIntState(property), true);
         return this.initial;
     }

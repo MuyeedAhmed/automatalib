@@ -38,13 +38,13 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public abstract class AbstractRecursiveADSSymbolNode<S, I, O, N extends RecursiveADSNode<S, I, O, N>>
         implements RecursiveADSNode<S, I, O, N> {
 
-    private @Nullable N parent;
+    private N parent;
 
     private I symbol;
 
     private final Map<O, N> successors;
 
-    public AbstractRecursiveADSSymbolNode(@Nullable N parent, I symbol) {
+    public AbstractRecursiveADSSymbolNode(N parent, I symbol) {
         this.successors = new HashMap<>();
         this.parent = parent;
         this.symbol = symbol;
@@ -61,7 +61,7 @@ public abstract class AbstractRecursiveADSSymbolNode<S, I, O, N extends Recursiv
     }
 
     @Override
-    public @Nullable N getParent() {
+    public N getParent() {
         return this.parent;
     }
 
@@ -81,7 +81,7 @@ public abstract class AbstractRecursiveADSSymbolNode<S, I, O, N extends Recursiv
     }
 
     @Override
-    public @Nullable S getHypothesisState() {
+    public S getHypothesisState() {
         return null;
     }
 

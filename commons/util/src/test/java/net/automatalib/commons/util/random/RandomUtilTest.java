@@ -39,14 +39,12 @@ public class RandomUtilTest {
     private List<Integer> list;
     private Integer[] array;
 
-    @BeforeClass
     public void setUp() {
         this.util = new RandomUtil(new Random(42));
         this.list = CollectionsUtil.intRange(0, HIGH, 1);
         this.array = IntStream.range(0, HIGH).boxed().toArray(Integer[]::new);
     }
 
-    @Test
     public void testChooseArray() {
         Assert.assertNull(util.choose(new Object[0]));
         Assert.assertEquals(util.choose(new Object[] {1}), 1);
@@ -56,7 +54,6 @@ public class RandomUtilTest {
         Assert.assertTrue(0 <= chosenElement && chosenElement < HIGH);
     }
 
-    @Test
     public void testChooseList() {
         Assert.assertNull(util.choose(Collections.emptyList()));
         Assert.assertEquals(util.choose(Collections.singletonList(1)), (Integer) 1);
@@ -66,7 +63,6 @@ public class RandomUtilTest {
         Assert.assertTrue(0 <= chosenElement && chosenElement < HIGH);
     }
 
-    @Test
     public void testDistinctIntegers() {
         Assert.assertEquals(util.distinctIntegers(0, HIGH).length, 0);
 
@@ -95,7 +91,6 @@ public class RandomUtilTest {
         Assert.assertTrue(Arrays.asList(array).containsAll(Arrays.asList(box(result))));
     }
 
-    @Test
     public void testSampleUnique() {
         Assert.assertEquals(util.sampleUnique(Collections.emptyList(), HIGH), Collections.emptyList());
 
@@ -111,7 +106,6 @@ public class RandomUtilTest {
         Assert.assertTrue(list.containsAll(result));
     }
 
-    @Test
     public void testSampleList() {
         Assert.assertEquals(util.sample(Collections.emptyList(), HIGH), Collections.emptyList());
 

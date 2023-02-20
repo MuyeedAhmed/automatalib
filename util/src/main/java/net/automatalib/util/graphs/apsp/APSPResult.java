@@ -55,5 +55,5 @@ public interface APSPResult<N, E> {
      *
      * @return the shortest path from {@code src} to {@code tgt}, or {@code null} if there exists no such path.
      */
-    @Nullable List<E> getShortestPath(N src, N tgt);
+    List<E> getShortestPath(N src, N tgt);
 }

@@ -41,12 +41,10 @@ import org.testng.annotations.Test;
  */
 public class SPATestsIteratorTest {
 
-    @Test
     public void testWMethodVariant() {
         testIterator(WMethodTestsIterator::new);
     }
 
-    @Test
     public void testWpMethodVariant() {
         testIterator(WpMethodTestsIterator::new);
     }

@@ -23,7 +23,7 @@ import net.automatalib.automata.transducers.MutableMooreMachine;
 @GenerateEmbeddedDSL(name = "MooreBuilder",
                      enableAllMethods = false,
                      syntax = "(withOutput|<transition>)* withInitial (withOutput|<transition>)* create",
-                     where = {@SubExpr(name = "transition", definedAs = "from (on (to|loop))+")})
+                     where = {})
 public class MooreBuilderImpl<S, I, T, O, A extends MutableMooreMachine<S, ? super I, T, ? super O>>
         extends AutomatonBuilderImpl<S, I, T, O, Void, A> {
 

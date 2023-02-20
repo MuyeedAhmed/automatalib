@@ -56,7 +56,7 @@ public class ProductOneSEVPA<L1, L2, I> extends AbstractSEVPA<Pair<L1, L2>, I> i
     }
 
     @Override
-    public @Nullable Pair<L1, L2> getInternalSuccessor(final Pair<L1, L2> loc, final I intSym) {
+    public Pair<L1, L2> getInternalSuccessor(final Pair<L1, L2> loc, final I intSym) {
         final L1 succ1 = sevpa1.getInternalSuccessor(loc.getFirst(), intSym);
         if (succ1 == null) {
             return null;
@@ -94,7 +94,7 @@ public class ProductOneSEVPA<L1, L2, I> extends AbstractSEVPA<Pair<L1, L2>, I> i
     }
 
     @Override
-    public @Nullable Pair<L1, L2> getReturnSuccessor(final Pair<L1, L2> loc, final I retSym, final int stackSym) {
+    public Pair<L1, L2> getReturnSuccessor(final Pair<L1, L2> loc, final I retSym, final int stackSym) {
         final int stackSym1 = stackSym / sevpa2.getNumStackSymbols();
         final L1 succ1 = sevpa1.getReturnSuccessor(loc.getFirst(), retSym, stackSym1);
         if (succ1 == null) {

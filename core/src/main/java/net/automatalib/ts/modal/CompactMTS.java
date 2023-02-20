@@ -44,13 +44,13 @@ public class CompactMTS<I> extends AbstractCompactMTS<I, MutableModalEdgePropert
 
     public static final class Creator<I> implements AutomatonCreator<CompactMTS<I>, I> {
 
-        private final @Nullable Alphabet<I> defaultInputAlphabet;
+        private final Alphabet<I> defaultInputAlphabet;
 
         public Creator() {
             this(null);
         }
 
-        public Creator(@Nullable Alphabet<I> defaultInputAlphabet) {
+        public Creator(Alphabet<I> defaultInputAlphabet) {
             this.defaultInputAlphabet = defaultInputAlphabet;
         }
 

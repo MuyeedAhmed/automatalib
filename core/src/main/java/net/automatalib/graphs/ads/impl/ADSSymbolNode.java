@@ -33,7 +33,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public class ADSSymbolNode<S, I, O> extends AbstractRecursiveADSSymbolNode<S, I, O, ADSNode<S, I, O>>
         implements ADSNode<S, I, O> {
 
-    public ADSSymbolNode(@Nullable ADSNode<S, I, O> parent, I symbol) {
+    public ADSSymbolNode(ADSNode<S, I, O> parent, I symbol) {
         super(parent, symbol);
     }
 }

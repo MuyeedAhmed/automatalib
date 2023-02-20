@@ -37,12 +37,12 @@ public class DeterministicEquivalenceTest<I> {
         this.reference = reference;
     }
 
-    public @Nullable Word<I> findSeparatingWord(UniversalDeterministicAutomaton<?, I, ?, ?, ?> other,
+    public Word<I> findSeparatingWord(UniversalDeterministicAutomaton<?, I, ?, ?, ?> other,
                                                 Collection<? extends I> inputs) {
         return findSeparatingWord(reference, other, inputs);
     }
 
-    public static <I, S, T, SP, TP, S2, T2, SP2, TP2> @Nullable Word<I> findSeparatingWord(
+    public static <I, S, T, SP, TP, S2, T2, SP2, TP2> Word<I> findSeparatingWord(
             UniversalDeterministicAutomaton<S, I, T, SP, TP> reference,
             UniversalDeterministicAutomaton<S2, I, T2, SP2, TP2> other,
             Collection<? extends I> inputs) {
@@ -160,7 +160,7 @@ public class DeterministicEquivalenceTest<I> {
         return sep.toWord();
     }
 
-    public static <I, S, T, SP, TP, S2, T2, SP2, TP2> @Nullable Word<I> findSeparatingWordLarge(
+    public static <I, S, T, SP, TP, S2, T2, SP2, TP2> Word<I> findSeparatingWordLarge(
             UniversalDeterministicAutomaton<S, I, T, SP, TP> reference,
             UniversalDeterministicAutomaton<S2, I, T2, SP2, TP2> other,
             Collection<? extends I> inputs) {

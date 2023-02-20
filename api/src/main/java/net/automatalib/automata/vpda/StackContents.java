@@ -25,13 +25,13 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public class StackContents {
 
     private final int topElem;
-    private final @Nullable StackContents rest;
+    private final StackContents rest;
 
     public StackContents(final int topElem) {
         this(topElem, null);
     }
 
-    public StackContents(final int topElem, final @Nullable StackContents rest) {
+    public StackContents(final int topElem, final StackContents rest) {
         this.topElem = topElem;
         this.rest = rest;
     }
@@ -40,7 +40,7 @@ public class StackContents {
         return topElem;
     }
 
-    public @Nullable StackContents pop() {
+    public StackContents pop() {
         return rest;
     }
 
@@ -48,7 +48,7 @@ public class StackContents {
         return new StackContents(elem, this);
     }
 
-    public static StackContents push(final int elem, final @Nullable StackContents rest) {
+    public static StackContents push(final int elem, final StackContents rest) {
         return new StackContents(elem, rest);
     }
 }

@@ -23,7 +23,7 @@ import net.automatalib.automata.fsa.MutableDFA;
 @GenerateEmbeddedDSL(name = "DFABuilder",
                      enableAllMethods = false,
                      syntax = "<transOrAcc>* withInitial <transOrAcc>* create",
-                     where = {@SubExpr(name = "transOrAcc", definedAs = "(from (on (loop|to))+)+|withAccepting")})
+                     where = {})
 class DFABuilderImpl<S, I, A extends MutableDFA<S, ? super I>> extends FSABuilderImpl<S, I, A> {
 
     DFABuilderImpl(A automaton) {

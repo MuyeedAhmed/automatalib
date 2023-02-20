@@ -48,6 +48,6 @@ public interface AdaptiveMealyBuilder<I, O> extends MealyBuilder<I, O> {
      *
      * @return the {@code Word} representing the oldest stored input, {@code null} if the cache is empty.
      */
-    @Nullable Word<I> getOldestInput();
+    Word<I> getOldestInput();
 
 }

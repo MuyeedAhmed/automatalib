@@ -42,7 +42,6 @@ public abstract class AbstractAlphabetTest<I, M extends Alphabet<I>> {
     private List<I> nonAlphabetSymbols;
     private M alphabet;
 
-    @BeforeClass
     public void setUp() {
         this.alphabetSymbols = getAlphabetSymbols();
         this.nonAlphabetSymbols = getNonAlphabetSymbols();
@@ -55,12 +54,10 @@ public abstract class AbstractAlphabetTest<I, M extends Alphabet<I>> {
 
     protected abstract M getAlphabet();
 
-    @Test
     public void testSize() {
         Assert.assertEquals(alphabetSymbols.size(), alphabet.size());
     }
 
-    @Test
     public void testIndices() {
         for (int i = 0; i < alphabetSymbols.size(); i++) {
             final I sym = alphabetSymbols.get(i);
@@ -70,13 +67,11 @@ public abstract class AbstractAlphabetTest<I, M extends Alphabet<I>> {
         }
     }
 
-    @Test
     public void testOutOfBoundsIndex() {
         Assert.assertThrows(() -> this.alphabet.getSymbol(-1));
         Assert.assertThrows(() -> this.alphabet.getSymbol(alphabetSymbols.size() + 1));
     }
 
-    @Test
     public void testContains() {
         for (final I sym : alphabetSymbols) {
             Assert.assertTrue(this.alphabet.containsSymbol(sym));
@@ -87,14 +82,12 @@ public abstract class AbstractAlphabetTest<I, M extends Alphabet<I>> {
         }
     }
 
-    @Test
     public void testNonContainedSymbols() {
         for (final I i : this.nonAlphabetSymbols) {
             Assert.assertThrows(() -> this.alphabet.getSymbolIndex(i));
         }
     }
 
-    @Test
     public void testTranslate() {
         final Alphabet<Integer> source = Alphabets.integers(0, alphabetSymbols.size() - 1);
         final Mapping<Integer, I> mapping = this.alphabet.translateFrom(source);
@@ -104,7 +97,6 @@ public abstract class AbstractAlphabetTest<I, M extends Alphabet<I>> {
         }
     }
 
-    @Test
     public void testWriteToArray() {
         final int numOfSyms = alphabetSymbols.size();
         final Object[] target = new Object[numOfSyms];
@@ -126,7 +118,6 @@ public abstract class AbstractAlphabetTest<I, M extends Alphabet<I>> {
         }
     }
 
-    @Test
     public void testImmutableIterator() {
         final Iterator<I> iter = alphabet.iterator();
         Assert.assertTrue(iter.hasNext());

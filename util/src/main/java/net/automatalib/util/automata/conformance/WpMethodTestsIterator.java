@@ -155,7 +155,7 @@ public class WpMethodTestsIterator<I> extends ForwardingIterator<Word<I>> {
         private final UniversalDeterministicAutomaton<S, I, ?, ?, ?> automaton;
         private final Collection<? extends I> inputs;
 
-        private final MutableMapping<S, @Nullable List<Word<I>>> localSuffixSets;
+        private final MutableMapping<S, List<Word<I>>> localSuffixSets;
         private final Iterable<Word<I>> prefixes;
 
         private final WordBuilder<I> wordBuilder = new WordBuilder<>();
@@ -185,7 +185,7 @@ public class WpMethodTestsIterator<I> extends ForwardingIterator<Word<I>> {
             @SuppressWarnings("nullness") // input sequences have been computed on defined transitions
             final @NonNull S state = automaton.getSuccessor(tmp, middle);
 
-            @Nullable List<Word<I>> localSuffixes = localSuffixSets.get(state);
+            List<Word<I>> localSuffixes = localSuffixSets.get(state);
 
             if (localSuffixes == null) {
                 localSuffixes = Automata.stateCharacterizingSet(automaton, inputs, state);

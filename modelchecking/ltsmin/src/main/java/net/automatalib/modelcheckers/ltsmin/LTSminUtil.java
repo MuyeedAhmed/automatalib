@@ -67,7 +67,7 @@ public final class LTSminUtil {
      */
     private static boolean verbose;
 
-    private static @Nullable LTSminVersion detectedVersion;
+    private static LTSminVersion detectedVersion;
 
     static {
         AutomataLibSettings settings = AutomataLibSettings.getInstance();
@@ -92,7 +92,6 @@ public final class LTSminUtil {
      *
      * @return {@code true} if an LTSmin installation was detected, {@code false} otherwise.
      */
-    @EnsuresNonNullIf(expression = "detectedVersion", result = true)
     public static boolean isInstalled() {
         return detectedVersion != null;
     }
@@ -104,7 +103,7 @@ public final class LTSminUtil {
      *
      * @see #isInstalled()
      */
-    public static @Nullable LTSminVersion getVersion() {
+    public static LTSminVersion getVersion() {
         return detectedVersion;
     }
 
@@ -164,7 +163,7 @@ public final class LTSminUtil {
         }
     }
 
-    private static @Nullable LTSminVersion detectLTSmin(String bin) {
+    private static LTSminVersion detectLTSmin(String bin) {
 
         // the command lines for the ProcessBuilder
         final String[] commandLine = {bin, // add the binary

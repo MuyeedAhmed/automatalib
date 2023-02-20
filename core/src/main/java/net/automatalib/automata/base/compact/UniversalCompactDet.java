@@ -36,8 +36,8 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public class UniversalCompactDet<I, SP, TP> extends AbstractCompactDeterministic<I, CompactTransition<TP>, SP, TP> {
 
     private int[] transitions;
-    private @Nullable Object[] stateProperties;
-    private @Nullable Object[] transitionProperties;
+    private Object[] stateProperties;
+    private Object[] transitionProperties;
 
     public UniversalCompactDet(Alphabet<I> alphabet) {
         this(alphabet, DEFAULT_INIT_CAPACITY, DEFAULT_RESIZE_FACTOR);
@@ -62,7 +62,7 @@ public class UniversalCompactDet<I, SP, TP> extends AbstractCompactDeterministic
     }
 
     @Override
-    public @Nullable CompactTransition<TP> getTransition(int state, int input) {
+    public CompactTransition<TP> getTransition(int state, int input) {
         final int idx = toMemoryIndex(state, input);
         final int succ = transitions[idx];
 
@@ -82,7 +82,7 @@ public class UniversalCompactDet<I, SP, TP> extends AbstractCompactDeterministic
     }
 
     @Override
-    public void setStateProperty(int state, @Nullable SP property) {
+    public void setStateProperty(int state, SP property) {
         this.stateProperties[state] = property;
     }
 
@@ -110,7 +110,7 @@ public class UniversalCompactDet<I, SP, TP> extends AbstractCompactDeterministic
     }
 
     @Override
-    public void setTransition(int state, int input, @Nullable CompactTransition<TP> transition) {
+    public void setTransition(int state, int input, CompactTransition<TP> transition) {
         if (transition == null) {
             setTransition(state, input, AbstractCompact.INVALID_STATE, null);
         } else {
@@ -120,7 +120,7 @@ public class UniversalCompactDet<I, SP, TP> extends AbstractCompactDeterministic
     }
 
     @Override
-    public void setTransition(int state, int input, int successor, @Nullable TP property) {
+    public void setTransition(int state, int input, int successor, TP property) {
         final int idx = toMemoryIndex(state, input);
         transitions[idx] = successor;
         transitionProperties[idx] = property;

@@ -33,14 +33,12 @@ public class ReflectUtilTest {
     private Method methodToFind;
     private String methodName;
 
-    @BeforeMethod
     public void setUp() throws NoSuchMethodException {
         methodToFind = TestClass.class.getDeclaredMethod("method1", SIGNATURE_3);
         methodName = methodToFind.getName();
 
     }
 
-    @Test
     public void testConstructors() {
 
         @SuppressWarnings("unchecked")
@@ -57,7 +55,6 @@ public class ReflectUtilTest {
         Assert.assertNull(constructor4);
     }
 
-    @Test
     public void testMethod() {
 
         final Method method1 = ReflectUtil.findMethod(TestClass.class, methodName, SIGNATURE_1);
@@ -73,7 +70,6 @@ public class ReflectUtilTest {
         Assert.assertNull(method5);
     }
 
-    @Test
     public void testMethodByArgs() {
 
         final Method method1 =
@@ -90,7 +86,6 @@ public class ReflectUtilTest {
         Assert.assertNull(method5);
     }
 
-    @Test
     public void testMethodWithReturnType() {
 
         final Method method1 = ReflectUtil.findMethodRT(TestClass.class, methodName, null, SIGNATURE_1);

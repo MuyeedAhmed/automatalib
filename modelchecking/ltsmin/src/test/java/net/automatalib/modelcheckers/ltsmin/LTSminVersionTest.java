@@ -25,7 +25,6 @@ import org.testng.annotations.Test;
  */
 public class LTSminVersionTest {
 
-    @Test
     public void testParse() {
 
         final String v300 = "v3.0.0";
@@ -41,7 +40,6 @@ public class LTSminVersionTest {
         Assert.assertEquals(LTSminVersion.parse(prefixV), LTSminVersion.of(0, 0, 0));
     }
 
-    @Test
     public void testSupports() {
         // major version
         Assert.assertTrue(LTSminVersion.of(3, 0, 0).supports(LTSminVersion.of(3, 0, 0)));

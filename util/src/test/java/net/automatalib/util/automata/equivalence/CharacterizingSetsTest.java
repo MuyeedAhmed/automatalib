@@ -51,14 +51,12 @@ public class CharacterizingSetsTest {
     private static final CompactMoore<Integer, Character> MOORE =
             RandomAutomata.randomMoore(RANDOM, AUTOMATON_SIZE, INPUT_ALPHABET, OUTPUT_ALPHABET);
 
-    @Test
     public void characterizingDFATest() {
         final List<Word<Integer>> characterizingSet = Automata.characterizingSet(DFA, INPUT_ALPHABET);
 
         checkCharacterizingSet(DFA, characterizingSet);
     }
 
-    @Test
     public void characterizingDFASingleTest() {
         final Integer state = DFA.getState(AUTOMATON_SIZE / 2);
         final List<Word<Integer>> characterizingSet = new ArrayList<>();
@@ -67,14 +65,12 @@ public class CharacterizingSetsTest {
         checkCharacterizingSet(DFA, state, characterizingSet);
     }
 
-    @Test
     public void characterizingMealyTest() {
         final List<Word<Integer>> characterizingSet = Automata.characterizingSet(MEALY, INPUT_ALPHABET);
 
         checkCharacterizingSet(MEALY, characterizingSet);
     }
 
-    @Test
     public void characterizingMealySingleTest() {
         final Integer state = MEALY.getState(AUTOMATON_SIZE / 2);
         final List<Word<Integer>> characterizingSet = new ArrayList<>();
@@ -83,14 +79,12 @@ public class CharacterizingSetsTest {
         checkCharacterizingSet(MEALY, state, characterizingSet);
     }
 
-    @Test
     public void characterizingMooreTest() {
         final List<Word<Integer>> characterizingSet = Automata.characterizingSet(MOORE, INPUT_ALPHABET);
 
         checkCharacterizingSet(MOORE, characterizingSet);
     }
 
-    @Test
     public void characterizingMooreSingleTest() {
         final Integer state = MOORE.getState(AUTOMATON_SIZE / 2);
         final List<Word<Integer>> characterizingSet = new ArrayList<>();
@@ -102,7 +96,6 @@ public class CharacterizingSetsTest {
     /*
      * See https://github.com/LearnLib/automatalib/issues/36
      */
-    @Test
     public void issue36Test() {
         final Alphabet<String> inputs = Alphabets.fromArray("a", "b");
 
@@ -131,7 +124,6 @@ public class CharacterizingSetsTest {
     /**
      * A test based on the "person" procedure of the pedigree system of <a href="https://github.com/LearnLib/learnlib-spa">https://github.com/LearnLib/learnlib-spa</a>.
      */
-    @Test
     public void pedigreeTest() {
         final Alphabet<Character> inputs = Alphabets.fromArray('P', 'M', 'F', 'n', 'd');
 

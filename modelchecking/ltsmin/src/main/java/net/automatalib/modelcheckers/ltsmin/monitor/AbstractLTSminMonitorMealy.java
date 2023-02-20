@@ -119,7 +119,7 @@ public abstract class AbstractLTSminMonitorMealy<I, O>
      * @see AbstractLTSmin#findCounterExample(Object, Collection, Object)
      */
     @Override
-    public @Nullable MealyMachine<?, I, ?, O> findCounterExample(MealyMachine<?, I, ?, O> automaton,
+    public MealyMachine<?, I, ?, O> findCounterExample(MealyMachine<?, I, ?, O> automaton,
                                                        Collection<? extends I> inputs,
                                                        String property) {
         final File fsm = findCounterExampleFSM(automaton, inputs, property);
@@ -148,7 +148,7 @@ public abstract class AbstractLTSminMonitorMealy<I, O>
                 }
 
                 @Override
-                public @Nullable Integer getInitialState() {
+                public Integer getInitialState() {
                     return result.getInitialState();
                 }
 
@@ -158,7 +158,7 @@ public abstract class AbstractLTSminMonitorMealy<I, O>
                 }
 
                 @Override
-                public @Nullable CompactTransition<O> getTransition(Integer state, I input) {
+                public CompactTransition<O> getTransition(Integer state, I input) {
                     return result.getTransition(state, input);
                 }
 

@@ -41,7 +41,7 @@ public interface UniversalDTS<S, I, T, SP, TP>
      *
      * @return the property of the outgoing transition, or {@code null}
      */
-    default @Nullable TP getTransitionProperty(S state, I input) {
+    default TP getTransitionProperty(S state, I input) {
         T trans = getTransition(state, input);
         if (trans != null) {
             return getTransitionProperty(trans);

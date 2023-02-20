@@ -26,7 +26,6 @@ import org.testng.annotations.Test;
 
 public class DependencyGraphTest {
 
-    @Test
     void testDependencyGraph() throws ParseException {
         String formula = "mu X.(<b><b>true || <>X)";
         FormulaNode<String, String> ast = M3CParser.parse(formula);

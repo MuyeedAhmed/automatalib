@@ -61,14 +61,14 @@ public abstract class AbstractLTSminLTL<I, A, L extends Lasso<I, ?>> extends Abs
         unfolder = new AbstractUnfoldingModelChecker<I, A, String, L>(minimumUnfolds, multiplier) {
 
             @Override
-            public @Nullable L findCounterExample(A automaton, Collection<? extends I> inputs, String property) {
+            public L findCounterExample(A automaton, Collection<? extends I> inputs, String property) {
                 return null;
             }
         };
     }
 
     @Override
-    protected LTSminVersion getMinimumRequiredVersion(@UnknownInitialization(AbstractLTSmin.class) AbstractLTSminLTL<I, A, L> this) {
+    protected LTSminVersion getMinimumRequiredVersion(AbstractLTSminLTL<I, A, L> this) {
         return REQUIRED_VERSION;
     }
 

@@ -85,13 +85,13 @@ public class IncrementalDFATreeBuilder<I> extends AbstractIncrementalDFABuilder<
     }
 
     @Override
-    public @Nullable Word<I> findSeparatingWord(DFA<?, I> target,
+    public Word<I> findSeparatingWord(DFA<?, I> target,
                                                 Collection<? extends I> inputs,
                                                 boolean omitUndefined) {
         return doFindSeparatingWord(target, inputs, omitUndefined);
     }
 
-    protected <S> @Nullable Word<I> doFindSeparatingWord(final DFA<S, I> target,
+    protected <S> Word<I> doFindSeparatingWord(final DFA<S, I> target,
                                                          Collection<? extends I> inputs,
                                                          boolean omitUndefined) {
         S automatonInit = target.getInitialState();
@@ -103,7 +103,7 @@ public class IncrementalDFATreeBuilder<I> extends AbstractIncrementalDFABuilder<
         @SuppressWarnings("nullness")
         Record<@Nullable S, I> init = new Record<>(automatonInit, root, null, inputs.iterator());
 
-        Deque<Record<@Nullable S, I>> dfsStack = new ArrayDeque<>();
+        Deque<Record<S, I>> dfsStack = new ArrayDeque<>();
         dfsStack.push(init);
 
         while (!dfsStack.isEmpty()) {
@@ -121,8 +121,8 @@ public class IncrementalDFATreeBuilder<I> extends AbstractIncrementalDFABuilder<
                 continue;
             }
 
-            @Nullable S state = rec.automatonState;
-            @Nullable S automatonSucc = state == null ? null : target.getTransition(state, input);
+            S state = rec.automatonState;
+            S automatonSucc = state == null ? null : target.getTransition(state, input);
             if (automatonSucc == null && omitUndefined) {
                 continue;
             }
@@ -278,7 +278,7 @@ public class IncrementalDFATreeBuilder<I> extends AbstractIncrementalDFABuilder<
         }
 
         @Override
-        public @Nullable Node<I> getTransition(Node<I> state, I input) {
+        public Node<I> getTransition(Node<I> state, I input) {
             int inputIdx = inputAlphabet.getSymbolIndex(input);
             return state.getChild(inputIdx);
         }

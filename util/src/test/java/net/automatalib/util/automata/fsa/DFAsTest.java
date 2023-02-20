@@ -23,7 +23,6 @@ import net.automatalib.words.impl.Alphabets;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Test
 public class DFAsTest {
 
     private static final boolean[] VECTOR_1 = {true, true, false, false};
@@ -67,7 +66,6 @@ public class DFAsTest {
         return result;
     }
 
-    @Test
     public void testAnd() {
         DFA<?, Integer> expected = forVector(AND_RESULT);
         DFA<?, Integer> actual = DFAs.and(testDfa1, testDfa2, testAlphabet);
@@ -75,7 +73,6 @@ public class DFAsTest {
         Assert.assertTrue(Automata.testEquivalence(actual, expected, testAlphabet));
     }
 
-    @Test
     public void testOr() {
         DFA<?, Integer> expected = forVector(OR_RESULT);
         DFA<?, Integer> actual = DFAs.or(testDfa1, testDfa2, testAlphabet);
@@ -83,7 +80,6 @@ public class DFAsTest {
         Assert.assertTrue(Automata.testEquivalence(actual, expected, testAlphabet));
     }
 
-    @Test
     public void testXor() {
         DFA<?, Integer> expected = forVector(XOR_RESULT);
         DFA<?, Integer> actual = DFAs.xor(testDfa1, testDfa2, testAlphabet);
@@ -91,7 +87,6 @@ public class DFAsTest {
         Assert.assertTrue(Automata.testEquivalence(actual, expected, testAlphabet));
     }
 
-    @Test
     public void testEquiv() {
         DFA<?, Integer> expected = forVector(EQUIV_RESULT);
         DFA<?, Integer> actual = DFAs.equiv(testDfa1, testDfa2, testAlphabet);
@@ -99,7 +94,6 @@ public class DFAsTest {
         Assert.assertTrue(Automata.testEquivalence(actual, expected, testAlphabet));
     }
 
-    @Test
     public void testImpl() {
         DFA<?, Integer> expected = forVector(IMPL_RESULT);
         DFA<?, Integer> actual = DFAs.impl(testDfa1, testDfa2, testAlphabet);
@@ -107,7 +101,6 @@ public class DFAsTest {
         Assert.assertTrue(Automata.testEquivalence(actual, expected, testAlphabet));
     }
 
-    @Test
     public void testComplement() {
         DFA<?, Integer> expected = forVector(VECTOR_1_NEG);
         DFA<?, Integer> actual = DFAs.complement(testDfa1, testAlphabet);
@@ -115,7 +108,6 @@ public class DFAsTest {
         Assert.assertTrue(Automata.testEquivalence(actual, expected, testAlphabet));
     }
 
-    @Test
     public void testIsPrefixClosed() {
         Assert.assertFalse(DFAs.isPrefixClosed(forVector(VECTOR_1), testAlphabet));
 
@@ -128,7 +120,6 @@ public class DFAsTest {
         Assert.assertTrue(DFAs.isPrefixClosed(forVector(false, false, false, false), testAlphabet));
     }
 
-    @Test
     public void testAcceptsEmptyLanguage() {
         Assert.assertTrue(DFAs.acceptsEmptyLanguage(forVector(false)));
 

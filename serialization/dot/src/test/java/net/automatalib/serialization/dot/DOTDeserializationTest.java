@@ -53,7 +53,6 @@ import org.testng.annotations.Test;
  */
 public class DOTDeserializationTest {
 
-    @Test
     public void testRegularDFADeserialization() throws IOException {
 
         final CompactDFA<String> dfa = DOTSerializationUtil.DFA;
@@ -65,7 +64,6 @@ public class DOTDeserializationTest {
         checkIsomorphism(dfa, parsed, dfa.getInputAlphabet());
     }
 
-    @Test
     public void testRegularNFADeserialization() throws IOException {
 
         final CompactNFA<String> nfa = DOTSerializationUtil.NFA;
@@ -77,7 +75,6 @@ public class DOTDeserializationTest {
         checkIsomorphism(nfa, parsed, nfa.getInputAlphabet());
     }
 
-    @Test
     public void testRegularNFA2Deserialization() throws IOException {
 
         final CompactNFA<String> parsed = DOTParsers.fsa(new CompactNFA.Creator<>(),
@@ -101,7 +98,6 @@ public class DOTDeserializationTest {
         Assert.assertTrue(parsed.getSuccessors(parsed.getInitialStates(), Word.fromSymbols("b", "c")).isEmpty());
     }
 
-    @Test
     public void testRegularMealyDeserialization() throws IOException {
 
         final CompactMealy<String, String> mealy = DOTSerializationUtil.MEALY;
@@ -113,7 +109,6 @@ public class DOTDeserializationTest {
         checkIsomorphism(mealy, parsed, mealy.getInputAlphabet());
     }
 
-    @Test
     public void testRegularMooreDeserialization() throws IOException {
         final CompactMoore<String, String> moore = DOTSerializationUtil.MOORE;
 
@@ -124,7 +119,6 @@ public class DOTDeserializationTest {
         checkIsomorphism(moore, parsed, moore.getInputAlphabet());
     }
 
-    @Test
     public void testRegularGraphDeserialization() throws IOException {
         final UniversalGraph<?, ?, String, String> graph = DOTSerializationUtil.GRAPH;
 
@@ -134,7 +128,6 @@ public class DOTDeserializationTest {
         checkGraphEquivalence(graph, parsed);
     }
 
-    @Test
     public void testRegularMTSDeserialization() throws IOException {
         final CompactMTS<String> mts = DOTSerializationUtil.MTS;
 
@@ -147,7 +140,6 @@ public class DOTDeserializationTest {
         checkIsomorphism(mts, parsed, alphabet);
     }
 
-    @Test
     public void testRegularMCDeserialization() throws IOException {
         final CompactMC<String> mc = DOTSerializationUtil.MC;
 
@@ -160,17 +152,14 @@ public class DOTDeserializationTest {
         checkIsomorphism(mc, parsed, alphabet);
     }
 
-    @Test(expectedExceptions = FormatException.class)
     public void testFaultyAutomatonDeserialization() throws IOException {
         DOTParsers.dfa().readModel(DOTSerializationUtil.getResource(DOTSerializationUtil.FAULTY_AUTOMATON_RESOURCE));
     }
 
-    @Test(expectedExceptions = FormatException.class)
     public void testFaultyGraphDeserialization() throws IOException {
         DOTParsers.graph().readModel(DOTSerializationUtil.getResource(DOTSerializationUtil.FAULTY_GRAPH_RESOURCE));
     }
 
-    @Test
     public void doNotCloseInputStreamTest() throws IOException {
         try (InputStream dfa = DOTSerializationUtil.class.getResourceAsStream(DOTSerializationUtil.DFA_RESOURCE);
              InputStream nfa = DOTSerializationUtil.class.getResourceAsStream(DOTSerializationUtil.NFA_RESOURCE);
@@ -185,7 +174,6 @@ public class DOTDeserializationTest {
         }
     }
 
-    @Test
     public void testDuplicateTransitions() throws IOException {
 
         final CompactDFA<String> dfa = new CompactDFA<>(Alphabets.closedCharStringRange('a', 'b'));

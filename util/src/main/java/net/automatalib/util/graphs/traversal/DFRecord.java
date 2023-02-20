@@ -20,7 +20,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 class DFRecord<N, E, D> extends SimpleDFRecord<N, E> {
 
     public final D data;
-    private @Nullable LastEdge<E, N, D> lastEdge;
+    private LastEdge<E, N, D> lastEdge;
 
     DFRecord(N node, D data) {
         super(node);
@@ -31,7 +31,7 @@ class DFRecord<N, E, D> extends SimpleDFRecord<N, E> {
         return data;
     }
 
-    public @Nullable LastEdge<E, N, D> getLastEdge() {
+    public LastEdge<E, N, D> getLastEdge() {
         LastEdge<E, N, D> result = lastEdge;
         lastEdge = null;
         return result;

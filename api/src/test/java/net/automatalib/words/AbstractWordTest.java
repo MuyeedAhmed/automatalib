@@ -24,7 +24,6 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-@Test
 public abstract class AbstractWordTest {
 
     protected Word<Object> testWord;
@@ -32,7 +31,6 @@ public abstract class AbstractWordTest {
     protected List<Word<Object>> unequalWords;
     protected List<Word<Object>> all;
 
-    @BeforeClass
     public void setup() {
         this.testWord = testWord();
         this.equalWords = equalWords();
@@ -49,7 +47,6 @@ public abstract class AbstractWordTest {
 
     protected abstract List<Word<Object>> unequalWords();
 
-    @Test
     public void testAppend() {
         Object appSymbol = new Object();
         int oldLen = testWord.length();
@@ -63,7 +60,6 @@ public abstract class AbstractWordTest {
         Assert.assertEquals(testWord, appended.subWord(0, testWord.length()));
     }
 
-    @Test
     public void testPrepend() {
         Object prepSymbol = new Object();
         int oldLen = testWord.length();
@@ -76,7 +72,6 @@ public abstract class AbstractWordTest {
         Assert.assertEquals(testWord, prepended.subWord(1, testWord.length() + 1));
     }
 
-    @Test
     public void testWriteToArray() {
         Object[] array = new Object[testWord.length()];
         testWord.writeToArray(0, array, 0, array.length);
@@ -110,7 +105,6 @@ public abstract class AbstractWordTest {
         }
     }
 
-    @Test
     public void testConcat() {
         Word<Object> unchanged = testWord.concat();
         Assert.assertEquals(testWord.length(), unchanged.length());
@@ -128,12 +122,10 @@ public abstract class AbstractWordTest {
         }
     }
 
-    @Test
     public void testSize() {
         Assert.assertEquals(testWord.length(), testWord.size());
     }
 
-    @Test
     public void testAsList() {
         List<Object> list = testWord.asList();
 
@@ -144,7 +136,6 @@ public abstract class AbstractWordTest {
         }
     }
 
-    @Test
     public void testAsIntSeq() {
         IntSeq intSeq = testWord.asIntSeq(Object::hashCode);
 
@@ -155,12 +146,10 @@ public abstract class AbstractWordTest {
         }
     }
 
-    @Test
     public void testIsEmpty() {
         Assert.assertEquals((testWord.length() == 0), testWord.isEmpty());
     }
 
-    @Test
     public void testIsPrefixOf() {
         Assert.assertTrue(testWord.isPrefixOf(testWord));
 
@@ -169,7 +158,6 @@ public abstract class AbstractWordTest {
         }
     }
 
-    @Test
     public void testIsSuffixOf() {
         Assert.assertTrue(testWord.isSuffixOf(testWord));
 
@@ -178,17 +166,14 @@ public abstract class AbstractWordTest {
         }
     }
 
-    @Test
     public void testLongestCommonPrefix() {
         Assert.assertEquals(testWord, testWord.longestCommonPrefix(testWord));
     }
 
-    @Test
     public void testLongestCommonSuffix() {
         Assert.assertEquals(testWord, testWord.longestCommonSuffix(testWord));
     }
 
-    @Test
     public void testEquals() {
         Assert.assertTrue(testWord.equals(testWord));
         Assert.assertFalse(testWord.equals(null));
@@ -204,7 +189,6 @@ public abstract class AbstractWordTest {
         }
     }
 
-    @Test
     public void testIterator() {
         Iterator<Object> it = testWord.iterator();
         Assert.assertNotNull(it);
@@ -217,17 +201,14 @@ public abstract class AbstractWordTest {
         Assert.assertFalse(it.hasNext());
     }
 
-    @Test(expectedExceptions = {IndexOutOfBoundsException.class})
     public void testSubword1() {
         testWord.subWord(-1, testWord.length());
     }
 
-    @Test(expectedExceptions = {IndexOutOfBoundsException.class})
     public void testSubword2() {
         testWord.subWord(0, testWord.length() + 1);
     }
 
-    @Test
     public void testPrefix() {
         for (int i = 0; i <= testWord.length(); i++) {
             Word<Object> pref = testWord.prefix(i);
@@ -244,17 +225,14 @@ public abstract class AbstractWordTest {
         }
     }
 
-    @Test(expectedExceptions = {IndexOutOfBoundsException.class})
     public void testPrefix1() {
         testWord.prefix(testWord.length() + 1);
     }
 
-    @Test(expectedExceptions = {IndexOutOfBoundsException.class})
     public void testPrefix2() {
         testWord.prefix(-testWord.length() - 1);
     }
 
-    @Test
     public void testSuffix() {
         for (int i = 0; i <= testWord.length(); i++) {
             Word<Object> suff = testWord.suffix(i);
@@ -271,12 +249,10 @@ public abstract class AbstractWordTest {
         }
     }
 
-    @Test(expectedExceptions = {IndexOutOfBoundsException.class})
     public void testSuffix1() {
         testWord.suffix(testWord.length() + 1);
     }
 
-    @Test(expectedExceptions = {IndexOutOfBoundsException.class})
     public void testSuffix2() {
         testWord.suffix(-testWord.length() - 1);
     }

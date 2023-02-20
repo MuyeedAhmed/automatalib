@@ -34,7 +34,6 @@ import org.testng.SkipException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-@Test
 public abstract class AbstractIncrementalDFABuilderTest {
 
     private static final Alphabet<Character> TEST_ALPHABET = Alphabets.characters('a', 'c');
@@ -46,14 +45,12 @@ public abstract class AbstractIncrementalDFABuilderTest {
 
     private IncrementalDFABuilder<Character> incDfa;
 
-    @BeforeClass
     public void setUp() {
         this.incDfa = createIncrementalDFABuilder(TEST_ALPHABET);
     }
 
     protected abstract <I> IncrementalDFABuilder<I> createIncrementalDFABuilder(Alphabet<I> alphabet);
 
-    @Test
     public void testConfluenceBug() {
         Word<Character> wB1 = Word.fromString("aaa");
         Word<Character> wB2 = Word.fromString("bba");
@@ -67,7 +64,6 @@ public abstract class AbstractIncrementalDFABuilderTest {
         this.incDfa = createIncrementalDFABuilder(TEST_ALPHABET);
     }
 
-    @Test(dependsOnMethods = "testConfluenceBug")
     public void testLookup() {
         Assert.assertEquals(Acceptance.DONT_KNOW, incDfa.lookup(W_1));
         Assert.assertEquals(incDfa.lookup(W_2), Acceptance.DONT_KNOW);
@@ -107,19 +103,16 @@ public abstract class AbstractIncrementalDFABuilderTest {
         Assert.assertEquals(incDfa.lookup(W_4), Acceptance.TRUE);
     }
 
-    @Test(dependsOnMethods = "testLookup")
     public void testInsertSame() {
         int oldSize = incDfa.asGraph().size();
         incDfa.insert(W_1, true);
         Assert.assertEquals(incDfa.asGraph().size(), oldSize);
     }
 
-    @Test(expectedExceptions = ConflictException.class, dependsOnMethods = "testLookup")
     public void testConflict() {
         incDfa.insert(W_1, false);
     }
 
-    @Test(dependsOnMethods = "testLookup")
     public void testFindSeparatingWord() {
         CompactDFA<Character> testDfa = new CompactDFA<>(TEST_ALPHABET);
 
@@ -161,7 +154,6 @@ public abstract class AbstractIncrementalDFABuilderTest {
         Assert.assertNull(sepWord);
     }
 
-    @Test(dependsOnMethods = "testLookup")
     public void testVisualization() throws InvocationTargetException, InterruptedException {
         final int canonicalSpecVersion = JVMUtil.getCanonicalSpecVersion();
         if (!(canonicalSpecVersion <= 8 || canonicalSpecVersion == 11)) {
@@ -172,7 +164,6 @@ public abstract class AbstractIncrementalDFABuilderTest {
         SwingUtilities.invokeAndWait(() -> Visualization.visualize(incDfa.asGraph(), false));
     }
 
-    @Test(dependsOnMethods = "testLookup")
     public void testTSView() {
         testTSViewInternal(incDfa.asTransitionSystem());
     }
@@ -189,7 +180,6 @@ public abstract class AbstractIncrementalDFABuilderTest {
         Assert.assertTrue(view.getAcceptance(s4).toBoolean());
     }
 
-    @Test
     public void testCounterexampleOfLengthOne() {
         final IncrementalDFABuilder<Character> incDfa = createIncrementalDFABuilder(TEST_ALPHABET);
         incDfa.insert(Word.fromCharSequence("a"), true);
@@ -204,7 +194,6 @@ public abstract class AbstractIncrementalDFABuilderTest {
         Assert.assertNotNull(ce);
     }
 
-    @Test(dependsOnMethods = "testLookup")
     public void testNewInputSymbol() {
         final GrowingAlphabet<Character> alphabet = new GrowingMapAlphabet<>(TEST_ALPHABET);
         final IncrementalDFABuilder<Character> growableBuilder = createIncrementalDFABuilder(alphabet);

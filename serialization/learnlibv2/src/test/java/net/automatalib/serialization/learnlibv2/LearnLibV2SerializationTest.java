@@ -41,12 +41,10 @@ public class LearnLibV2SerializationTest {
 
     private CompactDFA<Integer> automaton;
 
-    @BeforeClass
     public void setUp() {
         this.automaton = RandomAutomata.randomDFA(new Random(0), 20, Alphabets.integers(0, 2));
     }
 
-    @Test
     public void outputEqualsInputTest() throws IOException {
         final Alphabet<Integer> alphabet = this.automaton.getInputAlphabet();
         final InputModelData<Integer, DFA<Integer, Integer>> deserializedData = writeAndRead(this.automaton, alphabet);
@@ -58,7 +56,6 @@ public class LearnLibV2SerializationTest {
         Assert.assertTrue(Automata.testEquivalence(automaton, deserializedAutomaton, alphabet));
     }
 
-    @Test
     public void noInitialTest() {
         final CompactDFA<Integer> automaton = new CompactDFA<>(this.automaton);
         final Alphabet<Integer> alphabet = automaton.getInputAlphabet();
@@ -70,7 +67,6 @@ public class LearnLibV2SerializationTest {
         Assert.assertThrows(IllegalArgumentException.class, () -> writeAndRead(automaton, alphabet));
     }
 
-    @Test
     public void doNotCloseInputOutputStreamTest() throws IOException {
         final Alphabet<Integer> alphabet = this.automaton.getInputAlphabet();
         LearnLibV2Serialization serializer = LearnLibV2Serialization.getInstance();

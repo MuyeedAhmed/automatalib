@@ -48,7 +48,7 @@ class IncrementalTransitionCoverIterator<S, I> extends AbstractIterator<Word<I>>
     private final Collection<? extends I> inputs;
     private final Collection<? extends Word<I>> oldCover;
 
-    private final MutableMapping<S, @Nullable Record<S, I>> reach;
+    private final MutableMapping<S, Record<S, I>> reach;
     private final Queue<Record<S, I>> bfsQueue;
 
     private Iterator<? extends I> inputIterator;

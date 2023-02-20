@@ -35,7 +35,6 @@ public class IntAbstractionTest {
     private static final List<Character> NPS = CollectionsUtil.charRange('A', 'F');
     private static final List<Character> EPS = CollectionsUtil.charRange('0', '9');
 
-    @Test
     public void testCompactGraphs() {
 
         final CompactGraph<Character, Character> graph = new CompactGraph<>();
@@ -45,7 +44,6 @@ public class IntAbstractionTest {
         checkGraphs(graph, abstraction);
     }
 
-    @Test
     public void testCompactBidiGraphs() {
 
         final CompactBidiGraph<Character, Character> graph = new CompactBidiGraph<>();

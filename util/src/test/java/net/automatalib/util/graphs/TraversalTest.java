@@ -53,7 +53,6 @@ public class TraversalTest {
 
     private CompactSimpleGraph<Character> tree;
 
-    @BeforeClass
     public void setUp() {
         final Random random = new Random(0);
         final Alphabet<Integer> alphabet = Alphabets.integers(0, 4);
@@ -79,7 +78,6 @@ public class TraversalTest {
         }
     }
 
-    @Test
     public void testSingleToSingleShortestPath() {
         for (final Integer s : automaton.getStates()) {
             final Path<Integer, TransitionEdge<Integer, Integer>> path =
@@ -94,7 +92,6 @@ public class TraversalTest {
         }
     }
 
-    @Test
     public void testMultiToMultiShortestPaths() {
         final Iterable<Path<Integer, TransitionEdge<Integer, Integer>>> paths =
                 ShortestPaths.shortestPaths(graph, automaton.getStates(), 0, automaton.getStates());
@@ -105,7 +102,6 @@ public class TraversalTest {
         accessSequences.forEach(as -> Assert.assertEquals(Word.epsilon(), as));
     }
 
-    @Test
     public void testMultiToSingleShortestPaths() {
         final Integer target = new Random(0).nextInt(size);
         final Iterable<Path<Integer, TransitionEdge<Integer, Integer>>> paths =
@@ -117,13 +113,11 @@ public class TraversalTest {
         accessSequences.forEach(as -> Assert.assertEquals(Word.epsilon(), as));
     }
 
-    @Test
     public void testDFTraversal() {
         checkVisitedNodesOrder(TraversalOrder.DEPTH_FIRST,
                                Arrays.asList('1', '2', '3', '4', '5', 'a', 'b', 'c', 'd', 'e'));
     }
 
-    @Test
     public void testBFTraversal() {
         checkVisitedNodesOrder(TraversalOrder.BREADTH_FIRST,
                                Arrays.asList('1', 'a', '2', 'b', '3', 'c', '4', 'd', '5', 'e'));

@@ -50,7 +50,6 @@ public abstract class AbstractSizeModelCheckerCacheTest<I, R extends Lasso<I, ?>
     protected C cache;
     private MA automaton;
 
-    @BeforeClass
     public void setUp() {
         this.property = new Object();
         this.counterexample = getCounterexample();
@@ -60,21 +59,18 @@ public abstract class AbstractSizeModelCheckerCacheTest<I, R extends Lasso<I, ?>
         this.cache = getCache(modelCheckerMockUp);
     }
 
-    @Test
     public void testCacheMiss() {
         final Lasso<?, ?> ce = this.cache.findCounterExample(this.automaton, Collections.emptyList(), property);
         Assert.assertSame(ce, counterexample);
         Assert.assertEquals(this.modelCheckerMockUp.getChecks(), 1);
     }
 
-    @Test(dependsOnMethods = "testCacheMiss")
     public void testCacheHit() {
         final Lasso<?, ?> ce = this.cache.findCounterExample(this.automaton, Collections.emptyList(), property);
         Assert.assertSame(ce, counterexample);
         Assert.assertEquals(this.modelCheckerMockUp.getChecks(), 1);
     }
 
-    @Test(dependsOnMethods = "testCacheHit")
     public void testSizeIncrease() {
         this.automaton.addState();
         final Lasso<?, ?> ce = this.cache.findCounterExample(this.automaton, Collections.emptyList(), property);
@@ -82,7 +78,6 @@ public abstract class AbstractSizeModelCheckerCacheTest<I, R extends Lasso<I, ?>
         Assert.assertEquals(this.modelCheckerMockUp.getChecks(), 2);
     }
 
-    @Test(dependsOnMethods = "testSizeIncrease")
     public void testCacheClear() {
         this.cache.clear();
         final Object ce = this.cache.findCounterExample(this.automaton, Collections.emptyList(), property);

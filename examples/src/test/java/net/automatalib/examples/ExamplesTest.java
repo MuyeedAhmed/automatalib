@@ -51,7 +51,6 @@ import org.testng.annotations.Test;
  */
 public class ExamplesTest {
 
-    @BeforeClass
     public void setupAutoClose() {
         // As soon as we observe an event that indicates a new window, close it to prevent blocking the tests.
         Toolkit.getDefaultToolkit().addAWTEventListener(event -> {
@@ -61,19 +60,16 @@ public class ExamplesTest {
         }, AWTEvent.WINDOW_FOCUS_EVENT_MASK);
     }
 
-    @Test
     public void testADSExample() throws InvocationTargetException, InterruptedException {
         checkJVMCompatibility();
         SwingUtilities.invokeAndWait(() -> ADSExample.main(new String[0]));
     }
 
-    @Test
     public void testSimpleBricsExample() throws InvocationTargetException, InterruptedException {
         checkJVMCompatibility();
         SwingUtilities.invokeAndWait(() -> SimpleBricsExample.main(new String[0]));
     }
 
-    @Test
     public void testDOTExample() throws InvocationTargetException, InterruptedException {
         checkJVMCompatibility();
         SwingUtilities.invokeAndWait(() -> {
@@ -85,31 +81,26 @@ public class ExamplesTest {
         });
     }
 
-    @Test
     public void testDFSExample() throws InvocationTargetException, InterruptedException {
         checkJVMCompatibility();
         SwingUtilities.invokeAndWait(() -> DFSExample.main(new String[0]));
     }
 
-    @Test
     public void testIncrementalDFAExample() throws InvocationTargetException, InterruptedException {
         checkJVMCompatibility();
         SwingUtilities.invokeAndWait(() -> IncrementalDFAExample.main(new String[0]));
     }
 
-    @Test
     public void testIncrementalMealyExample() throws InvocationTargetException, InterruptedException {
         checkJVMCompatibility();
         SwingUtilities.invokeAndWait(() -> IncrementalMealyExample.main(new String[0]));
     }
 
-    @Test
     public void testIncrementalPCDFAExample() throws InvocationTargetException, InterruptedException {
         checkJVMCompatibility();
         SwingUtilities.invokeAndWait(() -> IncrementalPCDFAExample.main(new String[0]));
     }
 
-    @Test
     public void testLTSminExample() {
         if (!LTSminUtil.supports(LTSminVersion.of(3, 0, 0))) {
             throw new SkipException("LTSmin is not installed in the proper version");
@@ -118,7 +109,6 @@ public class ExamplesTest {
         LTSminExample.main(new String[0]);
     }
 
-    @Test
     public void testLTSminMonitorExample() {
         if (!LTSminUtil.supports(LTSminVersion.of(3, 1, 0))) {
             throw new SkipException("LTSmin is not installed in the proper version");
@@ -127,7 +117,6 @@ public class ExamplesTest {
         LTSminMonitorExample.main(new String[0]);
     }
 
-    @Test
     public void testM3CSPAExample() throws InterruptedException, InvocationTargetException {
         checkJVMCompatibility();
         SwingUtilities.invokeAndWait(() -> {
@@ -139,13 +128,11 @@ public class ExamplesTest {
         });
     }
 
-    @Test
     public void testSPAPalindromeExample() throws InvocationTargetException, InterruptedException {
         checkJVMCompatibility();
         SwingUtilities.invokeAndWait(() -> PalindromeExample.main(new String[0]));
     }
 
-    @Test
     public void testOneSEVPAExample() throws InvocationTargetException, InterruptedException {
         checkJVMCompatibility();
         SwingUtilities.invokeAndWait(() -> OneSEVPAExample.main(new String[0]));

@@ -37,48 +37,48 @@ import org.checkerframework.checker.nullness.qual.UnknownKeyFor;
  */
 public class ReflexiveMapView<T> extends AbstractMap<T, T> {
 
-    private final Set<@KeyFor("this") T> domain;
+    private final Set<T> domain;
 
-    public ReflexiveMapView(Set<@KeyFor("this") T> domain) {
+    public ReflexiveMapView(Set<T> domain) {
         this.domain = Collections.unmodifiableSet(domain);
     }
 
     @Override
-    public Set<Entry<@KeyFor("this") T, T>> entrySet() {
+    public Set<Entry<T, T>> entrySet() {
         return new EntrySet();
     }
 
     @Override
-    public boolean containsValue(@Nullable Object value) {
+    public boolean containsValue(Object value) {
         return containsKey(value);
     }
 
     @Override
     @SuppressWarnings("contracts.conditional.postcondition.not.satisfied") // condition is satisfied
-    public boolean containsKey(@Nullable Object key) {
+    public boolean containsKey(Object key) {
         return this.domain.contains(key);
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    public @Nullable T get(@Nullable Object key) {
+    public T get(Object key) {
         return this.domain.contains(key) ? (T) key : null;
     }
 
     @Override
-    public Set<@KeyFor("this") T> keySet() {
+    public Set<T> keySet() {
         return this.domain;
     }
 
     @Override
     public Set<T> values() {
-        return (Set<@UnknownKeyFor T>) this.domain;
+        return (Set<T>) this.domain;
     }
 
-    private class EntrySet extends AbstractSet<Entry<@KeyFor("this") T, T>> {
+    private class EntrySet extends AbstractSet<Entry<T, T>> {
 
         @Override
-        public Iterator<Entry<@KeyFor("this") T, T>> iterator() {
+        public Iterator<Entry<T, T>> iterator() {
             return new Iter();
         }
 
@@ -88,9 +88,9 @@ public class ReflexiveMapView<T> extends AbstractMap<T, T> {
         }
     }
 
-    private class Iter implements Iterator<Entry<@KeyFor("this") T, T>> {
+    private class Iter implements Iterator<Entry<T, T>> {
 
-        final Iterator<@KeyFor("this") T> iter = domain.iterator();
+        final Iterator<T> iter = domain.iterator();
 
         @Override
         public boolean hasNext() {
@@ -98,8 +98,8 @@ public class ReflexiveMapView<T> extends AbstractMap<T, T> {
         }
 
         @Override
-        public Entry<@KeyFor("this") T, T> next() {
-            final @KeyFor("this") T next = iter.next();
+        public Entry<T, T> next() {
+            final T next = iter.next();
             return new SimpleImmutableEntry<>(next, next);
         }
     }
