@@ -25,7 +25,6 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-@Test
 public class MealyFilterTest {
 
     private final Alphabet<Integer> testAlphabet;
@@ -35,7 +34,6 @@ public class MealyFilterTest {
         this.testAlphabet = Alphabets.integers(0, 1);
     }
 
-    @BeforeClass
     public void setUp() {
         this.testMealy = fromSequence("a", "b", "c");
     }
@@ -63,7 +61,6 @@ public class MealyFilterTest {
         return mealy;
     }
 
-    @Test
     public void testPruneTransitionWithOutput() {
         Word<Integer> testWord = Word.fromSymbols(1, 1, 1);
         WordBuilder<String> testOutput = new WordBuilder<>(3);

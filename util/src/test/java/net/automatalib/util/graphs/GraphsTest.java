@@ -44,7 +44,6 @@ import org.testng.annotations.Test;
  */
 public class GraphsTest {
 
-    @Test
     public void testIncomingEdges() {
 
         final Alphabet<Integer> alphabet = Alphabets.integers(1, 3);

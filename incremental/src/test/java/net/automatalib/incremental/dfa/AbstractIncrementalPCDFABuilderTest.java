@@ -34,7 +34,6 @@ import org.testng.SkipException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-@Test
 public abstract class AbstractIncrementalPCDFABuilderTest {
 
     private static final Alphabet<Character> TEST_ALPHABET = Alphabets.characters('a', 'c');
@@ -45,14 +44,12 @@ public abstract class AbstractIncrementalPCDFABuilderTest {
 
     private IncrementalDFABuilder<Character> incPcDfa;
 
-    @BeforeClass
     public void setUp() {
         this.incPcDfa = createIncrementalPCDFABuilder(TEST_ALPHABET);
     }
 
     protected abstract <I> IncrementalDFABuilder<I> createIncrementalPCDFABuilder(Alphabet<I> alphabet);
 
-    @Test
     public void testConfluenceBug() {
         Word<Character> wB1 = Word.fromString("aaa");
         Word<Character> wB2 = Word.fromString("bba");
@@ -66,7 +63,6 @@ public abstract class AbstractIncrementalPCDFABuilderTest {
         this.incPcDfa = createIncrementalPCDFABuilder(TEST_ALPHABET);
     }
 
-    @Test(dependsOnMethods = "testConfluenceBug")
     public void testLookup() {
         Assert.assertEquals(incPcDfa.lookup(W_1), Acceptance.DONT_KNOW);
         Assert.assertEquals(incPcDfa.lookup(W_2), Acceptance.DONT_KNOW);
@@ -105,19 +101,16 @@ public abstract class AbstractIncrementalPCDFABuilderTest {
         Assert.assertEquals(incPcDfa.lookup(W_3.append('a')), Acceptance.DONT_KNOW);
     }
 
-    @Test(dependsOnMethods = "testLookup")
     public void testInsertSame() {
         int oldSize = incPcDfa.asGraph().size();
         incPcDfa.insert(W_1, true);
         Assert.assertEquals(incPcDfa.asGraph().size(), oldSize);
     }
 
-    @Test(expectedExceptions = ConflictException.class, dependsOnMethods = "testLookup")
     public void testConflict() {
         incPcDfa.insert(W_1, false);
     }
 
-    @Test(dependsOnMethods = "testLookup")
     public void testFindSeparatingWord() {
         CompactDFA<Character> testDfa = new CompactDFA<>(TEST_ALPHABET);
         int s0 = testDfa.addInitialState(true);
@@ -164,7 +157,6 @@ public abstract class AbstractIncrementalPCDFABuilderTest {
         Assert.assertEquals(sepWord, Word.fromString("acba"));
     }
 
-    @Test(dependsOnMethods = "testLookup")
     public void testVisualization() throws InvocationTargetException, InterruptedException {
         final int canonicalSpecVersion = JVMUtil.getCanonicalSpecVersion();
         if (!(canonicalSpecVersion <= 8 || canonicalSpecVersion == 11)) {
@@ -175,7 +167,6 @@ public abstract class AbstractIncrementalPCDFABuilderTest {
         SwingUtilities.invokeAndWait(() -> Visualization.visualize(incPcDfa.asGraph(), false));
     }
 
-    @Test(dependsOnMethods = "testLookup")
     public void testTSView() {
         testTSViewInternal(incPcDfa.asTransitionSystem());
     }
@@ -190,7 +181,6 @@ public abstract class AbstractIncrementalPCDFABuilderTest {
         Assert.assertTrue(view.getAcceptance(s3).toBoolean());
     }
 
-    @Test(dependsOnMethods = "testLookup")
     public void testNewInputSymbol() {
         final GrowingAlphabet<Character> alphabet = new GrowingMapAlphabet<>(TEST_ALPHABET);
         final IncrementalDFABuilder<Character> growableBuilder = createIncrementalPCDFABuilder(alphabet);
@@ -216,7 +206,6 @@ public abstract class AbstractIncrementalPCDFABuilderTest {
         Assert.assertEquals(growableBuilder.lookup(input2.append('d')), Acceptance.FALSE);
     }
 
-    @Test
     public void testCounterexampleOfLengthOne() {
         final IncrementalDFABuilder<Character> incPcDfa = createIncrementalPCDFABuilder(TEST_ALPHABET);
         incPcDfa.insert(Word.fromCharSequence("a"), true);
@@ -231,7 +220,6 @@ public abstract class AbstractIncrementalPCDFABuilderTest {
         Assert.assertNotNull(ce);
     }
 
-    @Test
     public void testRejectAll() {
         final IncrementalDFABuilder<Character> incPcDfa = createIncrementalPCDFABuilder(TEST_ALPHABET);
 
@@ -246,7 +234,6 @@ public abstract class AbstractIncrementalPCDFABuilderTest {
         Assert.assertThrows(ConflictException.class, () -> incPcDfa.insert(W_3, true));
     }
 
-    @Test
     public void testLateSink() {
         final IncrementalDFABuilder<Character> incPcDfa = createIncrementalPCDFABuilder(TEST_ALPHABET);
 
@@ -270,7 +257,6 @@ public abstract class AbstractIncrementalPCDFABuilderTest {
         Assert.assertThrows(ConflictException.class, () -> incPcDfa.insert(w3, true));
     }
 
-    @Test
     public void testInvalidSink() {
         final IncrementalDFABuilder<Character> incPcDfa = createIncrementalPCDFABuilder(TEST_ALPHABET);
 

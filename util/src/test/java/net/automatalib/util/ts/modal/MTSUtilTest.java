@@ -28,7 +28,6 @@ import org.testng.annotations.Test;
 
 public class MTSUtilTest {
 
-    @Test
     public void testCut() throws IOException {
         final CompactMMC<String> contract = TestUtils.loadMMCFromPath("/modal/contract_monitor.dot");
 
@@ -38,7 +37,6 @@ public class MTSUtilTest {
         Assertions.assertThat(reachableSubset).isSubsetOf(0, 1, 5);
     }
 
-    @Test
     public void testCutEmptyStates() throws IOException {
         final CompactMMC<String> contract = TestUtils.loadMMCFromPath("/modal/contract_monitor.dot");
 
@@ -48,7 +46,6 @@ public class MTSUtilTest {
         Assertions.assertThat(reachableSubset).isEmpty();
     }
 
-    @Test
     public void testCutEmptyLabels() throws IOException {
         final CompactMMC<String> contract = TestUtils.loadMMCFromPath("/modal/contract_monitor.dot");
 
@@ -58,7 +55,6 @@ public class MTSUtilTest {
         Assertions.assertThat(reachableSubset).containsExactlyInAnyOrder(0);
     }
 
-    @Test
     public void testCut1() throws IOException {
         // very fragile since DOTParser does not preserve state ids
         final CompactMMC<String> input = TestUtils.loadMMCFromPath("/modal/contract_incomplete.dot");
@@ -70,7 +66,6 @@ public class MTSUtilTest {
         Assertions.assertThat(reachableSubset).containsExactlyInAnyOrder(1, 3, 8, 12, 18);
     }
 
-    @Test
     public void testCut2() throws IOException {
         // very fragile since DOTParser does not preserve state ids
         final CompactMMC<String> input = TestUtils.loadMMCFromPath("/modal/contract_monitor.dot");

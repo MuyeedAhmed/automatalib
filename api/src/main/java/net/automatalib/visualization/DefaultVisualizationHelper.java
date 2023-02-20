@@ -25,7 +25,7 @@ import org.checkerframework.checker.nullness.qual.MonotonicNonNull;
 
 public class DefaultVisualizationHelper<N, E> implements VisualizationHelper<N, E> {
 
-    private @MonotonicNonNull Set<N> initialNodes;
+    private Set<N> initialNodes;
 
     protected Collection<N> initialNodes() {
         return Collections.emptySet();

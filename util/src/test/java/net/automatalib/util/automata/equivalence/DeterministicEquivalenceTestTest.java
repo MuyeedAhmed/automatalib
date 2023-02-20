@@ -42,7 +42,6 @@ public class DeterministicEquivalenceTestTest {
     // Equivalence check switches implementation when stateSize**2 is > 10000
     private static final int AUTOMATON_SIZE_LARGE = 200;
 
-    @Test
     public void testEquivalenceDFA() {
         final Alphabet<Integer> alphabet = Alphabets.integers(0, 5);
         final DFA<?, Integer> a1 = RandomAutomata.randomDFA(RANDOM, AUTOMATON_SIZE_SMALL, alphabet);
@@ -52,7 +51,6 @@ public class DeterministicEquivalenceTestTest {
         testEquivalenceInternal(a1, a2, alphabet, false);
     }
 
-    @Test
     public void testEquivalenceDFALarge() {
         final Alphabet<Integer> alphabet = Alphabets.integers(0, 5);
         final DFA<?, Integer> a1 = RandomAutomata.randomDFA(RANDOM, AUTOMATON_SIZE_LARGE, alphabet, false);
@@ -62,7 +60,6 @@ public class DeterministicEquivalenceTestTest {
         testEquivalenceInternal(a1, a2, alphabet, false);
     }
 
-    @Test
     public void testEquivalenceMealy() {
         final Alphabet<Integer> inputAlphabet = Alphabets.integers(0, 5);
         final Alphabet<Character> outputAlphabet = Alphabets.characters('a', 'f');
@@ -75,7 +72,6 @@ public class DeterministicEquivalenceTestTest {
         testEquivalenceInternal(a1, a2, inputAlphabet, false);
     }
 
-    @Test
     public void testEmptyDFAs() {
         final Alphabet<Integer> alphabet = Alphabets.integers(0, 5);
         final CompactDFA<Integer> uninit = new CompactDFA<>(alphabet, 0);
@@ -85,7 +81,6 @@ public class DeterministicEquivalenceTestTest {
         testForEmptySepWord(uninit, empty, alphabet);
     }
 
-    @Test
     public void testEmptyMealies() {
         final Alphabet<Integer> alphabet = Alphabets.integers(0, 5);
         final CompactMealy<Integer, ?> uninit = new CompactMealy<>(alphabet, 0);

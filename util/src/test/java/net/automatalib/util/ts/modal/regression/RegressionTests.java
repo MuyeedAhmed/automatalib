@@ -33,7 +33,6 @@ import org.testng.annotations.Test;
 
 public class RegressionTests {
 
-    @DataProvider(name = "Decomp")
     public Object[][] loadDecompositionTests() {
         Object[][] params = new Object[RegressionTestBundles.DECOMPOSITION_TESTS.size()][1];
         int i = 0;
@@ -43,7 +42,6 @@ public class RegressionTests {
         return params;
     }
 
-    @DataProvider(name = "Comp")
     public Object[][] loadCompositionTests() {
         Object[][] params = new Object[RegressionTestBundles.COMPOSITION_TESTS.size()][1];
         int i = 0;
@@ -53,7 +51,6 @@ public class RegressionTests {
         return params;
     }
 
-    @Test(dataProvider = "Comp")
     public void testMerge(CompositionTest testCase) throws IOException {
         final CompositionInstance instance = new CompositionInstance(testCase);
 
@@ -67,7 +64,6 @@ public class RegressionTests {
         Assert.assertTrue(MTSUtil.isRefinementOf(instance.merge, currentMerge, currentMerge.getInputAlphabet()));
     }
 
-    @Test(dataProvider = "Decomp")
     public void testDecompContext(DecompositionTest testCase) throws IOException {
         if (testCase.modalContract == null) {
             return;
@@ -101,7 +97,6 @@ public class RegressionTests {
         Assert.assertTrue(MTSUtil.isRefinementOf(context, instance.context, context.getInputAlphabet()));
     }
 
-    @Test(dataProvider = "Decomp")
     public void testDecompContextReverse(DecompositionTest testCase) throws IOException {
         if (testCase.modalContract == null) {
             return;
@@ -139,7 +134,6 @@ public class RegressionTests {
         }
     }
 
-    @Test(dataProvider = "Decomp")
     public void testDecompSystem(DecompositionTest testCase) throws IOException {
         if (testCase.modalContract == null) {
             return;

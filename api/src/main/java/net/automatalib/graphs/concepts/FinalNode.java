@@ -24,5 +24,5 @@ public interface FinalNode<N> {
      *
      * @return the final node.
      */
-    @Nullable N getFinalNode();
+    N getFinalNode();
 }

@@ -38,5 +38,5 @@ public enum Color {
     /**
      * Color for nodes/states that have not yet been discovered.
      */
-    public static final @Nullable Color WHITE = null;
+    public static final Color WHITE = null;
 }

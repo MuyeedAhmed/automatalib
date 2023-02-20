@@ -59,8 +59,8 @@ public final class Minimizer<S, L> {
     private final IntrusiveLinkedList<Block<S, L>> newBlocks = new IntrusiveLinkedList<>();
     private final IntrusiveLinkedList<State<S, L>> finalList = new IntrusiveLinkedList<>();
     // These attributes belong to a specific minimization process.
-    private @Nullable MutableMapping<S, @Nullable State<S, L>> stateStorage;
-    private @Nullable UnorderedCollection<Block<S, L>> partition;
+    private MutableMapping<S, State<S, L>> stateStorage;
+    private UnorderedCollection<Block<S, L>> partition;
     private int numBlocks;
 
     /**
@@ -157,7 +157,7 @@ public final class Minimizer<S, L> {
 
         Map<L, TransitionLabel<S, L>> transitionMap = new HashMap<>();
 
-        final MutableMapping<S, @Nullable State<S, L>> mapping = graph.createStaticNodeMapping();
+        final MutableMapping<S, State<S, L>> mapping = graph.createStaticNodeMapping();
 
         int numStates = 0;
         for (S origState : origStates) {
@@ -193,7 +193,6 @@ public final class Minimizer<S, L> {
     /**
      * Adds a block to the partition.
      */
-    @RequiresNonNull("partition")
     private void addToPartition(Block<S, L> block) {
         ElementReference ref = partition.referencedAdd(block);
         block.setPartitionReference(ref);
@@ -352,7 +351,6 @@ public final class Minimizer<S, L> {
      * This method performs the actual splitting of blocks, using the sub block information stored in each block
      * object.
      */
-    @RequiresNonNull("partition")
     private void updateBlocks() {
         for (Block<S, L> block : splitBlocks) {
             // Ignore blocks that have no elements in their sub blocks.

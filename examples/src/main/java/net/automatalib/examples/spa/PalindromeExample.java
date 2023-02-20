@@ -90,7 +90,7 @@ public final class PalindromeExample {
         subModels.put('T', tProcedure);
 
         // explicit type variable declaration to make checker-framework happy
-        return new StackSPA<@Nullable Object, Character>(alphabet, 'S', subModels);
+        return new StackSPA<Object, Character>(alphabet, 'S', subModels);
     }
 
     /**

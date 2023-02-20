@@ -50,7 +50,6 @@ public class SAFSerializationTest {
     private CompactDFA<Integer> dfa;
     private CompactNFA<Integer> nfa;
 
-    @BeforeMethod
     public void setUp() {
         final Random random = new Random(0);
         this.dfa = RandomAutomata.randomDFA(random, AUTOMATON_SIZE, ALPHABET);
@@ -76,7 +75,6 @@ public class SAFSerializationTest {
         }
     }
 
-    @Test
     public void testDFASerialization() throws Exception {
         final SAFSerializationDFA serializer = SAFSerializationDFA.getInstance();
 
@@ -85,7 +83,6 @@ public class SAFSerializationTest {
         Assert.assertTrue(Automata.testEquivalence(this.dfa, deserializedModel, ALPHABET));
     }
 
-    @Test
     public void testNFASerialization() throws Exception {
         final SAFSerializationNFA serializer = SAFSerializationNFA.getInstance();
 
@@ -96,7 +93,6 @@ public class SAFSerializationTest {
                                                    ALPHABET));
     }
 
-    @Test
     public void doNotCloseInputOutputStreamDFATest() throws IOException {
 
         final SAFSerializationDFA serializer = SAFSerializationDFA.getInstance();
@@ -108,7 +104,6 @@ public class SAFSerializationTest {
         serializer.readModel(new UnclosableInputStream(is));
     }
 
-    @Test
     public void doNotCloseInputOutputStreamNFATest() throws IOException {
 
         final SAFSerializationNFA serializer = SAFSerializationNFA.getInstance();

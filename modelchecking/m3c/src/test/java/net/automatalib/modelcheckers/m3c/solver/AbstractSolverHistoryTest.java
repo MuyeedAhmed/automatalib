@@ -47,7 +47,6 @@ public abstract class AbstractSolverHistoryTest<T extends AbstractPropertyTransf
         this.cfmps = Examples.getCfmpsAnBn(Collections.emptySet());
     }
 
-    @AfterClass
     public void after() {
         shutdownDDManager();
     }
@@ -60,7 +59,6 @@ public abstract class AbstractSolverHistoryTest<T extends AbstractPropertyTransf
 
     public abstract void shutdownDDManager();
 
-    @Test
     public void testSolverHistory() throws ParseException {
         final AbstractDDSolver<T, String, String> solver = getSolver();
         final FormulaNode<String, String> formula = M3CParser.parse("mu X.(<b><b>true || <>X)");

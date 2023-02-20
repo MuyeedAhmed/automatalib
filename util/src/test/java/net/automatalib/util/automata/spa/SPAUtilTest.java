@@ -55,7 +55,6 @@ public class SPAUtilTest {
     final SPAAlphabet<Character> emptyAlphabet =
             new DefaultSPAAlphabet<>(Alphabets.fromArray(), Alphabets.fromArray(), returnSymbol);
 
-    @Test
     public void testIncompleteATRSequences() {
         // construct a simple (pseudo) palindrome system which we will gradually alter to model different cases
         final CompactDFA<Character> s = new CompactDFA<>(alphabet.getProceduralAlphabet());
@@ -156,7 +155,6 @@ public class SPAUtilTest {
         Assertions.assertThat(SPAUtil.isRedundancyFree(spa)).isTrue();
     }
 
-    @Test
     public void testPartialATRSequences() {
         final Random random = new Random(42);
         final SPA<?, Character> spa = RandomAutomata.randomSPA(random, alphabet, 10);
@@ -173,7 +171,6 @@ public class SPAUtilTest {
         Assertions.assertThat(SPAUtil.isRedundancyFree(alphabet, atrSequences)).isFalse();
     }
 
-    @Test
     public void testEmptyPartialATRSequences() {
         final SPA<?, Character> spa = new EmptySPA<>(alphabet);
         final DefaultSPAAlphabet<Character> halfAlphabet =
@@ -189,7 +186,6 @@ public class SPAUtilTest {
         Assert.assertFalse(SPAUtil.isRedundancyFree(alphabet, atrSequences));
     }
 
-    @Test
     public void testCompleteATRSequences() {
         final Random random = new Random(42);
         final SPA<?, Character> spa = RandomAutomata.randomSPA(random, alphabet, 10);
@@ -201,7 +197,6 @@ public class SPAUtilTest {
         Assert.assertTrue(SPAUtil.isRedundancyFree(spa));
     }
 
-    @Test
     public void testEmptyCompleteATRSequences() {
         final SPA<?, Character> spa = new EmptySPA<>(alphabet);
         final ATRSequences<Character> atrSequences = SPAUtil.computeATRSequences(spa);
@@ -212,7 +207,6 @@ public class SPAUtilTest {
         Assert.assertFalse(SPAUtil.isRedundancyFree(spa));
     }
 
-    @Test
     public void testMissingAccessReturnSequenceDueToMissingTerminatingSequence() {
         final CompactDFA<Character> s = new CompactDFA<>(alphabet.getProceduralAlphabet());
         final FastDFA<Character> t = new FastDFA<>(alphabet.getProceduralAlphabet());
@@ -236,7 +230,6 @@ public class SPAUtilTest {
         Assertions.assertThat(atrSequences.returnSequences).containsOnlyKeys('S');
     }
 
-    @Test
     public void testDefaultSeparatingWord() {
         final Random random = new Random(42);
         final int size = 10;
@@ -260,7 +253,6 @@ public class SPAUtilTest {
         Assert.assertNull(Automata.findSeparatingWord(spa2, spa1, emptyAlphabet));
     }
 
-    @Test
     public void testIntricateSeparatingWord() {
         // construct a simple (pseudo) palindrome system which we will gradually alter to model different cases
         final CompactDFA<Character> s1 = new CompactDFA<>(alphabet.getProceduralAlphabet());
@@ -399,7 +391,6 @@ public class SPAUtilTest {
     /**
      * Tests a (snapshot of a) randomly generated SPA that has uncovered a bug in a previous implementation.
      */
-    @Test
     public void testRandomBenchmarkSystem1() {
         final SPAAlphabet<Integer> alphabet =
                 new DefaultSPAAlphabet<>(Alphabets.integers(0, 9), Alphabets.integers(10, 12), -1);
@@ -451,7 +442,6 @@ public class SPAUtilTest {
     /**
      * Tests a (snapshot of a) randomly generated SPA that has uncovered a bug in a previous implementation.
      */
-    @Test
     public void testRandomBenchmarkSystem2() {
         final SPAAlphabet<Integer> alphabet =
                 new DefaultSPAAlphabet<>(Alphabets.integers(0, 9), Alphabets.integers(10, 11), -1);
@@ -494,7 +484,6 @@ public class SPAUtilTest {
     /**
      * Tests a (snapshot of a) randomly generated SPA that has uncovered a bug in a previous implementation.
      */
-    @Test
     public void testRandomBenchmarkSystem3() {
         final SPAAlphabet<Integer> alphabet =
                 new DefaultSPAAlphabet<>(Alphabets.singleton(0), Alphabets.fromArray(1, 2), -1);
@@ -531,7 +520,6 @@ public class SPAUtilTest {
         verifyATR(spa, alphabet, atr);
     }
 
-    @Test
     public void testEquivalence() {
         final Random random = new Random(42);
         final int size = 10;

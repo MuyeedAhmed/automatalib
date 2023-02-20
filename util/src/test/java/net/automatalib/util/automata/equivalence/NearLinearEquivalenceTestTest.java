@@ -55,20 +55,17 @@ public class NearLinearEquivalenceTestTest {
         DFA_1_PARTIAL.removeTransition(15, 2, transition);
     }
 
-    @Test
     public void testEqualDFAAlphabet() {
         final Word<Integer> sepWord = NearLinearEquivalenceTest.findSeparatingWord(DFA_1, DFA_1, ALPHABET);
         Assert.assertNull(sepWord);
     }
 
-    @Test
     public void testEqualDFACollection() {
         final Word<Integer> sepWord =
                 NearLinearEquivalenceTest.findSeparatingWord(DFA_1, DFA_1, new HashSet<>(ALPHABET));
         Assert.assertNull(sepWord);
     }
 
-    @Test
     public void testDFAAlphabetPartial() {
         Word<Integer> sepWord;
 
@@ -81,7 +78,6 @@ public class NearLinearEquivalenceTestTest {
         checkPartialTrace(DFA_1_PARTIAL, sepWord);
     }
 
-    @Test
     public void testDFACollectionPartial() {
         Word<Integer> sepWord;
 
@@ -94,21 +90,18 @@ public class NearLinearEquivalenceTestTest {
         checkPartialTrace(DFA_1_PARTIAL, sepWord);
     }
 
-    @Test
     public void testNonEqualDFAAlphabet() {
         final Word<Integer> sepWord = NearLinearEquivalenceTest.findSeparatingWord(DFA_1, DFA_2, ALPHABET);
         Assert.assertNotNull(sepWord);
         Assert.assertNotEquals(DFA_1.computeOutput(sepWord), DFA_2.computeOutput(sepWord));
     }
 
-    @Test
     public void testNonEqualDFACollection() {
         final Word<Integer> sepWord = NearLinearEquivalenceTest.findSeparatingWord(DFA_1, DFA_2, new HashSet<>(ALPHABET));
         Assert.assertNotNull(sepWord);
         Assert.assertNotEquals(DFA_1.computeOutput(sepWord), DFA_2.computeOutput(sepWord));
     }
 
-    @Test
     public void testEmptyDFAs() {
         final CompactDFA<Integer> uninit = new CompactDFA<>(ALPHABET, 0);
         final CompactDFA<Integer> empty = new CompactDFA<>(ALPHABET, 1);
@@ -118,7 +111,6 @@ public class NearLinearEquivalenceTestTest {
         testForEmptySepWord(empty, uninit, ALPHABET);
     }
 
-    @Test
     public void testEmptyMealies() {
         final CompactMealy<Integer, ?> uninit = new CompactMealy<>(ALPHABET, 0);
         final CompactMealy<Integer, ?> empty = new CompactMealy<>(ALPHABET, 1);

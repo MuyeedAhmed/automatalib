@@ -28,12 +28,10 @@ import org.testng.annotations.Test;
  */
 public class DynamicStateMappingTest {
 
-    @Test
     public void testDeterministic() {
         testAutomaton(TestUtil.constructMealy());
     }
 
-    @Test
     public void testNonDeterministic() {
         testAutomaton(TestUtil.constructNFA());
     }

@@ -30,7 +30,7 @@ public class CompactPMPG<L, AP>
         extends AbstractCompactGraph<CompactPMPGEdge<L, MutableProceduralModalEdgeProperty>, Set<AP>, MutableProceduralModalEdgeProperty>
         implements MutableProceduralModalProcessGraph<Integer, L, CompactPMPGEdge<L, MutableProceduralModalEdgeProperty>, AP, MutableProceduralModalEdgeProperty> {
 
-    private final ResizingArrayStorage<@Nullable Set<AP>> nodeProperties;
+    private final ResizingArrayStorage<Set<AP>> nodeProperties;
     private final L defaultLabel;
     private int initialNode;
     private int finalNode;
@@ -44,7 +44,7 @@ public class CompactPMPG<L, AP>
     }
 
     @Override
-    public void setInitialNode(@Nullable Integer initialNode) {
+    public void setInitialNode(Integer initialNode) {
         if (initialNode == null) {
             this.initialNode = -1;
         } else {
@@ -53,7 +53,7 @@ public class CompactPMPG<L, AP>
     }
 
     @Override
-    public void setFinalNode(@Nullable Integer finalNode) {
+    public void setFinalNode(Integer finalNode) {
         if (finalNode == null) {
             this.finalNode = -1;
         } else {
@@ -72,17 +72,17 @@ public class CompactPMPG<L, AP>
     }
 
     @Override
-    public @Nullable Integer getFinalNode() {
+    public Integer getFinalNode() {
         return this.finalNode < 0 ? null : this.finalNode;
     }
 
     @Override
-    public @Nullable Integer getInitialNode() {
+    public Integer getInitialNode() {
         return this.initialNode < 0 ? null : this.initialNode;
     }
 
     @Override
-    public void setNodeProperty(int node, @Nullable Set<AP> property) {
+    public void setNodeProperty(int node, Set<AP> property) {
         nodeProperties.ensureCapacity(node + 1);
         nodeProperties.array[node] = property;
     }
@@ -90,7 +90,7 @@ public class CompactPMPG<L, AP>
     @Override
     protected CompactPMPGEdge<L, MutableProceduralModalEdgeProperty> createEdge(int source,
                                                                                 int target,
-                                                                                @Nullable MutableProceduralModalEdgeProperty property) {
+                                                                                MutableProceduralModalEdgeProperty property) {
         final MutableProceduralModalEdgeProperty prop;
 
         if (property == null) {

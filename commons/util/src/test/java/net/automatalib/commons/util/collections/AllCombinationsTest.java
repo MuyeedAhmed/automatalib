@@ -37,7 +37,6 @@ public class AllCombinationsTest {
     private static final List<Integer> DOMAIN2 = Collections.singletonList(3);
     private static final List<Integer> DOMAIN3 = Arrays.asList(4, 5);
 
-    @Test
     public void testNormalDomain() {
 
         final Set<List<Integer>> combinations =
@@ -53,7 +52,6 @@ public class AllCombinationsTest {
         Assert.assertTrue(combinations.isEmpty());
     }
 
-    @Test
     public void testEmptyDomain() {
         final Iterable<List<Integer>> iter =
                 CollectionsUtil.cartesianProduct(DOMAIN1, Collections.emptyList(), DOMAIN3);
@@ -62,7 +60,6 @@ public class AllCombinationsTest {
         Assert.assertThrows(NoSuchElementException.class, () -> iter.iterator().next());
     }
 
-    @Test
     public void testEmptyDimension() {
         final Iterable<List<Integer>> iter = CollectionsUtil.cartesianProduct();
 

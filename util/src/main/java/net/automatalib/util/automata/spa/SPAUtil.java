@@ -283,7 +283,7 @@ public final class SPAUtil {
                         final WordBuilder<I> accessBuilder = new WordBuilder<>();
                         // we only invoke this method with finished procedures
                         @SuppressWarnings("assignment.type.incompatible")
-                        final @NonNull Word<I> as = accessSequences.get(procedure);
+                        final Word<I> as = accessSequences.get(procedure);
                         accessBuilder.append(as);
                         accessBuilder.append(alphabet.expand(trace.subWord(0, i), tsMapping));
                         accessBuilder.append(input);
@@ -293,7 +293,7 @@ public final class SPAUtil {
                         final WordBuilder<I> terminatingBuilder = new WordBuilder<>();
                         // we only invoke this method with finished procedures
                         @SuppressWarnings("assignment.type.incompatible")
-                        final @NonNull Word<I> rs = returnSequences.get(procedure);
+                        final Word<I> rs = returnSequences.get(procedure);
                         terminatingBuilder.append(alphabet.getReturnSymbol());
                         terminatingBuilder.append(alphabet.expand(remainingTrace, tsMapping));
                         terminatingBuilder.append(rs);
@@ -462,7 +462,7 @@ public final class SPAUtil {
      *
      * @return a separating word, if existent, {@code null} otherwise.
      */
-    public static <I> @Nullable Word<I> findSeparatingWord(SPA<?, I> spa1, SPA<?, I> spa2, SPAAlphabet<I> alphabet) {
+    public static <I> Word<I> findSeparatingWord(SPA<?, I> spa1, SPA<?, I> spa2, SPAAlphabet<I> alphabet) {
 
         final ATRSequences<I> atr1 = computeATRSequences(spa1, alphabet);
         final ATRSequences<I> atr2 = computeATRSequences(spa2, alphabet);

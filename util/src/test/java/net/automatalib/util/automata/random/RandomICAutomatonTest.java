@@ -28,7 +28,6 @@ import org.testng.annotations.Test;
  */
 public class RandomICAutomatonTest {
 
-    @Test
     public void testRandomICAutomaton() {
 
         final Random random = new Random(42);

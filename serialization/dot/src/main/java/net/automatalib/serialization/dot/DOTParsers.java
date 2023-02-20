@@ -74,7 +74,7 @@ public final class DOTParsers {
      * Node property parser that parses a node's "{@link NodeAttrs#LABEL label}" attribute and returns its {@link
      * Object#toString() string} representation. Returns {@code null} if the attribute is not specified.
      */
-    public static final Function<Map<String, String>, @Nullable String> DEFAULT_NODE_PARSER =
+    public static final Function<Map<String, String>, String> DEFAULT_NODE_PARSER =
             attr -> attr.get(NodeAttrs.LABEL);
 
     /**
@@ -89,7 +89,7 @@ public final class DOTParsers {
      * <id>/<property>}. Returns the string representation of {@code <property>} as-is. Returns {@code null} if the
      * attribute does not exist or does not match the expected format.
      */
-    public static final Function<Map<String, String>, @Nullable String> DEFAULT_MOORE_NODE_PARSER = attr -> {
+    public static final Function<Map<String, String>, String> DEFAULT_MOORE_NODE_PARSER = attr -> {
         final String label = attr.get(NodeAttrs.LABEL);
         if (label == null) {
             return null;
@@ -108,7 +108,7 @@ public final class DOTParsers {
      * Edge input parser that parses an edges's "{@link EdgeAttrs#LABEL label}" attribute and returns its {@link
      * Object#toString() string} representation. Returns {@code null} if the attribute is not specified.
      */
-    public static final Function<Map<String, String>, @Nullable String> DEFAULT_EDGE_PARSER =
+    public static final Function<Map<String, String>, String> DEFAULT_EDGE_PARSER =
             attr -> attr.get(EdgeAttrs.LABEL);
 
     /**
@@ -116,7 +116,7 @@ public final class DOTParsers {
      * <input>/<property>}. Returns a {@link Pair} object containing the string representation of both components
      * as-is. Returns {@code null} if the attribute does not exist or does not match the expected format.
      */
-    public static final Function<Map<String, String>, Pair<@Nullable String, @Nullable String>>
+    public static final Function<Map<String, String>, Pair<String, String>>
             DEFAULT_MEALY_EDGE_PARSER = attr -> {
         final String label = attr.get(EdgeAttrs.LABEL);
         if (label == null) {
@@ -185,7 +185,7 @@ public final class DOTParsers {
      *
      * @return a {@link DOTInputModelDeserializer} for {@link CompactDFA}s.
      */
-    public static DOTInputModelDeserializer<Integer, @Nullable String, CompactDFA<@Nullable String>> dfa() {
+    public static DOTInputModelDeserializer<Integer, String, CompactDFA<String>> dfa() {
         return dfa(DEFAULT_FSA_NODE_PARSER, DEFAULT_EDGE_PARSER);
     }
 
@@ -216,7 +216,7 @@ public final class DOTParsers {
      *
      * @return a {@link DOTInputModelDeserializer} for {@link CompactNFA}s.
      */
-    public static DOTInputModelDeserializer<Integer, @Nullable String, CompactNFA<@Nullable String>> nfa() {
+    public static DOTInputModelDeserializer<Integer, String, CompactNFA<String>> nfa() {
         return nfa(DEFAULT_FSA_NODE_PARSER, DEFAULT_EDGE_PARSER);
     }
 
@@ -343,7 +343,7 @@ public final class DOTParsers {
      *
      * @return a {@link DOTInputModelDeserializer} for {@link CompactMealy}s.
      */
-    public static DOTInputModelDeserializer<Integer, @Nullable String, CompactMealy<@Nullable String, @Nullable String>> mealy() {
+    public static DOTInputModelDeserializer<Integer, String, CompactMealy<String, String>> mealy() {
         return mealy(DEFAULT_MEALY_EDGE_PARSER);
     }
 
@@ -470,7 +470,7 @@ public final class DOTParsers {
      *
      * @return a {@link DOTInputModelDeserializer} for {@link CompactMoore}s.
      */
-    public static DOTInputModelDeserializer<Integer, @Nullable String, CompactMoore<@Nullable String, @Nullable String>> moore() {
+    public static DOTInputModelDeserializer<Integer, String, CompactMoore<String, String>> moore() {
         return moore(DEFAULT_MOORE_NODE_PARSER, DEFAULT_EDGE_PARSER);
     }
 
@@ -611,7 +611,7 @@ public final class DOTParsers {
      *
      * @return a DOT {@link ModelDeserializer} for {@link CompactGraph}s.
      */
-    public static ModelDeserializer<CompactGraph<@Nullable String, @Nullable String>> graph() {
+    public static ModelDeserializer<CompactGraph<String, String>> graph() {
         return graph(DEFAULT_NODE_PARSER, DEFAULT_EDGE_PARSER);
     }
 
@@ -669,8 +669,8 @@ public final class DOTParsers {
      *
      * @return a {@link DOTInputModelDeserializer} for {@link CompactMTS}s.
      */
-    public static DOTInputModelDeserializer<Integer, @Nullable String, CompactMTS<@Nullable String>> mts() {
-        return mts(new CompactMTS.Creator<@Nullable String>(), DEFAULT_EDGE_PARSER, DEFAULT_MTS_EDGE_PARSER);
+    public static DOTInputModelDeserializer<Integer, String, CompactMTS<String>> mts() {
+        return mts(new CompactMTS.Creator<String>(), DEFAULT_EDGE_PARSER, DEFAULT_MTS_EDGE_PARSER);
     }
 
     /**
@@ -748,8 +748,8 @@ public final class DOTParsers {
      *
      * @return a {@link DOTInputModelDeserializer} for {@link CompactMC}s.
      */
-    public static DOTInputModelDeserializer<Integer, @Nullable String, CompactMC<@Nullable String>> mc() {
-        return mc(new CompactMC.Creator<@Nullable String>(), DEFAULT_EDGE_PARSER, DEFAULT_MC_EDGE_PARSER);
+    public static DOTInputModelDeserializer<Integer, String, CompactMC<String>> mc() {
+        return mc(new CompactMC.Creator<String>(), DEFAULT_EDGE_PARSER, DEFAULT_MC_EDGE_PARSER);
     }
 
     /**
@@ -826,8 +826,8 @@ public final class DOTParsers {
      *
      * @return a {@link DOTInputModelDeserializer} for {@link CompactMMC}s.
      */
-    public static DOTInputModelDeserializer<Integer, @Nullable String, CompactMMC<@Nullable String>> mmc() {
-        return mc(new CompactMMC.Creator<@Nullable String>(), DEFAULT_EDGE_PARSER, DEFAULT_MMC_EDGE_PARSER);
+    public static DOTInputModelDeserializer<Integer, String, CompactMMC<String>> mmc() {
+        return mc(new CompactMMC.Creator<String>(), DEFAULT_EDGE_PARSER, DEFAULT_MMC_EDGE_PARSER);
     }
 
     private static String getAndRequireNotNull(Map<String, String> map, String attribute) {

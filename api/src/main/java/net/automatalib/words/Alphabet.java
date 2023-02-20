@@ -77,7 +77,7 @@ public interface Alphabet<I> extends ArrayWritable<I>, Collection<I>, Comparator
     }
 
     @Override
-    default void writeToArray(int offset, @Nullable Object[] array, int tgtOfs, int num) {
+    default void writeToArray(int offset, Object[] array, int tgtOfs, int num) {
         for (int i = 0; i < num; i++) {
             array[tgtOfs + i] = getSymbol(offset + i);
         }

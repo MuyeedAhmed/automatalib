@@ -26,7 +26,7 @@ final class AllTuplesIterator<T> implements Iterator<List<T>> {
 
     private final Iterable<? extends T> iterable;
     private final List<T> current;
-    private final @Nullable Iterator<? extends T>[] iterators;
+    private final Iterator<? extends T>[] iterators;
     private boolean firstEmpty;
 
     @SuppressWarnings("unchecked")

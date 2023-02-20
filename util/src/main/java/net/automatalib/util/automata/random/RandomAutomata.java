@@ -65,7 +65,7 @@ public final class RandomAutomata {
      */
     @SuppressWarnings("nullness") // false positive?
     public static <I> CompactDFA<I> randomICDFA(Random rand,
-                                                @NonNegative int numStates,
+                                                int numStates,
                                                 Alphabet<I> inputs,
                                                 boolean minimize) {
         final CompactDFA<I> dfa =
@@ -195,7 +195,7 @@ public final class RandomAutomata {
     }
 
     public static <S, I, T, SP, TP, A extends MutableDeterministic<S, I, T, SP, TP>> A randomDeterministic(Random rand,
-                                                                                                           @NonNegative int numStates,
+                                                                                                           int numStates,
                                                                                                            Collection<? extends I> inputs,
                                                                                                            Collection<? extends SP> stateProps,
                                                                                                            Collection<? extends TP> transProps,
@@ -204,7 +204,7 @@ public final class RandomAutomata {
     }
 
     public static <S, I, T, SP, TP, A extends MutableDeterministic<S, I, T, SP, TP>> A randomDeterministic(Random rand,
-                                                                                                           @NonNegative int numStates,
+                                                                                                           int numStates,
                                                                                                            Collection<? extends I> inputs,
                                                                                                            Collection<? extends SP> stateProps,
                                                                                                            Collection<? extends TP> transProps,
@@ -226,7 +226,7 @@ public final class RandomAutomata {
     }
 
     public static <I> CompactDFA<I> randomDFA(Random rand,
-                                              @NonNegative int numStates,
+                                              int numStates,
                                               Alphabet<I> inputs,
                                               boolean minimize) {
         return randomDeterministic(rand,
@@ -238,12 +238,12 @@ public final class RandomAutomata {
                                    minimize);
     }
 
-    public static <I> CompactDFA<I> randomDFA(Random rand, @NonNegative int numStates, Alphabet<I> inputs) {
+    public static <I> CompactDFA<I> randomDFA(Random rand, int numStates, Alphabet<I> inputs) {
         return randomDFA(rand, numStates, inputs, true);
     }
 
     public static <I, O> CompactMealy<I, O> randomMealy(Random rand,
-                                                        @NonNegative int numStates,
+                                                        int numStates,
                                                         Alphabet<I> inputs,
                                                         Collection<? extends O> outputs,
                                                         boolean minimize) {
@@ -257,14 +257,14 @@ public final class RandomAutomata {
     }
 
     public static <I, O> CompactMealy<I, O> randomMealy(Random rand,
-                                                        @NonNegative int numStates,
+                                                        int numStates,
                                                         Alphabet<I> inputs,
                                                         Collection<? extends O> outputs) {
         return randomMealy(rand, numStates, inputs, outputs, true);
     }
 
     public static <I, O> CompactMoore<I, O> randomMoore(Random rand,
-                                                        @NonNegative int numStates,
+                                                        int numStates,
                                                         Alphabet<I> inputs,
                                                         Collection<? extends O> outputs,
                                                         boolean minimize) {
@@ -278,7 +278,7 @@ public final class RandomAutomata {
     }
 
     public static <I, O> CompactMoore<I, O> randomMoore(Random rand,
-                                                        @NonNegative int numStates,
+                                                        int numStates,
                                                         Alphabet<I> inputs,
                                                         Collection<? extends O> outputs) {
         return randomMoore(rand, numStates, inputs, outputs, true);

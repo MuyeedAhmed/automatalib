@@ -34,7 +34,7 @@ final class Node<I, O> {
         this.outEdges = new HashMap<>();
     }
 
-    @Nullable Edge<Node<I, O>, O> getEdge(I input) {
+    Edge<Node<I, O>, O> getEdge(I input) {
         return outEdges.get(input);
     }
 

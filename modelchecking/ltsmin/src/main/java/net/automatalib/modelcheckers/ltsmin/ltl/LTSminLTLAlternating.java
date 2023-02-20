@@ -36,7 +36,6 @@ import net.automatalib.modelchecking.Lasso.MealyLasso;
 public class LTSminLTLAlternating<I, O> extends AbstractLTSminLTLMealy<I, O>
         implements LTSminAlternating<I, O, MealyLasso<I, O>> {
 
-    @GenerateBuilder(defaults = BuilderDefaults.class)
     public LTSminLTLAlternating(boolean keepFiles,
                                 Function<String, I> string2Input,
                                 Function<String, O> string2Output,

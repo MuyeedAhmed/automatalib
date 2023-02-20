@@ -33,27 +33,22 @@ public class UnorderedCollectionTest {
 
     private UnorderedCollection<Integer> collection;
 
-    @BeforeClass
     public void setUp() {
         this.collection = new UnorderedCollection<>(Collections.singleton(0));
     }
 
-    @Test
     public void testAddArray() {
         this.collection.addAll(new Integer[] {1, 1, 1});
     }
 
-    @Test
     public void testAddCollection() {
         this.collection.addAll(Arrays.asList(2, 2, 2));
     }
 
-    @Test
     public void testAddIterable() {
         this.collection.addAll((Iterable<Integer>) Arrays.asList(3, 3, 3));
     }
 
-    @Test(dependsOnMethods = {"testAddArray", "testAddCollection", "testAddIterable"})
     public void testRemove() {
         Assert.assertTrue(this.collection.remove(0));
         Assert.assertTrue(this.collection.remove(1));
@@ -61,7 +56,6 @@ public class UnorderedCollectionTest {
         Assert.assertTrue(this.collection.remove(3));
     }
 
-    @Test(dependsOnMethods = {"testAddArray", "testAddCollection", "testAddIterable", "testRemove"})
     public void testContains() {
         final List<Integer> allElements = new ArrayList<>(this.collection);
         Collections.sort(allElements);

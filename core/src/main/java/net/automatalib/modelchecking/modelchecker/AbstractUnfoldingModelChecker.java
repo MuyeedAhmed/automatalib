@@ -79,7 +79,7 @@ public abstract class AbstractUnfoldingModelChecker<I, A, P, L extends Lasso<I, 
     }
 
     @Override
-    public void setMinimumUnfolds(@UnknownInitialization AbstractUnfoldingModelChecker<I, A, P, L> this,
+    public void setMinimumUnfolds(AbstractUnfoldingModelChecker<I, A, P, L> this,
                                   int minimumUnfolds) {
         if (minimumUnfolds < 1) {
             throw new IllegalArgumentException("must unfold at least once");
@@ -88,7 +88,7 @@ public abstract class AbstractUnfoldingModelChecker<I, A, P, L extends Lasso<I, 
     }
 
     @Override
-    public void setMultiplier(@UnknownInitialization AbstractUnfoldingModelChecker<I, A, P, L> this,
+    public void setMultiplier(AbstractUnfoldingModelChecker<I, A, P, L> this,
                               double multiplier) {
         if (multiplier < 0.0) {
             throw new IllegalArgumentException("multiplier must be >= 0.0");

@@ -27,13 +27,11 @@ public class IntSeqTest {
     private final int[] arr1 = {1, 2, 3, 4, 5, 6};
     private final int[] arr2 = {31, 43, 45, 1, 3445, 56};
 
-    @Test
     public void testArrays() {
         Assert.assertEquals(IntSeq.of(arr1), Ints.asList(arr1));
         Assert.assertEquals(IntSeq.of(arr2), Ints.asList(arr2));
     }
 
-    @Test
     public void testLists() {
         Assert.assertEquals(IntSeq.of(Ints.asList(arr1)), Ints.asList(arr1));
         Assert.assertEquals(IntSeq.of(Ints.asList(arr2)), Ints.asList(arr2));

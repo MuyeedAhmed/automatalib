@@ -50,7 +50,7 @@ public interface ArrayWritable<T> {
      * @param num
      *         the maximum number of elements to copy.
      */
-    void writeToArray(int offset, @Nullable Object[] array, int tgtOfs, int num);
+    void writeToArray(int offset, Object[] array, int tgtOfs, int num);
 
     /**
      * The size of this container.

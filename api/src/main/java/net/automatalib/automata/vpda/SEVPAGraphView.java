@@ -131,13 +131,13 @@ public class SEVPAGraphView<L, I> implements Graph<L, SevpaViewEdge<L, I>> {
         public final S target;
 
         public final int callLocId;
-        public final @Nullable I callSymbol;
+        public final I callSymbol;
 
         SevpaViewEdge(I internalAction, S target) {
             this(internalAction, target, -1, null);
         }
 
-        SevpaViewEdge(I returnAction, S target, int callLocId, @Nullable I callSymbol) {
+        SevpaViewEdge(I returnAction, S target, int callLocId, I callSymbol) {
             this.input = returnAction;
             this.target = target;
             this.callLocId = callLocId;

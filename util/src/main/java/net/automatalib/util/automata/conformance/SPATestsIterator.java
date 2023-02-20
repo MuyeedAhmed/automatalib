@@ -68,18 +68,18 @@ public class SPATestsIterator<I> extends AbstractTwoLevelIterator<I, Word<I>, Wo
     @Override
     protected Iterator<Word<I>> l2Iterator(I callSymbol) {
         @SuppressWarnings("assignment.type.incompatible") // we check redundancy-free-ness in the constructor
-        final @NonNull DFA<?, I> dfa = spa.getProcedures().get(callSymbol);
+        final DFA<?, I> dfa = spa.getProcedures().get(callSymbol);
         return conformanceTestProvider.apply(dfa, alphabet.getProceduralAlphabet());
     }
 
     @Override
     protected Word<I> combine(I callSymbol, Word<I> testSequence) {
         @SuppressWarnings("assignment.type.incompatible") // we check redundancy-free-ness in the constructor
-        final @NonNull Word<I> as = this.atrSequences.accessSequences.get(callSymbol);
+        final Word<I> as = this.atrSequences.accessSequences.get(callSymbol);
         @SuppressWarnings("assignment.type.incompatible") // we check redundancy-free-ness in the constructor
         final Word<I> ts = this.alphabet.expand(testSequence, this.atrSequences.terminatingSequences::get);
         @SuppressWarnings("assignment.type.incompatible") // we check redundancy-free-ness in the constructor
-        final @NonNull Word<I> rs = this.atrSequences.returnSequences.get(callSymbol);
+        final Word<I> rs = this.atrSequences.returnSequences.get(callSymbol);
 
         return Word.fromWords(as, ts, rs);
     }

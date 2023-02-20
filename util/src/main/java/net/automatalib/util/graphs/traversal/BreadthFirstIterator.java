@@ -29,7 +29,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 final class BreadthFirstIterator<N, E> implements Iterator<N> {
 
     private final Queue<N> bfsQueue = new ArrayDeque<>();
-    private final MutableMapping<N, @Nullable VisitedState> visited;
+    private final MutableMapping<N, VisitedState> visited;
     private final IndefiniteGraph<N, E> graph;
 
     BreadthFirstIterator(IndefiniteGraph<N, E> graph, Collection<? extends N> start) {

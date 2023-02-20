@@ -47,7 +47,6 @@ public class GraphCopyTest {
     private UniversalGraph<FastDFAState, TransitionEdge<Character, FastDFAState>, Boolean, TransitionEdge.Property<Character, Void>>
             sourceAsGraph;
 
-    @BeforeClass
     public void setUp() {
         final Alphabet<Character> alphabet = Alphabets.characters('a', 'c');
         final Random random = new Random(42);
@@ -63,14 +62,12 @@ public class GraphCopyTest {
         sourceAsGraph = this.source.transitionGraphView();
     }
 
-    @Test
     public void testPlainCopy() {
         final CompactGraph<Boolean, TransitionEdge.Property<Character, Void>> target = new CompactGraph<>();
         final Mapping<FastDFAState, Integer> mapping = GraphCopy.copyPlain(sourceAsGraph, target);
         checkEquality(sourceAsGraph, target, mapping);
     }
 
-    @Test
     public void testTraversalCopy() {
         final CompactGraph<Boolean, TransitionEdge.Property<Character, Void>> target = new CompactGraph<>();
         final Mapping<FastDFAState, Integer> mapping = GraphCopy.copyTraversal(source.transitionGraphView(),

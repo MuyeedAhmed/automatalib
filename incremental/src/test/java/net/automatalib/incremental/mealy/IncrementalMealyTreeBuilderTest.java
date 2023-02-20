@@ -19,7 +19,6 @@ import net.automatalib.incremental.mealy.tree.IncrementalMealyTreeBuilder;
 import net.automatalib.words.Alphabet;
 import org.testng.annotations.Test;
 
-@Test
 public class IncrementalMealyTreeBuilderTest extends AbstractIncrementalMealyBuilderTest {
 
     @Override

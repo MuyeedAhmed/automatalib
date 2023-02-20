@@ -30,7 +30,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public final class Node<I> {
 
     private Acceptance acceptance;
-    private @Nullable ResizingArrayStorage<Node<I>> children;
+    private ResizingArrayStorage<Node<I>> children;
 
     /**
      * Constructor. Constructs a new node with no children and an acceptance value of {@link Acceptance#DONT_KNOW}
@@ -76,7 +76,7 @@ public final class Node<I> {
      *
      * @return the child for the given index, or {@code null} if there is no such child
      */
-    public @Nullable Node<I> getChild(int idx) {
+    public Node<I> getChild(int idx) {
         if (children == null) {
             return null;
         }

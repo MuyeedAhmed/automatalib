@@ -121,18 +121,18 @@ public class CompactMMC<I> extends AbstractCompactMTS<I, ModalContractMembership
 
     public static final class Creator<I> implements AutomatonCreator<CompactMMC<I>, I> {
 
-        private final @Nullable Alphabet<I> defaultInputAlphabet;
-        private final @Nullable Alphabet<I> defaultCommunicationAlphabet;
+        private final Alphabet<I> defaultInputAlphabet;
+        private final Alphabet<I> defaultCommunicationAlphabet;
 
         public Creator() {
             this(null, null);
         }
 
-        public Creator(@Nullable Alphabet<I> defaultCommunicationAlphabet) {
+        public Creator(Alphabet<I> defaultCommunicationAlphabet) {
             this(null, defaultCommunicationAlphabet);
         }
 
-        public Creator(@Nullable Alphabet<I> defaultInputAlphabet, @Nullable Alphabet<I> defaultCommunicationAlphabet) {
+        public Creator(Alphabet<I> defaultInputAlphabet, Alphabet<I> defaultCommunicationAlphabet) {
             this.defaultInputAlphabet = defaultInputAlphabet;
             this.defaultCommunicationAlphabet = defaultCommunicationAlphabet;
         }

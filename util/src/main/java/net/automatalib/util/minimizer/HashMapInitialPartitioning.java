@@ -32,7 +32,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 class HashMapInitialPartitioning<S, L> implements InitialPartitioning<S, L> {
 
-    private final Map<@Nullable Object, Block<S, L>> initialBlockMap = new HashMap<>();
+    private final Map<Object, Block<S, L>> initialBlockMap = new HashMap<>();
     private final UniversalIndefiniteGraph<S, ?, ?, L> graph;
 
     private int numExistingBlocks;
@@ -43,7 +43,7 @@ class HashMapInitialPartitioning<S, L> implements InitialPartitioning<S, L> {
 
     @Override
     public Block<S, L> getBlock(S origState) {
-        @Nullable Object clazz = graph.getNodeProperty(origState);
+        Object clazz = graph.getNodeProperty(origState);
         return initialBlockMap.computeIfAbsent(clazz, k -> new Block<>(numExistingBlocks++));
     }
 

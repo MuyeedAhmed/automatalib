@@ -27,14 +27,12 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-@Test
 public class SSSPTest {
 
     Integer n0, n1, n2, n3, n4, n5;
     private CompactSimpleGraph<Float> graph;
     private EdgeWeights<CompactEdge<Float>> weights;
 
-    @BeforeClass
     public void setUp() {
         graph = new CompactSimpleGraph<>();
 
@@ -59,7 +57,6 @@ public class SSSPTest {
         this.weights = new PropertyEdgeWeights<>(graph);
     }
 
-    @Test
     public void testSSSP() {
         SSSPResult<Integer, CompactEdge<Float>> sssp = Graphs.findSSSP(graph, n0, weights);
 

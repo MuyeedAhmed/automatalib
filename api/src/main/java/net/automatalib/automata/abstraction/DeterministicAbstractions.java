@@ -39,7 +39,7 @@ public interface DeterministicAbstractions {
         }
 
         @Override
-        public @Nullable T getTransition(int state, I input) {
+        public T getTransition(int state, I input) {
             return automaton.getTransition(intToState(state), input);
         }
     }
@@ -53,7 +53,7 @@ public interface DeterministicAbstractions {
         }
 
         @Override
-        public @Nullable T getTransition(int state, int input) {
+        public T getTransition(int state, int input) {
             return stateAbstraction.getTransition(state, intToSym(input));
         }
 

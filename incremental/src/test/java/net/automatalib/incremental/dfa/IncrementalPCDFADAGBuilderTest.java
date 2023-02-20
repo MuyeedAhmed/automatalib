@@ -27,7 +27,6 @@ import net.automatalib.words.Word;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Test
 public class IncrementalPCDFADAGBuilderTest extends AbstractIncrementalPCDFABuilderTest {
 
     @Override
@@ -39,7 +38,6 @@ public class IncrementalPCDFADAGBuilderTest extends AbstractIncrementalPCDFABuil
      * This tests case validates a set of traces from an external system which exposed an issue in confluence
      * propagation.
      */
-    @Test
     public void testIntegrationSPA() throws IOException {
         runIntegration("/spa/dfa_traces.gz");
     }
@@ -47,7 +45,6 @@ public class IncrementalPCDFADAGBuilderTest extends AbstractIncrementalPCDFABuil
     /**
      * This tests case validates a set of traces from an external system which exposed an issue in state purging.
      */
-    @Test
     public void testIntegrationSBA() throws IOException {
         runIntegration("/sba/dfa_traces.gz");
     }

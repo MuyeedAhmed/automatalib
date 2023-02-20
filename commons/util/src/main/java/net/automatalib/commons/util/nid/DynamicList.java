@@ -39,7 +39,7 @@ public class DynamicList<T extends MutableNumericID> extends AbstractList<T> imp
     }
 
     @Override
-    public boolean remove(@Nullable Object elem) {
+    public boolean remove(Object elem) {
         return remove(elem, null);
     }
 
@@ -89,7 +89,7 @@ public class DynamicList<T extends MutableNumericID> extends AbstractList<T> imp
         return elem;
     }
 
-    public @Nullable T safeGet(int index) {
+    public T safeGet(int index) {
         if (index < 0 || index >= size) {
             return null;
         }
@@ -164,7 +164,7 @@ public class DynamicList<T extends MutableNumericID> extends AbstractList<T> imp
     }
 
     @Override
-    public void writeToArray(int offset, @Nullable Object[] array, int tgtOfs, int num) {
+    public void writeToArray(int offset, Object[] array, int tgtOfs, int num) {
         System.arraycopy(storage.array, offset, array, tgtOfs, num);
     }
 

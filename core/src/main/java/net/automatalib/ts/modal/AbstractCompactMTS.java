@@ -44,7 +44,7 @@ public abstract class AbstractCompactMTS<I, TP extends MutableModalEdgeProperty>
         implements MutableModalTransitionSystem<Integer, I, MTSTransition<TP>, TP> {
 
     private final BitSet initialStates;
-    private @Nullable Set<MTSTransition<TP>>[] transitions;
+    private Set<MTSTransition<TP>>[] transitions;
 
     public AbstractCompactMTS(Alphabet<I> alphabet) {
         this(alphabet, DEFAULT_INIT_CAPACITY, DEFAULT_RESIZE_FACTOR);
@@ -101,7 +101,7 @@ public abstract class AbstractCompactMTS<I, TP extends MutableModalEdgeProperty>
     }
 
     @Override
-    public MTSTransition<TP> createTransition(Integer successor, @Nullable TP properties) {
+    public MTSTransition<TP> createTransition(Integer successor, TP properties) {
         return new MTSTransition<>(successor, properties == null ? getDefaultTransitionProperty() : properties);
     }
 

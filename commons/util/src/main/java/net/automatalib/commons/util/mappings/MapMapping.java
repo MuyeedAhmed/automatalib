@@ -32,7 +32,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  *
  * @author Malte Isberner
  */
-public class MapMapping<D, @Nullable R> implements MutableMapping<D, R> {
+public class MapMapping<D, R> implements MutableMapping<D, R> {
 
     private final Map<D, R> map;
 
@@ -82,7 +82,7 @@ public class MapMapping<D, @Nullable R> implements MutableMapping<D, R> {
      *
      * @see java.util.Map#entrySet()
      */
-    public Set<Map.Entry<@KeyFor("this.map") D, R>> entrySet() {
+    public Set<Map.Entry<D, R>> entrySet() {
         return map.entrySet();
     }
 }

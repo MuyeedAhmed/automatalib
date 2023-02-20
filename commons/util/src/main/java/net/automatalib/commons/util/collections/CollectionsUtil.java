@@ -35,7 +35,7 @@ public final class CollectionsUtil {
         // prevent instantiation.
     }
 
-    public static <E> @Nullable E removeReplace(List<E> list, int index) {
+    public static <E> E removeReplace(List<E> list, int index) {
         int lastIdx = list.size() - 1;
         E last = list.remove(lastIdx);
         if (lastIdx != index) {

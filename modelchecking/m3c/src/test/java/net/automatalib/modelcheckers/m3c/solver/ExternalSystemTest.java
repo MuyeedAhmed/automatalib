@@ -39,79 +39,64 @@ public class ExternalSystemTest {
 
     private final Function<ContextFreeModalProcessSystem<String, String>, M3CSolver<String>> solverProvider;
 
-    @Factory(dataProvider = "solvers")
     public ExternalSystemTest(Function<ContextFreeModalProcessSystem<String, String>, M3CSolver<String>> solverProvider) {
         this.solverProvider = solverProvider;
     }
 
-    @DataProvider
     public static Object[] solvers() {
         Function<ContextFreeModalProcessSystem<String, String>, M3CSolver<String>> addSolver = M3CSolvers::addSolver;
         Function<ContextFreeModalProcessSystem<String, String>, M3CSolver<String>> bddSolver = M3CSolvers::bddSolver;
         return new Function<?, ?>[] {addSolver, bddSolver};
     }
 
-    @Test
     public void testSetting1System1() throws IOException, ParserConfigurationException, SAXException, ParseException {
         testBenchmark("/cfmps/setting1/system1/");
     }
 
-    @Test
     public void testSetting1System2() throws IOException, ParserConfigurationException, SAXException, ParseException {
         testBenchmark("/cfmps/setting1/system2/");
     }
 
-    @Test
     public void testSetting1System3() throws IOException, ParserConfigurationException, SAXException, ParseException {
         testBenchmark("/cfmps/setting1/system3/");
     }
 
-    @Test
     public void testSetting2System1() throws IOException, ParserConfigurationException, SAXException, ParseException {
         testBenchmark("/cfmps/setting2/system1/");
     }
 
-    @Test
     public void testSetting2System2() throws IOException, ParserConfigurationException, SAXException, ParseException {
         testBenchmark("/cfmps/setting2/system2/");
     }
 
-    @Test
     public void testSetting2System3() throws IOException, ParserConfigurationException, SAXException, ParseException {
         testBenchmark("/cfmps/setting2/system3/");
     }
 
-    @Test
     public void testSetting2System4() throws IOException, ParserConfigurationException, SAXException, ParseException {
         testBenchmark("/cfmps/setting2/system4/");
     }
 
-    @Test
     public void testSetting2System5() throws IOException, ParserConfigurationException, SAXException, ParseException {
         testBenchmark("/cfmps/setting2/system5/");
     }
 
-    @Test
     public void testSetting2System6() throws IOException, ParserConfigurationException, SAXException, ParseException {
         testBenchmark("/cfmps/setting2/system6/");
     }
 
-    @Test
     public void testSetting2System7() throws IOException, ParserConfigurationException, SAXException, ParseException {
         testBenchmark("/cfmps/setting2/system7/");
     }
 
-    @Test
     public void testSetting2System8() throws IOException, ParserConfigurationException, SAXException, ParseException {
         testBenchmark("/cfmps/setting2/system8/");
     }
 
-    @Test
     public void testSetting2System9() throws IOException, ParserConfigurationException, SAXException, ParseException {
         testBenchmark("/cfmps/setting2/system9/");
     }
 
-    @Test
     public void testPalindrome() throws IOException, ParserConfigurationException, SAXException, ParseException {
         testBenchmark("/cfmps/palindrome/");
     }

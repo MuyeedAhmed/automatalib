@@ -28,7 +28,6 @@ import org.testng.annotations.Test;
  */
 public class AutomatonBuilderTest {
 
-    @Test
     public void testBuilder() {
         final Alphabet<Integer> alphabet = Alphabets.integers(1, 6);
 

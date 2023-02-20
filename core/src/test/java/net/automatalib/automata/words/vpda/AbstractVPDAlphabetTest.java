@@ -42,7 +42,6 @@ public abstract class AbstractVPDAlphabetTest<I, M extends VPDAlphabet<I>> {
     private List<I> nonAlphabetSymbols;
     private M alphabet;
 
-    @BeforeClass
     public void setUp() {
         this.callSymbols = getCallSymbols();
         this.internalSymbols = getInternalSymbols();
@@ -61,12 +60,10 @@ public abstract class AbstractVPDAlphabetTest<I, M extends VPDAlphabet<I>> {
 
     protected abstract M getAlphabet();
 
-    @Test
     public void testSize() {
         Assert.assertEquals(callSymbols.size() + internalSymbols.size() + returnSymbols.size(), alphabet.size());
     }
 
-    @Test
     public void testIndices() {
         testIndices(callSymbols, alphabet.getCallAlphabet());
         testIndices(internalSymbols, alphabet.getInternalAlphabet());
@@ -82,7 +79,6 @@ public abstract class AbstractVPDAlphabetTest<I, M extends VPDAlphabet<I>> {
         }
     }
 
-    @Test
     public void testOutOfBoundsIndex() {
         testOutOfBoundsIndex(callSymbols, alphabet.getCallAlphabet());
         testOutOfBoundsIndex(internalSymbols, alphabet.getInternalAlphabet());
@@ -94,7 +90,6 @@ public abstract class AbstractVPDAlphabetTest<I, M extends VPDAlphabet<I>> {
         Assert.assertThrows(() -> alphabet.getSymbol(source.size() + 1));
     }
 
-    @Test
     public void testNonContainedSymbols() {
         testNonContainedSymbols(alphabet.getCallAlphabet());
         testNonContainedSymbols(alphabet.getInternalAlphabet());
@@ -107,7 +102,6 @@ public abstract class AbstractVPDAlphabetTest<I, M extends VPDAlphabet<I>> {
         }
     }
 
-    @Test
     public void testWellMatchednessChecks() {
         final M alphabet = getAlphabet();
         final I c1 = getNthElementIfPossible(callSymbols, 0);

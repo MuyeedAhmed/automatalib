@@ -40,7 +40,7 @@ public interface ContextFreeModalProcessSystem<L, AP> extends FiniteRepresentati
 
     Map<L, ProceduralModalProcessGraph<?, L, ?, AP, ?>> getPMPGs();
 
-    @Nullable L getMainProcess();
+    L getMainProcess();
 
     @Override
     default int size() {
@@ -50,6 +50,6 @@ public interface ContextFreeModalProcessSystem<L, AP> extends FiniteRepresentati
     @Override
     default Graph<?, ?> graphView() {
         // explicit type specification is required by checker-framework
-        return new CFMPSGraphView<@Nullable Object, L, @Nullable Object, AP>(getPMPGs());
+        return new CFMPSGraphView<Object, L, Object, AP>(getPMPGs());
     }
 }

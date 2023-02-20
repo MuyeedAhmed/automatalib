@@ -145,8 +145,7 @@ public class DOTPanel extends JPanel {
         return clearAction;
     }
 
-    @RequiresNonNull("listBox")
-    public void saveDOT(@UnknownInitialization(JPanel.class) DOTPanel this) {
+    public void saveDOT(DOTPanel this) {
         PlottedGraph pg = listBox.getSelectedValue();
         if (pg == null) {
             JOptionPane.showMessageDialog(this,
@@ -171,8 +170,7 @@ public class DOTPanel extends JPanel {
         }
     }
 
-    @RequiresNonNull("listBox")
-    public void savePNG(@UnknownInitialization(JPanel.class) DOTPanel this) {
+    public void savePNG(DOTPanel this) {
         PlottedGraph pg = listBox.getSelectedValue();
         if (pg == null) {
             JOptionPane.showMessageDialog(this,
@@ -213,13 +211,11 @@ public class DOTPanel extends JPanel {
         graphs.addElement(pg);
     }
 
-    @RequiresNonNull("graphs")
-    public void clear(@UnknownInitialization(JPanel.class) DOTPanel this) {
+    public void clear(DOTPanel this) {
         graphs.clear();
     }
 
-    @RequiresNonNull("listBox")
-    public void rename(@UnknownInitialization(JPanel.class) DOTPanel this) {
+    public void rename(DOTPanel this) {
         PlottedGraph pg = listBox.getSelectedValue();
         if (pg == null) {
             JOptionPane.showMessageDialog(this,

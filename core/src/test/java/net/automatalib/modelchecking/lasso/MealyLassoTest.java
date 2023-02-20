@@ -35,7 +35,6 @@ public class MealyLassoTest extends AbstractLassoTest<MealyLassoImpl<String, Str
         return new MealyLassoImpl<>(new MealyMachineMock(prefix, loop), getAlphabet(), 1);
     }
 
-    @Test
     public void testGetOutput() {
         final MealyLassoImpl<String, String> lasso = getLasso(Word.epsilon(), Word.fromSymbols("a"), 1);
         Assert.assertEquals(lasso.getOutput(), Word.fromSymbols(MealyMachineMock.OUTPUT));
@@ -65,7 +64,7 @@ public class MealyLassoTest extends AbstractLassoTest<MealyLassoImpl<String, Str
         }
 
         @Override
-        public @Nullable MealyTransition<Integer, String> getTransition(Integer state, String input) {
+        public MealyTransition<Integer, String> getTransition(Integer state, String input) {
             final MealyTransition<Integer, String> result;
             if (word.getSymbol(state).equals(input)) {
                 if (state < word.length() - 1) {

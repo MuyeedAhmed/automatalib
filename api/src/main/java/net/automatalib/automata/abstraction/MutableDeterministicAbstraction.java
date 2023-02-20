@@ -39,7 +39,7 @@ public interface MutableDeterministicAbstraction {
         }
 
         @Override
-        public void setTransition(int state, I input, @Nullable T transition) {
+        public void setTransition(int state, I input, T transition) {
             automaton.setTransition(intToState(state), input, transition);
         }
 
@@ -69,7 +69,7 @@ public interface MutableDeterministicAbstraction {
         }
 
         @Override
-        public int addIntState(@Nullable SP property) {
+        public int addIntState(SP property) {
             return stateToInt(automaton.addState(property));
         }
 
@@ -79,7 +79,7 @@ public interface MutableDeterministicAbstraction {
         }
 
         @Override
-        public int addIntInitialState(@Nullable SP property) {
+        public int addIntInitialState(SP property) {
             return stateToInt(automaton.addInitialState(property));
         }
     }
@@ -93,7 +93,7 @@ public interface MutableDeterministicAbstraction {
         }
 
         @Override
-        public void setTransition(int state, int input, @Nullable T transition) {
+        public void setTransition(int state, int input, T transition) {
             stateAbstraction.setTransition(state, intToSym(input), transition);
         }
 
@@ -128,7 +128,7 @@ public interface MutableDeterministicAbstraction {
         }
 
         @Override
-        public int addIntState(@Nullable SP property) {
+        public int addIntState(SP property) {
             return stateAbstraction.addIntState(property);
         }
 
@@ -138,7 +138,7 @@ public interface MutableDeterministicAbstraction {
         }
 
         @Override
-        public int addIntInitialState(@Nullable SP property) {
+        public int addIntInitialState(SP property) {
             return stateAbstraction.addIntInitialState(property);
         }
     }

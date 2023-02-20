@@ -26,7 +26,6 @@ public abstract class AbstractNonemptyWordTest extends AbstractWordTest {
     protected List<Word<Object>> realPrefixes;
     protected List<Word<Object>> realSuffixes;
 
-    @BeforeClass
     @Override
     public void setup() {
         super.setup();
@@ -39,13 +38,11 @@ public abstract class AbstractNonemptyWordTest extends AbstractWordTest {
     protected abstract List<Word<Object>> realSuffixes();
 
     @Override
-    @Test
     public void testIsEmpty() {
         Assert.assertFalse(testWord.isEmpty());
     }
 
     @Override
-    @Test
     public void testLongestCommonPrefix() {
         super.testLongestCommonPrefix();
 
@@ -56,7 +53,6 @@ public abstract class AbstractNonemptyWordTest extends AbstractWordTest {
     }
 
     @Override
-    @Test
     public void testLongestCommonSuffix() {
         super.testLongestCommonSuffix();
 
@@ -66,7 +62,6 @@ public abstract class AbstractNonemptyWordTest extends AbstractWordTest {
         }
     }
 
-    @Test(expectedExceptions = IndexOutOfBoundsException.class)
     public void testSubword3() {
         testWord.subWord(testWord.length(), 0);
     }

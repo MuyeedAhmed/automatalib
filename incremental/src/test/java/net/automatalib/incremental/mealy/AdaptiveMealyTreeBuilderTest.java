@@ -31,7 +31,6 @@ import net.automatalib.words.impl.GrowingMapAlphabet;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Test
 public class AdaptiveMealyTreeBuilderTest {
 
     private static final Alphabet<Character> TEST_ALPHABET = Alphabets.characters('a', 'c');
@@ -53,7 +52,6 @@ public class AdaptiveMealyTreeBuilderTest {
     private AdaptiveMealyTreeBuilder<Character, Character> adaptiveMealy =
             new AdaptiveMealyTreeBuilder<>(TEST_ALPHABET);
 
-    @Test
     public void testConfluenceBug() {
         adaptiveMealy.insert(W_B_1, W_B_1_O);
         adaptiveMealy.insert(W_B_2, W_B_2_O);
@@ -64,7 +62,6 @@ public class AdaptiveMealyTreeBuilderTest {
         this.adaptiveMealy = new AdaptiveMealyTreeBuilder<>(TEST_ALPHABET);
     }
 
-    @Test(dependsOnMethods = "testConfluenceBug")
     public void testLookup() {
         Assert.assertFalse(adaptiveMealy.hasDefinitiveInformation(W_1));
         Assert.assertFalse(adaptiveMealy.hasDefinitiveInformation(W_2));
@@ -120,12 +117,10 @@ public class AdaptiveMealyTreeBuilderTest {
         wb.clear();
     }
 
-    @Test(dependsOnMethods = "testLookup")
     public void testInsertSame() {
         adaptiveMealy.insert(W_1, W_1_O);
     }
 
-    @Test
     public void testAges() {
         LinkedList<Pair<Word<Character>, Word<Character>>> words = new LinkedList<>();
         words.add(Pair.of(W_2, W_1_O));
@@ -146,7 +141,6 @@ public class AdaptiveMealyTreeBuilderTest {
         Assert.assertEquals(W_1, adaptiveMealy.getOldestInput());
     }
 
-    @Test(dependsOnMethods = "testLookup")
     public void testFindSeparatingWord() {
         CompactMealy<Character, Character> testMealy = new CompactMealy<>(TEST_ALPHABET);
 
@@ -183,7 +177,6 @@ public class AdaptiveMealyTreeBuilderTest {
         Assert.assertEquals(sepWord, Word.fromString("acb"));
     }
 
-    @Test(dependsOnMethods = "testLookup")
     public void testTSView() {
         final MealyTransitionSystem<?, Character, ?, Character> tsView = adaptiveMealy.asTransitionSystem();
         final WordBuilder<Character> wb = new WordBuilder<>();
@@ -200,7 +193,6 @@ public class AdaptiveMealyTreeBuilderTest {
         Assert.assertEquals(wb.toWord(), W_3_O);
     }
 
-    @Test
     public void testCounterexampleOfLengthOne() {
         final AdaptiveMealyBuilder<Character, Character> incMealy = new AdaptiveMealyTreeBuilder<>(TEST_ALPHABET);
         incMealy.insert(Word.fromCharSequence("a"), Word.fromCharSequence("x"));
@@ -215,7 +207,6 @@ public class AdaptiveMealyTreeBuilderTest {
         Assert.assertNotNull(ce);
     }
 
-    @Test(dependsOnMethods = "testLookup")
     public void testNewInputSymbol() {
         final GrowingAlphabet<Character> alphabet = new GrowingMapAlphabet<>(TEST_ALPHABET);
         final AdaptiveMealyBuilder<Character, Character> growableBuilder = new AdaptiveMealyTreeBuilder<>(alphabet);
@@ -237,7 +228,6 @@ public class AdaptiveMealyTreeBuilderTest {
         Assert.assertEquals(growableBuilder.lookup(input2), Word.fromLetter('1'));
     }
 
-    @Test
     public void testEmpty() {
         final AdaptiveMealyBuilder<Character, Character> incMealy = new AdaptiveMealyTreeBuilder<>(TEST_ALPHABET);
 

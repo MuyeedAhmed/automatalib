@@ -35,11 +35,11 @@ public class RandomUtil {
         this.random = random;
     }
 
-    public <T> @Nullable T choose(T[] array) {
+    public <T> T choose(T[] array) {
         return choose(array, random);
     }
 
-    public static <T> @Nullable T choose(T[] array, Random rand) {
+    public static <T> T choose(T[] array, Random rand) {
         int len = array.length;
         if (len == 0) {
             return null;
@@ -48,11 +48,11 @@ public class RandomUtil {
         return array[idx];
     }
 
-    public <T> @Nullable T choose(List<? extends T> list) {
+    public <T> T choose(List<? extends T> list) {
         return choose(list, random);
     }
 
-    public static <T> @Nullable T choose(List<? extends T> list, Random rand) {
+    public static <T> T choose(List<? extends T> list, Random rand) {
         int size = list.size();
         if (size == 0) {
             return null;

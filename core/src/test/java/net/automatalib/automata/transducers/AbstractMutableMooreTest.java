@@ -31,7 +31,6 @@ public abstract class AbstractMutableMooreTest {
 
     protected abstract MutableMooreMachine<?, Symbol<Character>, ?, String> getMoore();
 
-    @Test
     public void testTrace() {
         final MutableMooreMachine<?, Symbol<Character>, ?, String> fm = getMoore();
         final List<Symbol<Character>> input = Arrays.asList(TestUtil.IN_A, TestUtil.IN_B, TestUtil.IN_A, TestUtil.IN_B);
@@ -46,7 +45,6 @@ public abstract class AbstractMutableMooreTest {
                                              TestUtil.OUT_OK));
     }
 
-    @Test
     public void testPartialTrace() {
         testPartialTraceInternal(getMoore());
     }

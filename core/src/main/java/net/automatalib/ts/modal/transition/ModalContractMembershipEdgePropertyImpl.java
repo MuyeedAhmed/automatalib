@@ -38,7 +38,7 @@ public class ModalContractMembershipEdgePropertyImpl extends ModalContractEdgePr
     }
 
     @Override
-    public boolean equals(@Nullable Object o) {
+    public boolean equals(Object o) {
         if (!super.equals(o)) {
             return false;
         }

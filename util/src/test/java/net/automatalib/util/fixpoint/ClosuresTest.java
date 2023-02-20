@@ -31,8 +31,6 @@ import org.testng.annotations.Test;
 
 public class ClosuresTest {
 
-    @Test
-    @Ignore
     void hideSymbols() {
 
         CompactDFA<String> dfa = new CompactDFA<>(Alphabets.fromArray("a", "b", "c"));
@@ -55,8 +53,6 @@ public class ClosuresTest {
         Assertions.assertThat(dfa2.getStates()).hasSize(4);
     }
 
-    @Test
-    @Ignore
     void hideChain() {
 
         CompactDFA<String> dfa = new CompactDFA<>(Alphabets.fromArray("a", "b", "c"));

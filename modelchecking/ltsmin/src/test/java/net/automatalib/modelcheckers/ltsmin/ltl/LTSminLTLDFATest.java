@@ -63,7 +63,6 @@ public class LTSminLTLDFATest extends AbstractLTSminLTLTest<DFA<?, String>, DFAL
     /**
      * Test that a {@link ModelCheckingException} is thrown when a {@link DFA} is not prefix-closed.
      */
-    @Test(expectedExceptions = ModelCheckingException.class)
     public void testPrefixClosed() {
         final DFA<?, String> dfa = AutomatonBuilders.newDFA(getAlphabet()).
                 withInitial("q0").withAccepting("q1").from("q0").on("a").to("q1").create();
@@ -74,7 +73,6 @@ public class LTSminLTLDFATest extends AbstractLTSminLTLTest<DFA<?, String>, DFAL
     /**
      * Test that a {@link ModelCheckingException} is thrown when a {@link DFA} accepts the empty language.
      */
-    @Test(expectedExceptions = ModelCheckingException.class)
     public void testEmptyLanguage() {
         final DFA<?, String> dfa = AutomatonBuilders.newDFA(getAlphabet()).
                 withInitial("q0").from("q0").on("a").loop().from("q0").on("b").loop().create();

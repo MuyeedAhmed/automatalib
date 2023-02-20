@@ -59,7 +59,7 @@ public class ArrayAlphabet<I> extends AbstractAlphabet<I> {
     }
 
     @Override
-    public void writeToArray(int offset, @Nullable Object[] array, int tgtOfs, int num) {
+    public void writeToArray(int offset, Object[] array, int tgtOfs, int num) {
         System.arraycopy(symbols, offset, array, tgtOfs, num);
     }
 
