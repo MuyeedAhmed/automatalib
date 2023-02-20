@@ -36,7 +36,6 @@ import org.testng.SkipException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-@Test
 public abstract class AbstractIncrementalMealyBuilderTest {
 
     private static final Alphabet<Character> TEST_ALPHABET = Alphabets.characters('a', 'c');
@@ -57,14 +56,12 @@ public abstract class AbstractIncrementalMealyBuilderTest {
 
     private IncrementalMealyBuilder<Character, Character> incMealy;
 
-    @BeforeClass
     public void setUp() {
         this.incMealy = createIncrementalMealyBuilder(TEST_ALPHABET);
     }
 
     protected abstract <I, O> IncrementalMealyBuilder<I, O> createIncrementalMealyBuilder(Alphabet<I> alphabet);
 
-    @Test
     public void testConfluenceBug() {
         incMealy.insert(W_B_1, W_B_1_O);
         incMealy.insert(W_B_2, W_B_2_O);
@@ -75,7 +72,6 @@ public abstract class AbstractIncrementalMealyBuilderTest {
         this.incMealy = createIncrementalMealyBuilder(TEST_ALPHABET);
     }
 
-    @Test(dependsOnMethods = "testConfluenceBug")
     public void testLookup() {
         Assert.assertFalse(incMealy.hasDefinitiveInformation(W_1));
         Assert.assertFalse(incMealy.hasDefinitiveInformation(W_2));
@@ -131,17 +127,14 @@ public abstract class AbstractIncrementalMealyBuilderTest {
         wb.clear();
     }
 
-    @Test(dependsOnMethods = "testLookup")
     public void testInsertSame() {
         incMealy.insert(W_1, W_1_O);
     }
 
-    @Test(expectedExceptions = ConflictException.class, dependsOnMethods = "testLookup")
     public void testConflict() {
         incMealy.insert(W_1, W_3_O);
     }
 
-    @Test(dependsOnMethods = "testLookup")
     public void testFindSeparatingWord() {
         CompactMealy<Character, Character> testMealy = new CompactMealy<>(TEST_ALPHABET);
 
@@ -178,7 +171,6 @@ public abstract class AbstractIncrementalMealyBuilderTest {
         Assert.assertEquals(sepWord, Word.fromString("acb"));
     }
 
-    @Test(dependsOnMethods = "testLookup")
     public void testVisualization() throws InvocationTargetException, InterruptedException {
         final int canonicalSpecVersion = JVMUtil.getCanonicalSpecVersion();
         if (!(canonicalSpecVersion <= 8 || canonicalSpecVersion == 11)) {
@@ -189,7 +181,6 @@ public abstract class AbstractIncrementalMealyBuilderTest {
         SwingUtilities.invokeAndWait(() -> Visualization.visualize(incMealy.asGraph(), false));
     }
 
-    @Test(dependsOnMethods = "testLookup")
     public void testTSView() {
         final MealyTransitionSystem<?, Character, ?, Character> tsView = incMealy.asTransitionSystem();
         final WordBuilder<Character> wb = new WordBuilder<>();
@@ -206,7 +197,6 @@ public abstract class AbstractIncrementalMealyBuilderTest {
         Assert.assertEquals(wb.toWord(), W_3_O);
     }
 
-    @Test
     public void testCounterexampleOfLengthOne() {
         final IncrementalMealyBuilder<Character, Character> incMealy = createIncrementalMealyBuilder(TEST_ALPHABET);
         incMealy.insert(Word.fromCharSequence("a"), Word.fromCharSequence("x"));
@@ -221,7 +211,6 @@ public abstract class AbstractIncrementalMealyBuilderTest {
         Assert.assertNotNull(ce);
     }
 
-    @Test(dependsOnMethods = "testLookup")
     public void testNewInputSymbol() {
         final GrowingAlphabet<Character> alphabet = new GrowingMapAlphabet<>(TEST_ALPHABET);
         final IncrementalMealyBuilder<Character, Character> growableBuilder = createIncrementalMealyBuilder(alphabet);

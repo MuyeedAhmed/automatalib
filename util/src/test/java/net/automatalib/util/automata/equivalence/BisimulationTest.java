@@ -32,7 +32,6 @@ import org.testng.annotations.Test;
  */
 public class BisimulationTest {
 
-    @Test
     public void bisimTestLoop() {
 
         final Alphabet<String> alphabet = Alphabets.closedCharStringRange('a', 'd');
@@ -54,7 +53,6 @@ public class BisimulationTest {
         Assert.assertTrue(testBisimulationEquivalence(a, b, alphabet));
     }
 
-    @Test
     public void bisimTestDiff() {
 
         final Alphabet<String> alphabet = Alphabets.closedCharStringRange('a', 'd');

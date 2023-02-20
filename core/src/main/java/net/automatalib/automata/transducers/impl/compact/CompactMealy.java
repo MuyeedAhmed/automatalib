@@ -31,7 +31,7 @@ public class CompactMealy<I, O> extends AbstractCompactDeterministic<I, CompactT
                                                                                                        StateLocalInputMealyMachine<Integer, I, CompactTransition<O>, O> {
 
     private int[] transitions;
-    private @Nullable Object[] outputs;
+    private Object[] outputs;
 
     public CompactMealy(Alphabet<I> alphabet, int stateCapacity, float resizeFactor) {
         super(alphabet, stateCapacity, resizeFactor);
@@ -119,7 +119,7 @@ public class CompactMealy<I, O> extends AbstractCompactDeterministic<I, CompactT
     }
 
     @Override
-    public void setTransition(int state, int input, @Nullable CompactTransition<O> transition) {
+    public void setTransition(int state, int input, CompactTransition<O> transition) {
         if (transition == null) {
             setTransition(state, input, AbstractCompact.INVALID_STATE, null);
         } else {
@@ -129,7 +129,7 @@ public class CompactMealy<I, O> extends AbstractCompactDeterministic<I, CompactT
     }
 
     @Override
-    public void setTransition(int state, int input, int successor, @Nullable O property) {
+    public void setTransition(int state, int input, int successor, O property) {
         final int idx = toMemoryIndex(state, input);
         transitions[idx] = successor;
         outputs[idx] = property;
@@ -145,7 +145,7 @@ public class CompactMealy<I, O> extends AbstractCompactDeterministic<I, CompactT
     }
 
     @Override
-    public @Nullable CompactTransition<O> getTransition(int state, int input) {
+    public CompactTransition<O> getTransition(int state, int input) {
         final int idx = toMemoryIndex(state, input);
         final int succ = transitions[idx];
 

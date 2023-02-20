@@ -91,7 +91,7 @@ public final class FSM2DFAParser<I> extends AbstractFSMParser<I> implements Mode
      * @param acceptingDataValue
      *         the string for acceptance (see {@link #acceptingDataValue})
      */
-    private FSM2DFAParser(@Nullable Collection<? extends I> targetInputs,
+    private FSM2DFAParser(Collection<? extends I> targetInputs,
                           Function<String, I> inputParser,
                           String acceptingDataVariableName,
                           String acceptingDataValue) {
@@ -342,7 +342,7 @@ public final class FSM2DFAParser<I> extends AbstractFSMParser<I> implements Mode
         }
     }
 
-    public static <I> FSM2DFAParser<I> getParser(@Nullable Collection<? extends I> targetInputs,
+    public static <I> FSM2DFAParser<I> getParser(Collection<? extends I> targetInputs,
                                                  Function<String, I> inputParser,
                                                  String acceptingDataVariableName,
                                                  String acceptingDataValue) {

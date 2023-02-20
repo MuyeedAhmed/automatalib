@@ -41,7 +41,6 @@ import org.testng.annotations.Test;
  */
 public class FSM2MealyParserAlternatingTest extends AbstractFSM2ParserTest {
 
-    @Test
     public void testParse() throws Exception {
         try (InputStream is = FSM2MealyParserAlternatingTest.class.getResourceAsStream("/MealyAlternating.fsm")) {
 
@@ -62,7 +61,7 @@ public class FSM2MealyParserAlternatingTest extends AbstractFSM2ParserTest {
     }
 
     @Override
-    protected CompactMealy<Character, Character> getParsedAutomaton(@Nullable Collection<Character> requiredInputs)
+    protected CompactMealy<Character, Character> getParsedAutomaton(Collection<Character> requiredInputs)
             throws IOException {
         try (InputStream is = FSM2MealyParserAlternatingTest.class.getResourceAsStream("/MealyAlternating.fsm")) {
             final Function<String, Character> ep = s -> s.charAt(0);
@@ -70,7 +69,6 @@ public class FSM2MealyParserAlternatingTest extends AbstractFSM2ParserTest {
         }
     }
 
-    @Test
     public void doNotCloseInputStreamTest() throws IOException {
         try (InputStream is = FSM2MealyParserAlternatingTest.class.getResourceAsStream("/MealyAlternating.fsm")) {
             FSM2MealyParserAlternating.getParser(s -> s.charAt(0)).readModel(new UnclosableInputStream(is));

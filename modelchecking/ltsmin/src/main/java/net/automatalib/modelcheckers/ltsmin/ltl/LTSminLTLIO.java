@@ -34,7 +34,6 @@ import net.automatalib.modelchecking.Lasso.MealyLasso;
  */
 public class LTSminLTLIO<I, O> extends AbstractLTSminLTLMealy<I, O> implements LTSminIO<I, O, MealyLasso<I, O>> {
 
-    @GenerateBuilder(defaults = BuilderDefaults.class)
     public LTSminLTLIO(boolean keepFiles,
                        Function<String, I> string2Input,
                        Function<String, O> string2Output,

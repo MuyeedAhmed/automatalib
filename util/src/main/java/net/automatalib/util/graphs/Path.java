@@ -55,7 +55,7 @@ public class Path<N, E> extends AbstractList<E> {
         return start;
     }
 
-    public @Nullable E firstEdge() {
+    public E firstEdge() {
         if (edgeList.isEmpty()) {
             return null;
         }
@@ -76,7 +76,7 @@ public class Path<N, E> extends AbstractList<E> {
         return (Iterator<E>) edgeList.iterator();
     }
 
-    public @Nullable E lastEdge() {
+    public E lastEdge() {
         int idx = edgeList.size() - 1;
         if (idx < 0) {
             return null;

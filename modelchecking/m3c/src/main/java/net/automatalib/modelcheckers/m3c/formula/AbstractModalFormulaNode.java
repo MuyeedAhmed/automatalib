@@ -32,14 +32,14 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public abstract class AbstractModalFormulaNode<L, AP> extends AbstractUnaryFormulaNode<L, AP> {
 
-    private final @Nullable L action;
+    private final L action;
 
-    public AbstractModalFormulaNode(@Nullable L action, FormulaNode<L, AP> node) {
+    public AbstractModalFormulaNode(L action, FormulaNode<L, AP> node) {
         super(node);
         this.action = action;
     }
 
-    public @Nullable L getAction() {
+    public L getAction() {
         return action;
     }
 
@@ -51,7 +51,7 @@ public abstract class AbstractModalFormulaNode<L, AP> extends AbstractUnaryFormu
     }
 
     @Override
-    public boolean equals(@Nullable Object o) {
+    public boolean equals(Object o) {
         if (!super.equals(o)) {
             return false;
         }

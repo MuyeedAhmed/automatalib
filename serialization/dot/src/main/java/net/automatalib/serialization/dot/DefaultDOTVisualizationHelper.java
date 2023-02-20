@@ -25,13 +25,13 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public class DefaultDOTVisualizationHelper<N, E> extends DefaultVisualizationHelper<N, E>
         implements DOTVisualizationHelper<N, E> {
 
-    private final @Nullable VisualizationHelper<N, ? super E> delegate;
+    private final VisualizationHelper<N, ? super E> delegate;
 
     public DefaultDOTVisualizationHelper() {
         this(null);
     }
 
-    public DefaultDOTVisualizationHelper(@Nullable VisualizationHelper<N, ? super E> delegate) {
+    public DefaultDOTVisualizationHelper(VisualizationHelper<N, ? super E> delegate) {
         this.delegate = delegate;
     }
 

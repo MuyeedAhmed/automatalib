@@ -227,7 +227,7 @@ public final class StringUtil {
         }
     }
 
-    public static void appendObject(Appendable a, @Nullable Object obj) throws IOException {
+    public static void appendObject(Appendable a, Object obj) throws IOException {
         if (obj instanceof Printable) {
             ((Printable) obj).print(a);
         } else {

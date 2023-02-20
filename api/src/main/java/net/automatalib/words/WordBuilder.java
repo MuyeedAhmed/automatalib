@@ -45,7 +45,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public final class WordBuilder<I> extends AbstractList<I> {
 
-    private @Nullable Object[] array;
+    private Object[] array;
     private int length;
     private boolean lock;
 

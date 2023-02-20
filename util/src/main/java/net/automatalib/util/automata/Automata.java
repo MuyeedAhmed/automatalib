@@ -146,7 +146,7 @@ public class Automata extends TS {
 
         automaton.clear();
 
-        @Nullable Object[] states = new Object[records.length];
+        Object[] states = new Object[records.length];
         for (int i = 0; i < records.length; i++) {
             ResultStateRecord<SP, TP> rec = records[i];
             SP prop = rec.property;
@@ -176,7 +176,7 @@ public class Automata extends TS {
         return automaton;
     }
 
-    public static <I> @Nullable Word<I> findShortestSeparatingWord(UniversalDeterministicAutomaton<?, I, ?, ?, ?> reference,
+    public static <I> Word<I> findShortestSeparatingWord(UniversalDeterministicAutomaton<?, I, ?, ?, ?> reference,
                                                                    UniversalDeterministicAutomaton<?, I, ?, ?, ?> other,
                                                                    Collection<? extends I> inputs) {
         return DeterministicEquivalenceTest.findSeparatingWordLarge(reference, other, inputs);
@@ -215,7 +215,7 @@ public class Automata extends TS {
      *
      * @return a separating word, or {@code null} if no such word could be found.
      */
-    public static <I> @Nullable Word<I> findSeparatingWord(UniversalDeterministicAutomaton<?, I, ?, ?, ?> reference,
+    public static <I> Word<I> findSeparatingWord(UniversalDeterministicAutomaton<?, I, ?, ?, ?> reference,
                                                            UniversalDeterministicAutomaton<?, I, ?, ?, ?> other,
                                                            Collection<? extends I> inputs) {
         return NearLinearEquivalenceTest.findSeparatingWord(reference, other, inputs);
@@ -241,20 +241,20 @@ public class Automata extends TS {
      *
      * @return a separating word, or {@code null} if no such word could be found
      */
-    public static <S, I> @Nullable Word<I> findSeparatingWord(UniversalDeterministicAutomaton<S, I, ?, ?, ?> automaton,
+    public static <S, I> Word<I> findSeparatingWord(UniversalDeterministicAutomaton<S, I, ?, ?, ?> automaton,
                                                               S state1,
                                                               S state2,
                                                               Collection<? extends I> inputs) {
         return NearLinearEquivalenceTest.findSeparatingWord(automaton, state1, state2, inputs);
     }
 
-    public static <I> @Nullable Word<I> findSeparatingWord(final OneSEVPA<?, I> sevpa1,
+    public static <I> Word<I> findSeparatingWord(final OneSEVPA<?, I> sevpa1,
                                                            final OneSEVPA<?, I> sevpa2,
                                                            final VPDAlphabet<I> inputs) {
         return OneSEVPAUtil.findSeparatingWord(sevpa1, sevpa2, inputs);
     }
 
-    public static <I> @Nullable Word<I> findSeparatingWord(final SPA<?, I> spa1,
+    public static <I> Word<I> findSeparatingWord(final SPA<?, I> spa1,
                                                            final SPA<?, I> spa2,
                                                            final SPAAlphabet<I> inputs) {
         return SPAUtil.findSeparatingWord(spa1, spa2, inputs);
@@ -447,7 +447,7 @@ public class Automata extends TS {
         return findUndefinedInput(automaton, inputs) != null;
     }
 
-    public static <S, I> @Nullable TransRef<S, I, ?> findUndefinedInput(Automaton<S, I, ?> automaton,
+    public static <S, I> TransRef<S, I, ?> findUndefinedInput(Automaton<S, I, ?> automaton,
                                                                         Iterable<? extends I> inputs) {
         Iterator<TransRef<S, I, ?>> it = allUndefinedInputsIterator(automaton, inputs);
         if (!it.hasNext()) {

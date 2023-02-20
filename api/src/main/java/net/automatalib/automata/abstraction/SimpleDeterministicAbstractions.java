@@ -58,7 +58,7 @@ public interface SimpleDeterministicAbstractions {
             return stateIds.getState(stateId);
         }
 
-        protected final @Nullable S safeIntToState(int stateId) {
+        protected final S safeIntToState(int stateId) {
             return (stateId == INVALID_STATE) ? null : intToState(stateId);
         }
 
@@ -71,7 +71,7 @@ public interface SimpleDeterministicAbstractions {
             return stateIds.getStateId(state);
         }
 
-        protected final int safeStateToInt(@Nullable S state) {
+        protected final int safeStateToInt(S state) {
             return (state == null) ? INVALID_STATE : stateToInt(state);
         }
     }

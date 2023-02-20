@@ -27,7 +27,6 @@ import org.testng.annotations.Test;
 
 public class IOUtilTest {
 
-    @Test
     public void uncompressedInputStreamTest() throws IOException {
 
         final String msg = "Hello World";

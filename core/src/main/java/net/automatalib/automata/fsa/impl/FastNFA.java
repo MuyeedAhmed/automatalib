@@ -44,7 +44,7 @@ public class FastNFA<I> extends AbstractFastMutableNondet<FastNFAState, I, FastN
     }
 
     @Override
-    protected FastNFAState createState(@Nullable Boolean property) {
+    protected FastNFAState createState(Boolean property) {
         return new FastNFAState(inputAlphabet.size(), WrapperUtil.booleanValue(property));
     }
 

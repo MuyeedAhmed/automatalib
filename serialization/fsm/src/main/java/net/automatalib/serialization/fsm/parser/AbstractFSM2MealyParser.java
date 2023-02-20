@@ -67,7 +67,7 @@ public abstract class AbstractFSM2MealyParser<I, O> extends AbstractFSMParser<I>
      * @param inputParser the input parser (see {@link #inputParser}).
      * @param outputParser the output parser (similar to {@code inputParser}).
      */
-    protected AbstractFSM2MealyParser(@Nullable Collection<? extends I> targetInputs,
+    protected AbstractFSM2MealyParser(Collection<? extends I> targetInputs,
                                       Function<String, I> inputParser,
                                       Function<String, O> outputParser) {
         super(targetInputs, inputParser);

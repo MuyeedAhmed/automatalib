@@ -34,7 +34,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public class BlockMap<V> implements MutableMapping<Block<?, ?>, V> {
 
-    private final @Nullable Object[] storage;
+    private final Object[] storage;
 
     /**
      * Constructor.

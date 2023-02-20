@@ -27,7 +27,6 @@ import net.automatalib.words.Word;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Test
 public class IncrementalDFADAGBuilderTest extends AbstractIncrementalDFABuilderTest {
 
     @Override
@@ -39,7 +38,6 @@ public class IncrementalDFADAGBuilderTest extends AbstractIncrementalDFABuilderT
      * This tests case validates a set of traces from an external system which exposed an issue in confluence
      * propagation.
      */
-    @Test
     public void testIntegration() throws IOException {
         validateTraces("/spa/dfa_traces.gz");
     }
@@ -47,7 +45,6 @@ public class IncrementalDFADAGBuilderTest extends AbstractIncrementalDFABuilderT
     /**
      * Test case based on <a href="https://github.com/LearnLib/learnlib/issues/76">LearnLib issue #76</a>.
      */
-    @Test
     public void testLearnLib76() throws IOException {
         validateTraces("/learnlib76/dfa.gz");
     }

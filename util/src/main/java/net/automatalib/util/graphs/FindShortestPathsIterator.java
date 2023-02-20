@@ -39,7 +39,7 @@ final class FindShortestPathsIterator<N, E> extends AbstractIterator<Path<N, E>>
 
     FindShortestPathsIterator(IndefiniteGraph<N, E> graph,
                               Collection<? extends N> start,
-                              @NonNegative int limit,
+                              int limit,
                               Predicate<? super N> targetPred) {
         this.graph = graph;
         this.preds = graph.createStaticNodeMapping();

@@ -109,7 +109,7 @@ public interface DeterministicAutomaton<S, I, T>
          *
          * @return the outgoing transition, or {@code null}
          */
-        @Nullable T getTransition(int state, I input);
+        T getTransition(int state, I input);
 
     }
 
@@ -144,7 +144,7 @@ public interface DeterministicAutomaton<S, I, T>
          *
          * @return the outgoing transition, or {@code null}
          */
-        @Nullable T getTransition(int state, int input);
+        T getTransition(int state, int input);
 
     }
 }

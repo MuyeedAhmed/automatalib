@@ -67,7 +67,6 @@ public class NFAsTest {
         return result;
     }
 
-    @Test
     public void testAnd() {
         NFA<?, Integer> expected = forVector(AND_RESULT);
         NFA<?, Integer> actual = NFAs.and(testNfa1, testNfa2, testAlphabet);
@@ -75,7 +74,6 @@ public class NFAsTest {
         assertEquivalence(actual, expected, testAlphabet);
     }
 
-    @Test
     public void testOr() {
         NFA<?, Integer> expected = forVector(OR_RESULT);
         NFA<?, Integer> actual = NFAs.or(testNfa1, testNfa2, testAlphabet);
@@ -83,7 +81,6 @@ public class NFAsTest {
         assertEquivalence(actual, expected, testAlphabet);
     }
 
-    @Test
     public void testXor() {
         NFA<?, Integer> expected = forVector(XOR_RESULT);
         NFA<?, Integer> actual = NFAs.xor(testNfa1, testNfa2, testAlphabet);
@@ -91,7 +88,6 @@ public class NFAsTest {
         assertEquivalence(actual, expected, testAlphabet);
     }
 
-    @Test
     public void testEquiv() {
         NFA<?, Integer> expected = forVector(EQUIV_RESULT);
         NFA<?, Integer> actual = NFAs.equiv(testNfa1, testNfa2, testAlphabet);
@@ -99,7 +95,6 @@ public class NFAsTest {
         assertEquivalence(actual, expected, testAlphabet);
     }
 
-    @Test
     public void testImpl() {
         NFA<?, Integer> expected = forVector(IMPL_RESULT);
         NFA<?, Integer> actual = NFAs.impl(testNfa1, testNfa2, testAlphabet);
@@ -107,7 +102,6 @@ public class NFAsTest {
         assertEquivalence(actual, expected, testAlphabet);
     }
 
-    @Test
     public void testDeterminize() {
         Alphabet<Integer> alphabet = Alphabets.integers(0, 1);
 

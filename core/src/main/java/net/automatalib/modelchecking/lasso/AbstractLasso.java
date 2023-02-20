@@ -204,7 +204,7 @@ public abstract class AbstractLasso<I, D> implements Lasso<I, D> {
      * @see SimpleDTS#getSuccessor(Object, Object)
      */
     @Override
-    public @Nullable Integer getSuccessor(Integer state, I input) {
+    public Integer getSuccessor(Integer state, I input) {
         final Integer result;
         if (state < word.length() && Objects.equals(input, word.getSymbol(state))) {
             result = state + 1;
@@ -231,7 +231,7 @@ public abstract class AbstractLasso<I, D> implements Lasso<I, D> {
     }
 
     @Override
-    public @Nullable Integer getTransition(Integer state, I input) {
+    public Integer getTransition(Integer state, I input) {
         return getSuccessor(state, input);
     }
 }

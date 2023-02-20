@@ -71,7 +71,7 @@ final class LetterWord<I> extends Word<I> {
     }
 
     @Override
-    public void writeToArray(int offset, @Nullable Object[] array, int tgtOffset, int length) {
+    public void writeToArray(int offset, Object[] array, int tgtOffset, int length) {
         if (offset == 0 && length > 0) {
             array[tgtOffset] = letter;
         }
@@ -97,13 +97,13 @@ final class LetterWord<I> extends Word<I> {
 
     @Override
     public Word<I> append(I symbol) {
-        @Nullable Object[] array = {letter, symbol};
+        Object[] array = {letter, symbol};
         return new SharedWord<>(array);
     }
 
     @Override
     public Word<I> prepend(I symbol) {
-        @Nullable Object[] array = {symbol, letter};
+        Object[] array = {symbol, letter};
         return new SharedWord<>(array);
     }
 

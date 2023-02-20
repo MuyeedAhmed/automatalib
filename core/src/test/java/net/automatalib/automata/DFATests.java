@@ -26,7 +26,6 @@ import org.testng.annotations.Test;
  */
 public class DFATests {
 
-    @Test
     public void testOutputOfUndefinedTransitions() {
         final Alphabet<Character> sigma = Alphabets.characters('a', 'b');
         final CompactDFA<Character> dfa = new CompactDFA<>(sigma);

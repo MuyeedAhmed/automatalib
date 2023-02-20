@@ -77,7 +77,7 @@ public class DynamicIncrementalMealyTreeBuilder<I, O> extends AbstractMealyTreeB
     }
 
     @Override
-    protected @Nullable Edge<Node<I, O>, O> getEdge(Node<I, O> node, I symbol) {
+    protected Edge<Node<I, O>, O> getEdge(Node<I, O> node, I symbol) {
         return node.getEdge(symbol);
     }
 

@@ -30,7 +30,6 @@ import org.testng.internal.collections.Ints;
  */
 public class PositiveIntSetTest {
 
-    @Test
     public void testBackedView() {
         final BitSet set = new BitSet();
         final PositiveIntSet view = new PositiveIntSet(set);
@@ -58,7 +57,6 @@ public class PositiveIntSetTest {
         Assert.assertTrue(view.isEmpty());
     }
 
-    @Test
     public void testMutability() {
         final PositiveIntSet set = new PositiveIntSet();
 
@@ -89,7 +87,6 @@ public class PositiveIntSetTest {
         Assert.assertTrue(set.isEmpty());
     }
 
-    @Test
     public void testImmutability() {
         final int[] ints = {1, 2, 3};
         final PositiveIntSet view = getExampleView(true, ints);

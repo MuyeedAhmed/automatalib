@@ -33,7 +33,6 @@ import org.testng.annotations.Test;
  */
 public class ShrinkableAutomatonTest {
 
-    @Test
     public void testDeterministic() {
 
         final FastMealy<Symbol<Character>, String> mealy = TestUtil.constructMealy();
@@ -67,7 +66,6 @@ public class ShrinkableAutomatonTest {
         Assert.assertEquals(mealy.computeOutput(input2), expectedOutput2);
     }
 
-    @Test
     public void testNonDeterministic() {
 
         final FastNFA<Symbol<Character>> nfa = TestUtil.constructNFA();

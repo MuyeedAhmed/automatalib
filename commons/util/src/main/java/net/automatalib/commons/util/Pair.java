@@ -77,7 +77,7 @@ public final class Pair<T1, T2> extends AbstractPrintable {
     }
 
     @Override
-    public boolean equals(@Nullable Object o) {
+    public boolean equals(Object o) {
         if (this == o) {
             return true;
         }

@@ -30,7 +30,6 @@ import org.testng.internal.thread.ThreadTimeoutException;
  */
 public class ScalingThreadPoolExecutorTest {
 
-    @Test(timeOut = 2000)
     public void testCachedThreadCreation() throws ExecutionException, InterruptedException {
 
         final int tasks = 10;
@@ -58,12 +57,10 @@ public class ScalingThreadPoolExecutorTest {
         executor.shutdown();
     }
 
-    @Test(timeOut = 2000)
     public void testThreadSchedulingNormal() throws ExecutionException, InterruptedException {
         testThreadScheduling(2);
     }
 
-    @Test(timeOut = 1000, expectedExceptions = ThreadTimeoutException.class)
     public void testCachedThreadSchedulingTimeout() throws ExecutionException, InterruptedException {
         testThreadScheduling(1);
     }

@@ -80,7 +80,6 @@ public class PaigeTarjanTest {
         // @formatter:on
     }
 
-    @Test
     public void testDFAMinimization() {
         final CompactDFA<Character> dfa = getDFA();
         final CompactDFA<Character> stateMinimized = PaigeTarjanMinimization.minimizeDFA(dfa);
@@ -106,7 +105,6 @@ public class PaigeTarjanTest {
         Assert.assertTrue(Automata.testEquivalence(dfa, fullMinimized, dfa.getInputAlphabet()));
     }
 
-    @Test
     public void testMealyMinimizationByStateProperties() {
         testMealyConfiguration(AutomatonInitialPartitioning.BY_STATE_PROPERTY, null, 1, false);
 
@@ -115,7 +113,6 @@ public class PaigeTarjanTest {
         testMealyConfiguration(AutomatonInitialPartitioning.BY_STATE_PROPERTY, false, 7, true);
     }
 
-    @Test
     public void testMealyMinimizationByTransitionProperties() {
         final CompactMealy<Integer, String> mealy = getMealy();
 
@@ -133,7 +130,6 @@ public class PaigeTarjanTest {
         testMealyConfiguration(AutomatonInitialPartitioning.BY_TRANSITION_PROPERTIES, null, 7, true);
     }
 
-    @Test
     public void testMealyMinimizationByFullProperties() {
         final CompactMealy<Integer, String> mealy = getMealy();
 

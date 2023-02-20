@@ -98,7 +98,7 @@ public class IncrementalWMethodTestsIterator<I> implements Iterator<Word<I>> {
         Item<I> nextItem = itemQueue.extractMin();
 
         Word<I> result = assembleWord(nextItem);
-        @Nullable Item<I> inc = increment(nextItem);
+        Item<I> inc = increment(nextItem);
         if (inc != null) {
             itemQueue.insert(inc);
         }
@@ -113,7 +113,7 @@ public class IncrementalWMethodTestsIterator<I> implements Iterator<Word<I>> {
         return prefix.concat(item.middle, suffixes.get(item.suffixIdx));
     }
 
-    private @Nullable Item<I> increment(Item<I> item) {
+    private Item<I> increment(Item<I> item) {
         item.suffixIdx++;
         if (item.suffixIdx >= suffixes.size()) {
             item.suffixIdx = item.minSuffix;

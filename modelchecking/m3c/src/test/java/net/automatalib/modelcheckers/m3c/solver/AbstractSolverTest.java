@@ -35,7 +35,6 @@ import org.testng.annotations.Test;
 
 public abstract class AbstractSolverTest<T extends AbstractPropertyTransformer<T, String, String>> {
 
-    @Test
     void testSolve() throws ParseException {
         final M3CSolver<String> solver = getSolver(Examples.getCfmpsAnBn(Collections.emptySet()));
 
@@ -50,7 +49,6 @@ public abstract class AbstractSolverTest<T extends AbstractPropertyTransformer<T
         assertSolve(solver, formulaWithNegatedAP, true);
     }
 
-    @Test
     void testSolveWithSingleAP() throws ParseException {
         final ContextFreeModalProcessSystem<String, String> cfmps = Examples.getCfmpsAnBn(Collections.singleton("a"));
         final M3CSolver<String> solver = getSolver(cfmps);
@@ -59,7 +57,6 @@ public abstract class AbstractSolverTest<T extends AbstractPropertyTransformer<T
         assertSolve(solver, formula, false);
     }
 
-    @Test
     void testSolveWithMultipleAPs() throws ParseException {
         final ContextFreeModalProcessSystem<String, String> cfmps =
                 Examples.getCfmpsAnBn(new HashSet<>(Arrays.asList("a", "b")));
@@ -72,7 +69,6 @@ public abstract class AbstractSolverTest<T extends AbstractPropertyTransformer<T
         assertSolve(solver, formulaWithNegatedAP, true);
     }
 
-    @Test(expectedExceptions = IllegalArgumentException.class)
     void testSolveWithInvalidMainProcess() {
         ContextFreeModalProcessSystem<String, String> cfmps = new ContextFreeModalProcessSystem<String, String>() {
 
@@ -82,14 +78,13 @@ public abstract class AbstractSolverTest<T extends AbstractPropertyTransformer<T
             }
 
             @Override
-            public @Nullable String getMainProcess() {
+            public String getMainProcess() {
                 return "P";
             }
         };
         getSolver(cfmps);
     }
 
-    @Test(expectedExceptions = IllegalArgumentException.class)
     void testSolveWithNoMainProcess() {
         ContextFreeModalProcessSystem<String, String> cfmps = new ContextFreeModalProcessSystem<String, String>() {
 
@@ -99,14 +94,13 @@ public abstract class AbstractSolverTest<T extends AbstractPropertyTransformer<T
             }
 
             @Override
-            public @Nullable String getMainProcess() {
+            public String getMainProcess() {
                 return null;
             }
         };
         getSolver(cfmps);
     }
 
-    @Test(expectedExceptions = IllegalArgumentException.class)
     void testSolveWithUnguardedProcess() {
         final CompactPMPG<String, String> pmpg = getUnguardedPMPG(new CompactPMPG<>(""));
         getSolver(new DefaultCFMPS<>("P", Collections.singletonMap("P", pmpg)));

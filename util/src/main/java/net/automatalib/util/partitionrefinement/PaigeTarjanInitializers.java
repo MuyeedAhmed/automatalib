@@ -104,7 +104,7 @@ public final class PaigeTarjanInitializers {
         int[] data = new int[dataSize];
         Block[] blockForState = new Block[numStates];
 
-        Map<@Nullable Object, Block> blockMap = new HashMap<>();
+        Map<Object, Block> blockMap = new HashMap<>();
 
         int init = absAutomaton.getIntInitialState();
         Object initClass = initialClassification.apply(init);
@@ -199,7 +199,7 @@ public final class PaigeTarjanInitializers {
         int[] data = new int[dataSize];
         Block[] blockForState = new Block[numStates];
 
-        Map<@Nullable Object, Block> blockMap = new HashMap<>();
+        Map<Object, Block> blockMap = new HashMap<>();
 
         for (int i = 0; i < numStates; i++) {
             Object classification = initialClassification.apply(i);
@@ -297,7 +297,7 @@ public final class PaigeTarjanInitializers {
         int[] data = new int[dataSize];
         Block[] blockForState = new Block[numStatesWithSink];
 
-        Map<@Nullable Object, Block> blockMap = new HashMap<>();
+        Map<Object, Block> blockMap = new HashMap<>();
 
         int initId = absAutomaton.getIntInitialState();
 

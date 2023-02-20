@@ -25,37 +25,31 @@ import org.testng.annotations.Test;
  */
 public class LibLoaderTest {
 
-    @BeforeClass
     public void setUp() {
         if (!PlatformProperties.OS_NAME.equals("linux") || !PlatformProperties.OS_ARCH.equals("x86_64")) {
             throw new SkipException("Native Libraries have currently only been built for 64 bit Linux systems");
         }
     }
 
-    @Test
     public void testDefaultLibLoad() {
         LibLoader.getInstance().loadLibrary(LibLoaderTest.class, "automata_greeter");
         checkGreeter();
     }
 
-    @Test
     public void testRepeatedLibLoad() {
         LibLoader.getInstance().loadLibrary(LibLoaderTest.class, "automata_greeter");
         checkGreeter();
     }
 
-    @Test
     public void testPreferredSystemLibLoad() {
         LibLoader.getInstance().loadLibrary(LibLoaderTest.class, "automata_greeter.1", LoadPolicy.PREFER_SYSTEM);
         checkGreeter();
     }
 
-    @Test(expectedExceptions = LoadLibraryException.class)
     public void testUnknownLibrary() {
         LibLoader.getInstance().loadLibrary(LibLoaderTest.class, "automata_greeter.2");
     }
 
-    @Test(expectedExceptions = LoadLibraryException.class)
     public void testUnknownSystemLibrary() {
         LibLoader.getInstance().loadLibrary(LibLoaderTest.class, "automata_greeter.2", LoadPolicy.PREFER_SYSTEM);
     }

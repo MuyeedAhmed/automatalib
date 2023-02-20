@@ -41,7 +41,7 @@ public class FloydWarshallAPSP<N, E> implements APSPResult<N, E> {
 
     private final int size;
     private final NodeIDs<N> ids;
-    private final @Nullable APSPRecord<E>[][] table;
+    private final APSPRecord<E>[][] table;
 
     @SuppressWarnings({"unchecked", "initialization"})
     public FloydWarshallAPSP(Graph<N, E> graph, EdgeWeights<E> ew) {
@@ -135,7 +135,7 @@ public class FloydWarshallAPSP<N, E> implements APSPResult<N, E> {
     }
 
     @Override
-    public @Nullable List<E> getShortestPath(N src, N tgt) {
+    public List<E> getShortestPath(N src, N tgt) {
         int srcId = ids.getNodeId(src), tgtId = ids.getNodeId(tgt);
 
         if (srcId == tgtId) {
@@ -169,7 +169,7 @@ public class FloydWarshallAPSP<N, E> implements APSPResult<N, E> {
 
     private static final class APSPRecord<E> {
 
-        public final @Nullable E edge;
+        public final E edge;
         public float distance;
         public int middle;
         public int numEdges;

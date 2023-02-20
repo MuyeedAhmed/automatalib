@@ -19,7 +19,6 @@ import net.automatalib.incremental.dfa.tree.IncrementalPCDFATreeBuilder;
 import net.automatalib.words.Alphabet;
 import org.testng.annotations.Test;
 
-@Test
 public class IncrementalPCDFATreeBuilderTest extends AbstractIncrementalPCDFABuilderTest {
 
     @Override

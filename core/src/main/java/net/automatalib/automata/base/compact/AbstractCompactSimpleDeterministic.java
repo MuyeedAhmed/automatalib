@@ -58,18 +58,18 @@ public abstract class AbstractCompactSimpleDeterministic<I, SP>
 
     @Override
     // Overridden for performance reasons (to prevent autoboxing of default implementation)
-    public @Nullable Integer getState(Iterable<? extends I> input) {
+    public Integer getState(Iterable<? extends I> input) {
         return toState(getIntSuccessor(getIntInitialState(), input));
     }
 
     @Override
     // Overridden for performance reasons (to prevent autoboxing of default implementation)
-    public @Nullable Integer getSuccessor(Integer state, Iterable<? extends I> input) {
+    public Integer getSuccessor(Integer state, Iterable<? extends I> input) {
         return toState(getIntSuccessor(state.intValue(), input));
     }
 
     @Override
-    public @Nullable Integer getTransition(int state, int input) {
+    public Integer getTransition(int state, int input) {
         return toState(transitions[toMemoryIndex(state, input)]);
     }
 
@@ -89,7 +89,7 @@ public abstract class AbstractCompactSimpleDeterministic<I, SP>
     }
 
     @Override
-    public void setTransition(int state, int input, @Nullable Integer transition) {
+    public void setTransition(int state, int input, Integer transition) {
         setTransition(state, input, toId(transition));
     }
 

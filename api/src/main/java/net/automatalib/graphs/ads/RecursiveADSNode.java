@@ -57,8 +57,7 @@ public interface RecursiveADSNode<S, I, O, N extends RecursiveADSNode<S, I, O, N
      * @return {@code null} if {@code this} is a leaf node (see {@link #isLeaf()}), the associated input symbol
      * otherwise.
      */
-    @Pure
-    @Nullable I getSymbol();
+    I getSymbol();
 
     /**
      * See {@link #getSymbol()}.
@@ -77,8 +76,7 @@ public interface RecursiveADSNode<S, I, O, N extends RecursiveADSNode<S, I, O, N
      * @return The parent node of {@code this} ADS node. May be {@code null}, if {@code this} is the root node of an
      * ADS.
      */
-    @Pure
-    @Nullable N getParent();
+    N getParent();
 
     void setParent(N parent);
 
@@ -176,7 +174,7 @@ public interface RecursiveADSNode<S, I, O, N extends RecursiveADSNode<S, I, O, N
      * @return {@code null} if {@code this} is an inner node (see {@link #isLeaf()}), the associated hypothesis state
      * otherwise.
      */
-    @Nullable S getHypothesisState();
+    S getHypothesisState();
 
     /**
      * See {@link #getHypothesisState()}.

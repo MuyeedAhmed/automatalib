@@ -20,10 +20,6 @@ import com.github.misberner.duzzt.annotations.GenerateEmbeddedDSL;
 import com.github.misberner.duzzt.annotations.SubExpr;
 import net.automatalib.automata.transducers.MutableMooreMachine;
 
-@GenerateEmbeddedDSL(name = "MooreBuilder",
-                     enableAllMethods = false,
-                     syntax = "(withOutput|<transition>)* withInitial (withOutput|<transition>)* create",
-                     where = {@SubExpr(name = "transition", definedAs = "from (on (to|loop))+")})
 public class MooreBuilderImpl<S, I, T, O, A extends MutableMooreMachine<S, ? super I, T, ? super O>>
         extends AutomatonBuilderImpl<S, I, T, O, Void, A> {
 
@@ -32,18 +28,15 @@ public class MooreBuilderImpl<S, I, T, O, A extends MutableMooreMachine<S, ? sup
     }
 
     @Override
-    @DSLAction(autoVarArgs = false)
     public void withInitial(Object stateId) {
         super.withInitial(stateId);
     }
 
-    @DSLAction(autoVarArgs = false)
     public void withInitial(Object stateId, O output) {
         super.withInitial(stateId);
         withOutput(stateId, output);
     }
 
-    @DSLAction(autoVarArgs = false)
     public void withOutput(Object stateId, O output) {
         super.withStateProperty(output, stateId);
     }

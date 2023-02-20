@@ -34,7 +34,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public final class ArrayStorage<T> extends AbstractList<T> implements RandomAccess, Cloneable {
 
-    private final @Nullable Object[] storage;
+    private final Object[] storage;
 
     public ArrayStorage(int size) {
         this.storage = new Object[size];
@@ -51,7 +51,7 @@ public final class ArrayStorage<T> extends AbstractList<T> implements RandomAcce
         storage = collection.toArray();
     }
 
-    private ArrayStorage(@Nullable Object[] storage) {
+    private ArrayStorage(Object[] storage) {
         this.storage = storage;
     }
 
@@ -80,7 +80,7 @@ public final class ArrayStorage<T> extends AbstractList<T> implements RandomAcce
     }
 
     @Override
-    public boolean equals(@Nullable Object o) {
+    public boolean equals(Object o) {
         if (this == o) {
             return true;
         }

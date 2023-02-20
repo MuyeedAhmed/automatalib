@@ -262,7 +262,7 @@ final class WitnessTreeExtractor<L, AP> {
         return result;
     }
 
-    private <N1, N2, E1, E2> @Nullable WitnessTreeState<N2, L, E2, AP> buildProcessNode(WitnessTreeState<N1, L, E1, AP> queueElement,
+    private <N1, N2, E1, E2> WitnessTreeState<N2, L, E2, AP> buildProcessNode(WitnessTreeState<N1, L, E1, AP> queueElement,
                                                                                         AbstractDDSolver<?, L, AP>.WorkUnit<N2, E2> unit,
                                                                                         L label,
                                                                                         N1 target,

@@ -88,7 +88,7 @@ public abstract class AbstractDefaultSEVPA<I> extends AbstractSEVPA<Location, I>
     }
 
     @Override
-    public @Nullable Location getReturnSuccessor(final Location loc, final I retSym, final int stackSym) {
+    public Location getReturnSuccessor(final Location loc, final I retSym, final int stackSym) {
         return loc.getReturnSuccessor(alphabet.getReturnSymbolIndex(retSym), stackSym);
     }
 

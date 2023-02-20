@@ -20,10 +20,6 @@ import com.github.misberner.duzzt.annotations.GenerateEmbeddedDSL;
 import com.github.misberner.duzzt.annotations.SubExpr;
 import net.automatalib.automata.fsa.MutableDFA;
 
-@GenerateEmbeddedDSL(name = "DFABuilder",
-                     enableAllMethods = false,
-                     syntax = "<transOrAcc>* withInitial <transOrAcc>* create",
-                     where = {@SubExpr(name = "transOrAcc", definedAs = "(from (on (loop|to))+)+|withAccepting")})
 class DFABuilderImpl<S, I, A extends MutableDFA<S, ? super I>> extends FSABuilderImpl<S, I, A> {
 
     DFABuilderImpl(A automaton) {
@@ -31,7 +27,6 @@ class DFABuilderImpl<S, I, A extends MutableDFA<S, ? super I>> extends FSABuilde
     }
 
     @Override
-    @DSLAction(autoVarArgs = false)
     public void withInitial(Object stateId) {
         super.withInitial(stateId);
     }

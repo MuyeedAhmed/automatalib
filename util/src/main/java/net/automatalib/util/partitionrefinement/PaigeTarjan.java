@@ -100,15 +100,15 @@ public class PaigeTarjan {
      */
     public Block[] blockForState;
     // the head of the block linked list
-    private @Nullable Block blocklistHead;
+    private Block blocklistHead;
     // the block count
     private int numBlocks;
     // the head of the worklist linked list
-    private @Nullable Block worklistHead;
+    private Block worklistHead;
     // the tail of the worklist linked list
-    private @Nullable Block worklistTail;
+    private Block worklistTail;
     // the head of the 'touched' list
-    private @Nullable Block touchedHead;
+    private Block touchedHead;
 
     public void setSize(int numStates, int numInputs) {
         this.numStates = numStates;
@@ -270,7 +270,7 @@ public class PaigeTarjan {
         }
     }
 
-    private @Nullable Block poll() {
+    private Block poll() {
         if (worklistHead == null) {
             return null;
         }
@@ -327,7 +327,7 @@ public class PaigeTarjan {
         touchedHead = null;
     }
 
-    private @Nullable Block split(Block b) {
+    private Block split(Block b) {
         Block splt = b.split(numBlocks);
         if (splt == null) {
             return null;

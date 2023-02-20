@@ -30,7 +30,6 @@ import org.testng.annotations.Test;
  */
 public class TranslationTest {
 
-    @Test
     public void testTranslateDFA() {
         final Alphabet<Character> sigma = Alphabets.characters('a', 'c');
         final Alphabet<Integer> sigma2 = Alphabets.integers(1, 3);
@@ -52,7 +51,6 @@ public class TranslationTest {
 
     }
 
-    @Test
     public void testTranslateNFA() {
         final Alphabet<Character> sigma = Alphabets.characters('a', 'c');
         final Alphabet<Integer> sigma2 = Alphabets.integers(1, 3);

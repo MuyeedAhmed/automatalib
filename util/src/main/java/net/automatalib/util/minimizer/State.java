@@ -201,7 +201,7 @@ final class State<S, L> extends AbstractBasicLinkedListEntry<State<S, L>, State<
      *
      * @return the respective letter of the signature, or <code>null</code>.
      */
-    public @Nullable TransitionLabel<S, L> getSignatureLetter(int index) {
+    public TransitionLabel<S, L> getSignatureLetter(int index) {
         if (index < signature.size()) {
             return signature.get(index);
         }

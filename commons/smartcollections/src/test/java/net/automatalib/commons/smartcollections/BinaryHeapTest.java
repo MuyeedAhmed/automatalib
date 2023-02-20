@@ -20,12 +20,10 @@ import java.util.Arrays;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Test
 public class BinaryHeapTest {
 
     private final BinaryHeap<Integer> heap = BinaryHeap.create(Arrays.asList(42, 37));
 
-    @Test
     public void testHeapOps() {
         Assert.assertEquals(heap.size(), 2);
         Assert.assertFalse(heap.isEmpty());

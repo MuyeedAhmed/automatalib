@@ -29,7 +29,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  *
  * @author Malte Isberner
  */
-public class BaseDFSVisitor<N, E, @Nullable D> implements DFSVisitor<N, E, D> {
+public class BaseDFSVisitor<N, E, D> implements DFSVisitor<N, E, D> {
 
     @Override
     public D initialize(N node) {

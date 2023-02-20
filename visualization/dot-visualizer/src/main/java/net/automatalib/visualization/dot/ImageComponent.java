@@ -43,7 +43,7 @@ public class ImageComponent extends JComponent {
 
     private static final int DEFAULT_WIDTH = 320, DEFAULT_HEIGHT = 240;
 
-    private @Nullable BufferedImage img;
+    private BufferedImage img;
     private final Action savePngAction = new AbstractAction("Save PNG") {
 
         @Override
@@ -102,7 +102,7 @@ public class ImageComponent extends JComponent {
      *
      * @return the image to be displayed
      */
-    public @Nullable BufferedImage getImage() {
+    public BufferedImage getImage() {
         return img;
     }
 
@@ -112,8 +112,8 @@ public class ImageComponent extends JComponent {
      * @param img
      *         the image to be displayed
      */
-    public void setImage(@UnknownInitialization(ImageComponent.class) ImageComponent this,
-                         @Nullable BufferedImage img) {
+    public void setImage(ImageComponent this,
+                         BufferedImage img) {
         this.img = img;
         Dimension dim;
         if (img != null) {

@@ -33,7 +33,6 @@ public class MealyMachinesTest {
     private CompactMealy<Character, Integer> mealy1;
     private CompactMealy<Character, Integer> mealy2;
 
-    @BeforeClass
     public void setUp() {
         this.alphabet = Alphabets.characters('a', 'c');
         // @formatter:off
@@ -52,7 +51,6 @@ public class MealyMachinesTest {
         // @formatter:on
     }
 
-    @Test
     public void testProductAutomaton() {
         final CompactMealy<Character, Pair<Integer, Integer>> product = MealyMachines.combine(mealy1, mealy2, alphabet);
 
@@ -74,7 +72,6 @@ public class MealyMachinesTest {
         Assert.assertEquals(undefinedOutput.size(), 2);
     }
 
-    @Test
     public void testCompletion() {
         final CompactMealy<Character, Integer> completed = MealyMachines.complete(mealy1, alphabet, -1);
 

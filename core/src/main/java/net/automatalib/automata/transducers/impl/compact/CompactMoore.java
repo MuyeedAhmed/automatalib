@@ -21,7 +21,7 @@ import net.automatalib.automata.transducers.MutableMooreMachine;
 import net.automatalib.words.Alphabet;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-public class CompactMoore<I, @Nullable O> extends UniversalCompactSimpleDet<I, O>
+public class CompactMoore<I, O> extends UniversalCompactSimpleDet<I, O>
         implements MutableMooreMachine<Integer, I, Integer, O> {
 
     public CompactMoore(Alphabet<I> alphabet) {
@@ -50,7 +50,7 @@ public class CompactMoore<I, @Nullable O> extends UniversalCompactSimpleDet<I, O
         return getStateProperty(state);
     }
 
-    public static final class Creator<I, @Nullable O> implements AutomatonCreator<CompactMoore<I, O>, I> {
+    public static final class Creator<I, O> implements AutomatonCreator<CompactMoore<I, O>, I> {
 
         @Override
         public CompactMoore<I, O> createAutomaton(Alphabet<I> alphabet, int sizeHint) {

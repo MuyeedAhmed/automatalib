@@ -33,12 +33,12 @@ public abstract class AbstractAutomatonGraphView<S, A extends Automaton<S, ?, ?>
     }
 
     @Override
-    public <@Nullable V> MutableMapping<S, V> createStaticNodeMapping() {
+    public <V> MutableMapping<S, V> createStaticNodeMapping() {
         return automaton.createStaticStateMapping();
     }
 
     @Override
-    public <@Nullable V> MutableMapping<S, V> createDynamicNodeMapping() {
+    public <V> MutableMapping<S, V> createDynamicNodeMapping() {
         return automaton.createDynamicStateMapping();
     }
 

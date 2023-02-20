@@ -50,7 +50,7 @@ public interface IncrementalConstruction<A, I> {
      *
      * @return a separating word, or {@code null} if no difference could be found.
      */
-    @Nullable Word<I> findSeparatingWord(A target, Collection<? extends I> inputs, boolean omitUndefined);
+    Word<I> findSeparatingWord(A target, Collection<? extends I> inputs, boolean omitUndefined);
 
     /**
      * Checks whether this class has definitive information about a given word.

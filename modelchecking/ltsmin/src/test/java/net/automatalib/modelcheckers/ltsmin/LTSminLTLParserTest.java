@@ -27,7 +27,6 @@ import org.testng.annotations.Test;
  */
 public class LTSminLTLParserTest {
 
-    @DataProvider(name = "letter")
     public Object[][] letterFormulae() {
         final List<Object[]> formulae = new ArrayList<>();
 
@@ -43,7 +42,6 @@ public class LTSminLTLParserTest {
         return formulae.toArray(new Object[formulae.size()][]);
     }
 
-    @DataProvider(name = "io")
     public Object[][] ioFormulae() {
         final List<Object[]> formulae = new ArrayList<>();
 
@@ -59,12 +57,10 @@ public class LTSminLTLParserTest {
         return formulae.toArray(new Object[formulae.size()][]);
     }
 
-    @Test(dataProvider = "letter")
     public void testLetterFormulae(final String formula, boolean expectedValidity) {
         Assert.assertEquals(LTSminLTLParser.isValidLetterFormula(formula), expectedValidity);
     }
 
-    @Test(dataProvider = "io")
     public void testIOFormulae(final String formula, boolean expectedValidity) {
         Assert.assertEquals(LTSminLTLParser.isValidIOFormula(formula), expectedValidity);
     }

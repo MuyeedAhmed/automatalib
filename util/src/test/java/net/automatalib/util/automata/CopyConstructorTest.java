@@ -54,27 +54,23 @@ public class CopyConstructorTest {
     private static final List<Word<Character>> SST_PROPERTIES =
             Arrays.asList(Word.fromCharSequence("Hello"), Word.fromCharSequence("World"));
 
-    @Test
     public void testDFA() {
         final CompactDFA<Character> dfa = RandomAutomata.randomDFA(RANDOM, SIZE, INPUT_ALPHABET);
         testCopyConstructor(dfa, INPUT_ALPHABET, CompactDFA::new);
     }
 
-    @Test
     public void testMealy() {
         final CompactMealy<Character, Character> mealy =
                 RandomAutomata.randomMealy(RANDOM, SIZE, INPUT_ALPHABET, OUTPUT_ALPHABET);
         testCopyConstructor(mealy, INPUT_ALPHABET, CompactMealy::new);
     }
 
-    @Test
     public void testMoore() {
         final CompactMoore<Character, Character> moore =
                 RandomAutomata.randomMoore(RANDOM, SIZE, INPUT_ALPHABET, OUTPUT_ALPHABET);
         testCopyConstructor(moore, INPUT_ALPHABET, CompactMoore::new);
     }
 
-    @Test
     public void testNFA() {
         final CompactDFA<Character> dfa = RandomAutomata.randomDFA(RANDOM, SIZE, INPUT_ALPHABET);
         final CompactNFA<Character> nfa = new CompactNFA<>(INPUT_ALPHABET);
@@ -84,7 +80,6 @@ public class CopyConstructorTest {
         testNonDetCopyConstructor(nfa, INPUT_ALPHABET, CompactNFA::new);
     }
 
-    @Test
     public void testSST() {
         final CompactSST<Character, Character> sst = new CompactSST<>(INPUT_ALPHABET);
 

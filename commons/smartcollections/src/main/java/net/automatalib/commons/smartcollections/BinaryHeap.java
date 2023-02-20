@@ -63,7 +63,7 @@ public class BinaryHeap<E> extends AbstractSmartCollection<E>
     /**
      * Move an element downwards inside the heap, until all of its children have a key greater or equal to its own.
      */
-    private void downHeap(@UnknownInitialization(BinaryHeap.class) BinaryHeap<E> this, int idx) {
+    private void downHeap(BinaryHeap<E> this, int idx) {
         Reference<E> e = entries.array[idx];
 
         int iter = idx;
@@ -96,7 +96,7 @@ public class BinaryHeap<E> extends AbstractSmartCollection<E>
     /**
      * Checks whether the entry at the specified index has at least one child.
      */
-    private boolean hasChildren(@UnknownInitialization(BinaryHeap.class) BinaryHeap<E> this, int idx) {
+    private boolean hasChildren(BinaryHeap<E> this, int idx) {
         return idx * 2 < size;
     }
 
@@ -110,7 +110,7 @@ public class BinaryHeap<E> extends AbstractSmartCollection<E>
     /**
      * Checks whether the entry at the specified index has two children.
      */
-    private boolean hasRightChild(@UnknownInitialization(BinaryHeap.class) BinaryHeap<E> this, int idx) {
+    private boolean hasRightChild(BinaryHeap<E> this, int idx) {
         return idx * 2 + 1 < size;
     }
 
@@ -124,7 +124,7 @@ public class BinaryHeap<E> extends AbstractSmartCollection<E>
     /**
      * Compares the referenced elements.
      */
-    private int compare(@UnknownInitialization(BinaryHeap.class) BinaryHeap<E> this, Reference<E> e1, Reference<E> e2) {
+    private int compare(BinaryHeap<E> this, Reference<E> e1, Reference<E> e2) {
         return comparator.compare(e1.element, e2.element);
     }
 
@@ -320,7 +320,7 @@ public class BinaryHeap<E> extends AbstractSmartCollection<E>
     }
 
     @Override
-    public @Nullable E poll() {
+    public E poll() {
         if (size > 0) {
             return extractMin();
         }
@@ -358,7 +358,7 @@ public class BinaryHeap<E> extends AbstractSmartCollection<E>
     }
 
     @Override
-    public @Nullable E peek() {
+    public E peek() {
         if (size > 0) {
             return peekMin();
         }

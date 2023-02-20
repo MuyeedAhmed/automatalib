@@ -42,7 +42,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public interface DeterministicTransitionSystem<S, I, T> extends TransitionSystem<S, I, T>, SimpleDTS<S, I> {
 
     @Override
-    default @Nullable S getSuccessor(S state, I input) {
+    default S getSuccessor(S state, I input) {
         T trans = getTransition(state, input);
         if (trans == null) {
             return null;
@@ -62,7 +62,7 @@ public interface DeterministicTransitionSystem<S, I, T> extends TransitionSystem
      *
      * @see TransitionSystem#getTransitions(Object, Object)
      */
-    @Nullable T getTransition(S state, I input);
+    T getTransition(S state, I input);
 
     @Override
     default Set<S> getSuccessors(S state, I input) {
@@ -74,7 +74,7 @@ public interface DeterministicTransitionSystem<S, I, T> extends TransitionSystem
         return transToSet(getTransition(state, input));
     }
 
-    static <T> Set<T> transToSet(@Nullable T trans) {
+    static <T> Set<T> transToSet(T trans) {
         if (trans == null) {
             return Collections.emptySet();
         }

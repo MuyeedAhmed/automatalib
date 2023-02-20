@@ -38,16 +38,16 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public abstract class AbstractRecursiveADSLeafNode<S, I, O, N extends RecursiveADSNode<S, I, O, N>>
         implements RecursiveADSNode<S, I, O, N> {
 
-    private @Nullable N parent;
+    private N parent;
     private S hypothesisState;
 
-    public AbstractRecursiveADSLeafNode(@Nullable N parent, S hypothesisState) {
+    public AbstractRecursiveADSLeafNode(N parent, S hypothesisState) {
         this.parent = parent;
         this.hypothesisState = hypothesisState;
     }
 
     @Override
-    public @Nullable I getSymbol() {
+    public I getSymbol() {
         return null;
     }
 
@@ -57,12 +57,12 @@ public abstract class AbstractRecursiveADSLeafNode<S, I, O, N extends RecursiveA
     }
 
     @Override
-    public @Nullable N getParent() {
+    public N getParent() {
         return this.parent;
     }
 
     @Override
-    public void setParent(@Nullable N parent) {
+    public void setParent(N parent) {
         this.parent = parent;
     }
 

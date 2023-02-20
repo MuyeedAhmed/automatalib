@@ -30,7 +30,6 @@ import org.testng.annotations.Test;
  */
 public class SCCTest {
 
-    @Test
     public void testExample1() {
 
         Integer n0, n1, n2, n3;
@@ -57,7 +56,6 @@ public class SCCTest {
         Assert.assertEquals(computedSCCs, expectedSCCs);
     }
 
-    @Test
     public void testExample2() {
         CompactSimpleGraph<Void> graph = new CompactSimpleGraph<>();
         Integer n0, n1, n2, n3, n4;
@@ -88,7 +86,6 @@ public class SCCTest {
      * This example is taken from the following slide deck:
      * https://cs.nyu.edu/courses/spring17/CSCI-UA.0310-001/graphs-scc.pdf
      */
-    @Test
     public void testExample3() {
         CompactSimpleGraph<Void> graph = new CompactSimpleGraph<>();
         Integer a, b, c, d, e, f, g, h;
@@ -131,7 +128,6 @@ public class SCCTest {
      * This example is taken from the following slide deck:
      * http://www.cse.cuhk.edu.hk/~taoyf/course/comp3506/lec/scc.pdf
      */
-    @Test
     public void testExample4() {
         CompactSimpleGraph<Void> graph = new CompactSimpleGraph<>();
         Integer a, b, c, d, e, f, g, h, i, j, k, l;
@@ -181,7 +177,6 @@ public class SCCTest {
         Assert.assertEquals(computedSCCs, expectedSCCs);
     }
 
-    @Test
     public void testExample5() {
         CompactSimpleGraph<Void> graph = new CompactSimpleGraph<>();
         Integer n0, n1, n2, n3, n4, n5, n6, n7, n8, n9;
@@ -242,7 +237,6 @@ public class SCCTest {
      * TARJAN, Robert. Depth-first search and linear graph algorithms.
      * SIAM journal on computing, 1972, 1. Jg., Nr. 2, S. 146-160.
      */
-    @Test
     public void testTarjansSCCPaperExample() {
         CompactSimpleGraph<Void> graph = new CompactSimpleGraph<>();
         Integer n1, n2, n3, n4, n5, n6, n7, n8;

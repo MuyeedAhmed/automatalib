@@ -32,7 +32,7 @@ import org.testng.annotations.Test;
  */
 public abstract class AbstractFSM2ParserTest {
 
-    protected abstract UniversalDeterministicAutomaton<?, Character, ?, ?, ?> getParsedAutomaton(@Nullable Collection<Character> requiredInputs)
+    protected abstract UniversalDeterministicAutomaton<?, Character, ?, ?, ?> getParsedAutomaton(Collection<Character> requiredInputs)
             throws IOException;
 
     /**
@@ -45,7 +45,6 @@ public abstract class AbstractFSM2ParserTest {
      * @throws IOException if a test .fsm file could not be read
      * @throws FSMFormatException if a test .fsm was malformed
      */
-    @Test
     public void testInputAlphabet() throws IOException {
 
         final Collection<Character> existingInputs = Collections.singleton('a');

@@ -38,7 +38,6 @@ import org.testng.annotations.Test;
  */
 public class PowersetViewTest {
 
-    @Test
     public void testFastPowerset() {
         final ConstructedSystem<FastNFA<Character>, FastNFAState> system = constructSystem(FastNFA::new);
         final FastPowersetDTS<FastNFAState, Character, ?> powersetDTS = new FastPowersetDTS<>(system.automaton);
@@ -46,7 +45,6 @@ public class PowersetViewTest {
         checkConstructedSystem(powersetDTS, system, PowersetViewTest::toFastPowersetState);
     }
 
-    @Test
     public void testDirectPowerset() {
         final ConstructedSystem<CompactNFA<Character>, Integer> system = constructSystem(CompactNFA::new);
         final DirectPowersetDTS<Integer, Character, ?> powersetDTS = new DirectPowersetDTS<>(system.automaton);

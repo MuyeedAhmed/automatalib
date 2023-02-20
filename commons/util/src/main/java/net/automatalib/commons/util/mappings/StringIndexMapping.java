@@ -44,7 +44,7 @@ public final class StringIndexMapping {
         return idx;
     }
 
-    public static String indexToString(@NonNegative long idx) {
+    public static String indexToString(long idx) {
         final StringBuilder sb = new StringBuilder();
 
         long idxIter = idx;

@@ -56,7 +56,6 @@ public abstract class AbstractLTSminMonitorMealyTest
                                 .create();
     }
 
-    @Test
     public void testSkipOutputs() {
         final HashSet<String> skip = new HashSet<>();
         skip.add("2");

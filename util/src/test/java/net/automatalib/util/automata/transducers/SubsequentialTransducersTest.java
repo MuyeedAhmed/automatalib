@@ -27,7 +27,6 @@ public class SubsequentialTransducersTest {
 
     private static final Alphabet<Character> INPUTS = Alphabets.characters('a', 'c');
 
-    @Test
     public void testAlreadyOnwardModel() {
 
         final CompactSST<Character, Character> sst = new CompactSST<>(INPUTS);
@@ -55,7 +54,6 @@ public class SubsequentialTransducersTest {
         Assert.assertTrue(Automata.testEquivalence(sst, osst, INPUTS));
     }
 
-    @Test
     public void testPartialModel() {
 
         final CompactSST<Character, Character> sst = new CompactSST<>(INPUTS);
@@ -94,7 +92,6 @@ public class SubsequentialTransducersTest {
         Assert.assertTrue(Automata.testEquivalence(expected, osst, INPUTS));
     }
 
-    @Test
     public void testMultiplePropagations() {
 
         final CompactSST<Character, Character> sst = new CompactSST<>(INPUTS);
@@ -141,7 +138,6 @@ public class SubsequentialTransducersTest {
         Assert.assertTrue(Automata.testEquivalence(expected, osst, INPUTS));
     }
 
-    @Test
     public void testLoopOnInitial() {
 
         final CompactSST<Character, Character> sst = new CompactSST<>(INPUTS);

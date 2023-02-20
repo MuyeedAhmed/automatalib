@@ -36,5 +36,5 @@ public interface Ref<T> {
      *
      * @return the referent.
      */
-    @Nullable T get();
+    T get();
 }

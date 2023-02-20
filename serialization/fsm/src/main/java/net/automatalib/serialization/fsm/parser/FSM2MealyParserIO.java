@@ -47,7 +47,7 @@ public final class FSM2MealyParserIO<I, O> extends AbstractFSM2MealyParser<I, O>
      * @param outputParser
      *         the output parser (similar to {@code inputParser}.
      */
-    private FSM2MealyParserIO(@Nullable Collection<? extends I> targetInputs,
+    private FSM2MealyParserIO(Collection<? extends I> targetInputs,
                               Function<String, I> inputParser,
                               Function<String, O> outputParser) {
         super(targetInputs, inputParser, outputParser);
@@ -131,7 +131,7 @@ public final class FSM2MealyParserIO<I, O> extends AbstractFSM2MealyParser<I, O>
         }
     }
 
-    public static <I, O> FSM2MealyParserIO<I, O> getParser(@Nullable Collection<? extends I> targetInputs,
+    public static <I, O> FSM2MealyParserIO<I, O> getParser(Collection<? extends I> targetInputs,
                                                            Function<String, I> inputParser,
                                                            Function<String, O> outputParser) {
         return new FSM2MealyParserIO<>(targetInputs, inputParser, outputParser);
@@ -142,7 +142,7 @@ public final class FSM2MealyParserIO<I, O> extends AbstractFSM2MealyParser<I, O>
         return getParser(null, inputParser, outputParser);
     }
 
-    public static <E> FSM2MealyParserIO<E, E> getParser(@Nullable Collection<? extends E> targetInputs,
+    public static <E> FSM2MealyParserIO<E, E> getParser(Collection<? extends E> targetInputs,
                                                         Function<String, E> edgeParser) {
         return getParser(targetInputs, edgeParser, edgeParser);
     }

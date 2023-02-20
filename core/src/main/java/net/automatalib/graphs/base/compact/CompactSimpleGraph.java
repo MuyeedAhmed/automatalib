@@ -17,7 +17,7 @@ package net.automatalib.graphs.base.compact;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-public class CompactSimpleGraph<@Nullable EP> extends AbstractCompactGraph<CompactEdge<EP>, Void, EP> {
+public class CompactSimpleGraph<EP> extends AbstractCompactGraph<CompactEdge<EP>, Void, EP> {
 
     public CompactSimpleGraph() {
         super();
@@ -36,7 +36,7 @@ public class CompactSimpleGraph<@Nullable EP> extends AbstractCompactGraph<Compa
     }
 
     @Override
-    protected CompactEdge<EP> createEdge(int source, int target, @Nullable EP property) {
+    protected CompactEdge<EP> createEdge(int source, int target, EP property) {
         return new CompactEdge<>(target, property);
     }
 
