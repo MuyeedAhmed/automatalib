@@ -253,8 +253,9 @@ limitations under the License.
                                         </path>
                                     </annotationProcessorPaths>
                                     <annotationProcessors>
-                                        <annotationProcessor>org.checkerframework.checker.nullness.NullnessChecker</annotationProcessor>
+<!--                                        <annotationProcessor>org.checkerframework.checker.nullness.NullnessChecker</annotationProcessor>-->
                                         <!--<annotationProcessor>org.checkerframework.checker.signedness.SignednessChecker</annotationProcessor>-->
+                                        <annotationProcessor>org.checkerframework.common.util.count.AnnotationStatistics</annotationProcessor>
                                     </annotationProcessors>
                                     <compilerArgs>
                                         <arg>-J-Xbootclasspath/p:${com.google.errorprone:javac:jar}</arg>
@@ -270,7 +271,10 @@ limitations under the License.
                                         <arg>-AsuppressWarnings=uninitialized</arg>
                                         <arg>-AassumeAssertionsAreEnabled</arg>
                                         <arg>-Astubs=jdk8.astub:collection-object-parameters-may-be-null.astub</arg>
+                                        <arg>-Aannotations</arg>
+                                        <arg>-Anolocations</arg>
                                     </compilerArgs>
+                                    <showWarnings>true</showWarnings>
                                 </configuration>
                             </execution>
                             <execution>
