@@ -38,22 +38,18 @@ import org.testng.annotations.Test;
  */
 public class CoverIteratorsTest {
 
-    @Test
     public void testStateCoverIterator() {
         compareCovers(Automata::stateCover, Covers::stateCoverIterator);
     }
 
-    @Test
     public void testTransitionCoverIterator() {
         compareCovers(Automata::transitionCover, Covers::transitionCoverIterator);
     }
 
-    @Test
     public void testIncrementalStateCoverIterator() {
         compareIncrementalCovers(Covers::incrementalStateCover, Covers::incrementalStateCoverIterator);
     }
 
-    @Test
     public void testIncrementalTransitionCoverIterator() {
         compareIncrementalCovers(Covers::incrementalTransitionCover, Covers::incrementalTransitionCoverIterator);
     }

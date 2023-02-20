@@ -25,9 +25,6 @@ import com.github.misberner.duzzt.annotations.DSLAction;
 import com.github.misberner.duzzt.annotations.GenerateEmbeddedDSL;
 import net.automatalib.automata.MutableAutomaton;
 
-@GenerateEmbeddedDSL(name = "AutomatonBuilder",
-                     enableAllMethods = false,
-                     syntax = "((from (on (withProperty? <<to* loop? to*>>)+)+)|withStateProperty|withInitial)* create")
 @SuppressWarnings("nullness") // nullness correctness guaranteed by states of regular expression
 class AutomatonBuilderImpl<S, I, T, SP, TP, A extends MutableAutomaton<S, ? super I, T, ? super SP, ? super TP>> {
 
@@ -42,13 +39,11 @@ class AutomatonBuilderImpl<S, I, T, SP, TP, A extends MutableAutomaton<S, ? supe
         this.automaton = automaton;
     }
 
-    @DSLAction
     public void from(Object stateId) {
         this.currentStates = getStates(stateId);
         this.currentInputs = null;
     }
 
-    @DSLAction
     public void from(Object firstStateId, Object... otherStateIds) {
         this.currentStates = getStates(firstStateId, otherStateIds);
     }
@@ -74,13 +69,11 @@ class AutomatonBuilderImpl<S, I, T, SP, TP, A extends MutableAutomaton<S, ? supe
         return state;
     }
 
-    @DSLAction
     public void on(I input) {
         this.currentInputs = Collections.singletonList(input);
         this.currentTransProp = null;
     }
 
-    @DSLAction
     @SafeVarargs
     public final void on(I firstInput, I... otherInputs) {
         this.currentInputs = new ArrayList<>(1 + otherInputs.length);
@@ -89,12 +82,10 @@ class AutomatonBuilderImpl<S, I, T, SP, TP, A extends MutableAutomaton<S, ? supe
         this.currentTransProp = null;
     }
 
-    @DSLAction
     public void withProperty(TP transProp) {
         this.currentTransProp = transProp;
     }
 
-    @DSLAction
     public void to(Object stateId) {
         S tgt = getState(stateId);
         for (S src : currentStates) {
@@ -104,7 +95,6 @@ class AutomatonBuilderImpl<S, I, T, SP, TP, A extends MutableAutomaton<S, ? supe
         }
     }
 
-    @DSLAction
     public void loop() {
         for (S src : currentStates) {
             for (I input : currentInputs) {
@@ -113,18 +103,15 @@ class AutomatonBuilderImpl<S, I, T, SP, TP, A extends MutableAutomaton<S, ? supe
         }
     }
 
-    @DSLAction(terminator = true)
     public A create() {
         return automaton;
     }
 
-    @DSLAction
     public void withInitial(Object stateId) {
         S state = getState(stateId);
         automaton.setInitial(state, true);
     }
 
-    @DSLAction
     public void withStateProperty(SP stateProperty, Object stateId) {
         S state = getState(stateId);
         automaton.setStateProperty(state, stateProperty);

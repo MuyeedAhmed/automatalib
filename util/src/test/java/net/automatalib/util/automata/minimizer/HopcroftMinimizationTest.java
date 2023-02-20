@@ -29,12 +29,10 @@ public class HopcroftMinimizationTest extends AbstractMinimizationTest {
 
     private final PruningMode pruningMode;
 
-    @Factory(dataProvider = "pruningModes")
     public HopcroftMinimizationTest(PruningMode pruningMode) {
         this.pruningMode = pruningMode;
     }
 
-    @DataProvider(name = "pruningModes")
     public static Object[][] pruningModes() {
         return new Object[][] {{PruningMode.PRUNE_BEFORE}, {PruningMode.PRUNE_AFTER}, {PruningMode.DONT_PRUNE}};
     }

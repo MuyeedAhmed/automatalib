@@ -190,52 +190,42 @@ public class GrowingAlphabetAutomatonTest {
         Assert.assertEquals(automaton.getStates(B4), Collections.singleton(s3));
     }
 
-    @Test
     public void testCompactDFA() {
         this.testGrowableOutputAutomaton(CompactDFA::new);
     }
 
-    @Test
     public void testCompactNFA() {
         this.testGrowableOutputAutomaton(CompactNFA::new);
     }
 
-    @Test
     public void testFastDFA() {
         this.testGrowableOutputAutomaton(FastDFA::new);
     }
 
-    @Test
     public void testFastNFA() {
         this.testGrowableOutputAutomaton(FastNFA::new);
     }
 
-    @Test
     public void testCompactMealy() {
         this.testGrowableOutputAutomaton(CompactMealy::new);
     }
 
-    @Test
     public void testFastMealy() {
         this.testGrowableOutputAutomaton(FastMealy::new);
     }
 
-    @Test
     public void testFastProbMealy() {
         this.testGrowableAutomaton(FastProbMealy::new);
     }
 
-    @Test
     public void testCompactMoore() {
         this.testGrowableOutputAutomaton(CompactMoore::new);
     }
 
-    @Test
     public void testFastMoore() {
         this.testGrowableOutputAutomaton(FastMoore::new);
     }
 
-    @Test
     public void testCompactSST() {
         this.testGrowableOutputAutomaton(CompactSST::new);
     }

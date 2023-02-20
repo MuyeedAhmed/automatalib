@@ -63,7 +63,7 @@ public class CFMPSView<I> implements ContextFreeModalProcessSystem<I, Void> {
     }
 
     @Override
-    public @Nullable I getMainProcess() {
+    public I getMainProcess() {
         return this.spa.getInitialProcedure();
     }
 

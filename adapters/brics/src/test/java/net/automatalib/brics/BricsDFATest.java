@@ -37,13 +37,11 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-@Test
 public class BricsDFATest {
 
     private Automaton bricsAutomaton;
     private BricsDFA dfa;
 
-    @BeforeClass
     public void setUp() {
         // manually construct automaton accepting the regular expression "a(b*|bb+)c?d"
         // we do this manually to ensure non-determinism to check our determinization
@@ -62,7 +60,6 @@ public class BricsDFATest {
         this.dfa = new BricsDFA(bricsAutomaton);
     }
 
-    @Test
     public void testDeterminism() {
         final Alphabet<Character> alphabet = Alphabets.characters('a', 'd');
 
@@ -73,7 +70,6 @@ public class BricsDFATest {
         }
     }
 
-    @Test
     public void testWordAcceptance() {
         List<String> strings = Arrays.asList("ad", "acd", "abbe", "abbce", "acce", "abcd");
 
@@ -82,7 +78,6 @@ public class BricsDFATest {
         }
     }
 
-    @Test
     public void testStructuralEquality() {
         AbstractBricsAutomaton.GraphView graphView = dfa.graphView();
 
@@ -103,7 +98,6 @@ public class BricsDFATest {
         }
     }
 
-    @Test
     public void testEquivalence() {
         final Alphabet<Character> alphabet = Alphabets.characters('a', 'c');
         final DFA<?, Character> target = new DFABuilder<>(new CompactDFA<>(alphabet)).withInitial("s0")

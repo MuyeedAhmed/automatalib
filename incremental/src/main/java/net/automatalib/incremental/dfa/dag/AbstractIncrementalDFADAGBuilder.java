@@ -66,13 +66,13 @@ public abstract class AbstractIncrementalDFADAGBuilder<I> extends AbstractIncrem
     }
 
     @Override
-    public @Nullable Word<I> findSeparatingWord(DFA<?, I> target,
+    public Word<I> findSeparatingWord(DFA<?, I> target,
                                                 Collection<? extends I> inputs,
                                                 boolean omitUndefined) {
         return doFindSeparatingWord(target, inputs, omitUndefined);
     }
 
-    private <S> @Nullable Word<I> doFindSeparatingWord(DFA<S, I> target,
+    private <S> Word<I> doFindSeparatingWord(DFA<S, I> target,
                                                        Collection<? extends I> inputs,
                                                        boolean omitUndefined) {
         int thisStates = register.size();
@@ -106,21 +106,21 @@ public abstract class AbstractIncrementalDFADAGBuilder<I> extends AbstractIncrem
 
         uf.link(id1, id2);
 
-        Queue<Record<@Nullable S, I>> queue = new ArrayDeque<>();
+        Queue<Record<S, I>> queue = new ArrayDeque<>();
 
         queue.add(new Record<>(init1, init2));
 
         I lastSym = null;
 
-        Record<@Nullable S, I> current;
+        Record<S, I> current;
 
         explore:
         while ((current = queue.poll()) != null) {
             State state1 = current.state1;
-            @Nullable S state2 = current.state2;
+            S state2 = current.state2;
 
             for (I sym : inputs) {
-                @Nullable S succ2 = (state2 != null) ? target.getSuccessor(state2, sym) : null;
+                S succ2 = (state2 != null) ? target.getSuccessor(state2, sym) : null;
                 if (succ2 == null && omitUndefined) {
                     continue;
                 }
@@ -200,7 +200,7 @@ public abstract class AbstractIncrementalDFADAGBuilder<I> extends AbstractIncrem
         return id;
     }
 
-    protected abstract @Nullable State getState(Word<? extends I> word);
+    protected abstract State getState(Word<? extends I> word);
 
     protected void updateInitSignature(Acceptance acc) {
         StateSignature sig = init.getSignature();
@@ -486,7 +486,7 @@ public abstract class AbstractIncrementalDFADAGBuilder<I> extends AbstractIncrem
         public final State state1;
         public final S state2;
         public final I reachedVia;
-        public final @Nullable Record<S, I> reachedFrom;
+        public final Record<S, I> reachedFrom;
         public final int depth;
 
         @SuppressWarnings("nullness") // we will only access reachedVia after checking reachedFrom for null

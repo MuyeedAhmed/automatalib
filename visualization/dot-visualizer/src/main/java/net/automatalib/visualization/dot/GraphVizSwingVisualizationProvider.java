@@ -28,7 +28,6 @@ import net.automatalib.visualization.VisualizationHelper;
 import net.automatalib.visualization.VisualizationProvider;
 import org.kohsuke.MetaInfServices;
 
-@MetaInfServices(VisualizationProvider.class)
 public class GraphVizSwingVisualizationProvider implements VisualizationProvider {
 
     /**

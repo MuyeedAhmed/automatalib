@@ -48,10 +48,10 @@ public class Block {
      * The index of the last element in this block in the {@link PaigeTarjan#blockData} array, plus one.
      */
     public int high;
-    public @Nullable Block nextBlock;
+    public Block nextBlock;
     public int id;
-    protected @Nullable Block nextInWorklist;
-    protected @Nullable Block nextTouched;
+    protected Block nextInWorklist;
+    protected Block nextTouched;
 
     /**
      * Constructor. Creates a new block with the specified parameters.
@@ -65,14 +65,14 @@ public class Block {
      * @param next
      *         the next block in the block list
      */
-    public Block(int low, int high, int id, @Nullable Block next) {
+    public Block(int low, int high, int id, Block next) {
         this.low = low;
         this.high = high;
         this.id = id;
         this.nextBlock = next;
     }
 
-    static Iterator<Block> blockListIterator(@Nullable Block start) {
+    static Iterator<Block> blockListIterator(Block start) {
         return new BlockListIterator(start);
     }
 
@@ -110,7 +110,7 @@ public class Block {
      *
      * @return a block
      */
-    public @Nullable Block split(int newId) {
+    public Block split(int newId) {
         int ptr = this.ptr;
         this.ptr = -1;
         int high = this.high;
@@ -133,9 +133,9 @@ public class Block {
 
     private static final class BlockListIterator implements Iterator<Block> {
 
-        private @Nullable Block curr;
+        private Block curr;
 
-        BlockListIterator(@Nullable Block start) {
+        BlockListIterator(Block start) {
             this.curr = start;
         }
 

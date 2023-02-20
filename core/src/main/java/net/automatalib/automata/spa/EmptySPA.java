@@ -39,7 +39,7 @@ public class EmptySPA<I> implements SPA<Void, I> {
     }
 
     @Override
-    public @Nullable I getInitialProcedure() {
+    public I getInitialProcedure() {
         return null;
     }
 

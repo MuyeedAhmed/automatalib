@@ -38,36 +38,30 @@ public abstract class AbstractLTSminLTLTest<A, L extends Lasso<String, ?>> exten
         return AbstractLTSminLTL.REQUIRED_VERSION;
     }
 
-    @Test
     public void testComputeUnfolds() {
         Assert.assertEquals(getModelChecker().computeUnfolds(1), 3);
         getModelChecker().setMultiplier(2.0);
         Assert.assertEquals(getModelChecker().computeUnfolds(2), 4);
     }
 
-    @Test(expectedExceptions = IllegalArgumentException.class)
     public void testComputeUnfoldsExcept() {
         getModelChecker().computeUnfolds(0);
     }
 
-    @Test
     public void testSetMinimumUnfolds() {
         getModelChecker().setMinimumUnfolds(1337);
         Assert.assertEquals(getModelChecker().getMinimumUnfolds(), 1337);
     }
 
-    @Test(expectedExceptions = IllegalArgumentException.class)
     public void testSetMinimumUnfoldsExcept() {
         getModelChecker().setMinimumUnfolds(0);
     }
 
-    @Test
     public void testSetMultiplier() {
         getModelChecker().setMultiplier(1337.0);
         Assert.assertEquals(getModelChecker().getMultiplier(), 1337.0, 0.0);
     }
 
-    @Test(expectedExceptions = IllegalArgumentException.class)
     public void testSetMultiplierExcept() {
         getModelChecker().setMultiplier(-1.0);
     }

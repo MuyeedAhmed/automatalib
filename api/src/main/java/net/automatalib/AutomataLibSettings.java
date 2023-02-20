@@ -36,7 +36,7 @@ public final class AutomataLibSettings {
         return INSTANCE;
     }
 
-    public @Nullable String getProperty(AutomataLibProperty property) {
+    public String getProperty(AutomataLibProperty property) {
         return properties.getProperty(property.getPropertyKey());
     }
 

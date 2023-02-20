@@ -61,14 +61,12 @@ public abstract class AbstractLTSminTest<A, R extends Output<String, ?>> {
 
     protected abstract void newModelChecker();
 
-    @BeforeClass
     public void setupBeforeClass() {
         if (!LTSminUtil.supports(getRequiredVersion())) {
             throw new SkipException("LTSmin not installed in proper version");
         }
     }
 
-    @BeforeMethod
     public void setUp() {
         newModelChecker();
         counterExample = createCounterExample();
@@ -80,7 +78,6 @@ public abstract class AbstractLTSminTest<A, R extends Output<String, ?>> {
     /**
      * First test for the absence of a counterexample, then test for the presence.
      */
-    @Test
     public void testFindCounterExample() {
         R noCE = getModelChecker().findCounterExample(automaton, alphabet, "true");
         Assert.assertNull(noCE);
@@ -94,7 +91,6 @@ public abstract class AbstractLTSminTest<A, R extends Output<String, ?>> {
      * It appears that the input buffer of LTSmin for input formulae is limited to 8192 (2^13) bytes. As a result, we
      * need to pass longer formulae as a file. This test checks for compatibility with long formulae.
      */
-    @Test
     public void testLongFormula() {
         final StringBuilder builder = new StringBuilder();
         final int length = falseProperty.length();

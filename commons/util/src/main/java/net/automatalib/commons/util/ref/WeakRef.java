@@ -42,7 +42,7 @@ public final class WeakRef<T> implements Ref<T> {
     }
 
     @Override
-    public @Nullable T get() {
+    public T get() {
         return reference.get();
     }
 

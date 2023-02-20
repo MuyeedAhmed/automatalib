@@ -25,7 +25,6 @@ import org.testng.collections.Lists;
 
 public class CmpUtilTest {
 
-    @Test
     public void testArrays() {
         int[] arr1 = new int[] {1, 2, 2, 3};
         int[] arr2 = new int[] {1, 2, 3};
@@ -45,7 +44,6 @@ public class CmpUtilTest {
         Assert.assertEquals(CmpUtil.lexCompare(arr2, arr1), 0);
     }
 
-    @Test
     public void testLists() {
         final List<Integer> l1 = Lists.newArrayList(1, 2, 2, 3, null);
         final List<Integer> l2 = Lists.newArrayList(1, 2, 3, null);

@@ -36,7 +36,7 @@ public class BoxNode<L, AP> extends AbstractModalFormulaNode<L, AP> {
         this(null, node);
     }
 
-    public BoxNode(@Nullable L action, FormulaNode<L, AP> node) {
+    public BoxNode(L action, FormulaNode<L, AP> node) {
         super(action, node);
     }
 

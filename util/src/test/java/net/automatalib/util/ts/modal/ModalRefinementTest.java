@@ -26,7 +26,6 @@ import org.testng.annotations.Test;
 
 public class ModalRefinementTest {
 
-    @Test(description = "Ensure that refinement is preserved when changing a may to a must transition")
     void mayToMustTest() {
         final Alphabet<String> alphabet = Alphabets.closedCharStringRange('a', 'c');
         final CompactMTS<String> a = new CompactMTS<>(alphabet);
@@ -47,7 +46,6 @@ public class ModalRefinementTest {
         Assert.assertTrue(MTSUtil.isRefinementOf(a, b, alphabet));
     }
 
-    @Test(description = "Ensure that refinement is not preserved when changing a must to a may transition")
     void mustToMayTest() {
         final Alphabet<String> alphabet = Alphabets.closedCharStringRange('a', 'c');
         final CompactMTS<String> a = new CompactMTS<>(alphabet);
@@ -68,7 +66,6 @@ public class ModalRefinementTest {
         Assert.assertFalse(MTSUtil.isRefinementOf(b, a, alphabet));
     }
 
-    @Test(description = "Ensure that refinement is preserved when removing a may transition")
     void mayToVoidTest() {
         final Alphabet<String> alphabet = Alphabets.closedCharStringRange('a', 'c');
         final CompactMTS<String> a = new CompactMTS<>(alphabet);
@@ -88,7 +85,6 @@ public class ModalRefinementTest {
         Assert.assertTrue(MTSUtil.isRefinementOf(a, b, alphabet));
     }
 
-    @Test(description = "Ensure that refinement is not preserved when adding a may transition")
     void voidToMayTest() {
         final Alphabet<String> alphabet = Alphabets.closedCharStringRange('a', 'c');
         final CompactMTS<String> a = new CompactMTS<>(alphabet);
@@ -108,7 +104,6 @@ public class ModalRefinementTest {
         Assert.assertFalse(MTSUtil.isRefinementOf(b, a, alphabet));
     }
 
-    @Test(description = "Ensure that refinement is preserved when unrolling loops (in both directions)")
     public void unrollLoopTest() {
         final Alphabet<String> alphabet = Alphabets.closedCharStringRange('a', 'b');
         final CompactMTS<String> a = new CompactMTS<>(alphabet);
@@ -130,7 +125,6 @@ public class ModalRefinementTest {
         Assert.assertTrue(MTSUtil.isRefinementOf(b, a, alphabet));
     }
 
-    @Test(description = "Ensure that refinement is preserved when branching non-deterministically on may")
     public void branchingMayTest() {
         final Alphabet<String> alphabet = Alphabets.closedCharStringRange('a', 'c');
         final CompactMTS<String> a = new CompactMTS<>(alphabet);
@@ -159,7 +153,6 @@ public class ModalRefinementTest {
         Assert.assertTrue(MTSUtil.isRefinementOf(a, b, alphabet));
     }
 
-    @Test(description = "Ensure that refinement is not preserved when branching non-deterministically on must")
     public void branchingMustTest() {
         final Alphabet<String> alphabet = Alphabets.closedCharStringRange('a', 'c');
         final CompactMTS<String> a = new CompactMTS<>(alphabet);
@@ -189,7 +182,6 @@ public class ModalRefinementTest {
         Assert.assertFalse(MTSUtil.isRefinementOf(b, a, alphabet));
     }
 
-    @Test(description = "Example for non-thoroughness (from Larsen \"On Modal Refinement and Consistency\")")
     public void larsenTest() {
         final Alphabet<String> alphabet = Alphabets.closedCharStringRange('a', 'b');
         final CompactMTS<String> s = new CompactMTS<>(alphabet);
@@ -213,7 +205,6 @@ public class ModalRefinementTest {
         Assert.assertFalse(MTSUtil.isRefinementOf(s, t, alphabet));
     }
 
-    @Test
     public void larsenTestMod1() {
         final Alphabet<String> alphabet = Alphabets.closedCharStringRange('a', 'b');
         final CompactMTS<String> s = new CompactMTS<>(alphabet);
@@ -237,7 +228,6 @@ public class ModalRefinementTest {
         Assert.assertTrue(MTSUtil.isRefinementOf(s, t, alphabet));
     }
 
-    @Test(description = "Example from Jasper")
     public void jasperTest1() {
         final Alphabet<String> alphabet = Alphabets.closedCharStringRange('a', 'b');
         final CompactMTS<String> s = new CompactMTS<>(alphabet);

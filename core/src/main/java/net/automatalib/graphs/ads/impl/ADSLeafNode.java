@@ -33,7 +33,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public class ADSLeafNode<S, I, O> extends AbstractRecursiveADSLeafNode<S, I, O, ADSNode<S, I, O>>
         implements ADSNode<S, I, O> {
 
-    public ADSLeafNode(@Nullable ADSNode<S, I, O> parent, S hypothesisState) {
+    public ADSLeafNode(ADSNode<S, I, O> parent, S hypothesisState) {
         super(parent, hypothesisState);
     }
 }

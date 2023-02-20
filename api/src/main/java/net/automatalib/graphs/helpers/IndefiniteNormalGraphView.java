@@ -57,12 +57,12 @@ public class IndefiniteNormalGraphView<N, G extends IndefiniteSimpleGraph<N>> im
     }
 
     @Override
-    public <@Nullable V> MutableMapping<N, V> createStaticNodeMapping() {
+    public <V> MutableMapping<N, V> createStaticNodeMapping() {
         return simpleGraph.createStaticNodeMapping();
     }
 
     @Override
-    public <@Nullable V> MutableMapping<N, V> createDynamicNodeMapping() {
+    public <V> MutableMapping<N, V> createDynamicNodeMapping() {
         return simpleGraph.createDynamicNodeMapping();
     }
 }

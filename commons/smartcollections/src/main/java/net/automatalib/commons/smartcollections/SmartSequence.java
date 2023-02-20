@@ -37,7 +37,7 @@ public interface SmartSequence<E> extends SmartCollection<E> {
      *
      * @return the reference to the preceding element
      */
-    @Nullable ElementReference pred(ElementReference ref);
+    ElementReference pred(ElementReference ref);
 
     /**
      * Retrieves the reference to the succeeding element, or <code>null</code> if the given reference references the
@@ -48,7 +48,7 @@ public interface SmartSequence<E> extends SmartCollection<E> {
      *
      * @return the reference to the succeeding element
      */
-    @Nullable ElementReference succ(ElementReference ref);
+    ElementReference succ(ElementReference ref);
 
     /**
      * Inserts the given element <i>before</i> the element referenced by the specified reference.

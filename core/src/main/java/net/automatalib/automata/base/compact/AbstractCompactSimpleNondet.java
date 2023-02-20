@@ -49,7 +49,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public abstract class AbstractCompactSimpleNondet<I, SP> extends AbstractCompact<I, Integer, SP, Void> {
 
     private final BitSet initial;
-    private @Nullable BitSet[] transitions;
+    private BitSet[] transitions;
 
     public AbstractCompactSimpleNondet(Alphabet<I> alphabet, int stateCapacity, float resizeFactor) {
         super(alphabet, stateCapacity, resizeFactor);

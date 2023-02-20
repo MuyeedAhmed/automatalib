@@ -48,7 +48,7 @@ public abstract class AbstractFormulaNode<L, AP> extends AbstractPrintable imple
     }
 
     @Override
-    public boolean equals(@Nullable Object o) {
+    public boolean equals(Object o) {
         if (this == o) {
             return true;
         }

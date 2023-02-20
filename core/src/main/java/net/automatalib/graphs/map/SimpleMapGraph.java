@@ -42,7 +42,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  *
  * @author Malte Isberner
  */
-public class SimpleMapGraph<@Nullable N> implements MutableGraph<N, N, N, Void>, ShrinkableGraph<N, N> {
+public class SimpleMapGraph<N> implements MutableGraph<N, N, N, Void>, ShrinkableGraph<N, N> {
 
     private final Map<N, Collection<N>> structureMap;
     private final Supplier<? extends Collection<N>> adjCollSupplier;
@@ -133,7 +133,7 @@ public class SimpleMapGraph<@Nullable N> implements MutableGraph<N, N, N, Void>,
     }
 
     @Override
-    public N addNode(@Nullable N property) {
+    public N addNode(N property) {
         structureMap.putIfAbsent(property, adjCollSupplier.get());
         return property;
     }
@@ -157,7 +157,7 @@ public class SimpleMapGraph<@Nullable N> implements MutableGraph<N, N, N, Void>,
     public void setEdgeProperty(N edge, Void property) {}
 
     @Override
-    public void removeNode(N node, @Nullable N replacement) {
+    public void removeNode(N node, N replacement) {
         structureMap.remove(node);
         structureMap.values().forEach(a -> {
             if (a.remove(node) && replacement != null) {

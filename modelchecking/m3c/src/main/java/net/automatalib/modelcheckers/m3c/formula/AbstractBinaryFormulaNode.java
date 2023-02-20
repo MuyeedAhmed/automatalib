@@ -56,7 +56,7 @@ public abstract class AbstractBinaryFormulaNode<L, AP> extends AbstractFormulaNo
     }
 
     @Override
-    public boolean equals(@Nullable Object o) {
+    public boolean equals(Object o) {
         if (!super.equals(o)) {
             return false;
         }

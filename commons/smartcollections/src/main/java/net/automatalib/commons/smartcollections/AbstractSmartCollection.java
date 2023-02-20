@@ -69,7 +69,7 @@ public abstract class AbstractSmartCollection<E> extends AbstractCollection<E> i
     }
 
     @Override
-    public @Nullable ElementReference find(@Nullable Object element) {
+    public ElementReference find(Object element) {
         for (ElementReference ref : references()) {
             E current = get(ref);
             if (Objects.equals(current, element)) {
@@ -102,7 +102,7 @@ public abstract class AbstractSmartCollection<E> extends AbstractCollection<E> i
     }
 
     @Override
-    public boolean remove(@Nullable Object element) {
+    public boolean remove(Object element) {
         ElementReference ref = find(element);
         if (ref == null) {
             return false;

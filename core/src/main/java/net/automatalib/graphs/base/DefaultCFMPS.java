@@ -42,7 +42,7 @@ public class DefaultCFMPS<L, AP> implements ContextFreeModalProcessSystem<L, AP>
     }
 
     @Override
-    public @Nullable L getMainProcess() {
+    public L getMainProcess() {
         return this.mainProcess;
     }
 }

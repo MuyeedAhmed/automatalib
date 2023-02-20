@@ -46,35 +46,30 @@ public abstract class AbstractLassoTest<L extends AbstractLasso<String, ?>> {
         return alphabet;
     }
 
-    @BeforeClass
     public void setUp() {
         lasso1 = getLasso(Word.epsilon(), Word.fromSymbols("a"), 1);
         lasso2 = getLasso(Word.fromSymbols("a"), Word.fromSymbols("a"), 1);
         lasso3 = getLasso(Word.fromSymbols("a"), Word.fromSymbols("a", "a"), 1);
     }
 
-    @Test
     public void testGetWord() {
         Assert.assertEquals(lasso1.getWord(), Word.fromSymbols("a"));
         Assert.assertEquals(lasso2.getWord(), Word.fromSymbols("a", "a"));
         Assert.assertEquals(lasso3.getWord(), Word.fromSymbols("a", "a", "a"));
     }
 
-    @Test
     public void testGetLoop() {
         Assert.assertEquals(lasso1.getLoop(), Word.fromSymbols("a"));
         Assert.assertEquals(lasso2.getLoop(), Word.fromSymbols("a"));
         Assert.assertEquals(lasso3.getLoop(), Word.fromSymbols("a", "a"));
     }
 
-    @Test
     public void testGetPrefix() {
         Assert.assertEquals(lasso1.getPrefix(), Word.epsilon());
         Assert.assertEquals(lasso2.getPrefix(), Word.fromSymbols("a"));
         Assert.assertEquals(lasso3.getPrefix(), Word.fromSymbols("a"));
     }
 
-    @Test
     public void testGetLoopBeginIndices() {
         final SortedSet<Integer> indices = new TreeSet<>();
         indices.add(0);

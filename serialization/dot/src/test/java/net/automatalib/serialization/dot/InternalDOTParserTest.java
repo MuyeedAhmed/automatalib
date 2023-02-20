@@ -38,7 +38,6 @@ public class InternalDOTParserTest {
 
     private int nodesChecked;
 
-    @BeforeMethod
     public void setUp() throws IOException {
         try (InputStream is = InternalDOTParserTest.class.getResourceAsStream(DOTSerializationUtil.PARSER_RESOURCE);
              Reader r = IOUtil.asUncompressedBufferedNonClosingUTF8Reader(is)) {
@@ -51,7 +50,6 @@ public class InternalDOTParserTest {
         }
     }
 
-    @Test
     public void checkNodes() {
         checkNodeProperties("n1", "label", "Node 1", "color", "blue");
         checkNodeProperties("n2", "label", "Node 2", "style", "dashed", "color", "red");
@@ -72,7 +70,6 @@ public class InternalDOTParserTest {
         Assert.assertEquals(nodesChecked, 14);
     }
 
-    @Test
     public void checkEdges() {
         Assert.assertEquals(edges.size(), 27);
 

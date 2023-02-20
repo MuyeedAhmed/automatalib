@@ -40,7 +40,6 @@ public abstract class AbstractGrowingAlphabetTest<I, M extends GrowingAlphabet<I
     private List<I> allInputSymbols;
     private M alphabet;
 
-    @BeforeClass
     public void setUp() {
         this.initialAlphabetSymbols = getInitialAlphabetSymbols();
         this.additionalAlphabetSymbols = getAdditionalAlphabetSymbols();
@@ -57,12 +56,10 @@ public abstract class AbstractGrowingAlphabetTest<I, M extends GrowingAlphabet<I
 
     protected abstract M getInitialAlphabet();
 
-    @Test
     public void testInitialSize() {
         Assert.assertEquals(initialAlphabetSymbols.size(), alphabet.size());
     }
 
-    @Test(dependsOnMethods = "testInitialSize")
     public void testAddAdditionalSymbols() {
 
         final int oldMaxIndex = initialAlphabetSymbols.size() - 1;
@@ -79,7 +76,6 @@ public abstract class AbstractGrowingAlphabetTest<I, M extends GrowingAlphabet<I
         }
     }
 
-    @Test(dependsOnMethods = "testAddAdditionalSymbols")
     public void testAddInitialSymbols() {
 
         for (final I i : initialAlphabetSymbols) {

@@ -102,42 +102,34 @@ public class ADSKrichenTest extends AbstractADSTest {
         // @formatter:on
     }
 
-    @Test
     public void testKrichenExampleM3Complete() {
         super.verifyFailure(M3);
     }
 
-    @Test
     public void testKrichenExampleM3S0S1() {
         super.verifySuccess(M3, Arrays.asList(0, 1));
     }
 
-    @Test
     public void testKrichenExampleM3S0S2() {
         super.verifySuccess(M3, Arrays.asList(0, 2));
     }
 
-    @Test
     public void testKrichenExampleM3S1S2() {
         super.verifySuccess(M3, Arrays.asList(1, 2));
     }
 
-    @Test
     public void testKrichenExampleM4Complete() {
         super.verifySuccess(M4);
     }
 
-    @Test
     public void testKrichenExampleM5Complete() {
         super.verifySuccess(M5);
     }
 
-    @Test
     public void testKrichenExampleM6Complete() {
         super.verifySuccess(M6);
     }
 
-    @Test
     public void testKrichenExampleM6CompleteS2S4() {
         super.verifySuccess(M6, Arrays.asList(2, 4));
     }

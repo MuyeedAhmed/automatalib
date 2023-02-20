@@ -44,7 +44,7 @@ public class DijkstraSSSP<N, E> implements SSSPResult<N, E> {
     private final Graph<N, E> graph;
     private final N init;
     private final EdgeWeights<E> edgeWeights;
-    private final MutableMapping<N, @Nullable Record<N, E>> records;
+    private final MutableMapping<N, Record<N, E>> records;
 
     /**
      * Constructor.
@@ -141,7 +141,7 @@ public class DijkstraSSSP<N, E> implements SSSPResult<N, E> {
     }
 
     @Override
-    public @Nullable List<E> getShortestPath(N target) {
+    public List<E> getShortestPath(N target) {
         Record<N, E> rec = records.get(target);
         if (rec == null) {
             return null;
@@ -165,7 +165,7 @@ public class DijkstraSSSP<N, E> implements SSSPResult<N, E> {
     }
 
     @Override
-    public @Nullable E getShortestPathEdge(N target) {
+    public E getShortestPathEdge(N target) {
         Record<N, E> rec = records.get(target);
         if (rec == null) {
             return null;
@@ -180,16 +180,16 @@ public class DijkstraSSSP<N, E> implements SSSPResult<N, E> {
 
         public final N node;
         public float dist;
-        public @Nullable ElementReference ref;
-        public @PolyNull E reach;
-        public @PolyNull Record<N, E> parent;
+        public ElementReference ref;
+        public E reach;
+        public Record<N, E> parent;
         int depth;
 
         Record(N node, float dist) {
             this(node, dist, null, null);
         }
 
-        Record(N node, float dist, @PolyNull E reach, @PolyNull Record<N, E> parent) {
+        Record(N node, float dist, E reach, Record<N, E> parent) {
             this.node = node;
             this.dist = dist;
             this.reach = reach;

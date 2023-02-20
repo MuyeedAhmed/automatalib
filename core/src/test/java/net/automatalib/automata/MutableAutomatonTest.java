@@ -69,57 +69,46 @@ public class MutableAutomatonTest {
     static final List<Word<Character>> SST_TRANS_PROPS = Arrays.asList(Word.fromCharSequence("xy"), Word.fromCharSequence("yz"));
     static final List<Word<Character>> SST_STATE_PROPS = Arrays.asList(Word.fromCharSequence("ab"), Word.fromCharSequence("bc"));
 
-    @Test
     public void testCompactDFA() {
         this.checkAutomaton(new CompactDFA.Creator<>(), ALPHABET, STATE_PROPS, EMPTY_PROPS);
     }
 
-    @Test
     public void testCompactNFA() {
         this.checkAutomaton(new CompactNFA.Creator<>(), ALPHABET, STATE_PROPS, EMPTY_PROPS);
     }
 
-    @Test
     public void testFastDFA() {
         this.checkAutomaton(FastDFA::new, ALPHABET, STATE_PROPS, EMPTY_PROPS);
     }
 
-    @Test
     public void testFastNFA() {
         this.checkAutomaton(FastNFA::new, ALPHABET, STATE_PROPS, EMPTY_PROPS);
     }
 
-    @Test
     public void testCompactMealy() {
         this.checkAutomaton(new CompactMealy.Creator<>(), ALPHABET, EMPTY_PROPS, TRANS_PROPS);
     }
 
-    @Test
     public void testFastMealy() {
         this.checkAutomaton(FastMealy::new, ALPHABET, EMPTY_PROPS, TRANS_PROPS);
     }
 
-    @Test
     public void testFastProbMealy() {
         this.checkAutomaton(FastProbMealy::new, ALPHABET, EMPTY_PROPS, PROB_TRANS_PROPS);
     }
 
-    @Test
     public void testCompactMoore() {
         this.checkAutomaton(new CompactMoore.Creator<>(), ALPHABET, STATE_PROPS, EMPTY_PROPS);
     }
 
-    @Test
     public void testFastMoore() {
         this.checkAutomaton(FastMoore::new, ALPHABET, STATE_PROPS, EMPTY_PROPS);
     }
 
-    @Test
     public void testCompactMTS() {
         this.checkAutomaton(CompactMTS::new, ALPHABET, EMPTY_PROPS, MC_TRANS_PROPS);
     }
 
-    @Test
     public void testCompactSST() {
         this.checkAutomaton(CompactSST::new, ALPHABET, SST_STATE_PROPS, SST_TRANS_PROPS);
     }

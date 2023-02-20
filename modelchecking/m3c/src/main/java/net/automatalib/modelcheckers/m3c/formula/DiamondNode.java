@@ -36,7 +36,7 @@ public class DiamondNode<L, AP> extends AbstractModalFormulaNode<L, AP> {
         this(null, node);
     }
 
-    public DiamondNode(@Nullable L action, FormulaNode<L, AP> node) {
+    public DiamondNode(L action, FormulaNode<L, AP> node) {
         super(action, node);
     }
 

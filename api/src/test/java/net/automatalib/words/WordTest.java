@@ -31,12 +31,10 @@ import org.testng.annotations.Test;
  */
 public class WordTest {
 
-    @BeforeSuite
     public static void setUp() {
         AutomataLibSettingsTest.setUp();
     }
 
-    @Test
     public void fromTest() {
         final Word<Character> reference = Word.fromCharSequence("abc");
         final Character[] referenceAsArray = new Character[] {'a', 'b', 'c'};
@@ -66,7 +64,6 @@ public class WordTest {
         Assert.assertEquals(wordFromArray, reference.subWord(1));
     }
 
-    @Test
     public void toArrayTest() {
         final Word<Character> reference = Word.fromCharSequence("abc");
         Character[] referenceAsArray;
@@ -93,7 +90,6 @@ public class WordTest {
         Assert.assertEquals(2, wordAsInt[2]);
     }
 
-    @Test
     public void transformTest() {
         final Word<Character> source = Word.fromCharSequence("abc");
         final Word<String> target = Word.fromSymbols("aa", "bb", "cc");
@@ -103,7 +99,6 @@ public class WordTest {
         Assert.assertEquals(target, transform);
     }
 
-    @Test
     public void subwordTest() {
         final Word<Character> b = Word.fromLetter('b');
         final Word<Character> c = Word.fromLetter('c');
@@ -116,7 +111,6 @@ public class WordTest {
         Assert.assertEquals(b, abc.subWord(1, 2));
     }
 
-    @Test
     public void prefixSuffixSetTest() {
         final Word<Character> w = Word.fromCharSequence("abcdefg");
         final int n = w.size();
@@ -144,7 +138,6 @@ public class WordTest {
         }
     }
 
-    @Test
     public void toStringTest() {
         final Word<Character> empty = Word.epsilon();
         final Word<Character> abc = Word.fromCharSequence("abc");

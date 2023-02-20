@@ -47,7 +47,6 @@ import org.xml.sax.SAXException;
  */
 public class WitnessExtractorTest {
 
-    @DataProvider
     public static Object[][] formulasOnAnCBn() {
         // @formatter:off
         return new Object[][] {{"mu X.((<b>true) || <>X)", Word.fromSymbols("a", "c", "b")},
@@ -61,7 +60,6 @@ public class WitnessExtractorTest {
         // @formatter:on
     }
 
-    @Test(dataProvider = "formulasOnAnCBn")
     public void checkFormulasOnAnCBn(String formula, Word<String> expectedWitness)
             throws IOException, ParserConfigurationException, SAXException, ParseException {
 
@@ -75,7 +73,6 @@ public class WitnessExtractorTest {
         Assert.assertEquals(tree.getWitness(), expectedWitness);
     }
 
-    @Test
     public void checkPalindrome() throws ParseException, IOException, ParserConfigurationException, SAXException {
 
         final ContextFreeModalProcessSystem<String, Void> cfmps = parseCFMPS("/cfmps/palindrome/seed.xml");
@@ -107,7 +104,6 @@ public class WitnessExtractorTest {
         Assert.assertEquals(sw.toString(), expectedDOT);
     }
 
-    @Test
     public void checkLoopSystem() throws ParseException, IOException, ParserConfigurationException, SAXException {
 
         final ContextFreeModalProcessSystem<String, Void> cfmps = parseCFMPS("/cfmps/witness/loop.xml");

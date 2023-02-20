@@ -42,7 +42,7 @@ public class BackedGeneralPriorityQueue<E, K extends Comparable<K>> extends Abst
 
     private static final int DEFAULT_INITIAL_CAPACITY = 10;
     private final SmartDynamicPriorityQueue<Entry<E, K>> backingQueue;
-    private @Nullable K defaultKey;
+    private K defaultKey;
 
     public BackedGeneralPriorityQueue() {
         this(DEFAULT_INITIAL_CAPACITY);
@@ -95,7 +95,7 @@ public class BackedGeneralPriorityQueue<E, K extends Comparable<K>> extends Abst
     }
 
     @Override
-    public @Nullable ElementReference find(@Nullable Object element) {
+    public ElementReference find(Object element) {
         for (ElementReference ref : backingQueue.references()) {
             Entry<E, K> entry = backingQueue.get(ref);
             if (Objects.equals(entry.element, element)) {
@@ -132,7 +132,7 @@ public class BackedGeneralPriorityQueue<E, K extends Comparable<K>> extends Abst
     }
 
     @Override
-    public ElementReference add(E elem, @Nullable K key) {
+    public ElementReference add(E elem, K key) {
         Entry<E, K> entry = new Entry<>(elem, key);
         return backingQueue.referencedAdd(entry);
     }
@@ -196,9 +196,9 @@ public class BackedGeneralPriorityQueue<E, K extends Comparable<K>> extends Abst
     private static class Entry<E, K extends Comparable<K>> implements Comparable<Entry<E, K>> {
 
         public E element;
-        public @Nullable K key;
+        public K key;
 
-        Entry(E element, @Nullable K key) {
+        Entry(E element, K key) {
             this.element = element;
             this.key = key;
         }

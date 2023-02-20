@@ -48,14 +48,14 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public class IncrementalPCDFATreeBuilder<I> extends IncrementalDFATreeBuilder<I> {
 
-    private @Nullable Node<I> sink;
+    private Node<I> sink;
 
     public IncrementalPCDFATreeBuilder(Alphabet<I> alphabet) {
         super(alphabet);
     }
 
     @Override
-    protected <S> @Nullable Word<I> doFindSeparatingWord(final DFA<S, I> target,
+    protected <S> Word<I> doFindSeparatingWord(final DFA<S, I> target,
                                                          Collection<? extends I> inputs,
                                                          boolean omitUndefined) {
 
@@ -72,10 +72,10 @@ public class IncrementalPCDFATreeBuilder<I> extends IncrementalDFATreeBuilder<I>
         @SuppressWarnings("nullness")
         Record<@Nullable S, I> init = new Record<>(automatonInit, root, null, inputs.iterator());
 
-        Deque<Record<@Nullable S, I>> dfsStack = new ArrayDeque<>();
+        Deque<Record<S, I>> dfsStack = new ArrayDeque<>();
         dfsStack.push(init);
 
-        @Nullable MutableMapping<S, @Nullable Boolean> deadStates = null;
+        MutableMapping<S, Boolean> deadStates = null;
 
         while (!dfsStack.isEmpty()) {
             @SuppressWarnings("nullness") // false positive https://github.com/typetools/checker-framework/issues/399
@@ -234,10 +234,10 @@ public class IncrementalPCDFATreeBuilder<I> extends IncrementalDFATreeBuilder<I>
         return sink;
     }
 
-    private static <S, I> @Nullable Word<I> findLive(DFA<S, I> dfa,
+    private static <S, I> Word<I> findLive(DFA<S, I> dfa,
                                                      S state,
                                                      Collection<? extends I> inputs,
-                                                     MutableMapping<S, @Nullable Boolean> deadStates) {
+                                                     MutableMapping<S, Boolean> deadStates) {
         if (dfa.isAccepting(state)) {
             return Word.epsilon();
         }
@@ -252,7 +252,7 @@ public class IncrementalPCDFATreeBuilder<I> extends IncrementalDFATreeBuilder<I>
         @SuppressWarnings("nullness")
         FindLiveRecord<@Nullable S, I> init = new FindLiveRecord<>(state, null, inputs.iterator());
 
-        Deque<FindLiveRecord<@Nullable S, I>> dfsStack = new ArrayDeque<>();
+        Deque<FindLiveRecord<S, I>> dfsStack = new ArrayDeque<>();
         dfsStack.push(init);
 
         while (!dfsStack.isEmpty()) {
@@ -264,8 +264,8 @@ public class IncrementalPCDFATreeBuilder<I> extends IncrementalDFATreeBuilder<I>
             }
             I input = rec.inputIt.next();
 
-            @Nullable S s = rec.state;
-            @Nullable S succ = s == null ? null : dfa.getTransition(s, input);
+            S s = rec.state;
+            S succ = s == null ? null : dfa.getTransition(s, input);
             if (succ == null) {
                 continue;
             }
@@ -309,7 +309,7 @@ public class IncrementalPCDFATreeBuilder<I> extends IncrementalDFATreeBuilder<I>
     public class TransitionSystemView extends IncrementalDFATreeBuilder<I>.TransitionSystemView {
 
         @Override
-        public @Nullable Node<I> getTransition(Node<I> state, I input) {
+        public Node<I> getTransition(Node<I> state, I input) {
             if (state.getAcceptance() == Acceptance.FALSE) {
                 return state;
             }

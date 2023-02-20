@@ -73,16 +73,16 @@ public abstract class AbstractMealyTreeBuilder<N, I, O> implements MealyBuilder<
     }
 
     @Override
-    public @Nullable Word<I> findSeparatingWord(MealyMachine<?, I, ?, O> target,
+    public Word<I> findSeparatingWord(MealyMachine<?, I, ?, O> target,
                                                 Collection<? extends I> inputs,
                                                 boolean omitUndefined) {
         return doFindSeparatingWord(target, inputs, omitUndefined);
     }
 
-    private <S, T> @Nullable Word<I> doFindSeparatingWord(MealyMachine<S, I, T, O> target,
+    private <S, T> Word<I> doFindSeparatingWord(MealyMachine<S, I, T, O> target,
                                                           Collection<? extends I> inputs,
                                                           boolean omitUndefined) {
-        Deque<Record<@Nullable S, N, I>> dfsStack = new ArrayDeque<>();
+        Deque<Record<S, N, I>> dfsStack = new ArrayDeque<>();
 
         // reachedFrom can be null here, because we will always skip the bottom stack element below
         @SuppressWarnings("nullness")
@@ -121,7 +121,7 @@ public abstract class AbstractMealyTreeBuilder<N, I, O> implements MealyBuilder<
                 return wb.reverse().toWord();
             }
 
-            final Record<@Nullable S, N, I> nextRecord =
+            final Record<S, N, I> nextRecord =
                     new Record<>(target.getSuccessor(trans), edge.getTarget(), input, inputs.iterator());
             dfsStack.push(nextRecord);
         }
@@ -129,7 +129,7 @@ public abstract class AbstractMealyTreeBuilder<N, I, O> implements MealyBuilder<
         return null;
     }
 
-    protected abstract @Nullable Edge<N, O> getEdge(N node, I symbol);
+    protected abstract Edge<N, O> getEdge(N node, I symbol);
 
     protected abstract N createNode();
 
@@ -208,7 +208,7 @@ public abstract class AbstractMealyTreeBuilder<N, I, O> implements MealyBuilder<
     public class TransitionSystemView implements MealyTransitionSystem<N, I, Edge<N, O>, O> {
 
         @Override
-        public @Nullable Edge<N, O> getTransition(N state, I input) {
+        public Edge<N, O> getTransition(N state, I input) {
             return getEdge(state, input);
         }
 

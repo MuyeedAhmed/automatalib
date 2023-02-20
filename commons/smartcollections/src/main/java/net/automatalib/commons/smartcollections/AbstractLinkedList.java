@@ -43,9 +43,9 @@ public abstract class AbstractLinkedList<E, T extends LinkedListEntry<E, T>> ext
         implements SmartSequence<E> {
 
     // head element (may be null if list is empty)
-    private @Nullable T head;
+    private T head;
     // last element (may be null if list is empty)
-    private @Nullable T last;
+    private T last;
     // number of elements in the list
     private int size;
 
@@ -54,7 +54,7 @@ public abstract class AbstractLinkedList<E, T extends LinkedListEntry<E, T>> ext
      *
      * @return the first entry or <code>null</code>.
      */
-    protected @Nullable T getFrontEntry() {
+    protected T getFrontEntry() {
         return head;
     }
 
@@ -63,7 +63,7 @@ public abstract class AbstractLinkedList<E, T extends LinkedListEntry<E, T>> ext
      *
      * @return the first entry or <code>null</code>.
      */
-    protected @Nullable T getBackEntry() {
+    protected T getBackEntry() {
         return last;
     }
 
@@ -224,7 +224,6 @@ public abstract class AbstractLinkedList<E, T extends LinkedListEntry<E, T>> ext
     }
 
     @Override
-    @EnsuresQualifierIf(qualifier = NonNull.class, expression = {"this.head", "this.last"}, result = false)
     public boolean isEmpty() {
         return head == null || last == null;
     }
@@ -253,7 +252,7 @@ public abstract class AbstractLinkedList<E, T extends LinkedListEntry<E, T>> ext
      *
      * @return a reference to the last element, or <code>null</code>.
      */
-    public @Nullable ElementReference getBackReference() {
+    public ElementReference getBackReference() {
         return last;
     }
 
@@ -274,7 +273,7 @@ public abstract class AbstractLinkedList<E, T extends LinkedListEntry<E, T>> ext
      *
      * @return a reference to the first element, or <code>null</code>.
      */
-    public @Nullable ElementReference getFrontReference() {
+    public ElementReference getFrontReference() {
         return head;
     }
 
@@ -395,7 +394,7 @@ public abstract class AbstractLinkedList<E, T extends LinkedListEntry<E, T>> ext
     }
 
     @Override
-    public @Nullable ElementReference pred(ElementReference ref) {
+    public ElementReference pred(ElementReference ref) {
         return castRef(ref).getPrev();
     }
 
@@ -413,7 +412,7 @@ public abstract class AbstractLinkedList<E, T extends LinkedListEntry<E, T>> ext
     }
 
     @Override
-    public @Nullable ElementReference succ(ElementReference ref) {
+    public ElementReference succ(ElementReference ref) {
         return castRef(ref).getNext();
     }
 
@@ -501,14 +500,14 @@ public abstract class AbstractLinkedList<E, T extends LinkedListEntry<E, T>> ext
     private class LinkedListEntryIterator implements Iterator<T> {
 
         // previous entry
-        private @Nullable T prev;
+        private T prev;
         // current entry
-        private @Nullable T current;
+        private T current;
 
         /*
          * Constructor.
          */
-        LinkedListEntryIterator(@Nullable T head) {
+        LinkedListEntryIterator(T head) {
             this.current = head;
         }
 
@@ -541,14 +540,14 @@ public abstract class AbstractLinkedList<E, T extends LinkedListEntry<E, T>> ext
     private class ElementIterator implements Iterator<E> {
 
         // previous entry
-        private @Nullable T prev;
+        private T prev;
         // current entry
-        private @Nullable T current;
+        private T current;
 
         /*
          * Constructor.
          */
-        ElementIterator(@Nullable T head) {
+        ElementIterator(T head) {
             this.current = head;
         }
 

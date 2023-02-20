@@ -40,7 +40,7 @@ public interface MutableFSA<S, I> extends FiniteStateAcceptor<S, I>, MutableAuto
     }
 
     @Override
-    default S addState(@Nullable Boolean property) {
+    default S addState(Boolean property) {
         return addState(WrapperUtil.booleanValue(property));
     }
 
@@ -56,7 +56,7 @@ public interface MutableFSA<S, I> extends FiniteStateAcceptor<S, I>, MutableAuto
     }
 
     @Override
-    default S addInitialState(@Nullable Boolean property) {
+    default S addInitialState(Boolean property) {
         return addInitialState(WrapperUtil.booleanValue(property));
     }
 

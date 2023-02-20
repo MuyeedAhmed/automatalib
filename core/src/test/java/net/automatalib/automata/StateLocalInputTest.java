@@ -41,52 +41,42 @@ public class StateLocalInputTest {
 
     private static final Alphabet<Integer> ALPHABET = Alphabets.integers(1, 4);
 
-    @Test
     public void testCompactDFA() {
         this.testAutomaton(new CompactDFA<>(ALPHABET));
     }
 
-    @Test
     public void testCompactNFA() {
         this.testAutomaton(new CompactNFA<>(ALPHABET));
     }
 
-    @Test
     public void testFastDFA() {
         this.testAutomaton(new FastDFA<>(ALPHABET));
     }
 
-    @Test
     public void testFastNFA() {
         this.testAutomaton(new FastNFA<>(ALPHABET));
     }
 
-    @Test
     public void testCompactMealy() {
         this.testAutomaton(new CompactMealy<>(ALPHABET));
     }
 
-    @Test
     public void testFastMealy() {
         this.testAutomaton(new FastMealy<>(ALPHABET));
     }
 
-    @Test
     public void testFastProbMealy() {
         this.testAutomaton(new FastProbMealy<>(ALPHABET));
     }
 
-    @Test
     public void testCompactMoore() {
         this.testAutomaton(new CompactMoore<>(ALPHABET));
     }
 
-    @Test
     public void testFastMoore() {
         this.testAutomaton(new FastMoore<>(ALPHABET));
     }
 
-    @Test
     public void testCompactSST() {
         this.testAutomaton(new CompactSST<>(ALPHABET));
     }

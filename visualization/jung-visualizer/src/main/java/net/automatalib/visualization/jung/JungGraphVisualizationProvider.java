@@ -62,7 +62,6 @@ import org.kohsuke.MetaInfServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@MetaInfServices(VisualizationProvider.class)
 public class JungGraphVisualizationProvider implements VisualizationProvider {
 
     /**
@@ -127,7 +126,7 @@ public class JungGraphVisualizationProvider implements VisualizationProvider {
 
         DirectedGraph<NodeVisualization, EdgeVisualization> jungGraph = new DirectedSparseMultigraph<>();
 
-        MutableMapping<N, @Nullable NodeVisualization> mapping = graph.createStaticNodeMapping();
+        MutableMapping<N, NodeVisualization> mapping = graph.createStaticNodeMapping();
 
         NodeIDs<N> nodeIds = graph.nodeIDs();
 

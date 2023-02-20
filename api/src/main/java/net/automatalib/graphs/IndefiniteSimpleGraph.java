@@ -45,11 +45,11 @@ public interface IndefiniteSimpleGraph<N> {
         return adjacentTargetsStream(source).anyMatch(n -> Objects.equals(n, target));
     }
 
-    default <@Nullable V> MutableMapping<N, V> createStaticNodeMapping() {
+    default <V> MutableMapping<N, V> createStaticNodeMapping() {
         return new MapMapping<>();
     }
 
-    default <@Nullable V> MutableMapping<N, V> createDynamicNodeMapping() {
+    default <V> MutableMapping<N, V> createDynamicNodeMapping() {
         return new MapMapping<>();
     }
 

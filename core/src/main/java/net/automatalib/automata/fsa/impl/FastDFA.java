@@ -29,7 +29,7 @@ public final class FastDFA<I> extends AbstractFastMutableDet<FastDFAState, I, Fa
     }
 
     @Override
-    protected FastDFAState createState(@Nullable Boolean accepting) {
+    protected FastDFAState createState(Boolean accepting) {
         return createState(WrapperUtil.booleanValue(accepting));
     }
 

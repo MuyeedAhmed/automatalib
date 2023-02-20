@@ -20,21 +20,21 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 
 final class Node<O> {
 
-    private final ResizingArrayStorage<@Nullable Edge<Node<O>, O>> outEdges;
+    private final ResizingArrayStorage<Edge<Node<O>, O>> outEdges;
 
     Node(int alphabetSize) {
         this.outEdges = new ResizingArrayStorage<>(Edge.class, alphabetSize);
     }
 
-    @Nullable Edge<Node<O>, O> getEdge(int idx) {
+    Edge<Node<O>, O> getEdge(int idx) {
         return outEdges.array[idx];
     }
 
-    void setEdge(int idx, @Nullable Edge<Node<O>, O> edge) {
+    void setEdge(int idx, Edge<Node<O>, O> edge) {
         outEdges.array[idx] = edge;
     }
 
-    @Nullable Node<O> getSuccessor(int idx) {
+    Node<O> getSuccessor(int idx) {
         Edge<Node<O>, O> edge = outEdges.array[idx];
         if (edge != null) {
             return edge.getTarget();

@@ -69,7 +69,7 @@ public final class UnorderedCollection<E> extends AbstractSmartCollection<E> imp
     }
 
     @Override
-    public boolean ensureCapacity(@UnknownInitialization(UnorderedCollection.class) UnorderedCollection<E> this,
+    public boolean ensureCapacity(UnorderedCollection<E> this,
                                   int minCapacity) {
         return storage.ensureCapacity(minCapacity);
     }
@@ -186,7 +186,7 @@ public final class UnorderedCollection<E> extends AbstractSmartCollection<E> imp
     }
 
     @Override
-    public boolean addAll(@UnknownInitialization(UnorderedCollection.class) UnorderedCollection<E> this,
+    public boolean addAll(UnorderedCollection<E> this,
                           Collection<? extends E> coll) {
         if (coll.isEmpty()) {
             return false;

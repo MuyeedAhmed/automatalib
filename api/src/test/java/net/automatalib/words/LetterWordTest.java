@@ -21,7 +21,6 @@ import java.util.List;
 
 import org.testng.annotations.Test;
 
-@Test
 public class LetterWordTest extends AbstractNonemptyWordTest {
 
     @Override

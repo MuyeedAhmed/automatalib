@@ -75,7 +75,7 @@ public class SPAGraphView<S, I> implements Graph<Pair<I, S>, Triple<I, I, S>> {
         final I procedure = node.getFirst();
         final S state = node.getSecond();
         @SuppressWarnings("assignment.type.incompatible") // we only use identifier for which procedures exist
-        final @NonNull DFA<S, I> subModel = subModels.get(procedure);
+        final DFA<S, I> subModel = subModels.get(procedure);
 
         final List<Triple<I, I, S>> result = new ArrayList<>(this.proceduralAlphabet.size());
 

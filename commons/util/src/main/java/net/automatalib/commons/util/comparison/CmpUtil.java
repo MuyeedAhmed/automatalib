@@ -221,7 +221,7 @@ public final class CmpUtil {
      *
      * @return a safe comparator using the specified underlying comparator.
      */
-    public static <T> Comparator<@Nullable T> safeComparator(Comparator<? super T> baseComp, NullOrdering nullOrd) {
+    public static <T> Comparator<T> safeComparator(Comparator<? super T> baseComp, NullOrdering nullOrd) {
         return nullOrd.toComparator(baseComp);
     }
 
@@ -237,7 +237,7 @@ public final class CmpUtil {
          */
         MIN {
             @Override
-            <T> Comparator<@Nullable T> toComparator(Comparator<? super T> baseComp) {
+            <T> Comparator<T> toComparator(Comparator<? super T> baseComp) {
                 return Comparator.nullsFirst(baseComp);
             }
         },
@@ -246,7 +246,7 @@ public final class CmpUtil {
          */
         MAX {
             @Override
-            <T> Comparator<@Nullable T> toComparator(Comparator<? super T> baseComp) {
+            <T> Comparator<T> toComparator(Comparator<? super T> baseComp) {
                 return Comparator.nullsLast(baseComp);
             }
         };
@@ -261,6 +261,6 @@ public final class CmpUtil {
          *
          * @return the null-safe comparator
          */
-        abstract <T> Comparator<@Nullable T> toComparator(Comparator<? super T> baseComp);
+        abstract <T> Comparator<T> toComparator(Comparator<? super T> baseComp);
     }
 }

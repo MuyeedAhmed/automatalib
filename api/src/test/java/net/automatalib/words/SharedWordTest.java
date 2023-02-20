@@ -21,14 +21,12 @@ import java.util.List;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Test
 public class SharedWordTest extends AbstractNonemptyWordTest {
 
     private static final Object[] DATA = new Object[] {2, 1, 3, 3, 7, 9};
     private static final int OFFSET = 1;
     private static final int LENGTH = 4;
 
-    @Test
     public void testLength() {
         Assert.assertEquals(LENGTH, testWord.length());
     }
@@ -52,7 +50,6 @@ public class SharedWordTest extends AbstractNonemptyWordTest {
     }
 
     @Override
-    @Test
     public void testAsList() {
         super.testAsList();
         Assert.assertEquals(Arrays.asList(1, 3, 3, 7), testWord.asList());

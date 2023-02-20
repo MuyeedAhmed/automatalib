@@ -82,21 +82,21 @@ public final class ShortestPaths {
         return shortestPaths(graph, start, limit, (Predicate<? super N>) targets::contains);
     }
 
-    public static <N, E> @Nullable Path<N, E> shortestPath(IndefiniteGraph<N, E> graph,
+    public static <N, E> Path<N, E> shortestPath(IndefiniteGraph<N, E> graph,
                                                            N start,
                                                            int limit,
                                                            Collection<?> targets) {
         return shortestPath(graph, start, limit, (Predicate<? super N>) targets::contains);
     }
 
-    public static <N, E> @Nullable Path<N, E> shortestPath(IndefiniteGraph<N, E> graph,
+    public static <N, E> Path<N, E> shortestPath(IndefiniteGraph<N, E> graph,
                                                            N start,
                                                            int limit,
                                                            Predicate<? super N> targetPred) {
         return shortestPath(graph, Collections.singleton(start), limit, targetPred);
     }
 
-    public static <N, E> @Nullable Path<N, E> shortestPath(IndefiniteGraph<N, E> graph,
+    public static <N, E> Path<N, E> shortestPath(IndefiniteGraph<N, E> graph,
                                                            Collection<? extends N> start,
                                                            int limit,
                                                            Predicate<? super N> targetPred) {
@@ -104,18 +104,18 @@ public final class ShortestPaths {
         return spIt.hasNext() ? spIt.next() : null;
     }
 
-    public static <N, E> @Nullable Path<N, E> shortestPath(IndefiniteGraph<N, E> graph, N start, int limit, N target) {
+    public static <N, E> Path<N, E> shortestPath(IndefiniteGraph<N, E> graph, N start, int limit, N target) {
         return shortestPath(graph, start, limit, (Predicate<? super N>) n -> Objects.equals(n, target));
     }
 
-    public static <N, E> @Nullable Path<N, E> shortestPath(IndefiniteGraph<N, E> graph,
+    public static <N, E> Path<N, E> shortestPath(IndefiniteGraph<N, E> graph,
                                                            Collection<? extends N> start,
                                                            int limit,
                                                            Collection<?> targets) {
         return shortestPath(graph, start, limit, (Predicate<? super N>) targets::contains);
     }
 
-    public static <N, E> @Nullable Path<N, E> shortestPath(IndefiniteGraph<N, E> graph,
+    public static <N, E> Path<N, E> shortestPath(IndefiniteGraph<N, E> graph,
                                                            Collection<? extends N> start,
                                                            int limit,
                                                            N target) {

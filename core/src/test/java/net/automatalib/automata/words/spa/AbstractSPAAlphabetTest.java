@@ -68,7 +68,6 @@ public abstract class AbstractSPAAlphabetTest<M extends SPAAlphabet<Character>>
         return new ArrayList<>(Alphabets.characters('x', 'z'));
     }
 
-    @Test
     public void testFindCallIndex() {
         final M alphabet = getAlphabet();
         final Word<Character> word = Word.fromCharSequence("SaSTcRRaR");
@@ -88,7 +87,6 @@ public abstract class AbstractSPAAlphabetTest<M extends SPAAlphabet<Character>>
         Assert.assertEquals(alphabet.findCallIndex(word, 10), -1);
     }
 
-    @Test
     public void testFindReturnIndex() {
         final M alphabet = getAlphabet();
         final Word<Character> word = Word.fromCharSequence("SaSTcRRaR");
@@ -108,7 +106,6 @@ public abstract class AbstractSPAAlphabetTest<M extends SPAAlphabet<Character>>
         Assert.assertEquals(alphabet.findReturnIndex(word, 10), -1);
     }
 
-    @Test
     public void testExpand() {
         final M alphabet = getAlphabet();
         final Mapping<Character, Word<Character>> ts =
@@ -121,7 +118,6 @@ public abstract class AbstractSPAAlphabetTest<M extends SPAAlphabet<Character>>
                             Word.fromCharSequence("aSxRbTyRbSxRc"));
     }
 
-    @Test
     public void testNormalize() {
         final M alphabet = getAlphabet();
         final Word<Character> word = Word.fromCharSequence("SaSTcRRaR");

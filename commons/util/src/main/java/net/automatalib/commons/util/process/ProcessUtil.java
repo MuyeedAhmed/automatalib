@@ -207,18 +207,18 @@ public final class ProcessUtil {
         return invokeProcess(commandLine, input, new DelegatingConsumer(consumer));
     }
 
-    private static int invokeProcess(String[] commandLine, @Nullable Reader input, InputStreamConsumer consumer)
+    private static int invokeProcess(String[] commandLine, Reader input, InputStreamConsumer consumer)
             throws IOException, InterruptedException {
         return invokeProcess(new ProcessBuilder(commandLine), input, consumer);
     }
 
-    private static int invokeProcess(List<String> commandLine, @Nullable Reader input, InputStreamConsumer consumer)
+    private static int invokeProcess(List<String> commandLine, Reader input, InputStreamConsumer consumer)
             throws IOException, InterruptedException {
         return invokeProcess(new ProcessBuilder(commandLine), input, consumer);
     }
 
     private static int invokeProcess(ProcessBuilder processBuilder,
-                                     @Nullable Reader input,
+                                     Reader input,
                                      InputStreamConsumer consumer) throws IOException, InterruptedException {
 
         processBuilder.redirectErrorStream(true);
@@ -260,9 +260,9 @@ public final class ProcessUtil {
      *         if an exception occurred while reading the process outputs
      */
     public static Process buildProcess(String[] commandLine,
-                                       @Nullable Reader input,
-                                       @Nullable Consumer<String> stdOutConsumer,
-                                       @Nullable Consumer<String> stdErrConsumer) throws IOException {
+                                       Reader input,
+                                       Consumer<String> stdOutConsumer,
+                                       Consumer<String> stdErrConsumer) throws IOException {
 
         final ProcessBuilder processBuilder = new ProcessBuilder(commandLine);
         final Process process = processBuilder.start();
@@ -284,7 +284,7 @@ public final class ProcessUtil {
         return process;
     }
 
-    private static void writeProcessInput(Process process, @Nullable Reader input) throws IOException {
+    private static void writeProcessInput(Process process, Reader input) throws IOException {
         if (input != null) {
             try (OutputStream processInput = process.getOutputStream();
                  Writer writer = IOUtil.asBufferedUTF8Writer(processInput)) {

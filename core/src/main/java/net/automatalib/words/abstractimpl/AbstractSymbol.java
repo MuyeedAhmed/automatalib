@@ -30,7 +30,7 @@ public abstract class AbstractSymbol<S extends AbstractSymbol<S>> extends Abstra
     }
 
     @Override
-    public final boolean equals(@Nullable Object o) {
+    public final boolean equals(Object o) {
         if (this == o) {
             return true;
         }

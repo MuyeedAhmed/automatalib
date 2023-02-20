@@ -49,7 +49,7 @@ public interface ShrinkableGraph<N, E> extends Graph<N, E> {
      * @param replacement
      *         the replacement node for incoming edges
      */
-    void removeNode(N node, @Nullable N replacement);
+    void removeNode(N node, N replacement);
 
     /**
      * Removes an outgoing edge from the given node.

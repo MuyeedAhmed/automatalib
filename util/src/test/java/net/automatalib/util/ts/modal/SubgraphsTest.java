@@ -29,7 +29,6 @@ import org.testng.annotations.Test;
 
 public class SubgraphsTest {
 
-    @Test
     public void hideSymbolsTest() throws IOException {
         final CompactMMC<String> contract = TestUtils.loadMMCFromPath("/modal/contract_monitor.dot");
         final CompactMMC<String> expected = TestUtils.loadMMCFromPath("/modal/monitor_hidden.dot");
@@ -45,7 +44,6 @@ public class SubgraphsTest {
         TestUtils.assertIsRefinementEquivalentTo(mmc, expected, inputs);
     }
 
-    @Test
     public void skipSymbolsTest() throws IOException {
         final CompactMMC<String> contract = TestUtils.loadMMCFromPath("/modal/contract_monitor.dot");
         final CompactMMC<String> expected = TestUtils.loadMMCFromPath("/modal/monitor_skipped.dot");

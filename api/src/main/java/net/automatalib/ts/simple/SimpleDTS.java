@@ -69,7 +69,7 @@ public interface SimpleDTS<S, I> extends SimpleTS<S, I> {
      *
      * @see TransitionSystem#getStates(Iterable)
      */
-    default @Nullable S getState(Iterable<? extends I> input) {
+    default S getState(Iterable<? extends I> input) {
         final S init = getInitialState();
         return init == null ? null : getSuccessor(init, input);
     }
@@ -81,9 +81,9 @@ public interface SimpleDTS<S, I> extends SimpleTS<S, I> {
      *
      * @see TransitionSystem#getInitialStates()
      */
-    @Nullable S getInitialState();
+    S getInitialState();
 
-    static <S> Set<S> stateToSet(@Nullable S state) {
+    static <S> Set<S> stateToSet(S state) {
         if (state == null) {
             return Collections.emptySet();
         }
@@ -103,7 +103,7 @@ public interface SimpleDTS<S, I> extends SimpleTS<S, I> {
      *
      * @see TransitionSystem#getSuccessors(Object, Iterable)
      */
-    default @Nullable S getSuccessor(S state, Iterable<? extends I> input) {
+    default S getSuccessor(S state, Iterable<? extends I> input) {
         S curr = state;
         Iterator<? extends I> it = input.iterator();
 
@@ -128,5 +128,5 @@ public interface SimpleDTS<S, I> extends SimpleTS<S, I> {
      *
      * @see TransitionSystem#getSuccessors(Object, Object)
      */
-    @Nullable S getSuccessor(S state, I input);
+    S getSuccessor(S state, I input);
 }

@@ -69,7 +69,7 @@ public abstract class AbstractFastMutableNondet<S extends AbstractFastState<Coll
     }
 
     @Override
-    public void removeState(S state, @Nullable S replacement) {
+    public void removeState(S state, S replacement) {
         super.removeState(state, replacement);
 
         if (initialStates.remove(state) && replacement != null) {

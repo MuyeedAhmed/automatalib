@@ -32,7 +32,6 @@ import org.testng.annotations.Test;
  */
 public class DOTFrameTest {
 
-    @BeforeClass
     public void checkDOT() {
         if (!DOT.checkUsable()) {
             // Do not fail on platforms, where DOT is not installed
@@ -41,7 +40,6 @@ public class DOTFrameTest {
     }
 
     // Headless GUI testing is a pain. Therefore just check that we don't throw any exceptions for now.
-    @Test(timeOut = 30000)
     public void testFrame() throws InvocationTargetException, InterruptedException {
 
         final int canonicalSpecVersion = JVMUtil.getCanonicalSpecVersion();

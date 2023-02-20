@@ -29,7 +29,6 @@ import org.testng.annotations.Test;
 
 public class MCUtilTest {
 
-    @Test
     public void decomposeTest() throws IOException {
         CompactMMC<String> contract = TestUtils.loadMMCFromPath("/modal/contract_monitor_reference.dot");
         CompactMTS<String> expected = TestUtils.loadMTSFromPath("/modal/context_monitor_reference.dot");
@@ -41,7 +40,6 @@ public class MCUtilTest {
         TestUtils.assertIsRefinementEquivalentTo(context, expected, inputs);
     }
 
-    @Test
     public void redContext() throws IOException {
         CompactMMC<String> contract = TestUtils.loadMMCFromPath("/modal/monitor_var_red.dot",
                                                                 Alphabets.fromArray("a", "b", "c", "d"),

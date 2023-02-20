@@ -61,7 +61,7 @@ abstract class AbstractAlphabetBasedMealyTreeBuilder<I, O> extends AbstractMealy
     }
 
     @Override
-    protected @Nullable Edge<Node<O>, O> getEdge(Node<O> node, I symbol) {
+    protected Edge<Node<O>, O> getEdge(Node<O> node, I symbol) {
         return node.getEdge(inputAlphabet.getSymbolIndex(symbol));
     }
 

@@ -97,7 +97,7 @@ public interface SmartCollection<E> extends Collection<E> {
      */
     @Deprecated
     @Override
-    boolean remove(@Nullable Object element);
+    boolean remove(Object element);
 
     /**
      * Retrieves an arbitrary element from the collection.
@@ -170,7 +170,7 @@ public interface SmartCollection<E> extends Collection<E> {
      *
      * @return the reference to this element, or <code>null</code>.
      */
-    @Nullable ElementReference find(@Nullable Object element);
+    ElementReference find(Object element);
 
     /**
      * Quickly clears this collection. This method is supposed to perform the minimum amount of effort such that this

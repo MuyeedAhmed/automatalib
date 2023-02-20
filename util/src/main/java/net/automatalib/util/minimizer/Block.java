@@ -42,7 +42,7 @@ public final class Block<S, L> extends AbstractBasicLinkedListEntry<Block<S, L>,
     private final UnorderedCollection<State<S, L>> states;
     private final int id;
     // The references for both the partition and splitter collection.
-    private @Nullable ElementReference partitionReference, splitterQueueReference;
+    private ElementReference partitionReference, splitterQueueReference;
     // The bucket of this block, used for initially arranging the
     // states ordered by their respective blocks during the weak sort.
     private final IntrusiveLinkedList<State<S, L>> bucket = new IntrusiveLinkedList<>();
@@ -167,7 +167,7 @@ public final class Block<S, L> extends AbstractBasicLinkedListEntry<Block<S, L>,
      *
      * @return the reference.
      */
-    @Nullable ElementReference getPartitionReference() {
+    ElementReference getPartitionReference() {
         return partitionReference;
     }
 
@@ -177,7 +177,7 @@ public final class Block<S, L> extends AbstractBasicLinkedListEntry<Block<S, L>,
      * @param partitionReference
      *         the reference.
      */
-    void setPartitionReference(@Nullable ElementReference partitionReference) {
+    void setPartitionReference(ElementReference partitionReference) {
         this.partitionReference = partitionReference;
     }
 
@@ -187,7 +187,7 @@ public final class Block<S, L> extends AbstractBasicLinkedListEntry<Block<S, L>,
      *
      * @return the reference or <code>null</code>.
      */
-    @Nullable ElementReference getSplitterQueueReference() {
+    ElementReference getSplitterQueueReference() {
         return splitterQueueReference;
     }
 
@@ -197,7 +197,7 @@ public final class Block<S, L> extends AbstractBasicLinkedListEntry<Block<S, L>,
      * @param splitterQueueReference
      *         the reference
      */
-    void setSplitterQueueReference(@Nullable ElementReference splitterQueueReference) {
+    void setSplitterQueueReference(ElementReference splitterQueueReference) {
         this.splitterQueueReference = splitterQueueReference;
     }
 

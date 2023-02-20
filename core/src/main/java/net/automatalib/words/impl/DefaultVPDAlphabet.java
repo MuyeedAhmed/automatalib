@@ -30,7 +30,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public class DefaultVPDAlphabet<I> extends AbstractVPDAlphabet<I> implements VPDAlphabet<I> {
 
-    private final @Nullable Object[] globalSymbolCache;
+    private final Object[] globalSymbolCache;
 
     public DefaultVPDAlphabet(final Collection<I> internalSymbols,
                               final Collection<I> callSymbols,

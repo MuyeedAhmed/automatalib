@@ -66,10 +66,10 @@ public final class FSM2MealyParserAlternating<I, O> extends AbstractFSM2MealyPar
     /**
      * @see FSM2MealyParserAlternating
      */
-    private final @Nullable Output<I, Word<O>> output;
+    private final Output<I, Word<O>> output;
 
-    private FSM2MealyParserAlternating(@Nullable Collection<? extends I> targetInputs,
-                                       @Nullable Output<I, Word<O>> output,
+    private FSM2MealyParserAlternating(Collection<? extends I> targetInputs,
+                                       Output<I, Word<O>> output,
                                        Function<String, I> inputParser,
                                        Function<String, O> outputParser) {
         super(targetInputs, inputParser, outputParser);
@@ -156,8 +156,8 @@ public final class FSM2MealyParserAlternating<I, O> extends AbstractFSM2MealyPar
      * @throws FSMFormatException
      *         when non-determinism is detected.
      */
-    private void makeTransitions(Integer currentState, @Nullable Pair<Integer, I> inputTrans, Set<Integer> newStates,
-                                 int inputLength, @Nullable WordBuilder<I> wb, StreamTokenizer streamTokenizer) {
+    private void makeTransitions(Integer currentState, Pair<Integer, I> inputTrans, Set<Integer> newStates,
+                                 int inputLength, WordBuilder<I> wb, StreamTokenizer streamTokenizer) {
 
         // indicate we have seen currentState
         newStates.remove(currentState);
@@ -267,8 +267,8 @@ public final class FSM2MealyParserAlternating<I, O> extends AbstractFSM2MealyPar
         }
     }
 
-    public static <I, O> FSM2MealyParserAlternating<I, O> getParser(@Nullable Collection<? extends I> targetInputs,
-                                                                    @Nullable Output<I, Word<O>> output,
+    public static <I, O> FSM2MealyParserAlternating<I, O> getParser(Collection<? extends I> targetInputs,
+                                                                    Output<I, Word<O>> output,
                                                                     Function<String, I> inputParser,
                                                                     Function<String, O> outputParser) {
         return new FSM2MealyParserAlternating<>(targetInputs, output, inputParser, outputParser);
@@ -279,8 +279,8 @@ public final class FSM2MealyParserAlternating<I, O> extends AbstractFSM2MealyPar
         return getParser(null, null, inputParser, outputParser);
     }
 
-    public static <E> FSM2MealyParserAlternating<E, E> getParser(@Nullable Collection<? extends E> targetInputs,
-                                                                 @Nullable Output<E, Word<E>> output,
+    public static <E> FSM2MealyParserAlternating<E, E> getParser(Collection<? extends E> targetInputs,
+                                                                 Output<E, Word<E>> output,
                                                                  Function<String, E> edgeParser) {
         return getParser(targetInputs, output, edgeParser, edgeParser);
     }

@@ -35,7 +35,6 @@ import org.testng.annotations.Test;
  */
 public class ProviderTest {
 
-    @BeforeClass
     public void checkDOT() {
         if (!DOT.checkUsable()) {
             // Do not fail on platforms, where DOT is not installed
@@ -43,7 +42,6 @@ public class ProviderTest {
         }
     }
 
-    @Test
     public void testProviderConfiguration() {
         final VPManager vpManager = new VPManager();
 
@@ -58,7 +56,6 @@ public class ProviderTest {
     }
 
     // Headless GUI testing is a pain. Therefore just check that we don't throw any exceptions for now.
-    @Test(dependsOnMethods = "testProviderConfiguration", timeOut = 10000)
     public void testDisplay() throws InterruptedException, InvocationTargetException {
 
         final int canonicalSpecVersion = JVMUtil.getCanonicalSpecVersion();

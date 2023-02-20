@@ -246,7 +246,7 @@ public abstract class Word<I> extends AbstractPrintable implements ArrayWritable
     }
 
     @Override
-    public boolean equals(@Nullable Object other) {
+    public boolean equals(Object other) {
         if (this == other) {
             return true;
         }
@@ -311,7 +311,7 @@ public abstract class Word<I> extends AbstractPrintable implements ArrayWritable
         return length() == 0;
     }
 
-    private static void appendSymbol(Appendable a, @Nullable Object symbol) throws IOException {
+    private static void appendSymbol(Appendable a, Object symbol) throws IOException {
         a.append(WORD_SYMBOL_DELIM_LEFT);
         a.append(String.valueOf(symbol));
         a.append(WORD_SYMBOL_DELIM_RIGHT);
@@ -380,7 +380,7 @@ public abstract class Word<I> extends AbstractPrintable implements ArrayWritable
     }
 
     @Override
-    public void writeToArray(int offset, @Nullable Object[] array, int tgtOffset, int length) {
+    public void writeToArray(int offset, Object[] array, int tgtOffset, int length) {
         int idx = offset, arrayIdx = tgtOffset;
 
         for (int i = length; i > 0; i--) {
@@ -462,7 +462,7 @@ public abstract class Word<I> extends AbstractPrintable implements ArrayWritable
      */
     public Word<I> canonicalNext(Alphabet<I> sigma) {
         int len = length();
-        @Nullable Object[] symbols = new Object[len];
+        Object[] symbols = new Object[len];
         writeToArray(0, symbols, 0, len);
 
         int alphabetSize = sigma.size();
@@ -484,7 +484,7 @@ public abstract class Word<I> extends AbstractPrintable implements ArrayWritable
         }
 
         if (overflow) {
-            @Nullable Object[] newSymbols = new Object[len + 1];
+            Object[] newSymbols = new Object[len + 1];
             newSymbols[0] = sigma.getSymbol(0);
             System.arraycopy(symbols, 0, newSymbols, 1, len);
             symbols = newSymbols;
@@ -521,7 +521,7 @@ public abstract class Word<I> extends AbstractPrintable implements ArrayWritable
      */
     public Word<I> append(I symbol) {
         int len = length();
-        @Nullable Object[] array = new Object[len + 1];
+        Object[] array = new Object[len + 1];
         writeToArray(0, array, 0, len);
         array[len] = symbol;
         return new SharedWord<>(array);
@@ -537,7 +537,7 @@ public abstract class Word<I> extends AbstractPrintable implements ArrayWritable
      */
     public Word<I> prepend(I symbol) {
         int len = length();
-        @Nullable Object[] array = new Object[len + 1];
+        Object[] array = new Object[len + 1];
         array[0] = symbol;
         writeToArray(0, array, 1, len);
 
@@ -780,7 +780,7 @@ public abstract class Word<I> extends AbstractPrintable implements ArrayWritable
      */
     public <T> Word<T> transform(Function<? super I, ? extends T> transformer) {
         int len = length();
-        @Nullable Object[] array = new Object[len];
+        Object[] array = new Object[len];
         int i = 0;
         for (I symbol : this) {
             array[i++] = transformer.apply(symbol);

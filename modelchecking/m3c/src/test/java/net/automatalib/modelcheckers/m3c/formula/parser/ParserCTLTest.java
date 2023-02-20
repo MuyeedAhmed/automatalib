@@ -45,7 +45,6 @@ public class ParserCTLTest {
 
     private final List<FormulaNode<String, String>> formulas = new ArrayList<>();
 
-    @Test
     public void baseCasesTest() throws ParseException {
         assertEquals("false", new FalseNode<>());
         assertEquals("true", new TrueNode<>());
@@ -82,14 +81,12 @@ public class ParserCTLTest {
         this.formulas.add(actualAST);
     }
 
-    @Test
     public void nestedFormulasTest() throws ParseException {
         assertEquals("(true && true) || (false && false)",
                      new OrNode<>(new AndNode<>(new TrueNode<>(), new TrueNode<>()),
                                   new AndNode<>(new FalseNode<>(), new FalseNode<>())));
     }
 
-    @Test(dependsOnMethods = {"baseCasesTest", "nestedFormulasTest"})
     public void testEqualities() {
         for (FormulaNode<String, String> n1 : formulas) {
             for (FormulaNode<String, String> n2 : formulas) {
@@ -98,7 +95,6 @@ public class ParserCTLTest {
         }
     }
 
-    @Test
     public void testIllegalFormulas() {
         assertIllegal("true <=> false -> true");
         assertIllegal("true <=> (false -> true)");

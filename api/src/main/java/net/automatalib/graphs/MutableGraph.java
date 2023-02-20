@@ -52,7 +52,7 @@ public interface MutableGraph<N, E, NP, EP> extends UniversalGraph<N, E, NP, EP>
      *
      * @return the newly inserted node
      */
-    N addNode(@Nullable NP property);
+    N addNode(NP property);
 
     /**
      * Inserts an edge in the graph, with the default property. Calling this method should be equivalent to invoking
@@ -81,7 +81,7 @@ public interface MutableGraph<N, E, NP, EP> extends UniversalGraph<N, E, NP, EP>
      *
      * @return the newly inserted edge
      */
-    E connect(N source, N target, @Nullable EP property);
+    E connect(N source, N target, EP property);
 
     void setNodeProperty(N node, NP property);
 
@@ -103,15 +103,15 @@ public interface MutableGraph<N, E, NP, EP> extends UniversalGraph<N, E, NP, EP>
             return addIntNode(null);
         }
 
-        int addIntNode(@Nullable NP property);
+        int addIntNode(NP property);
 
         default E connect(int source, int target) {
             return connect(source, target, null);
         }
 
-        E connect(int source, int target, @Nullable EP property);
+        E connect(int source, int target, EP property);
 
-        void setNodeProperty(int node, @Nullable NP property);
+        void setNodeProperty(int node, NP property);
 
         void setEdgeProperty(E edge, EP property);
     }

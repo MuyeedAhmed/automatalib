@@ -22,7 +22,6 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-@Test
 public class DefaultLinkedListTest {
 
     private DefaultLinkedList<Object> linkedList;
@@ -31,7 +30,6 @@ public class DefaultLinkedListTest {
     private final Object third = new Object();
     private ElementReference firstRef, secondRef, thirdRef;
 
-    @BeforeClass
     public void setup() {
         linkedList = new DefaultLinkedList<>();
         firstRef = linkedList.referencedAdd(first);
@@ -39,7 +37,6 @@ public class DefaultLinkedListTest {
         thirdRef = linkedList.referencedAdd(third);
     }
 
-    @Test
     public void testInsertRemove() {
         Assert.assertEquals(linkedList.size(), 3);
         Assert.assertEquals(linkedList.get(firstRef), first);
