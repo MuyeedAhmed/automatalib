@@ -19,6 +19,5 @@ import net.automatalib.AutomataLibSettingsSource;
 import net.automatalib.commons.util.settings.AbstractSystemPropertiesSource;
 import org.kohsuke.MetaInfServices;
 
-@MetaInfServices(AutomataLibSettingsSource.class)
 public class AutomataLibSystemPropertiesSource extends AbstractSystemPropertiesSource
         implements AutomataLibSettingsSource {}

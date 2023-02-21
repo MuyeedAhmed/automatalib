@@ -62,7 +62,6 @@ import org.kohsuke.MetaInfServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@MetaInfServices(VisualizationProvider.class)
 public class JungGraphVisualizationProvider implements VisualizationProvider {
 
     /**

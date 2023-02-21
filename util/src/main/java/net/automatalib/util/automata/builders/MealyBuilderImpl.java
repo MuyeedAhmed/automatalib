@@ -20,9 +20,6 @@ import com.github.misberner.duzzt.annotations.GenerateEmbeddedDSL;
 import com.github.misberner.duzzt.annotations.SubExpr;
 import net.automatalib.automata.transducers.MutableMealyMachine;
 
-@GenerateEmbeddedDSL(name = "MealyBuilder",
-                     syntax = "<transition>* withInitial <transition>* create",
-                     where = {@SubExpr(name = "transition", definedAs = "from (on withOutput? (to|loop))+")})
 class MealyBuilderImpl<S, I, T, O, A extends MutableMealyMachine<S, ? super I, T, ? super O>>
         extends AutomatonBuilderImpl<S, I, T, Void, O, A> {
 
@@ -30,13 +27,11 @@ class MealyBuilderImpl<S, I, T, O, A extends MutableMealyMachine<S, ? super I, T
         super(automaton);
     }
 
-    @DSLAction
     public void withOutput(O output) {
         super.withProperty(output);
     }
 
     @Override
-    @DSLAction(autoVarArgs = false)
     public void withInitial(Object stateId) {
         super.withInitial(stateId);
     }
