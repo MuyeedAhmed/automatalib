@@ -242,7 +242,7 @@ limitations under the License.
                                 </goals>
                                 <configuration>
                                     <skipMain>${automatalib.java9OrNewer}</skipMain>
-                                    <failOnWarning>true</failOnWarning>
+<!--                                    <failOnWarning>true</failOnWarning>-->
                                     <fork>true</fork>
                                     <outputDirectory>${project.build.directory}/checkerframework</outputDirectory>
                                     <annotationProcessorPaths>
@@ -270,6 +270,10 @@ limitations under the License.
                                         <arg>-AsuppressWarnings=uninitialized</arg>
                                         <arg>-AassumeAssertionsAreEnabled</arg>
                                         <arg>-Astubs=jdk8.astub:collection-object-parameters-may-be-null.astub</arg>
+                                        <arg>-Ainfer=ajava</arg>
+                                        <arg>-Awarns</arg>
+                                        <arg>-AshowPrefixInWarningMessages</arg>
+                                        <arg>-Aajava=$WPITEMPDIR</arg>
                                     </compilerArgs>
                                 </configuration>
                             </execution>
